@@ -1,14 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctrj3m4drfqlt"]
+[gd_scene load_steps=8 format=3 uid="uid://ctrj3m4drfqlt"]
 
 [ext_resource type="PackedScene" uid="uid://dfgykwl6pnnml" path="res://Models/Horse Test.glb" id="1_lemu5"]
 [ext_resource type="PackedScene" uid="uid://bpry5tpouwi6u" path="res://Models/16x16 Test.glb" id="2_ubg16"]
 [ext_resource type="Script" path="res://Scripts/Camera.cs" id="3_x8u0p"]
+[ext_resource type="PackedScene" uid="uid://b3ymt1kf17m6q" path="res://Models/2x2 Test.glb" id="4_7x6ve"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_506r7"]
+sky_top_color = Color(0.788235, 0.827451, 0.878431, 1)
+sky_horizon_color = Color(0.603922, 0.654902, 0.670588, 1)
+ground_bottom_color = Color(0.333333, 0.341176, 0.352941, 1)
+ground_horizon_color = Color(0.603922, 0.654902, 0.670588, 1)
+ground_curve = 0.190273
+
+[sub_resource type="Sky" id="Sky_o6fpn"]
+sky_material = SubResource("ProceduralSkyMaterial_506r7")
 
 [sub_resource type="Environment" id="Environment_x1yca"]
+background_mode = 2
+background_color = Color(0.807843, 0.815686, 0.792157, 1)
+sky = SubResource("Sky_o6fpn")
 ssao_enabled = true
 ssil_enabled = true
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
+sdfgi_min_cell_size = 0.195312
+fog_sky_affect = 0.0
+volumetric_fog_sky_affect = 0.0
 
 [node name="Node3D" type="Node3D"]
 
@@ -29,7 +46,48 @@ shadow_enabled = true
 [node name="Pivot" type="Node3D" parent="Parent"]
 
 [node name="Camera3D" type="Camera3D" parent="Parent/Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.08225, 14.1175)
 fov = 90.0
 size = 20.047
 script = ExtResource("3_x8u0p")
+
+[node name="2x2 Test" parent="." instance=ExtResource("4_7x6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 3)
+
+[node name="2x2 Test2" parent="." instance=ExtResource("4_7x6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 5)
+
+[node name="2x2 Test3" parent="." instance=ExtResource("4_7x6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 2, 4)
+
+[node name="2x2 Test4" parent="." instance=ExtResource("4_7x6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -7)
+
+[node name="2x2 Test5" parent="." instance=ExtResource("4_7x6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 2, -6)
+
+[node name="2x2 Test6" parent="." instance=ExtResource("4_7x6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 4, -7)
+
+[node name="2x2 Test7" parent="." instance=ExtResource("4_7x6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -8)
+
+[node name="2x2 Test8" parent="." instance=ExtResource("4_7x6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 2, -8)
+
+[node name="2x2 Test13" parent="." instance=ExtResource("4_7x6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 4, -8)
+
+[node name="2x2 Test14" parent="." instance=ExtResource("4_7x6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 6, -8)
+
+[node name="2x2 Test9" parent="." instance=ExtResource("4_7x6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 6)
+
+[node name="2x2 Test10" parent="." instance=ExtResource("4_7x6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 2, 6)
+
+[node name="2x2 Test11" parent="." instance=ExtResource("4_7x6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 4, 6)
+
+[node name="2x2 Test12" parent="." instance=ExtResource("4_7x6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 6, 6)
