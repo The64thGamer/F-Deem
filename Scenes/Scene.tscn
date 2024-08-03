@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctrj3m4drfqlt"]
+
+[ext_resource type="PackedScene" uid="uid://dfgykwl6pnnml" path="res://Models/Horse Test.glb" id="1_lemu5"]
+[ext_resource type="PackedScene" uid="uid://bpry5tpouwi6u" path="res://Models/16x16 Test.glb" id="2_ubg16"]
+[ext_resource type="Script" path="res://Scripts/Camera.cs" id="3_x8u0p"]
+
+[sub_resource type="Environment" id="Environment_x1yca"]
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Horse Test" parent="." instance=ExtResource("1_lemu5")]
+
+[node name="16x16 Test" parent="." instance=ExtResource("2_ubg16")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -8.5)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x1yca")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.984973, -0.170724, 0.0261029, 0.000262186, 0.152616, 0.988286, -0.172708, -0.973428, 0.150368, 1.49012e-08, 0.120297, 0.0936009)
+shadow_enabled = true
+
+[node name="Parent" type="Node3D" parent="."]
+
+[node name="Pivot" type="Node3D" parent="Parent"]
+
+[node name="Camera3D" type="Camera3D" parent="Parent/Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.08225, 14.1175)
+fov = 90.0
+size = 20.047
+script = ExtResource("3_x8u0p")

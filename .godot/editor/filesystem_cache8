@@ -1,0 +1,10 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1722681761
+icon.svg::CompressedTexture2D::5769790162790796996::1722677949::1722677955::1::::<><>::
+::res://Materials/::1722681803
+F-Deem.tres::StandardMaterial3D::8823253178259083330::1722681803::0::1::::<><>::
+::res://Models/::1722681847
+16x16 Test.glb::PackedScene::3475859563505561666::1722681844::1722681847::1::::<><>::
+Horse Test.glb::PackedScene::7524068775494889167::1722680581::1722681475::1::::<><>::
+::res://Scenes/::1722681803
+Scene.tscn::PackedScene::6142120948730838049::1722681803::0::1::::<><>::uid://dfgykwl6pnnml::::res://Models/Horse Test.glb<>uid://bpry5tpouwi6u::::res://Models/16x16 Test.glb
