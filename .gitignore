@@ -13,3 +13,5 @@ data_*/
 /.godot
 /.godot
 /.godot/editor
+/.godot
+.godot/mono/temp/obj/Debug/F-Deem.AssemblyInfo.cs
