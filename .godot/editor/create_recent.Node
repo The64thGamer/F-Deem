@@ -1,3 +1,6 @@
+CollisionShape3D
+StaticBody3D
+CharacterBody3D
 Camera3D
 Node3D
 DirectionalLight3D

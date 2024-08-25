@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctrj3m4drfqlt"]
+[gd_scene load_steps=10 format=3 uid="uid://ctrj3m4drfqlt"]
 
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_5wko4"]
 [ext_resource type="PackedScene" uid="uid://dfgykwl6pnnml" path="res://Models/Horse Test.glb" id="1_lemu5"]
-[ext_resource type="PackedScene" uid="uid://bpry5tpouwi6u" path="res://Models/16x16 Test.glb" id="2_ubg16"]
 [ext_resource type="Script" path="res://Scripts/Camera.cs" id="3_x8u0p"]
-[ext_resource type="PackedScene" uid="uid://b3ymt1kf17m6q" path="res://Models/2x2 Test.glb" id="4_7x6ve"]
+[ext_resource type="PackedScene" uid="uid://bxru03wpsdeln" path="res://Prefabs/16x_16_test.tscn" id="4_xql6d"]
+[ext_resource type="PackedScene" uid="uid://dpskbawyodhe5" path="res://Prefabs/2x_2_test.tscn" id="5_bq5mq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xshow"]
+margin = 0.0
+size = Vector3(5.25, 6.25, 2)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_506r7"]
 sky_top_color = Color(0.788235, 0.827451, 0.878431, 1)
@@ -29,10 +34,25 @@ volumetric_fog_sky_affect = 0.0
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Horse Test" parent="." instance=ExtResource("1_lemu5")]
+[node name="Camera Parent" type="Node3D" parent="."]
 
-[node name="16x16 Test" parent="." instance=ExtResource("2_ubg16")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -8.5)
+[node name="Pivot" type="Node3D" parent="Camera Parent"]
+
+[node name="Camera3D" type="Camera3D" parent="Camera Parent/Pivot"]
+fov = 90.0
+size = 20.047
+script = ExtResource("3_x8u0p")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+script = ExtResource("1_5wko4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3, -0.9)
+shape = SubResource("BoxShape3D_xshow")
+
+[node name="Horse Test" parent="Player/CollisionShape3D" instance=ExtResource("1_lemu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, -3, -5.96046e-08)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_x1yca")
@@ -41,53 +61,44 @@ environment = SubResource("Environment_x1yca")
 transform = Transform3D(0.984973, -0.170724, 0.0261029, 0.000262186, 0.152616, 0.988286, -0.172708, -0.973428, 0.150368, 1.49012e-08, 0.120297, 0.0936009)
 shadow_enabled = true
 
-[node name="Parent" type="Node3D" parent="."]
+[node name="16x16 Test" parent="." instance=ExtResource("4_xql6d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -7)
 
-[node name="Pivot" type="Node3D" parent="Parent"]
+[node name="2x2 Test" parent="." instance=ExtResource("5_bq5mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 7.5)
 
-[node name="Camera3D" type="Camera3D" parent="Parent/Pivot"]
-fov = 90.0
-size = 20.047
-script = ExtResource("3_x8u0p")
+[node name="2x2 Test2" parent="." instance=ExtResource("5_bq5mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, -6.5)
 
-[node name="2x2 Test" parent="." instance=ExtResource("4_7x6ve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 3)
+[node name="2x2 Test3" parent="." instance=ExtResource("5_bq5mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 6.5)
 
-[node name="2x2 Test2" parent="." instance=ExtResource("4_7x6ve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 5)
+[node name="2x2 Test4" parent="." instance=ExtResource("5_bq5mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 4.5)
 
-[node name="2x2 Test3" parent="." instance=ExtResource("4_7x6ve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 2, 4)
+[node name="2x2 Test5" parent="." instance=ExtResource("5_bq5mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 2, 7.5)
 
-[node name="2x2 Test4" parent="." instance=ExtResource("4_7x6ve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -7)
+[node name="2x2 Test6" parent="." instance=ExtResource("5_bq5mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 2, -6.5)
 
-[node name="2x2 Test5" parent="." instance=ExtResource("4_7x6ve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 2, -6)
+[node name="2x2 Test7" parent="." instance=ExtResource("5_bq5mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 4, -6.5)
 
-[node name="2x2 Test6" parent="." instance=ExtResource("4_7x6ve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 4, -7)
+[node name="2x2 Test8" parent="." instance=ExtResource("5_bq5mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 4, 7.5)
 
-[node name="2x2 Test7" parent="." instance=ExtResource("4_7x6ve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -8)
+[node name="2x2 Test9" parent="." instance=ExtResource("5_bq5mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 6, 7.5)
 
-[node name="2x2 Test8" parent="." instance=ExtResource("4_7x6ve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 2, -8)
+[node name="2x2 Test10" parent="." instance=ExtResource("5_bq5mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 6, -6.5)
 
-[node name="2x2 Test13" parent="." instance=ExtResource("4_7x6ve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 4, -8)
+[node name="2x2 Test11" parent="." instance=ExtResource("5_bq5mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, -6.5)
 
-[node name="2x2 Test14" parent="." instance=ExtResource("4_7x6ve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 6, -8)
+[node name="2x2 Test12" parent="." instance=ExtResource("5_bq5mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -6.5)
 
-[node name="2x2 Test9" parent="." instance=ExtResource("4_7x6ve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 6)
-
-[node name="2x2 Test10" parent="." instance=ExtResource("4_7x6ve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 2, 6)
-
-[node name="2x2 Test11" parent="." instance=ExtResource("4_7x6ve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 4, 6)
-
-[node name="2x2 Test12" parent="." instance=ExtResource("4_7x6ve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 6, 6)
+[node name="2x2 Test13" parent="." instance=ExtResource("5_bq5mq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2, -6.5)

@@ -1,13 +1,25 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1722709218
+::res://::1724605060
 icon.svg::CompressedTexture2D::5769790162790796996::1722677949::1722677955::1::::<><>::
-::res://Materials/::1722681803
-F-Deem.tres::StandardMaterial3D::8823253178259083330::1722681803::0::1::::<><>::
-::res://Models/::1722709757
-2x2 Test.glb::PackedScene::4402017286971175454::1722709770::1722709773::1::::<><>::
+::res://Development/::1724604964
+TestSetRender2.png::CompressedTexture2D::3323673027618466890::1724521492::1724605062::1::::<><>::
+TestSetRender3.png::CompressedTexture2D::2827451782730306785::1724604964::1724605062::1::::<><>::
+TestSetRender.png::CompressedTexture2D::4072504557197659248::1724359595::1724605062::1::::<><>::
+::res://Materials/::1724305014
+F-Deem.tres::StandardMaterial3D::8823253178259083330::1724305014::0::1::::<><>::
+::res://Models/::1724605042
+2x2 Test.glb::PackedScene::4402017286971175454::1722709770::1722709784::1::::<><>::uid://dxybxqrlo6x03::::res://Materials/F-Deem.tres
 16x16 Test.glb::PackedScene::3475859563505561666::1722681844::1722681847::1::::<><>::
+blender_assets.cats.txt::TextFile::-1::1724605042::0::1::::<><>::
 Horse Test.glb::PackedScene::7524068775494889167::1722680581::1722681475::1::::<><>::
-::res://Scenes/::1722709582
-Scene.tscn::PackedScene::6142120948730838049::1722709582::0::1::::<><>::uid://dfgykwl6pnnml::::res://Models/Horse Test.glb<>uid://bpry5tpouwi6u::::res://Models/16x16 Test.glb<>res://Scripts/Camera.cs
-::res://Scripts/::1722682078
+::res://Models/Parts/::1724516626
+::res://Prefabs/::1724315409
+2x_2_test.tscn::PackedScene::8249862496039416634::1724315409::0::1::::<><>::uid://b3ymt1kf17m6q::::res://Models/2x2 Test.glb
+16x_16_test.tscn::PackedScene::4037118999235023275::1724315409::0::1::::<><>::uid://bpry5tpouwi6u::::res://Models/16x16 Test.glb
+::res://Scenes/::1724315409
+Scene.tscn::PackedScene::6142120948730838049::1724315409::0::1::::<><>::res://Scripts/Player.cs<>uid://dfgykwl6pnnml::::res://Models/Horse Test.glb<>res://Scripts/Camera.cs<>uid://bxru03wpsdeln::::res://Prefabs/16x_16_test.tscn<>uid://dpskbawyodhe5::::res://Prefabs/2x_2_test.tscn
+::res://Scripts/::1722778810
 Camera.cs::CSharpScript::-1::1722709578::0::1::::<>Camera3D<>::
+Player.cs::CSharpScript::-1::1722780725::0::1::::<>CharacterBody3D<>::
+::res://Textures/::1724604183
+PrintBump.png::CompressedTexture2D::1633438086862887336::1724604184::1724605061::1::::<><>::
