@@ -1,0 +1,26 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://b6ii13m7g5a4s"]
+
+[ext_resource type="Shader" path="res://Shaders/Metallic.tres.gdshader" id="1_lprue"]
+[ext_resource type="Texture2D" uid="uid://ccbpbfilpbyau" path="res://Textures/PrintGooAO.jpg" id="3_7yw2o"]
+[ext_resource type="Texture2D" uid="uid://b4c5md0ijj27q" path="res://Textures/MultiMaterialRoughMetal.png" id="4_ghfyd"]
+[ext_resource type="Texture2D" uid="uid://btl8lasnwbjpm" path="res://Textures/PrintGoo.jpg" id="5_aaeq3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lprue")
+shader_parameter/albedoA = Color(0.697193, 0.443296, 0.200951, 1)
+shader_parameter/albedoB = Color(1, 0.933333, 0, 1)
+shader_parameter/roughness = 0.9
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 1.0
+shader_parameter/normal_scale = 0.5
+shader_parameter/ao_light_affect = 0.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv2_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(0, 300, 0)
+shader_parameter/uv1_offset = Vector3(0, 0, 0.225)
+shader_parameter/uv2_scale = Vector3(0, 30, 0)
+shader_parameter/uv2_offset = Vector3(0, 0.395, 0.225)
+shader_parameter/texture_metallic = ExtResource("4_ghfyd")
+shader_parameter/texture_normal = ExtResource("5_aaeq3")
+shader_parameter/texture_ambient_occlusion = ExtResource("3_7yw2o")

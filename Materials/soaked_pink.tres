@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bg4383uwwe637"]
+
+[ext_resource type="Texture2D" uid="uid://ccbpbfilpbyau" path="res://Textures/PrintGooAO.jpg" id="1_1u8v1"]
+[ext_resource type="Texture2D" uid="uid://btl8lasnwbjpm" path="res://Textures/PrintGoo.jpg" id="2_8yqss"]
+
+[resource]
+albedo_color = Color(0.94, 0.1786, 0.52123, 1)
+roughness = 0.3
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("2_8yqss")
+ao_enabled = true
+ao_texture = ExtResource("1_1u8v1")
+ao_texture_channel = 4
+subsurf_scatter_strength = 0.2
+subsurf_scatter_transmittance_depth = 8.0
+subsurf_scatter_transmittance_boost = 1.0
+uv1_scale = Vector3(0, 300, 0)
+uv1_offset = Vector3(0, 0, 0.225)
+uv1_triplanar = true
+texture_filter = 5

@@ -15,3 +15,4 @@
 /home/the64thgamer/Desktop/My Archive/My Games/Godot Projects/F-Deem/.godot/mono/temp/obj/Debug/F-Deem.genruntimeconfig.cache
 /home/the64thgamer/Desktop/My Archive/My Games/Godot Projects/F-Deem/.godot/mono/temp/obj/Debug/ref/F-Deem.dll
 /home/the64thgamer/Desktop/My Archive/My Games/Godot Projects/F-Deem/.godot/mono/temp/obj/Debug/F-Deem.csproj.Up2Date
+/home/the64thgamer/Desktop/My Archive/My Games/Godot Projects/F-Deem/.godot/mono/temp/obj/Debug/F-Deem.sourcelink.json
