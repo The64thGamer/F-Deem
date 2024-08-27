@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ctrj3m4drfqlt"]
+[gd_scene load_steps=30 format=3 uid="uid://ctrj3m4drfqlt"]
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_5wko4"]
 [ext_resource type="PackedScene" uid="uid://ds74l0b1yaeeg" path="res://Models/Parts (GLB)/Horse Body Standing.glb" id="3_cldvp"]
@@ -6,10 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://yktnn05coql0" path="res://Models/Parts (GLB)/Horse Hair A.glb" id="4_7oda7"]
 [ext_resource type="PackedScene" uid="uid://bv4bka34p3von" path="res://Models/Parts (GLB)/Horse Head.glb" id="5_b8d6v"]
 [ext_resource type="PackedScene" uid="uid://bb71lpjikiqxd" path="res://Models/Parts (GLB)/Horse Tail.glb" id="6_5ucgg"]
-[ext_resource type="PackedScene" uid="uid://blaju0sos0eg" path="res://Prefabs/Parts/16x_16.tscn" id="7_joex2"]
+[ext_resource type="PackedScene" uid="uid://blaju0sos0eg" path="res://Prefabs/Parts/16x16.tscn" id="7_joex2"]
 [ext_resource type="Script" path="res://Scripts/Piece.cs" id="8_u5e77"]
-[ext_resource type="PackedScene" uid="uid://dgbkvvc71msqp" path="res://Models/Parts (GLB)/1x1.glb" id="9_vu44g"]
-[ext_resource type="PackedScene" uid="uid://d2e0r6jhckna8" path="res://Models/Parts (GLB)/1x2.glb" id="10_hb151"]
 [ext_resource type="PackedScene" uid="uid://b1mv81xihugri" path="res://Models/Parts (GLB)/1x3.glb" id="11_rdi7b"]
 [ext_resource type="PackedScene" uid="uid://cpdxfk7pvvmwu" path="res://Models/Parts (GLB)/1x4.glb" id="12_5gqir"]
 [ext_resource type="PackedScene" uid="uid://dg55kf854hsoq" path="res://Models/Parts (GLB)/1x6.glb" id="13_1hrmg"]
@@ -25,11 +23,12 @@
 [ext_resource type="PackedScene" uid="uid://nun0qwam3sff" path="res://Models/Parts (GLB)/2x16.glb" id="23_iqy12"]
 [ext_resource type="PackedScene" uid="uid://dokmalvxqel8l" path="res://Models/Parts (GLB)/4x4.glb" id="24_f6uju"]
 [ext_resource type="PackedScene" uid="uid://7t1fnmfbcfqc" path="res://Models/Parts (GLB)/4x6.glb" id="25_1yoc0"]
+[ext_resource type="PackedScene" uid="uid://bcsj35urd16kw" path="res://Prefabs/Parts/1x2.tscn" id="25_7b40a"]
 [ext_resource type="PackedScene" uid="uid://bbxvnh54ueagt" path="res://Models/Parts (GLB)/8x8.glb" id="26_5ip3p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xshow"]
 margin = 0.0
-size = Vector3(5.25, 6.25, 2)
+size = Vector3(6, 6.25, 2)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_506r7"]
 sky_top_color = Color(0.788235, 0.827451, 0.878431, 1)
@@ -68,168 +67,177 @@ script = ExtResource("3_x8u0p")
 script = ExtResource("1_5wko4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 3, 2)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3, 0)
 shape = SubResource("BoxShape3D_xshow")
 
 [node name="Horse Body Standing2" parent="Player/CollisionShape3D" instance=ExtResource("3_cldvp")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -3, 0)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -2, -3, 1)
 script = ExtResource("8_u5e77")
+pieceColor = 16
 
 [node name="Horse Hair A2" parent="Player/CollisionShape3D" instance=ExtResource("4_7oda7")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -3, 0)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -2, -3, 1)
 script = ExtResource("8_u5e77")
 
 [node name="Horse Head2" parent="Player/CollisionShape3D" instance=ExtResource("5_b8d6v")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -3, 0)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -2, -3, 1)
 script = ExtResource("8_u5e77")
+pieceColor = 16
 
 [node name="Horse Tail2" parent="Player/CollisionShape3D" instance=ExtResource("6_5ucgg")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -3, 0)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -2, -3, 1)
 script = ExtResource("8_u5e77")
 
-[node name="Horse Head3" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Tests" type="Node" parent="."]
+
+[node name="Horse Head3" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -9, 0, 2)
 script = ExtResource("8_u5e77")
 
-[node name="Horse Head4" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head4" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -11, 0, 2)
 script = ExtResource("8_u5e77")
 pieceColor = 1
 
-[node name="Horse Head5" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head5" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -13, 0, 2)
 script = ExtResource("8_u5e77")
 pieceColor = 3
 
-[node name="Horse Head6" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head6" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -15, 0, 2)
 script = ExtResource("8_u5e77")
 pieceColor = 4
 
-[node name="Horse Head7" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head7" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -17, 0, 2)
 script = ExtResource("8_u5e77")
 pieceColor = 5
 
-[node name="Horse Head8" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head8" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -19, 0, 2)
 script = ExtResource("8_u5e77")
 pieceColor = 7
 
-[node name="Horse Head9" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head9" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -21, 0, 2)
 script = ExtResource("8_u5e77")
 pieceColor = 8
 
-[node name="Horse Head10" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head10" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -23, 0, 2)
 script = ExtResource("8_u5e77")
 pieceColor = 9
 
-[node name="Horse Head11" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head11" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -21, 3, 4)
 script = ExtResource("8_u5e77")
 pieceColor = 11
 
-[node name="Horse Head12" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head12" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -23, 3, 4)
 script = ExtResource("8_u5e77")
 pieceColor = 12
 
-[node name="Horse Head13" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head13" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -19, 3, 4)
 script = ExtResource("8_u5e77")
 pieceColor = 13
 
-[node name="Horse Head14" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head14" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -17, 3, 4)
 script = ExtResource("8_u5e77")
 pieceColor = 14
 
-[node name="Horse Head15" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head15" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -15, 3, 4)
 script = ExtResource("8_u5e77")
 pieceColor = 15
 
-[node name="Horse Head17" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head17" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -13, 3, 4)
 script = ExtResource("8_u5e77")
 pieceColor = 16
 
-[node name="Horse Head18" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head18" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -11, 3, 4)
 script = ExtResource("8_u5e77")
 pieceColor = 17
 
-[node name="Horse Head19" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head19" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -9, 3, 4)
 script = ExtResource("8_u5e77")
 pieceColor = 18
 
-[node name="Horse Head23" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head23" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -23, 6, 6)
 script = ExtResource("8_u5e77")
 pieceColor = 2
 
-[node name="Horse Head21" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head21" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -21, 6, 6)
 script = ExtResource("8_u5e77")
 pieceColor = 6
 
-[node name="Horse Head25" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head25" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -19, 6, 6)
 script = ExtResource("8_u5e77")
 pieceColor = 10
 
-[node name="Horse Head26" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head26" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -23, 9, 8)
 script = ExtResource("8_u5e77")
 pieceColor = 19
 
-[node name="Horse Head27" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head27" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -21, 9, 8)
 script = ExtResource("8_u5e77")
 pieceColor = 20
 
-[node name="Horse Head28" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head28" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -19, 9, 8)
 script = ExtResource("8_u5e77")
 pieceColor = 21
 
-[node name="Horse Head29" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head29" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -17, 9, 8)
 script = ExtResource("8_u5e77")
 pieceColor = 22
 
-[node name="Horse Head30" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head30" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -15, 9, 8)
 script = ExtResource("8_u5e77")
 pieceColor = 23
 
-[node name="Horse Head31" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head31" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -13, 9, 8)
 script = ExtResource("8_u5e77")
 pieceColor = 24
 
-[node name="Horse Head32" parent="." instance=ExtResource("5_b8d6v")]
+[node name="Horse Head32" parent="Tests" instance=ExtResource("5_b8d6v")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -11, 9, 8)
 script = ExtResource("8_u5e77")
 pieceColor = 25
 
 [node name="16x16" parent="." instance=ExtResource("7_joex2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -2, 9)
+pieceColor = 13
 
 [node name="16x17" parent="." instance=ExtResource("7_joex2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -2, 9)
+pieceColor = 13
 
 [node name="16x20" parent="." instance=ExtResource("7_joex2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -2, 9)
+pieceColor = 13
 
 [node name="16x18" parent="." instance=ExtResource("7_joex2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41, -2, 9)
+pieceColor = 13
 
 [node name="16x19" parent="." instance=ExtResource("7_joex2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -2, 9)
+pieceColor = 13
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_x1yca")
@@ -238,12 +246,6 @@ environment = SubResource("Environment_x1yca")
 transform = Transform3D(0.984973, -0.170724, 0.0261029, 0.000262186, 0.152616, 0.988286, -0.172708, -0.973428, 0.150368, 1.49012e-08, 0.120297, 0.0936009)
 light_indirect_energy = 2.0
 shadow_enabled = true
-
-[node name="1x12" parent="." instance=ExtResource("9_vu44g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
-
-[node name="1x22" parent="." instance=ExtResource("10_hb151")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
 
 [node name="1x32" parent="." instance=ExtResource("11_rdi7b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
@@ -304,3 +306,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
 
 [node name="Horse Tail2" parent="." instance=ExtResource("6_5ucgg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
+
+[node name="1x22" parent="." instance=ExtResource("25_7b40a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
+
+[node name="1x23" parent="." instance=ExtResource("25_7b40a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -3)

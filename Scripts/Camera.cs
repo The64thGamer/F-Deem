@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Drawing;
 
 public partial class Camera : Camera3D
 {
@@ -86,6 +87,7 @@ public partial class Camera : Camera3D
             }
         }
 
+        //All this is for controllers
         Vector2 joyInput = Input.GetVector("Camera Left", "Camera Right", "Camera Up", "Camera Down");
         if(joyInput != Vector2.Zero)
         {
@@ -94,11 +96,11 @@ public partial class Camera : Camera3D
                 Vector2 size = DisplayServer.ScreenGetSize();
                 if(Projection == ProjectionType.Orthogonal)
                 {
-                    Position += new Vector3(joyInput.X * joystickMoveSensitivity, -joyInput.Y * joystickMoveSensitivity, 0) * Size / Mathf.Min(size.X,size.Y);
+                    MoveCamera(new Vector2(joyInput.X * joystickMoveSensitivity, -joyInput.Y * joystickMoveSensitivity),Size);
                 }
                 else
                 {
-                    Position += new Vector3(joyInput.X * joystickMoveSensitivity, -joyInput.Y * joystickMoveSensitivity, 0) * Fov / Mathf.Min(size.X,size.Y);
+                    MoveCamera(new Vector2(joyInput.X * joystickMoveSensitivity, -joyInput.Y * joystickMoveSensitivity),Fov);
                 }
             }
             else
@@ -110,7 +112,7 @@ public partial class Camera : Camera3D
         }
         if (Input.IsActionJustPressed("Middle Action"))
         {
-            Position = new Vector3(0,0,Fov);
+            parent.Position = new Vector3(0,0,Fov);
         }
     }
 
@@ -126,18 +128,21 @@ public partial class Camera : Camera3D
             }
             if (Input.IsActionPressed("Action"))
             {
-                Vector2 size = DisplayServer.ScreenGetSize();
                 if(Projection == ProjectionType.Orthogonal)
                 {
-                    Position += new Vector3(-motion.Relative.X * clickSensitivity, motion.Relative.Y * clickSensitivity, 0) * Size / Mathf.Min(size.X,size.Y);
+                    MoveCamera(new Vector2(-motion.Relative.X * clickSensitivity, motion.Relative.Y * clickSensitivity),Size);
                 }
                 else
                 {
-                    Position += new Vector3(-motion.Relative.X * clickSensitivity, motion.Relative.Y * clickSensitivity, 0) * Fov / Mathf.Min(size.X,size.Y);
+                    MoveCamera(new Vector2(-motion.Relative.X * clickSensitivity, motion.Relative.Y * clickSensitivity),Fov);
                 }
             }
-        }
+        }   
+    }
 
-        
+    void MoveCamera(Vector2 input, float fov)
+    {
+        Vector2 size = DisplayServer.ScreenGetSize();
+        parent.Position += new Vector3(input.X,input.Y, 0).Rotated(Vector3.Up, GlobalRotation.Y) * fov / Mathf.Min(size.X,size.Y);
     }
 }

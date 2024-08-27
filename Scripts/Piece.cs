@@ -56,7 +56,6 @@ public partial class Piece : Node
 		}
 		oldColor = pieceColor;
 		MeshInstance3D child = GetChild<MeshInstance3D>(0);
-		    GD.Print("My resource was set!");
 		child.MaterialOverride = GD.Load<Material>(materialPaths + pieceColor.ToString()+".tres");
 		child.LodBias = lodBias;
 	}
