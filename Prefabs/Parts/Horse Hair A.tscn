@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://catyhlprfht8q"]
+[gd_scene load_steps=5 format=3 uid="uid://catyhlprfht8q"]
 
 [ext_resource type="PackedScene" uid="uid://yktnn05coql0" path="res://Models/Parts (GLB)/Horse Hair A.glb" id="1_petgr"]
 [ext_resource type="Script" path="res://Scripts/Piece.cs" id="2_7tu3e"]
+[ext_resource type="Material" uid="uid://bnusyii3vnp38" path="res://Materials/white.tres" id="3_oyf4d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x8a0m"]
 margin = 0.0
@@ -12,6 +13,8 @@ script = ExtResource("2_7tu3e")
 
 [node name="Horse Hair A" parent="." index="0"]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+material_override = ExtResource("3_oyf4d")
+lod_bias = 2.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
 

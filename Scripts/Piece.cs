@@ -6,7 +6,6 @@ public partial class Piece : Node
 {
 	[Export] public PieceColor pieceColor;
 	PieceColor oldColor = PieceColor.none;
-	
 	public enum PieceColor
 	{
 		white,
@@ -39,13 +38,26 @@ public partial class Piece : Node
 	}
 	const string materialPaths = "res://Materials/";
 	const int lodBias = 2;
-
+    public override void _Ready()
+    {      
+		oldColor = PieceColor.none;
+	}
 	public override void _Process(double delta)
 	{		    
 		if(pieceColor != oldColor)
 		{
 			UpdateColor();
 		}
+	}
+
+	public CollisionShape3D GetShape()
+	{
+		if(GetChildCount() <= 1)
+		{
+			GD.Print(Name + " doesn't have any collision children");
+			return null;
+		}
+		return GetChild<StaticBody3D>(1).GetChild<CollisionShape3D>(0);
 	}
 
 	void UpdateColor()

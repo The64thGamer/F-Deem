@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo8e1f24c554n"]
+[gd_scene load_steps=5 format=3 uid="uid://bo8e1f24c554n"]
 
 [ext_resource type="PackedScene" uid="uid://ds74l0b1yaeeg" path="res://Models/Parts (GLB)/Horse Body Standing.glb" id="1_7jq4p"]
 [ext_resource type="Script" path="res://Scripts/Piece.cs" id="2_pjm0e"]
+[ext_resource type="Material" uid="uid://bnusyii3vnp38" path="res://Materials/white.tres" id="3_gtf6t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w1e5s"]
 margin = 0.0
@@ -12,6 +13,8 @@ script = ExtResource("2_pjm0e")
 
 [node name="Horse Body Standing" parent="." index="0"]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+material_override = ExtResource("3_gtf6t")
+lod_bias = 2.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
 

@@ -3,6 +3,7 @@ using System;
 
 public partial class Player : CharacterBody3D
 {
+	[Export] Node playerPieces;
 	const float Speed = 5.0f;
 	const float JumpVelocity = 10.0f;
 	public float gravity = 50;
@@ -12,6 +13,27 @@ public partial class Player : CharacterBody3D
     public override void _Ready()
     {      
 		currentCamera = GetViewport().GetCamera3D();
+		uint randA = GD.Randi() % 26;
+		uint randB = GD.Randi() % 26;
+		for (int i = 0; i < playerPieces.GetChildCount(); i++)
+		{
+			Piece piece = playerPieces.GetChild<Piece>(i);
+			if(i % 2 == 0)
+			{
+				piece.pieceColor = (Piece.PieceColor)randA;
+			}
+			else
+			{
+				piece.pieceColor = (Piece.PieceColor)randB;
+			}
+
+			CollisionShape3D shape = piece.GetShape();
+			if(shape != null)
+			{
+				shape.GetParent().QueueFree();
+				shape.Reparent(this,true);
+			}
+		}
 	}
 	public override void _PhysicsProcess(double delta)
 	{

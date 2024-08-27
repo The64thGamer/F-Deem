@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ctrj3m4drfqlt"]
+[gd_scene load_steps=15 format=3 uid="uid://ctrj3m4drfqlt"]
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_5wko4"]
 [ext_resource type="PackedScene" uid="uid://bo8e1f24c554n" path="res://Prefabs/Parts/Horse Body Standing.tscn" id="3_8sp5n"]
@@ -11,10 +11,6 @@
 [ext_resource type="Script" path="res://Scripts/Piece.cs" id="8_u5e77"]
 [ext_resource type="PackedScene" uid="uid://bfkv41iwnoe3n" path="res://Prefabs/Parts/2x3 Haybale.tscn" id="10_xgf8b"]
 [ext_resource type="PackedScene" uid="uid://bcsj35urd16kw" path="res://Prefabs/Parts/1x2.tscn" id="25_7b40a"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_xshow"]
-margin = 0.0
-size = Vector3(6, 6.25, 2)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_506r7"]
 sky_top_color = Color(0.788235, 0.827451, 0.878431, 1)
@@ -49,26 +45,25 @@ fov = 90.0
 size = 20.047
 script = ExtResource("3_x8u0p")
 
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("playerPieces")]
 script = ExtResource("1_5wko4")
+playerPieces = NodePath("Pieces")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3, 0)
-shape = SubResource("BoxShape3D_xshow")
+[node name="Pieces" type="Node3D" parent="Player"]
 
-[node name="Horse Body Standing" parent="Player/CollisionShape3D" instance=ExtResource("3_8sp5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -3, 1)
+[node name="Horse Body Standing" parent="Player/Pieces" instance=ExtResource("3_8sp5n")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 2)
 pieceColor = 5
 
-[node name="Horse Hair A" parent="Player/CollisionShape3D" instance=ExtResource("4_e64m7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -3, 1)
+[node name="Horse Hair A" parent="Player/Pieces" instance=ExtResource("4_e64m7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 2)
 
-[node name="Horse Head3" parent="Player/CollisionShape3D" instance=ExtResource("5_fkccf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -3, 1)
+[node name="Horse Head3" parent="Player/Pieces" instance=ExtResource("5_fkccf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 2)
 pieceColor = 5
 
-[node name="Horse Tail" parent="Player/CollisionShape3D" instance=ExtResource("6_1w5mn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -3, 1)
+[node name="Horse Tail" parent="Player/Pieces" instance=ExtResource("6_1w5mn")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 2)
 
 [node name="Tests" type="Node" parent="."]
 
