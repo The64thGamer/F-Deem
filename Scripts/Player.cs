@@ -13,20 +13,9 @@ public partial class Player : CharacterBody3D
     public override void _Ready()
     {      
 		currentCamera = GetViewport().GetCamera3D();
-		uint randA = GD.Randi() % 26;
-		uint randB = GD.Randi() % 26;
 		for (int i = 0; i < playerPieces.GetChildCount(); i++)
 		{
 			Piece piece = playerPieces.GetChild<Piece>(i);
-			if(i % 2 == 0)
-			{
-				piece.pieceColor = (Piece.PieceColor)randA;
-			}
-			else
-			{
-				piece.pieceColor = (Piece.PieceColor)randB;
-			}
-
 			CollisionShape3D shape = piece.GetShape();
 			if(shape != null)
 			{
@@ -34,6 +23,7 @@ public partial class Player : CharacterBody3D
 				shape.Reparent(this,true);
 			}
 		}
+		RandomizePieceColors();
 	}
 	public override void _PhysicsProcess(double delta)
 	{
@@ -41,6 +31,11 @@ public partial class Player : CharacterBody3D
 
 		if (!IsOnFloor())
 			velocity.Y -= gravity * (float)delta;
+
+		if(Input.IsActionJustPressed("Jump"))
+		{
+			RandomizePieceColors();
+		}
 
 		Vector2 inputDir = Input.GetVector("Left", "Right", "Up", "Down");
 		Vector3 relativeDir = new Vector3(inputDir.X, 0.0f, inputDir.Y).Rotated(Vector3.Up, currentCamera.GlobalRotation.Y);
@@ -58,5 +53,23 @@ public partial class Player : CharacterBody3D
 
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	void RandomizePieceColors()
+	{
+		uint randA = GD.Randi() % 26;
+		uint randB = GD.Randi() % 26;
+		for (int i = 0; i < playerPieces.GetChildCount(); i++)
+		{
+			Piece piece = playerPieces.GetChild<Piece>(i);
+			if(i % 2 == 0)
+			{
+				piece.pieceColor = (Piece.PieceColor)randA;
+			}
+			else
+			{
+				piece.pieceColor = (Piece.PieceColor)randB;
+			}
+		}
 	}
 }

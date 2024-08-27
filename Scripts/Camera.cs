@@ -5,6 +5,8 @@ using System.Drawing;
 public partial class Camera : Camera3D
 {
     float camZoomDelta = 1; 
+    float camRecenterTimer = 0;
+    [Export] Node3D target;
     Node3D pivot;
     Node3D parent;
 
@@ -23,6 +25,7 @@ public partial class Camera : Camera3D
     const float maxFov = 180;
     const float startingYRot = 45;
     const float startingXRot = -30;
+    const float recenterSpeed = 3;
 
     public override void _Ready()
     {       
@@ -40,6 +43,10 @@ public partial class Camera : Camera3D
         }
         parent.Rotation = new Vector3(0, Mathf.DegToRad(startingYRot), 0);
         pivot.Rotation = new Vector3(Mathf.DegToRad(startingXRot),0,0);
+        if(target != null)
+        {
+            parent.GlobalPosition = target.GlobalPosition;
+        }
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -110,9 +117,16 @@ public partial class Camera : Camera3D
                 pivot.RotationDegrees = new Vector3(Mathf.Clamp(pivot.RotationDegrees.X,-90,0),0,0);
             }
         }
+
         if (Input.IsActionJustPressed("Middle Action"))
         {
-            parent.Position = new Vector3(0,0,Fov);
+            camRecenterTimer = 1.0f;
+        }
+
+        if(target != null && camRecenterTimer > 0)
+        {
+            parent.GlobalPosition = parent.GlobalPosition.Lerp(target.GlobalPosition + new Vector3(0,1,0),1 - camRecenterTimer);
+            camRecenterTimer = Mathf.Max(0,camRecenterTimer -((float)delta*recenterSpeed));
         }
     }
 
