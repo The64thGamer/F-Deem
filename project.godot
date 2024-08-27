@@ -14,7 +14,7 @@ config/name="Oh Funny Horse!"
 config/version="0.1a"
 run/main_scene="res://Scenes/Scene.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://UI/Icon.png"
 
 [display]
 

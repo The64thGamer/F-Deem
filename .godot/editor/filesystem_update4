@@ -1,4 +1,4 @@
-res://Scenes/Scene.tscn
+res://Scenes/Color Test.tscn
 res://Materials/white.tres
 res://Shaders/Metallic.tres.gdshader
 res://Materials/gray.tres
@@ -26,29 +26,3 @@ res://Materials/trans_rights_green.tres
 res://Materials/trans_rights_blue.tres
 res://Materials/trans_rights_pink.tres
 res://Materials/trans_rights_black.tres
-res://Scripts/Camera.cs
-res://Scripts/Piece.cs
-res://Scripts/Player.cs
-res://Prefabs/Parts/1x_12.tscn
-res://Prefabs/Parts/1x1.tscn
-res://Prefabs/Parts/1x2.tscn
-res://Prefabs/Parts/16x16.tscn
-res://Prefabs/Parts/1x3.tscn
-res://Prefabs/Parts/1x4.tscn
-res://Prefabs/Parts/1x10.tscn
-res://Prefabs/Parts/1x16.tscn
-res://Prefabs/Parts/2x2.tscn
-res://Prefabs/Parts/2x3 Haybale.tscn
-res://Prefabs/Parts/2x3.tscn
-res://Prefabs/Parts/2x4.tscn
-res://Prefabs/Parts/2x6.tscn
-res://Prefabs/Parts/2x10.tscn
-res://Prefabs/Parts/2x16.tscn
-res://Prefabs/Parts/4x4.tscn
-res://Prefabs/Parts/4x6.tscn
-res://Prefabs/Parts/8x8.tscn
-res://Prefabs/Parts/Horse Body Standing.tscn
-res://Prefabs/Parts/Horse Hair A.tscn
-res://Prefabs/Parts/Horse Head.tscn
-res://Prefabs/Parts/Horse Tail.tscn
-res://Scenes/Color Test.tscn
