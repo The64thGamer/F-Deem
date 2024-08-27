@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1724734551
+::res://::1724739240
 icon.svg::CompressedTexture2D::5769790162790796996::1722677949::1722677955::1::::<><>::
 README.md::TextFile::-1::1724630040::0::1::::<><>::
 ::res://Development/::1724605062
@@ -36,7 +36,7 @@ white.tres::StandardMaterial3D::3341299404838252109::1724732577::0::1::::<><>::u
 yellow.tres::StandardMaterial3D::4691157481300061665::1724732577::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 ::res://Models/::1724633953
 blender_assets.cats.txt::TextFile::-1::1724605042::0::1::::<><>::
-::res://Models/Parts (GLB)/::1724631324
+::res://Models/Parts (GLB)/::1724737894
 1x1.glb::PackedScene::7583105269830357879::1724631282::1724631324::1::::<><>::
 1x2.glb::PackedScene::9064168266086184421::1724631275::1724631324::1::::<><>::
 1x3.glb::PackedScene::4237438540888854322::1724631269::1724631324::1::::<><>::
@@ -46,7 +46,7 @@ blender_assets.cats.txt::TextFile::-1::1724605042::0::1::::<><>::
 1x10.glb::PackedScene::4874109396070249478::1724631244::1724631323::1::::<><>::
 1x16.glb::PackedScene::61630128555100170::1724631238::1724631323::1::::<><>::
 2x2.glb::PackedScene::7698080572358855801::1724631232::1724631323::1::::<><>::
-2x3 Haybale.glb::PackedScene::1657584226449412977::1724631221::1724631323::1::::<><>::
+2x3 Haybale.glb::PackedScene::1657584226449412977::1724631221::1724739247::1::::<><>::
 2x3.glb::PackedScene::4552246851769101354::1724631226::1724631317::1::::<><>::
 2x4.glb::PackedScene::2014664854576556625::1724631215::1724631317::1::::<><>::
 2x6.glb::PackedScene::1733323270973334078::1724631210::1724631317::1::::<><>::
@@ -62,17 +62,37 @@ Horse Head.glb::PackedScene::3920331974484651309::1724630724::1724630744::1::::<
 Horse Tail.glb::PackedScene::2524268703136600561::1724630550::1724630588::1::::<><>::
 ::res://Models/Parts (STL)/::1724516626
 ::res://Prefabs/::1724633970
-::res://Prefabs/Parts/::1724734551
-1x1.tscn::PackedScene::8528431295301891583::1724734556::0::1::::<><>::uid://dgbkvvc71msqp::::res://Models/Parts (GLB)/1x1.glb<>res://Scripts/Piece.cs
-16x_16.tscn::PackedScene::92914161002230114::1724652028::0::1::::<><>::uid://bjx4xg4j8tgl1::::res://Models/Parts (GLB)/16x16.glb<>res://Scripts/Piece.cs<>uid://bnusyii3vnp38::::res://Materials/white.tres
-::res://Scenes/::1724734464
-Scene.tscn::PackedScene::6142120948730838049::1724734565::0::1::::<><>::res://Scripts/Player.cs<>uid://ds74l0b1yaeeg::::res://Models/Parts (GLB)/Horse Body Standing.glb<>res://Scripts/Camera.cs<>uid://yktnn05coql0::::res://Models/Parts (GLB)/Horse Hair A.glb<>uid://bv4bka34p3von::::res://Models/Parts (GLB)/Horse Head.glb<>uid://bb71lpjikiqxd::::res://Models/Parts (GLB)/Horse Tail.glb<>uid://blaju0sos0eg::::res://Prefabs/Parts/16x_16.tscn<>res://Scripts/Piece.cs<>uid://dgbkvvc71msqp::::res://Models/Parts (GLB)/1x1.glb<>uid://d2e0r6jhckna8::::res://Models/Parts (GLB)/1x2.glb<>uid://b1mv81xihugri::::res://Models/Parts (GLB)/1x3.glb<>uid://cpdxfk7pvvmwu::::res://Models/Parts (GLB)/1x4.glb<>uid://dg55kf854hsoq::::res://Models/Parts (GLB)/1x6.glb<>uid://82otl3qrgie0::::res://Models/Parts (GLB)/1x8.glb<>uid://cbpb4tkhhajic::::res://Models/Parts (GLB)/1x10.glb<>uid://44bllh1s4nm::::res://Models/Parts (GLB)/1x16.glb<>uid://dhxai6il2oa8x::::res://Models/Parts (GLB)/2x2.glb<>uid://xu7f1s861r7n::::res://Models/Parts (GLB)/2x3 Haybale.glb<>uid://b54e3txiv5k1o::::res://Models/Parts (GLB)/2x3.glb<>uid://3x6iauhukq2l::::res://Models/Parts (GLB)/2x4.glb<>uid://yxvt0w37mobe::::res://Models/Parts (GLB)/2x6.glb<>uid://bnvblgg7yfwp6::::res://Models/Parts (GLB)/2x10.glb<>uid://nun0qwam3sff::::res://Models/Parts (GLB)/2x16.glb<>uid://dokmalvxqel8l::::res://Models/Parts (GLB)/4x4.glb<>uid://7t1fnmfbcfqc::::res://Models/Parts (GLB)/4x6.glb<>uid://bbxvnh54ueagt::::res://Models/Parts (GLB)/8x8.glb
+::res://Prefabs/Parts/::1724739240
+1x1.tscn::PackedScene::8528431295301891583::1724735365::0::1::::<><>::uid://dgbkvvc71msqp::::res://Models/Parts (GLB)/1x1.glb<>res://Scripts/Piece.cs
+1x2.tscn::PackedScene::2564555233080539014::1724737089::0::1::::<><>::uid://d2e0r6jhckna8::::res://Models/Parts (GLB)/1x2.glb<>res://Scripts/Piece.cs<>uid://bnusyii3vnp38::::res://Materials/white.tres
+1x3.tscn::PackedScene::524017263632295364::1724736912::0::1::::<><>::uid://b1mv81xihugri::::res://Models/Parts (GLB)/1x3.glb<>res://Scripts/Piece.cs
+1x4.tscn::PackedScene::64825086790742612::1724737079::0::1::::<><>::uid://cpdxfk7pvvmwu::::res://Models/Parts (GLB)/1x4.glb<>res://Scripts/Piece.cs
+1x6.tscn::PackedScene::4439897446069101969::1724737149::0::1::::<><>::uid://dg55kf854hsoq::::res://Models/Parts (GLB)/1x6.glb<>res://Scripts/Piece.cs
+1x8.tscn::PackedScene::2695533693829963742::1724737203::0::1::::<><>::uid://82otl3qrgie0::::res://Models/Parts (GLB)/1x8.glb<>res://Scripts/Piece.cs
+1x10.tscn::PackedScene::8310560334828646455::1724737273::0::1::::<><>::uid://cbpb4tkhhajic::::res://Models/Parts (GLB)/1x10.glb<>res://Scripts/Piece.cs
+1x16.tscn::PackedScene::7719010576419454444::1724737382::0::1::::<><>::uid://44bllh1s4nm::::res://Models/Parts (GLB)/1x16.glb<>res://Scripts/Piece.cs
+2x2.tscn::PackedScene::5838859186131166198::1724737590::0::1::::<><>::uid://dhxai6il2oa8x::::res://Models/Parts (GLB)/2x2.glb<>res://Scripts/Piece.cs
+2x3 Haybale.tscn::PackedScene::2759336903278245077::1724737665::0::1::::<><>::uid://xu7f1s861r7n::::res://Models/Parts (GLB)/2x3 Haybale.glb<>res://Scripts/Piece.cs
+2x3.tscn::PackedScene::8439096923981079235::1724738592::0::1::::<><>::uid://b54e3txiv5k1o::::res://Models/Parts (GLB)/2x3.glb<>res://Scripts/Piece.cs
+2x4.tscn::PackedScene::8408653267044249255::1724738658::0::1::::<><>::uid://3x6iauhukq2l::::res://Models/Parts (GLB)/2x4.glb<>res://Scripts/Piece.cs
+2x6.tscn::PackedScene::2991719715568613765::1724738708::0::1::::<><>::uid://yxvt0w37mobe::::res://Models/Parts (GLB)/2x6.glb<>res://Scripts/Piece.cs
+2x10.tscn::PackedScene::6352921161843892723::1724738767::0::1::::<><>::uid://bnvblgg7yfwp6::::res://Models/Parts (GLB)/2x10.glb<>res://Scripts/Piece.cs
+2x16.tscn::PackedScene::2368455269228475777::1724738817::0::1::::<><>::uid://nun0qwam3sff::::res://Models/Parts (GLB)/2x16.glb<>res://Scripts/Piece.cs
+4x4.tscn::PackedScene::6084621088773404900::1724738888::0::1::::<><>::uid://dokmalvxqel8l::::res://Models/Parts (GLB)/4x4.glb<>res://Scripts/Piece.cs
+4x6.tscn::PackedScene::5990785058351809156::1724738929::0::1::::<><>::uid://7t1fnmfbcfqc::::res://Models/Parts (GLB)/4x6.glb<>res://Scripts/Piece.cs
+8x8.tscn::PackedScene::3292199680037709476::1724738970::0::1::::<><>::uid://bbxvnh54ueagt::::res://Models/Parts (GLB)/8x8.glb<>res://Scripts/Piece.cs
+16x16.tscn::PackedScene::92914161002230114::1724735365::0::1::::<><>::uid://bjx4xg4j8tgl1::::res://Models/Parts (GLB)/16x16.glb<>res://Scripts/Piece.cs<>uid://bnusyii3vnp38::::res://Materials/white.tres
+Horse Body Standing.tscn::PackedScene::3437478564770104911::1724739114::0::1::::<><>::uid://ds74l0b1yaeeg::::res://Models/Parts (GLB)/Horse Body Standing.glb<>res://Scripts/Piece.cs
+Horse Hair A.tscn::PackedScene::4813534854805367206::1724739208::0::1::::<><>::uid://yktnn05coql0::::res://Models/Parts (GLB)/Horse Hair A.glb<>res://Scripts/Piece.cs
+Horse Head.tscn::PackedScene::2764392703270908111::1724739231::0::1::::<><>::uid://bv4bka34p3von::::res://Models/Parts (GLB)/Horse Head.glb
+::res://Scenes/::1724738668
+Scene.tscn::PackedScene::6142120948730838049::1724738668::0::1::::<><>::res://Scripts/Player.cs<>uid://ds74l0b1yaeeg::::res://Models/Parts (GLB)/Horse Body Standing.glb<>res://Scripts/Camera.cs<>uid://yktnn05coql0::::res://Models/Parts (GLB)/Horse Hair A.glb<>uid://bv4bka34p3von::::res://Models/Parts (GLB)/Horse Head.glb<>uid://bb71lpjikiqxd::::res://Models/Parts (GLB)/Horse Tail.glb<>uid://blaju0sos0eg::::res://Prefabs/Parts/16x16.tscn<>res://Scripts/Piece.cs<>uid://bfkv41iwnoe3n::::res://Prefabs/Parts/2x3 Haybale.tscn<>uid://yxvt0w37mobe::::res://Models/Parts (GLB)/2x6.glb<>uid://bnvblgg7yfwp6::::res://Models/Parts (GLB)/2x10.glb<>uid://nun0qwam3sff::::res://Models/Parts (GLB)/2x16.glb<>uid://dokmalvxqel8l::::res://Models/Parts (GLB)/4x4.glb<>uid://7t1fnmfbcfqc::::res://Models/Parts (GLB)/4x6.glb<>uid://bcsj35urd16kw::::res://Prefabs/Parts/1x2.tscn<>uid://bbxvnh54ueagt::::res://Models/Parts (GLB)/8x8.glb
 ::res://Scripts/::1724645535
 Camera.cs::CSharpScript::-1::1724733952::0::1::::<>Camera3D<>::
 Piece.cs::CSharpScript::-1::1724732384::0::1::::<>Node<>::
-Player.cs::CSharpScript::-1::1724734093::0::1::::<>CharacterBody3D<>::
-::res://Shaders/::1724734539
-Metallic.tres.gdshader::Shader::-1::1724734565::0::1::::<><>::
+Player.cs::CSharpScript::-1::1724734725::0::1::::<>CharacterBody3D<>::
+::res://Shaders/::1724739231
+Metallic.tres.gdshader::Shader::-1::1724739231::0::1::::<><>::
 ::res://Textures/::1724651820
 MultiMaterialOrange.png::CompressedTexture2D::6634052985714086117::1724651818::1724651820::1::::<><>::
 MultiMaterialRoughMetal.png::CompressedTexture2D::4427869040580069716::1724651374::1724651385::1::::<><>::

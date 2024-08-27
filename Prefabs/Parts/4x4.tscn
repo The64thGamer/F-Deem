@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://csxo25llx5vtk"]
+
+[ext_resource type="PackedScene" uid="uid://dokmalvxqel8l" path="res://Models/Parts (GLB)/4x4.glb" id="1_qidd7"]
+[ext_resource type="Script" path="res://Scripts/Piece.cs" id="2_fh4yj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c6d2h"]
+margin = 0.0
+size = Vector3(4, 2, 4)
+
+[node name="4x4" instance=ExtResource("1_qidd7")]
+script = ExtResource("2_fh4yj")
+
+[node name="4x4" parent="." index="0"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -2)
+shape = SubResource("BoxShape3D_c6d2h")
