@@ -10,6 +10,7 @@ public partial class Camera : Camera3D
     [Export] Node3D target;
     Node3D pivot;
     Node3D parent;
+    bool battleMode;
 
     const float clickSensitivity = 1f;
     const float altClickSensitivty = 0.01f;
@@ -51,49 +52,178 @@ public partial class Camera : Camera3D
         }
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _PhysicsProcess(double delta)
+    public override void _Process(double delta)
     {
-        if (Current)
+        if (!Current)
         {
-            if (Input.IsActionJustPressed("Scroll Up"))
+            return;
+        }
+
+        if (Input.IsActionJustPressed("Switch Mode"))
+        {
+            battleMode = !battleMode;
+            if(battleMode)
             {
-                if(Projection == ProjectionType.Orthogonal)
-                {
-                    camZoomDelta = Size * scrollUpMult;
-                }
-                else
-                {
-                    camZoomDelta = Fov * scrollUpMult;
-                }
+                targetOffset = targetOffset - target.GlobalPosition;
+                camRecenterTimer = 1.0f;
+                Input.MouseMode = Input.MouseModeEnum.Captured;
             }
-            if (Input.IsActionJustPressed("Scroll Down"))
+            else 
             {
-                if(Projection == ProjectionType.Orthogonal)
+                Input.MouseMode = Input.MouseModeEnum.Visible;
+                if(target != null)
                 {
-                    camZoomDelta = Size * scrollDownMult;
-                }
-                else
-                {
-                    camZoomDelta = Fov * scrollDownMult;
+                    targetOffset = target.GlobalPosition + targetOffset;
                 }
             }
         }
+
+        if(battleMode)
+        {
+            CalculateBattleMode(delta);
+        }
+        else
+        {
+            CalculateBuildMode(delta);
+        }
     }
 
-    public override void _Process(double delta)
+    public override void _UnhandledInput(InputEvent currentEvent)
     {
-        if (Current)
+        if (!Current)
         {
-            if(Projection == ProjectionType.Orthogonal)
+            return;
+        }
+
+        if (currentEvent is InputEventMouseMotion motion)
+        {
+            if(battleMode)
             {
-                Size = Mathf.Clamp(Mathf.Lerp(Size, camZoomDelta,(float)delta*20),minSize, maxSize);
+                CalculateBattleModeMouseMove(motion);
             }
             else
             {
-                Fov = Mathf.Clamp(Mathf.Lerp(Fov, camZoomDelta,(float)delta*20),minFov, maxFov);
-                Position = new Vector3(Position.X,Position.Y,Fov);
+                CalculateBuildModeMouseMove(motion);
             }
+        }   
+    }
+
+    void CalculateBattleMode(double delta)
+    {
+        if (Input.IsActionJustPressed("Scroll Up"))
+        {
+            if(Projection == ProjectionType.Orthogonal)
+            {
+                camZoomDelta = Size * scrollUpMult;
+            }
+            else
+            {
+                camZoomDelta = Fov * scrollUpMult;
+            }
+        }
+        if (Input.IsActionJustPressed("Scroll Down"))
+        {
+            if(Projection == ProjectionType.Orthogonal)
+            {
+                camZoomDelta = Size * scrollDownMult;
+            }
+            else
+            {
+                camZoomDelta = Fov * scrollDownMult;
+            }
+        }
+
+        if(Projection == ProjectionType.Orthogonal)
+        {
+            Size = Mathf.Clamp(Mathf.Lerp(Size, camZoomDelta,(float)delta*20),minSize, maxSize);
+        }
+        else
+        {
+            Fov = Mathf.Clamp(Mathf.Lerp(Fov, camZoomDelta,(float)delta*20),minFov, maxFov);
+            Position = new Vector3(Position.X,Position.Y,Fov);
+        }
+
+        //All this is for controllers
+        Vector2 joyInput = Input.GetVector("Camera Left", "Camera Right", "Camera Up", "Camera Down");
+        if(joyInput != Vector2.Zero)
+        {
+            if (Input.IsActionPressed("Action"))
+            {
+                Vector2 size = DisplayServer.ScreenGetSize();
+                if(Projection == ProjectionType.Orthogonal)
+                {
+                    MoveCamera(new Vector2(joyInput.X * joystickMoveSensitivity, -joyInput.Y * joystickMoveSensitivity),Size);
+                }
+                else
+                {
+                    MoveCamera(new Vector2(joyInput.X * joystickMoveSensitivity, -joyInput.Y * joystickMoveSensitivity),Fov);
+                }
+            }
+            else
+            {
+                parent.RotateY(joyInput.X * joyStickRotateSensitivity);
+                pivot.RotateX(joyInput.Y* joyStickRotateSensitivity);
+                pivot.RotationDegrees = new Vector3(Mathf.Clamp(pivot.RotationDegrees.X,-90,0),0,0);
+            }
+        }
+
+        if(target != null && camRecenterTimer > 0)
+        {
+            targetOffset = targetOffset.Lerp(new Vector3(0,4,0),1 - camRecenterTimer);
+            camRecenterTimer = Mathf.Max(0,camRecenterTimer -((float)delta*recenterSpeed));
+        }
+        
+        if(target != null)
+        {
+            parent.GlobalPosition = target.GlobalPosition + targetOffset;
+        }
+        else
+        {
+            parent.GlobalPosition = targetOffset;
+        }
+    }
+
+    void CalculateBattleModeMouseMove(InputEventMouseMotion motion)
+    {
+        parent.RotateY(-motion.Relative.X * altClickSensitivty);
+        pivot.RotateX(-motion.Relative.Y * middleClickSensitivity);
+        pivot.RotationDegrees = new Vector3(Mathf.Clamp(pivot.RotationDegrees.X,-90,0),0,0);
+    }
+
+
+    void CalculateBuildMode(double delta)
+    {
+        if (Input.IsActionJustPressed("Scroll Up"))
+        {
+            if(Projection == ProjectionType.Orthogonal)
+            {
+                camZoomDelta = Size * scrollUpMult;
+            }
+            else
+            {
+                camZoomDelta = Fov * scrollUpMult;
+            }
+        }
+        if (Input.IsActionJustPressed("Scroll Down"))
+        {
+            if(Projection == ProjectionType.Orthogonal)
+            {
+                camZoomDelta = Size * scrollDownMult;
+            }
+            else
+            {
+                camZoomDelta = Fov * scrollDownMult;
+            }
+        }
+
+        if(Projection == ProjectionType.Orthogonal)
+        {
+            Size = Mathf.Clamp(Mathf.Lerp(Size, camZoomDelta,(float)delta*20),minSize, maxSize);
+        }
+        else
+        {
+            Fov = Mathf.Clamp(Mathf.Lerp(Fov, camZoomDelta,(float)delta*20),minFov, maxFov);
+            Position = new Vector3(Position.X,Position.Y,Fov);
         }
 
         //All this is for controllers
@@ -127,42 +257,32 @@ public partial class Camera : Camera3D
 
         if(target != null && camRecenterTimer > 0)
         {
-            targetOffset = targetOffset.Lerp(new Vector3(0,4,0),1 - camRecenterTimer);
+            targetOffset = targetOffset.Lerp(target.GlobalPosition + new Vector3(0,4,0),1 - camRecenterTimer);
             camRecenterTimer = Mathf.Max(0,camRecenterTimer -((float)delta*recenterSpeed));
         }
         
-        if(target != null)
-        {
-            parent.GlobalPosition = target.GlobalPosition + targetOffset;
-        }
-        else
-        {
-            parent.GlobalPosition = targetOffset;
-        }
+        parent.GlobalPosition = targetOffset;
     }
 
-    public override void _UnhandledInput(InputEvent currentEvent)
+    void CalculateBuildModeMouseMove(InputEventMouseMotion motion)
     {
-        if (currentEvent is InputEventMouseMotion motion)
+        if(Input.IsActionPressed("Alt Action"))
         {
-            if(Input.IsActionPressed("Alt Action"))
+            parent.RotateY(-motion.Relative.X * altClickSensitivty);
+            pivot.RotateX(-motion.Relative.Y * middleClickSensitivity);
+            pivot.RotationDegrees = new Vector3(Mathf.Clamp(pivot.RotationDegrees.X,-90,0),0,0);
+        }
+        if (Input.IsActionPressed("Action"))
+        {
+            if(Projection == ProjectionType.Orthogonal)
             {
-                parent.RotateY(-motion.Relative.X * altClickSensitivty);
-                pivot.RotateX(-motion.Relative.Y * middleClickSensitivity);
-                pivot.RotationDegrees = new Vector3(Mathf.Clamp(pivot.RotationDegrees.X,-90,0),0,0);
+                MoveCamera(new Vector2(-motion.Relative.X * clickSensitivity, motion.Relative.Y * clickSensitivity),Size);
             }
-            if (Input.IsActionPressed("Action"))
+            else
             {
-                if(Projection == ProjectionType.Orthogonal)
-                {
-                    MoveCamera(new Vector2(-motion.Relative.X * clickSensitivity, motion.Relative.Y * clickSensitivity),Size);
-                }
-                else
-                {
-                    MoveCamera(new Vector2(-motion.Relative.X * clickSensitivity, motion.Relative.Y * clickSensitivity),Fov);
-                }
+                MoveCamera(new Vector2(-motion.Relative.X * clickSensitivity, motion.Relative.Y * clickSensitivity),Fov);
             }
-        }   
+        }
     }
 
     void MoveCamera(Vector2 input, float fov)

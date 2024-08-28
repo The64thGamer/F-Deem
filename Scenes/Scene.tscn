@@ -62,6 +62,7 @@ script = ExtResource("3_x8u0p")
 target = NodePath("../../../Player")
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("playerPieces")]
+collision_layer = 2
 floor_max_angle = 1.39626
 script = ExtResource("1_5wko4")
 playerPieces = NodePath("Pieces")
