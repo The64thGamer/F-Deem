@@ -6,6 +6,7 @@ public partial class Camera : Camera3D
 {
     float camZoomDelta = 1; 
     float camRecenterTimer = 0;
+    Vector3 targetOffset;
     [Export] Node3D target;
     Node3D pivot;
     Node3D parent;
@@ -46,6 +47,7 @@ public partial class Camera : Camera3D
         if(target != null)
         {
             parent.GlobalPosition = target.GlobalPosition;
+            camRecenterTimer = 1.0f;
         }
     }
 
@@ -125,8 +127,17 @@ public partial class Camera : Camera3D
 
         if(target != null && camRecenterTimer > 0)
         {
-            parent.GlobalPosition = parent.GlobalPosition.Lerp(target.GlobalPosition + new Vector3(0,1,0),1 - camRecenterTimer);
+            targetOffset = targetOffset.Lerp(new Vector3(0,4,0),1 - camRecenterTimer);
             camRecenterTimer = Mathf.Max(0,camRecenterTimer -((float)delta*recenterSpeed));
+        }
+        
+        if(target != null)
+        {
+            parent.GlobalPosition = target.GlobalPosition + targetOffset;
+        }
+        else
+        {
+            parent.GlobalPosition = targetOffset;
         }
     }
 
@@ -157,6 +168,6 @@ public partial class Camera : Camera3D
     void MoveCamera(Vector2 input, float fov)
     {
         Vector2 size = DisplayServer.ScreenGetSize();
-        parent.Position += new Vector3(input.X,input.Y, 0).Rotated(Vector3.Up, GlobalRotation.Y) * fov / Mathf.Min(size.X,size.Y);
+        targetOffset += new Vector3(input.X,input.Y, 0).Rotated(Vector3.Up, GlobalRotation.Y) * fov / Mathf.Min(size.X,size.Y);
     }
 }
