@@ -1,35 +1,13 @@
 res://Scenes/Scene.tscn
 res://Materials/white.tres
 res://Shaders/Metallic.tres.gdshader
-res://Materials/gray.tres
-res://Materials/black.tres
-res://Materials/red.tres
 res://Materials/orange.tres
-res://Materials/soaked_orange.tres
-res://Materials/tinged_yellow.tres
-res://Materials/yellow.tres
-res://Materials/tinged_green.tres
 res://Materials/green.tres
+res://Materials/yellow.tres
 res://Materials/soaked_green.tres
-res://Materials/tinged_blue.tres
+res://Materials/soaked_orange.tres
 res://Materials/blue.tres
-res://Materials/purple.tres
-res://Materials/pink.tres
-res://Materials/soaked_pink.tres
-res://Materials/plated_gray.tres
-res://Materials/plated_orange.tres
-res://Materials/plated_yellow.tres
-res://Materials/trans_rights_white.tres
-res://Materials/trans_rights_red.tres
-res://Materials/trans_rights_yellow.tres
-res://Materials/trans_rights_green.tres
-res://Materials/trans_rights_blue.tres
-res://Materials/trans_rights_pink.tres
-res://Materials/trans_rights_black.tres
-res://Scenes/Color Test.tscn
+res://Prefabs/Parts/Horse Body Standing.tscn
 res://Scripts/Camera.cs
 res://Scripts/Piece.cs
 res://Scripts/Player.cs
-res://Prefabs/Parts/2x2 Ramp.tscn
-res://Prefabs/Parts/2x4 Ramp.tscn
-res://Prefabs/Parts/3x2 Shingle.tscn

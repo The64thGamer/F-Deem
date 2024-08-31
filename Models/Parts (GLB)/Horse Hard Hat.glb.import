@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bb71lpjikiqxd"
-path="res://.godot/imported/Horse Tail.glb-e4151729eec95a4f40c5e7c975d83046.scn"
+uid="uid://cglqasecptvd"
+path="res://.godot/imported/Horse Hard Hat.glb-4255c949b6ff50c0249b27c634afa1fc.scn"
 
 [deps]
 
-source_file="res://Models/Parts (GLB)/Horse Tail.glb"
-dest_files=["res://.godot/imported/Horse Tail.glb-e4151729eec95a4f40c5e7c975d83046.scn"]
+source_file="res://Models/Parts (GLB)/Horse Hard Hat.glb"
+dest_files=["res://.godot/imported/Horse Hard Hat.glb-4255c949b6ff50c0249b27c634afa1fc.scn"]
 
 [params]
 
@@ -18,7 +18,7 @@ nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
-meshes/ensure_tangents=false
+meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
 meshes/light_baking=1
@@ -33,7 +33,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "meshes": {
-"Horse Tail_Mesh": {
+"Horse Hard Hat_Sphere_001": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
