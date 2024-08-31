@@ -11,3 +11,5 @@ res://Prefabs/Parts/Horse Body Standing.tscn
 res://Scripts/Camera.cs
 res://Scripts/Piece.cs
 res://Scripts/Player.cs
+res://Scripts/InventoryBox.cs
+res://Prefabs/Parts/Horse Tail.tscn

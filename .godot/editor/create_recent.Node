@@ -1,6 +1,12 @@
+Control
+Container
+CanvasGroup
+TextureRect
+PanelContainer
+Node2D
+Node3D
 CollisionShape3D
 StaticBody3D
-Node3D
 Node
 CharacterBody3D
 Camera3D
