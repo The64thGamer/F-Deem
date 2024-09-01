@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ctrj3m4drfqlt"]
+[gd_scene load_steps=28 format=3 uid="uid://ctrj3m4drfqlt"]
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_5wko4"]
 [ext_resource type="PackedScene" uid="uid://bo8e1f24c554n" path="res://Prefabs/Parts/Horse Body Standing.tscn" id="3_8sp5n"]
@@ -22,12 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dr2hj5ffjn1v4" path="res://Prefabs/Parts/2x4.tscn" id="17_ps7ol"]
 [ext_resource type="PackedScene" uid="uid://buu6nac3ig1io" path="res://Prefabs/Parts/3x2 Shingle.tscn" id="23_hb78t"]
 [ext_resource type="PackedScene" uid="uid://myjh7qa7ani8" path="res://Prefabs/Parts/2x2 Ramp.tscn" id="23_vkcco"]
-[ext_resource type="Texture2D" uid="uid://hl4ggoijdm6e" path="res://UI/Slot Case.png" id="24_71mvf"]
 [ext_resource type="PackedScene" uid="uid://bcsj35urd16kw" path="res://Prefabs/Parts/1x2.tscn" id="25_7b40a"]
-[ext_resource type="Script" path="res://Scripts/InventoryBox.cs" id="25_mur8e"]
-[ext_resource type="Texture2D" uid="uid://bgoxnkm4njyam" path="res://UI/Slot Bar.png" id="26_oskbb"]
-[ext_resource type="Texture2D" uid="uid://b6jm1ius4pmvp" path="res://UI/Slot Print Head.png" id="27_um6ru"]
-[ext_resource type="Texture2D" uid="uid://bfe0gfkrih7ql" path="res://UI/Icon.png" id="28_xf5im"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_506r7"]
 sky_top_color = Color(0.788235, 0.827451, 0.878431, 1)
@@ -470,57 +465,3 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18, 1
 [node name="3x2 Shingle17" parent="Pieces" instance=ExtResource("23_hb78t")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -20, 16, 12)
 pieceColor = 15
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(2, 0)
-
-[node name="Inventory Box" type="TextureRect" parent="Node2D" node_paths=PackedStringArray("imageBar", "imagePrintHead", "iconHolder")]
-offset_left = 192.0
-offset_top = 152.0
-offset_right = 267.0
-offset_bottom = 227.0
-texture = ExtResource("24_71mvf")
-expand_mode = 1
-script = ExtResource("25_mur8e")
-imageBar = NodePath("Image Bar")
-imagePrintHead = NodePath("Image Bar/Image Print Head")
-iconHolder = NodePath("Control")
-move = 0.75
-
-[node name="Image Bar" type="TextureRect" parent="Node2D/Inventory Box"]
-offset_top = -72.0
-offset_right = 75.0
-offset_bottom = 3.0
-texture = ExtResource("26_oskbb")
-expand_mode = 1
-
-[node name="Image Print Head" type="TextureRect" parent="Node2D/Inventory Box/Image Bar"]
-offset_left = -25.0
-offset_right = 50.0
-offset_bottom = 75.0
-texture = ExtResource("27_um6ru")
-expand_mode = 1
-
-[node name="Control" type="Control" parent="Node2D/Inventory Box"]
-clip_contents = true
-layout_mode = 3
-anchors_preset = 0
-offset_right = 75.0
-offset_bottom = 64.0
-
-[node name="Inventory Box2" type="TextureRect" parent="Node2D/Inventory Box/Control"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -30.0
-offset_top = -60.0
-offset_right = 30.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("28_xf5im")
-expand_mode = 1
