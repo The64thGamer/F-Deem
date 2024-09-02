@@ -1,19 +1,5 @@
-res://Scenes/Scene.tscn
+res://Prefabs/UI/UI.tscn
 res://Materials/white.tres
+res://UI/OFH.tres
+res://UI/OFH Accent.tres
 res://Shaders/Metallic.tres.gdshader
-res://Materials/orange.tres
-res://Materials/green.tres
-res://Materials/yellow.tres
-res://Materials/soaked_green.tres
-res://Materials/soaked_orange.tres
-res://Materials/blue.tres
-res://Scripts/Camera.cs
-res://Scripts/Piece.cs
-res://Scripts/Player.cs
-res://Scripts/InventoryBox.cs
-res://Materials/gray.tres
-res://Materials/black.tres
-res://Scenes/Sets/Stable.tscn
-res://Scenes/Sets/Ruins.tscn
-res://Scenes/Sets/Ramp Ruins.tscn
-res://Scenes/StartScene.tscn

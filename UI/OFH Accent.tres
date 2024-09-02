@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cvqve1ajdsx34"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1kva"]
+bg_color = Color(0.359233, 0.52, 0.2444, 1)
+
+[resource]
+HBoxContainer/constants/separation = 2
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_s1kva")
+VBoxContainer/constants/separation = 2

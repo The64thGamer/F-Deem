@@ -29,6 +29,10 @@ project/assembly_name="F-Deem"
 
 import/blender/enabled=false
 
+[gui]
+
+theme/default_theme_scale=2.0
+
 [input]
 
 Action={

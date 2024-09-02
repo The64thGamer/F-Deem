@@ -1,3 +1,23 @@
-[gd_resource type="Theme" format=3 uid="uid://cflj1gw0d2yp6"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cflj1gw0d2yp6"]
+
+[ext_resource type="FontFile" uid="uid://begsvepmjkbul" path="res://UI/Fonts/Text Light.otf" id="1_hxicm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ob03"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kv3j"]
+bg_color = Color(0.880973, 0.8569, 0.776367, 1)
 
 [resource]
+Button/colors/font_color = Color(0.215427, 0.152895, 0.246693, 1)
+Button/colors/font_outline_color = Color(0.815824, 0.670726, 0.294087, 1)
+Button/constants/outline_size = 10
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_hxicm")
+Button/styles/normal = SubResource("StyleBoxEmpty_7ob03")
+HBoxContainer/constants/separation = 2
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_8kv3j")
+VBoxContainer/constants/separation = 2
