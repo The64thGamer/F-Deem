@@ -19,7 +19,7 @@ public partial class Player : CharacterBody3D
 			if(shape != null)
 			{
 				shape.GetParent().QueueFree();
-				shape.Reparent(this,true);
+				//shape.Reparent(this,true);
 			}
 		}
 		RandomizePieceColors();

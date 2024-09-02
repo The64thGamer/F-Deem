@@ -13,3 +13,7 @@ res://Scripts/Player.cs
 res://Scripts/InventoryBox.cs
 res://Materials/gray.tres
 res://Materials/black.tres
+res://Scenes/Sets/Stable.tscn
+res://Scenes/Sets/Ruins.tscn
+res://Scenes/Sets/Ramp Ruins.tscn
+res://Scenes/StartScene.tscn
