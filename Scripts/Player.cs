@@ -29,7 +29,17 @@ public partial class Player : CharacterBody3D
         if (Input.IsActionJustPressed("Switch Mode"))
         {
             battleMode = !battleMode;
+
+			if(battleMode)
+			{
+				playerPieces.Visible = false;
+			}
+			else
+			{
+				playerPieces.Visible = true;
+			}
         }
+		
 	}
 	public override void _PhysicsProcess(double delta)
 	{
@@ -45,39 +55,36 @@ public partial class Player : CharacterBody3D
 
 		if(!battleMode)
 		{			
-			if(velocity.Length() > 0)
+			PhysicsDirectSpaceState3D spaceState = currentCamera.GetWorld3D().DirectSpaceState;
+			PhysicsRayQueryParameters3D query = PhysicsRayQueryParameters3D.Create(currentCamera.GlobalPosition, currentCamera.GlobalPosition + currentCamera.ProjectRayNormal(GetViewport().GetMousePosition()) * 1000);
+			query.CollisionMask = 0b00000000_00000000_00000000_00000001;
+			Godot.Collections.Dictionary result = spaceState.IntersectRay(query);
+			if (result.Count > 0 && (Vector3)result["position"] != GlobalPosition)
 			{
-				PhysicsDirectSpaceState3D spaceState = currentCamera.GetWorld3D().DirectSpaceState;
-				PhysicsRayQueryParameters3D query = PhysicsRayQueryParameters3D.Create(currentCamera.GlobalPosition, currentCamera.GlobalPosition + currentCamera.ProjectRayNormal(GetViewport().GetMousePosition()) * 1000);
-				query.CollisionMask = 0b00000000_00000000_00000000_00000001;
-				Godot.Collections.Dictionary result = spaceState.IntersectRay(query);
-				if (result.Count > 0 && (Vector3)result["position"] != GlobalPosition)
-				{
-					Vector3 oldRot = GlobalRotation;
-					LookAt((Vector3)result["position"]);
-					GlobalRotation = new Vector3(0,Mathf.LerpAngle(oldRot.Y,GlobalRotation.Y,(float)delta*velocity.Length()*2),0);	
-				}
+				Vector3 oldRot = GlobalRotation;
+				LookAt((Vector3)result["position"]);
+				GlobalRotation = new Vector3(0,Mathf.LerpAngle(oldRot.Y,GlobalRotation.Y,(float)(delta*5)),0);	
 			}
 		}
 		else
 		{		
 			Rotation = new Vector3(0,Mathf.LerpAngle(Rotation.Y,currentCamera.GlobalRotation.Y,(float)delta*velocity.Length()*2),0);
-		}	
-
-		Vector3 direction = Vector3.Zero;
-		if(battleMode)
-		{
-			Vector2 inputDir = Input.GetVector("Left", "Right", "Up", "Down");
-			direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
-		}
-		else
-		{
-			Vector2 inputDir = Input.GetVector("Left", "Right", "Up", "Down");
-			Vector3 relativeDir = new Vector3(inputDir.X, 0.0f, inputDir.Y).Rotated(Vector3.Up, currentCamera.GlobalRotation.Y);
-			direction = (new Vector3(relativeDir.X, 0, relativeDir.Z)).Normalized();
 		}
 
-		if (direction != Vector3.Zero)
+        Vector3 direction;
+        if (battleMode)
+        {
+            Vector2 inputDir = Input.GetVector("Left", "Right", "Up", "Down");
+            direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
+        }
+        else
+        {
+            Vector2 inputDir = Input.GetVector("Left", "Right", "Up", "Down");
+            Vector3 relativeDir = new Vector3(inputDir.X, 0.0f, inputDir.Y).Rotated(Vector3.Up, currentCamera.GlobalRotation.Y);
+            direction = new Vector3(relativeDir.X, 0, relativeDir.Z).Normalized();
+        }
+
+        if (direction != Vector3.Zero)
 		{
 			velocity.X = direction.X * Speed;
 			velocity.Z = direction.Z * Speed;

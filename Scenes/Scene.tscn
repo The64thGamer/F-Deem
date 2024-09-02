@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ctrj3m4drfqlt"]
+[gd_scene load_steps=33 format=3 uid="uid://ctrj3m4drfqlt"]
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_5wko4"]
 [ext_resource type="PackedScene" uid="uid://bo8e1f24c554n" path="res://Prefabs/Parts/Horse Body Standing.tscn" id="3_8sp5n"]
@@ -22,7 +22,12 @@
 [ext_resource type="PackedScene" uid="uid://dr2hj5ffjn1v4" path="res://Prefabs/Parts/2x4.tscn" id="17_ps7ol"]
 [ext_resource type="PackedScene" uid="uid://buu6nac3ig1io" path="res://Prefabs/Parts/3x2 Shingle.tscn" id="23_hb78t"]
 [ext_resource type="PackedScene" uid="uid://myjh7qa7ani8" path="res://Prefabs/Parts/2x2 Ramp.tscn" id="23_vkcco"]
+[ext_resource type="PackedScene" uid="uid://dsh7xtsh6vc3l" path="res://Prefabs/Parts/2x3.tscn" id="24_py5im"]
 [ext_resource type="PackedScene" uid="uid://bcsj35urd16kw" path="res://Prefabs/Parts/1x2.tscn" id="25_7b40a"]
+[ext_resource type="PackedScene" uid="uid://dtriauepijy8v" path="res://Prefabs/Parts/1x1.tscn" id="25_uehh1"]
+[ext_resource type="PackedScene" uid="uid://binqdwjcjql67" path="res://Prefabs/Parts/2x4 Ramp.tscn" id="26_65p8h"]
+[ext_resource type="PackedScene" uid="uid://hp3qt4nqflxc" path="res://Prefabs/Parts/1x3.tscn" id="27_hnyni"]
+[ext_resource type="PackedScene" uid="uid://b4iypymwf8ao4" path="res://Prefabs/Parts/1x6.tscn" id="28_iunvh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_506r7"]
 sky_top_color = Color(0.788235, 0.827451, 0.878431, 1)
@@ -95,7 +100,6 @@ shadow_enabled = true
 directional_shadow_max_distance = 300.0
 
 [node name="Floor Border" type="StaticBody3D" parent="World Stuff"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World Stuff/Floor Border"]
 shape = SubResource("WorldBoundaryShape3D_oah8o")
@@ -465,3 +469,335 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18, 1
 [node name="3x2 Shingle17" parent="Pieces" instance=ExtResource("23_hb78t")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -20, 16, 12)
 pieceColor = 15
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="16x16" parent="Node3D" instance=ExtResource("7_joex2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -2, 18)
+pieceColor = 13
+
+[node name="8x8" parent="Node3D" instance=ExtResource("11_8jkba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, -2, 23)
+pieceColor = 13
+
+[node name="8x9" parent="Node3D" instance=ExtResource("11_8jkba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -2, 26)
+pieceColor = 13
+
+[node name="8x10" parent="Node3D" instance=ExtResource("11_8jkba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, -2, 15)
+pieceColor = 13
+
+[node name="2x22" parent="Node3D" instance=ExtResource("8_7cblt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, 9)
+pieceColor = 1
+
+[node name="2x24" parent="Node3D" instance=ExtResource("8_7cblt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 2, 9)
+pieceColor = 1
+
+[node name="2x25" parent="Node3D" instance=ExtResource("8_7cblt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 4, 9)
+pieceColor = 1
+
+[node name="2x26" parent="Node3D" instance=ExtResource("8_7cblt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 6, 9)
+pieceColor = 1
+
+[node name="2x6" parent="Node3D" instance=ExtResource("9_dtirb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 19)
+pieceColor = 3
+
+[node name="2x23" parent="Node3D" instance=ExtResource("8_7cblt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 19)
+pieceColor = 1
+
+[node name="2x27" parent="Node3D" instance=ExtResource("8_7cblt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 2, 19)
+pieceColor = 1
+
+[node name="2x28" parent="Node3D" instance=ExtResource("8_7cblt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 4, 19)
+pieceColor = 1
+
+[node name="2x4" parent="Node3D" instance=ExtResource("17_ps7ol")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35, 0, 17)
+pieceColor = 3
+
+[node name="2x7" parent="Node3D" instance=ExtResource("9_dtirb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35, 2, 19)
+pieceColor = 3
+
+[node name="2x8" parent="Node3D" instance=ExtResource("9_dtirb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35, 2, 19)
+pieceColor = 1
+
+[node name="2x3" parent="Node3D" instance=ExtResource("24_py5im")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 33, 4, 16)
+pieceColor = 3
+
+[node name="2x2 Ramp" parent="Node3D" instance=ExtResource("23_vkcco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 4, 15)
+pieceColor = 1
+
+[node name="2x2 Ramp4" parent="Node3D" instance=ExtResource("23_vkcco")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24, 0, 14)
+pieceColor = 12
+
+[node name="2x2 Ramp5" parent="Node3D" instance=ExtResource("23_vkcco")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 22, 0, 16)
+pieceColor = 12
+
+[node name="2x2 Ramp3" parent="Node3D" instance=ExtResource("23_vkcco")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 26, 6, 17)
+pieceColor = 1
+
+[node name="2x2 Ramp2" parent="Node3D" instance=ExtResource("23_vkcco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 10, 16)
+pieceColor = 1
+
+[node name="2x29" parent="Node3D" instance=ExtResource("8_7cblt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 2, 19)
+pieceColor = 1
+
+[node name="1x22" parent="Node3D" instance=ExtResource("25_7b40a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 4, 19)
+pieceColor = 1
+
+[node name="1x23" parent="Node3D" instance=ExtResource("25_7b40a")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33, 2, 19)
+pieceColor = 1
+
+[node name="1x24" parent="Node3D" instance=ExtResource("25_7b40a")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33, 4, 19)
+pieceColor = 1
+
+[node name="1x25" parent="Node3D" instance=ExtResource("25_7b40a")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33, 6, 19)
+pieceColor = 1
+
+[node name="1x26" parent="Node3D" instance=ExtResource("25_7b40a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 8, 19)
+pieceColor = 1
+
+[node name="1x1" parent="Node3D" instance=ExtResource("25_uehh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 6, 19)
+pieceColor = 12
+
+[node name="1x2" parent="Node3D" instance=ExtResource("25_uehh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 8, 18)
+pieceColor = 1
+
+[node name="2x5" parent="Node3D" instance=ExtResource("24_py5im")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 33, 8, 7)
+pieceColor = 1
+
+[node name="2x10" parent="Node3D" instance=ExtResource("9_dtirb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35, 8, 18)
+pieceColor = 1
+
+[node name="2x11" parent="Node3D" instance=ExtResource("9_dtirb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35, 10, 14)
+pieceColor = 1
+
+[node name="3x2 Shingle" parent="Node3D" instance=ExtResource("23_hb78t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 34, 10, 19)
+pieceColor = 1
+
+[node name="2x30" parent="Node3D" instance=ExtResource("8_7cblt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 16)
+pieceColor = 5
+
+[node name="1x3" parent="Node3D" instance=ExtResource("25_uehh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 17)
+pieceColor = 12
+
+[node name="1x4" parent="Node3D" instance=ExtResource("25_uehh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 2, 17)
+pieceColor = 12
+
+[node name="1x27" parent="Node3D" instance=ExtResource("25_7b40a")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 36, 4, 16)
+pieceColor = 12
+
+[node name="2x2 Ramp6" parent="Node3D" instance=ExtResource("23_vkcco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 12)
+pieceColor = 1
+
+[node name="2x12" parent="Node3D" instance=ExtResource("24_py5im")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40, 0, 7)
+pieceColor = 1
+
+[node name="2x9" parent="Node3D" instance=ExtResource("9_dtirb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35, 6, 19)
+pieceColor = 1
+
+[node name="Node3D2" type="Node3D" parent="."]
+
+[node name="16x16" parent="Node3D2" instance=ExtResource("7_joex2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -2, 50)
+pieceColor = 7
+
+[node name="2x4 Ramp" parent="." instance=ExtResource("26_65p8h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 18, 0, 50)
+pieceColor = 7
+
+[node name="2x4 Ramp2" parent="." instance=ExtResource("26_65p8h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17, 2, 50)
+pieceColor = 7
+
+[node name="2x4 Ramp3" parent="." instance=ExtResource("26_65p8h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 4, 50)
+pieceColor = 7
+
+[node name="2x4 Ramp4" parent="." instance=ExtResource("26_65p8h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 6, 50)
+pieceColor = 7
+
+[node name="2x4 Ramp10" parent="." instance=ExtResource("26_65p8h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14, 8, 50)
+pieceColor = 7
+
+[node name="2x4 Ramp5" parent="." instance=ExtResource("26_65p8h")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8, 0, 36)
+pieceColor = 7
+
+[node name="2x4 Ramp6" parent="." instance=ExtResource("26_65p8h")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8, 2, 37)
+pieceColor = 7
+
+[node name="2x4 Ramp7" parent="." instance=ExtResource("26_65p8h")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8, 4, 38)
+pieceColor = 7
+
+[node name="2x4 Ramp8" parent="." instance=ExtResource("26_65p8h")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8, 6, 39)
+pieceColor = 7
+
+[node name="2x4 Ramp9" parent="." instance=ExtResource("26_65p8h")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8, 8, 40)
+pieceColor = 7
+
+[node name="2x4" parent="." instance=ExtResource("17_ps7ol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 48)
+pieceColor = 7
+
+[node name="2x9" parent="." instance=ExtResource("17_ps7ol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 41)
+pieceColor = 9
+
+[node name="2x11" parent="." instance=ExtResource("17_ps7ol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 42)
+pieceColor = 7
+
+[node name="2x13" parent="." instance=ExtResource("17_ps7ol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 6, 43)
+pieceColor = 7
+
+[node name="2x5" parent="." instance=ExtResource("17_ps7ol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 50)
+pieceColor = 7
+
+[node name="2x6" parent="." instance=ExtResource("17_ps7ol")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, 42)
+pieceColor = 7
+
+[node name="2x7" parent="." instance=ExtResource("17_ps7ol")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 42)
+pieceColor = 7
+
+[node name="2x8" parent="." instance=ExtResource("17_ps7ol")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 2, 50)
+pieceColor = 9
+
+[node name="2x10" parent="." instance=ExtResource("17_ps7ol")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14, 4, 50)
+pieceColor = 7
+
+[node name="2x12" parent="." instance=ExtResource("17_ps7ol")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13, 6, 50)
+pieceColor = 7
+
+[node name="2x22" parent="." instance=ExtResource("8_7cblt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 50)
+pieceColor = 7
+
+[node name="2x23" parent="." instance=ExtResource("8_7cblt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 50)
+pieceColor = 7
+
+[node name="2x24" parent="." instance=ExtResource("8_7cblt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 50)
+pieceColor = 7
+
+[node name="2x25" parent="." instance=ExtResource("8_7cblt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 6, 50)
+pieceColor = 7
+
+[node name="1x82" parent="." instance=ExtResource("12_1cno5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 10, 49)
+pieceColor = 7
+
+[node name="1x83" parent="." instance=ExtResource("12_1cno5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, 50)
+pieceColor = 7
+
+[node name="1x4" parent="." instance=ExtResource("13_72wwh")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12, 2, 46)
+pieceColor = 7
+
+[node name="1x5" parent="." instance=ExtResource("13_72wwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 42)
+pieceColor = 7
+
+[node name="8x8" parent="." instance=ExtResource("11_8jkba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 8, 50)
+pieceColor = 1
+
+[node name="1x1" parent="." instance=ExtResource("25_uehh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 10, 50)
+pieceColor = 7
+
+[node name="1x11" parent="." instance=ExtResource("25_uehh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 12, 49)
+pieceColor = 7
+
+[node name="1x12" parent="." instance=ExtResource("25_uehh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 14, 50)
+pieceColor = 7
+
+[node name="1x2" parent="." instance=ExtResource("25_uehh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 12, 50)
+pieceColor = 7
+
+[node name="1x6" parent="." instance=ExtResource("13_72wwh")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 10, 42)
+pieceColor = 7
+
+[node name="1x3" parent="." instance=ExtResource("27_hnyni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 10, 43)
+pieceColor = 7
+
+[node name="1x7" parent="." instance=ExtResource("28_iunvh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 12, 50)
+pieceColor = 7
+
+[node name="1x8" parent="." instance=ExtResource("28_iunvh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 12, 48)
+pieceColor = 7
+
+[node name="1x10" parent="." instance=ExtResource("28_iunvh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 14, 49)
+pieceColor = 7
+
+[node name="1x13" parent="." instance=ExtResource("28_iunvh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 16, 50)
+pieceColor = 7
+
+[node name="1x9" parent="." instance=ExtResource("13_72wwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 14, 50)
+pieceColor = 7
+
+[node name="1x22" parent="." instance=ExtResource("25_7b40a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 16, 50)
+pieceColor = 7
