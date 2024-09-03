@@ -12,7 +12,7 @@ public partial class InventoryBox : Node
 	TextureRect icon;
 	float move;
 	Texture2D oldImage;
-	const float loadSpeed = 3;
+	const float loadSpeed = 3.5f;
 	
 	public override void _Ready()
     {  

@@ -1,23 +1,28 @@
 [gd_resource type="Theme" load_steps=4 format=3 uid="uid://cflj1gw0d2yp6"]
 
 [ext_resource type="FontFile" uid="uid://begsvepmjkbul" path="res://UI/Fonts/Text Light.otf" id="1_hxicm"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ob03"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
+[ext_resource type="StyleBox" uid="uid://ciqvgwg1mseld" path="res://Prefabs/UI/Box Empty.tres" id="2_kkiv6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kv3j"]
 bg_color = Color(0.880973, 0.8569, 0.776367, 1)
 
 [resource]
 Button/colors/font_color = Color(0.215427, 0.152895, 0.246693, 1)
+Button/colors/font_focus_color = Color(0.215686, 0.152941, 0.247059, 1)
+Button/colors/font_hover_color = Color(0.215686, 0.152941, 0.247059, 1)
 Button/colors/font_outline_color = Color(0.815824, 0.670726, 0.294087, 1)
 Button/constants/outline_size = 10
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_hxicm")
-Button/styles/normal = SubResource("StyleBoxEmpty_7ob03")
+Button/styles/disabled = ExtResource("2_kkiv6")
+Button/styles/disabled_mirrored = ExtResource("2_kkiv6")
+Button/styles/focus = ExtResource("2_kkiv6")
+Button/styles/hover = ExtResource("2_kkiv6")
+Button/styles/hover_mirrored = ExtResource("2_kkiv6")
+Button/styles/hover_pressed = ExtResource("2_kkiv6")
+Button/styles/hover_pressed_mirrored = ExtResource("2_kkiv6")
+Button/styles/normal = ExtResource("2_kkiv6")
+Button/styles/pressed = ExtResource("2_kkiv6")
 HBoxContainer/constants/separation = 2
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_8kv3j")
 VBoxContainer/constants/separation = 2

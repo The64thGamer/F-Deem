@@ -1,9 +1,9 @@
 Control
+TextureRect
 PanelContainer
 Container
 VBoxContainer
 HBoxContainer
-TextureRect
 MarginContainer
 Button
 CollisionShape3D

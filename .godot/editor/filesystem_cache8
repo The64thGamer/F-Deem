@@ -1,12 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1725261338
+::res://::1725320411
 README.md::TextFile::-1::1724828262::0::1::::<><>::
 ::res://Development/::1724799549
 TestSetRender2.png::CompressedTexture2D::3323673027618466890::1724521492::1724605062::1::::<><>::
 TestSetRender3.png::CompressedTexture2D::2827451782730306785::1724604964::1724605062::1::::<><>::
 TestSetRender4.png::CompressedTexture2D::1146314499317085901::1724799535::1724799549::1::::<><>::
 TestSetRender.png::CompressedTexture2D::4072504557197659248::1724359595::1724605062::1::::<><>::
-::res://Materials/::1725261348
+::res://Materials/::1725328338
 black.tres::StandardMaterial3D::2196063992521965207::1725241236::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 blue.tres::StandardMaterial3D::378595569498086060::1725229684::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 gray.tres::StandardMaterial3D::3256906300673596071::1725240840::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
@@ -32,9 +32,9 @@ trans_rights_pink.tres::StandardMaterial3D::2734904926188396885::1725226948::0::
 trans_rights_red.tres::StandardMaterial3D::6403487574631420539::1725226948::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 trans_rights_white.tres::StandardMaterial3D::8217831747030329580::1725226948::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 trans_rights_yellow.tres::StandardMaterial3D::8216110500893280709::1725226948::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-white.tres::StandardMaterial3D::3341299404838252109::1725261348::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+white.tres::StandardMaterial3D::3341299404838252109::1725328338::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 yellow.tres::StandardMaterial3D::4691157481300061665::1725229684::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-::res://Models/::1725260377
+::res://Models/::1725330955
 blender_assets.cats.txt::TextFile::-1::1725260377::0::1::::<><>::
 ::res://Models/Parts (GLB)/::1725245452
 1x1.glb::PackedScene::7583105269830357879::1724631282::1724631324::1::::<><>::
@@ -97,36 +97,40 @@ Horse Body Standing.tscn::PackedScene::3437478564770104911::1725150757::0::1::::
 Horse Hair A.tscn::PackedScene::4813534854805367206::1724740373::0::1::::<><>::uid://yktnn05coql0::::res://Models/Parts (GLB)/Horse Hair A.glb<>res://Scripts/Piece.cs<>uid://bnusyii3vnp38::::res://Materials/white.tres
 Horse Head.tscn::PackedScene::2764392703270908111::1724740373::0::1::::<><>::uid://bv4bka34p3von::::res://Models/Parts (GLB)/Horse Head.glb<>res://Scripts/Piece.cs<>uid://bnusyii3vnp38::::res://Materials/white.tres
 Horse Tail.tscn::PackedScene::9123923340576160216::1725150757::0::1::::<><>::uid://bb71lpjikiqxd::::res://Models/Parts (GLB)/Horse Tail.glb<>res://Scripts/Piece.cs<>uid://bnusyii3vnp38::::res://Materials/white.tres
-::res://Prefabs/UI/::1725261348
+::res://Prefabs/UI/::1725332334
 Print Box.tscn::PackedScene::8042613057810199903::1725229270::0::1::::<><>::res://Scripts/InventoryBox.cs<>uid://hl4ggoijdm6e::::res://UI/Slot Case.png<>uid://bgoxnkm4njyam::::res://UI/Slot Bar.png<>uid://b6jm1ius4pmvp::::res://UI/Slot Print Head.png
-UI.tscn::PackedScene::8674310227766227795::1725261348::0::1::::<><>::uid://cflj1gw0d2yp6::::res://UI/OFH.tres<>uid://ct6l7idj3yb1q::::res://UI/Logo 4K.png<>uid://cvqve1ajdsx34::::res://UI/OFH Accent.tres
-::res://Scenes/::1725251330
+ButtonHoverEffect.cs::CSharpScript::-1::1725333168::0::1::::<><>::
+UI.tscn::PackedScene::8674310227766227795::1725332334::0::1::::<><>::uid://cflj1gw0d2yp6::::res://UI/OFH.tres<>uid://ct6l7idj3yb1q::::res://UI/Logo 4K.png<>uid://cf076uhnkpf1b::::res://UI/BulletPoint.png<>uid://dii32kt8wmnux::::res://UI/SlideUI.png<>uid://cvqve1ajdsx34::::res://UI/OFH Accent.tres<>uid://uk4bf78yxg82::::res://UI/Paper Overlay.jpg<>res://Shaders/Multiply UI.gdshader
+::res://Scenes/::1725328697
 Color Test.tscn::PackedScene::8074048830250767742::1725229482::0::1::::<><>::uid://bv4bka34p3von::::res://Models/Parts (GLB)/Horse Head.glb<>res://Scripts/Piece.cs
-StartScene.tscn::PackedScene::6142120948730838049::1725251330::0::1::::<><>::res://Scripts/Player.cs<>uid://bo8e1f24c554n::::res://Prefabs/Parts/Horse Body Standing.tscn<>res://Scripts/Camera.cs<>uid://catyhlprfht8q::::res://Prefabs/Parts/Horse Hair A.tscn<>uid://bfnde5noi5sxj::::res://Prefabs/Parts/Horse Head.tscn<>uid://d28xxjfs5l5ua::::res://Prefabs/Parts/Horse Tail.tscn<>uid://dvt5vff0wbm72::::res://Prefabs/UI/UI.tscn
-::res://Scenes/Sets/::1725251330
-Ramp Ruins.tscn::PackedScene::3048897995728768883::1725251330::0::1::::<><>::uid://blaju0sos0eg::::res://Prefabs/Parts/16x16.tscn<>uid://binqdwjcjql67::::res://Prefabs/Parts/2x4 Ramp.tscn<>uid://dr2hj5ffjn1v4::::res://Prefabs/Parts/2x4.tscn<>uid://cpgnfmllbltqc::::res://Prefabs/Parts/2x2.tscn<>uid://ben0btkrdt487::::res://Prefabs/Parts/1x8.tscn<>uid://6nwovgb7oh5::::res://Prefabs/Parts/1x4.tscn<>uid://bm51bvgeoyruy::::res://Prefabs/Parts/8x8.tscn<>uid://dtriauepijy8v::::res://Prefabs/Parts/1x1.tscn<>uid://hp3qt4nqflxc::::res://Prefabs/Parts/1x3.tscn<>uid://b4iypymwf8ao4::::res://Prefabs/Parts/1x6.tscn<>uid://bcsj35urd16kw::::res://Prefabs/Parts/1x2.tscn
-Ruins.tscn::PackedScene::5829824017449112346::1725251330::0::1::::<><>::uid://blaju0sos0eg::::res://Prefabs/Parts/16x16.tscn<>uid://bm51bvgeoyruy::::res://Prefabs/Parts/8x8.tscn<>uid://cpgnfmllbltqc::::res://Prefabs/Parts/2x2.tscn<>uid://bivhgly5u68eb::::res://Prefabs/Parts/2x6.tscn<>uid://dr2hj5ffjn1v4::::res://Prefabs/Parts/2x4.tscn<>uid://dsh7xtsh6vc3l::::res://Prefabs/Parts/2x3.tscn<>uid://myjh7qa7ani8::::res://Prefabs/Parts/2x2 Ramp.tscn<>uid://bcsj35urd16kw::::res://Prefabs/Parts/1x2.tscn<>uid://dtriauepijy8v::::res://Prefabs/Parts/1x1.tscn<>uid://buu6nac3ig1io::::res://Prefabs/Parts/3x2 Shingle.tscn
-Stable.tscn::PackedScene::1389825701113222178::1725251330::0::1::::<><>::uid://c1u4yfv1orojs::::res://Models/Parts (GLB)/2x3 Ramp.glb<>uid://m3ejnwntkkw4::::res://Models/Parts (GLB)/2x4 Ramp.glb<>uid://cnujubedmfk3m::::res://Models/Parts (GLB)/3x2 Shingle.glb<>uid://blaju0sos0eg::::res://Prefabs/Parts/16x16.tscn<>uid://cpgnfmllbltqc::::res://Prefabs/Parts/2x2.tscn<>uid://bivhgly5u68eb::::res://Prefabs/Parts/2x6.tscn<>uid://bcsj35urd16kw::::res://Prefabs/Parts/1x2.tscn<>uid://bm51bvgeoyruy::::res://Prefabs/Parts/8x8.tscn<>uid://ben0btkrdt487::::res://Prefabs/Parts/1x8.tscn<>uid://6nwovgb7oh5::::res://Prefabs/Parts/1x4.tscn<>uid://cwrnxh74p8upn::::res://Prefabs/Parts/2x10.tscn<>uid://dh8e8g0xlcrrg::::res://Prefabs/Parts/1x16.tscn<>uid://80kd2021l506::::res://Prefabs/Parts/2x16.tscn<>uid://dr2hj5ffjn1v4::::res://Prefabs/Parts/2x4.tscn<>uid://bfkv41iwnoe3n::::res://Prefabs/Parts/2x3 Haybale.tscn<>uid://myjh7qa7ani8::::res://Prefabs/Parts/2x2 Ramp.tscn<>uid://buu6nac3ig1io::::res://Prefabs/Parts/3x2 Shingle.tscn
+StartScene.tscn::PackedScene::6142120948730838049::1725328697::0::1::::<><>::res://Scripts/Player.cs<>uid://bo8e1f24c554n::::res://Prefabs/Parts/Horse Body Standing.tscn<>res://Scripts/Camera.cs<>uid://catyhlprfht8q::::res://Prefabs/Parts/Horse Hair A.tscn<>uid://bfnde5noi5sxj::::res://Prefabs/Parts/Horse Head.tscn<>uid://d28xxjfs5l5ua::::res://Prefabs/Parts/Horse Tail.tscn<>uid://dvt5vff0wbm72::::res://Prefabs/UI/UI.tscn
+::res://Scenes/Sets/::1725328697
+Ramp Ruins.tscn::PackedScene::3048897995728768883::1725328697::0::1::::<><>::uid://blaju0sos0eg::::res://Prefabs/Parts/16x16.tscn<>uid://binqdwjcjql67::::res://Prefabs/Parts/2x4 Ramp.tscn<>uid://dr2hj5ffjn1v4::::res://Prefabs/Parts/2x4.tscn<>uid://cpgnfmllbltqc::::res://Prefabs/Parts/2x2.tscn<>uid://ben0btkrdt487::::res://Prefabs/Parts/1x8.tscn<>uid://6nwovgb7oh5::::res://Prefabs/Parts/1x4.tscn<>uid://bm51bvgeoyruy::::res://Prefabs/Parts/8x8.tscn<>uid://dtriauepijy8v::::res://Prefabs/Parts/1x1.tscn<>uid://hp3qt4nqflxc::::res://Prefabs/Parts/1x3.tscn<>uid://b4iypymwf8ao4::::res://Prefabs/Parts/1x6.tscn<>uid://bcsj35urd16kw::::res://Prefabs/Parts/1x2.tscn
+Ruins.tscn::PackedScene::5829824017449112346::1725328697::0::1::::<><>::uid://blaju0sos0eg::::res://Prefabs/Parts/16x16.tscn<>uid://bm51bvgeoyruy::::res://Prefabs/Parts/8x8.tscn<>uid://cpgnfmllbltqc::::res://Prefabs/Parts/2x2.tscn<>uid://bivhgly5u68eb::::res://Prefabs/Parts/2x6.tscn<>uid://dr2hj5ffjn1v4::::res://Prefabs/Parts/2x4.tscn<>uid://dsh7xtsh6vc3l::::res://Prefabs/Parts/2x3.tscn<>uid://myjh7qa7ani8::::res://Prefabs/Parts/2x2 Ramp.tscn<>uid://bcsj35urd16kw::::res://Prefabs/Parts/1x2.tscn<>uid://dtriauepijy8v::::res://Prefabs/Parts/1x1.tscn<>uid://buu6nac3ig1io::::res://Prefabs/Parts/3x2 Shingle.tscn
+Stable.tscn::PackedScene::1389825701113222178::1725328697::0::1::::<><>::uid://c1u4yfv1orojs::::res://Models/Parts (GLB)/2x3 Ramp.glb<>uid://m3ejnwntkkw4::::res://Models/Parts (GLB)/2x4 Ramp.glb<>uid://cnujubedmfk3m::::res://Models/Parts (GLB)/3x2 Shingle.glb<>uid://blaju0sos0eg::::res://Prefabs/Parts/16x16.tscn<>uid://cpgnfmllbltqc::::res://Prefabs/Parts/2x2.tscn<>uid://bivhgly5u68eb::::res://Prefabs/Parts/2x6.tscn<>uid://bcsj35urd16kw::::res://Prefabs/Parts/1x2.tscn<>uid://bm51bvgeoyruy::::res://Prefabs/Parts/8x8.tscn<>uid://ben0btkrdt487::::res://Prefabs/Parts/1x8.tscn<>uid://6nwovgb7oh5::::res://Prefabs/Parts/1x4.tscn<>uid://cwrnxh74p8upn::::res://Prefabs/Parts/2x10.tscn<>uid://dh8e8g0xlcrrg::::res://Prefabs/Parts/1x16.tscn<>uid://80kd2021l506::::res://Prefabs/Parts/2x16.tscn<>uid://dr2hj5ffjn1v4::::res://Prefabs/Parts/2x4.tscn<>uid://bfkv41iwnoe3n::::res://Prefabs/Parts/2x3 Haybale.tscn<>uid://myjh7qa7ani8::::res://Prefabs/Parts/2x2 Ramp.tscn<>uid://buu6nac3ig1io::::res://Prefabs/Parts/3x2 Shingle.tscn
 ::res://Scripts/::1725090117
 Camera.cs::CSharpScript::-1::1725232244::0::1::::<>Camera3D<>::
 InventoryBox.cs::CSharpScript::-1::1725228972::0::1::::<>Node<>::
 Piece.cs::CSharpScript::-1::1724743275::0::1::::<>Node<>::
 Player.cs::CSharpScript::-1::1725246604::0::1::::<>CharacterBody3D<>::
-::res://Shaders/::1725261348
-Metallic.tres.gdshader::Shader::-1::1725261348::0::1::::<><>::
+::res://Shaders/::1725332334
+Metallic.tres.gdshader::Shader::-1::1725332334::0::1::::<><>::
+Multiply UI.gdshader::Shader::-1::1725332334::0::1::::<><>::
 ::res://Textures/::1724651820
 MultiMaterialOrange.png::CompressedTexture2D::6634052985714086117::1724651818::1724651820::1::::<><>::
 MultiMaterialRoughMetal.png::CompressedTexture2D::4427869040580069716::1724651374::1724651385::1::::<><>::
 PrintBump.png::CompressedTexture2D::1633438086862887336::1724604184::1724648050::1::::<><>::
 PrintGoo.jpg::CompressedTexture2D::3744740201031210678::1724648492::1724648604::1::::<><>::
 PrintGooAO.jpg::CompressedTexture2D::4916196248596816332::1724649163::1724649165::1::::<><>::
-::res://UI/::1725261407
+::res://UI/::1725332334
 BulletPoint.png::CompressedTexture2D::5177394394692690945::1725261407::1725261408::1::::<><>::
 Icon Unaltered.png::CompressedTexture2D::4891060197509832176::1724779962::1724779967::1::::<><>::
 Icon.png::CompressedTexture2D::2747151331330293507::1724780255::1724780257::1::::<><>::
 Logo 4K.png::CompressedTexture2D::6171150564478554216::1725260516::1725260523::1::::<><>::
-OFH Accent.tres::Theme::6281120693894320529::1725261348::0::1::::<><>::
-OFH.tres::Theme::5147086974714229157::1725261348::0::1::::<><>::uid://begsvepmjkbul::::res://UI/Fonts/Text Light.otf
+OFH Accent.tres::Theme::6281120693894320529::1725332334::0::1::::<><>::
+OFH.tres::Theme::5147086974714229157::1725332334::0::1::::<><>::uid://begsvepmjkbul::::res://UI/Fonts/Text Light.otf
+Paper Overlay.jpg::CompressedTexture2D::1426183542468222957::1725328245::1725328249::1::::<><>::
+SlideUI.png::CompressedTexture2D::7739036670562974739::1725332307::1725332309::1::::<><>::
 Slot Bar.png::CompressedTexture2D::2837875285339060132::1725089125::1725089366::1::::<><>::
 Slot Case.png::CompressedTexture2D::515801905457547002::1725227193::1725227197::1::::<><>::
 Slot Print Head.png::CompressedTexture2D::4581629722753452817::1725089144::1725089366::1::::<><>::

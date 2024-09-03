@@ -92,4 +92,3 @@ directional_shadow_max_distance = 300.0
 shape = SubResource("WorldBoundaryShape3D_oah8o")
 
 [node name="Ui" parent="." instance=ExtResource("7_i0gl2")]
-anchors_preset = 15
