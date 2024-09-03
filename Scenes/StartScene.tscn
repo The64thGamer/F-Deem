@@ -56,7 +56,7 @@ target = NodePath("../../../Player")
 [node name="Player" parent="." instance=ExtResource("2_v4f0i")]
 
 [node name="Enemy" type="CharacterBody3D" parent="." node_paths=PackedStringArray("playerPieces", "currentTarget")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 19)
 floor_constant_speed = true
 floor_max_angle = 1.39626
 script = ExtResource("5_qh03d")

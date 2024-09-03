@@ -7,7 +7,7 @@ uniform float alpha : hint_range(0, 1);
 void fragment() {
 	vec4 overlay_sample = texture(overlay, UV);
 	vec4 screen_sample = texture(screen_texture, SCREEN_UV);
-	
+
 	COLOR.rgb = screen_sample.rgb * overlay_sample.rgb;
 	COLOR.a = alpha;
 }

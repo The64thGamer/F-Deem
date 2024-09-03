@@ -5,8 +5,10 @@ public partial class Player : CharacterBody3D
 {
 	[Export] Node3D playerPieces;
 	const float Speed = 10.0f;
+	const float stopSpeed = 7f;
 	public float gravity = 50;
 	bool battleMode;
+	Vector2 currentDirection;
 
 	Camera3D currentCamera;
     public override void _Ready()
@@ -84,10 +86,12 @@ public partial class Player : CharacterBody3D
             direction = new Vector3(relativeDir.X, 0, relativeDir.Z).Normalized();
         }
 
-        if (direction != Vector3.Zero)
+		currentDirection = new Vector2(Mathf.Lerp(currentDirection.X,direction.X,(float)delta*stopSpeed),Mathf.Lerp(currentDirection.Y,direction.Z,(float)delta*stopSpeed));
+
+        if (currentDirection != Vector2.Zero)
 		{
-			velocity.X = direction.X * Speed;
-			velocity.Z = direction.Z * Speed;
+			velocity.X = currentDirection.X * Speed;
+			velocity.Z = currentDirection.Y * Speed;
 		}
 		else
 		{
