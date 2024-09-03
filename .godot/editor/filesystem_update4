@@ -25,3 +25,5 @@ res://Scripts/ButtonHoverEffect.cs
 res://Scripts/MenuButton.cs
 res://Scripts/InventoryBox.cs
 res://Scripts/Gun.cs
+res://Prefabs/GenericGun.tscn
+res://Prefabs/Enemy.tscn

@@ -4,7 +4,7 @@ using System;
 public partial class Enemy : CharacterBody3D
 {
 	[Export] Node3D playerPieces;
-	[Export] Node3D currentTarget;
+	[Export] public Node3D currentTarget;
 	const float Speed = 5.0f;
 	const float gravity = 50;
 	const float minRandWalkTime = 1.0f;
@@ -39,6 +39,11 @@ public partial class Enemy : CharacterBody3D
 	}  
 	public override void _Process(double delta)
     {
+		if(currentTarget == null)
+		{
+			return;
+		}
+
 		moveTimer = Mathf.Max(0,moveTimer-(float)delta);
 		if(moveTimer == 0)
 		{

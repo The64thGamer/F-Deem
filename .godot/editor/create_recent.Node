@@ -1,3 +1,5 @@
+AudioStreamPlayer3D
+Node3D
 Control
 TextureRect
 PanelContainer
@@ -8,7 +10,6 @@ MarginContainer
 Button
 CollisionShape3D
 Area3D
-Node3D
 CanvasGroup
 Node2D
 StaticBody3D

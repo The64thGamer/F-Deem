@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://jwh880k4vgkh"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.cs" id="1_utldp"]
+[ext_resource type="PackedScene" uid="uid://bo8e1f24c554n" path="res://Prefabs/Parts/Horse Body Standing.tscn" id="2_0ilb5"]
+[ext_resource type="PackedScene" uid="uid://catyhlprfht8q" path="res://Prefabs/Parts/Horse Hair A.tscn" id="3_yumai"]
+[ext_resource type="PackedScene" uid="uid://bfnde5noi5sxj" path="res://Prefabs/Parts/Horse Head.tscn" id="4_gxgcx"]
+[ext_resource type="PackedScene" uid="uid://d28xxjfs5l5ua" path="res://Prefabs/Parts/Horse Tail.tscn" id="5_tmqc7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h6mdk"]
+radius = 1.25
+height = 6.25
+
+[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("playerPieces")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 19)
+collision_layer = 4
+collision_mask = 7
+floor_constant_speed = true
+floor_max_angle = 1.39626
+script = ExtResource("1_utldp")
+playerPieces = NodePath("Pieces")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("CapsuleShape3D_h6mdk")
+
+[node name="Pieces" type="Node3D" parent="."]
+
+[node name="Horse Body Standing" parent="Pieces" instance=ExtResource("2_0ilb5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 2)
+pieceColor = 5
+
+[node name="Horse Hair A" parent="Pieces" instance=ExtResource("3_yumai")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 2)
+
+[node name="Horse Head3" parent="Pieces" instance=ExtResource("4_gxgcx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 2)
+pieceColor = 5
+
+[node name="Horse Tail" parent="Pieces" instance=ExtResource("5_tmqc7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 2)
