@@ -41,3 +41,7 @@ res://Materials/trans_rights_pink.tres
 res://Materials/trans_rights_black.tres
 res://Scenes/Color Test.tscn
 res://Prefabs/UI/Menu Button.tscn
+res://Scripts/UI.cs
+res://Scripts/Enemy.cs
+res://Scripts/StartScene.tscn
+res://Prefabs/Player.tscn

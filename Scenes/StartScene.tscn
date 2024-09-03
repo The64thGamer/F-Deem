@@ -1,12 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctrj3m4drfqlt"]
+[gd_scene load_steps=17 format=3 uid="uid://ctrj3m4drfqlt"]
 
-[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_5wko4"]
+[ext_resource type="PackedScene" uid="uid://doq1dunqiiotr" path="res://Prefabs/Player.tscn" id="2_v4f0i"]
 [ext_resource type="PackedScene" uid="uid://bo8e1f24c554n" path="res://Prefabs/Parts/Horse Body Standing.tscn" id="3_8sp5n"]
 [ext_resource type="Script" path="res://Scripts/Camera.cs" id="3_x8u0p"]
 [ext_resource type="PackedScene" uid="uid://catyhlprfht8q" path="res://Prefabs/Parts/Horse Hair A.tscn" id="4_e64m7"]
 [ext_resource type="PackedScene" uid="uid://bfnde5noi5sxj" path="res://Prefabs/Parts/Horse Head.tscn" id="5_fkccf"]
+[ext_resource type="Script" path="res://Scripts/Enemy.cs" id="5_qh03d"]
 [ext_resource type="PackedScene" uid="uid://d28xxjfs5l5ua" path="res://Prefabs/Parts/Horse Tail.tscn" id="6_1w5mn"]
 [ext_resource type="PackedScene" uid="uid://dvt5vff0wbm72" path="res://Prefabs/UI/UI.tscn" id="7_i0gl2"]
+[ext_resource type="PackedScene" uid="uid://cpcal5nkkrdda" path="res://Scenes/Sets/Ruins.tscn" id="8_o85i3"]
+[ext_resource type="PackedScene" uid="uid://bjo550wbqdlpr" path="res://Scenes/Sets/Ramp Ruins.tscn" id="10_c2e0n"]
+[ext_resource type="PackedScene" uid="uid://t2ihxsglrl5c" path="res://Scenes/Sets/Stable.tscn" id="11_qmqg7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h6mdk"]
 radius = 1.25
@@ -49,30 +53,34 @@ size = 20.047
 script = ExtResource("3_x8u0p")
 target = NodePath("../../../Player")
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("playerPieces")]
-collision_layer = 2
-floor_max_angle = 1.39626
-script = ExtResource("1_5wko4")
-playerPieces = NodePath("Pieces")
+[node name="Player" parent="." instance=ExtResource("2_v4f0i")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+[node name="Enemy" type="CharacterBody3D" parent="." node_paths=PackedStringArray("playerPieces", "currentTarget")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 10)
+floor_constant_speed = true
+floor_max_angle = 1.39626
+script = ExtResource("5_qh03d")
+playerPieces = NodePath("Pieces")
+currentTarget = NodePath("../Player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shape = SubResource("CapsuleShape3D_h6mdk")
 
-[node name="Pieces" type="Node3D" parent="Player"]
+[node name="Pieces" type="Node3D" parent="Enemy"]
 
-[node name="Horse Body Standing" parent="Player/Pieces" instance=ExtResource("3_8sp5n")]
+[node name="Horse Body Standing" parent="Enemy/Pieces" instance=ExtResource("3_8sp5n")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 2)
 pieceColor = 5
 
-[node name="Horse Hair A" parent="Player/Pieces" instance=ExtResource("4_e64m7")]
+[node name="Horse Hair A" parent="Enemy/Pieces" instance=ExtResource("4_e64m7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 2)
 
-[node name="Horse Head3" parent="Player/Pieces" instance=ExtResource("5_fkccf")]
+[node name="Horse Head3" parent="Enemy/Pieces" instance=ExtResource("5_fkccf")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 2)
 pieceColor = 5
 
-[node name="Horse Tail" parent="Player/Pieces" instance=ExtResource("6_1w5mn")]
+[node name="Horse Tail" parent="Enemy/Pieces" instance=ExtResource("6_1w5mn")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 2)
 
 [node name="World Stuff" type="Node3D" parent="."]
@@ -92,3 +100,12 @@ directional_shadow_max_distance = 300.0
 shape = SubResource("WorldBoundaryShape3D_oah8o")
 
 [node name="Ui" parent="." instance=ExtResource("7_i0gl2")]
+
+[node name="Node3D" parent="." instance=ExtResource("8_o85i3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 6)
+
+[node name="Node3D2" parent="." instance=ExtResource("10_c2e0n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 18)
+
+[node name="Node3D3" parent="." instance=ExtResource("11_qmqg7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 0, 17)

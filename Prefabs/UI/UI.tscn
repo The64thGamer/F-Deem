@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvt5vff0wbm72"]
+[gd_scene load_steps=10 format=3 uid="uid://dvt5vff0wbm72"]
 
 [ext_resource type="Theme" uid="uid://cflj1gw0d2yp6" path="res://UI/OFH.tres" id="1_0em6u"]
 [ext_resource type="Texture2D" uid="uid://ct6l7idj3yb1q" path="res://UI/Logo 4K.png" id="2_5hple"]
+[ext_resource type="Script" path="res://Scripts/UI.cs" id="2_cliky"]
 [ext_resource type="PackedScene" uid="uid://ddbnoj32uji4c" path="res://Prefabs/UI/Menu Button.tscn" id="2_panbd"]
 [ext_resource type="Theme" uid="uid://cvqve1ajdsx34" path="res://UI/OFH Accent.tres" id="2_sroed"]
 [ext_resource type="Texture2D" uid="uid://uk4bf78yxg82" path="res://UI/Paper Overlay.jpg" id="5_0ibaq"]
@@ -15,7 +16,7 @@ shader = ExtResource("5_2g1y1")
 shader_parameter/alpha = 0.1
 shader_parameter/overlay = ExtResource("5_0ibaq")
 
-[node name="Ui" type="Control"]
+[node name="UI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,6 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("1_0em6u")
+script = ExtResource("2_cliky")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -55,6 +57,7 @@ mouse_filter = 1
 [node name="Menu Button" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer" instance=ExtResource("2_panbd")]
 layout_mode = 2
 text = "Replayable!"
+setting = 1
 
 [node name="Menu Button2" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer" instance=ExtResource("2_panbd")]
 layout_mode = 2
