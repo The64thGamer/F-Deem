@@ -61,7 +61,7 @@ public partial class Player : CharacterBody3D
 			PhysicsRayQueryParameters3D query = PhysicsRayQueryParameters3D.Create(currentCamera.GlobalPosition, currentCamera.GlobalPosition + currentCamera.ProjectRayNormal(GetViewport().GetMousePosition()) * 1000);
 			query.CollisionMask = 0b00000000_00000000_00000000_00000001;
 			Godot.Collections.Dictionary result = spaceState.IntersectRay(query);
-			if (result.Count > 0 && (Vector3)result["position"] != GlobalPosition)
+			if (result.Count > 0 && !((Vector3)result["position"]).Equals(GlobalPosition))
 			{
 				Vector3 oldRot = GlobalRotation;
 				LookAt((Vector3)result["position"]);
@@ -70,7 +70,7 @@ public partial class Player : CharacterBody3D
 		}
 		else
 		{		
-			Rotation = new Vector3(0,Mathf.LerpAngle(Rotation.Y,currentCamera.GlobalRotation.Y,(float)delta*velocity.Length()*2),0);
+			Rotation = new Vector3(0,currentCamera.GlobalRotation.Y,0);
 		}
 
         Vector3 direction;
@@ -105,8 +105,8 @@ public partial class Player : CharacterBody3D
 
 	void RandomizePieceColors()
 	{
-		uint randA = GD.Randi() % 26;
-		uint randB = GD.Randi() % 26;
+		uint randA = GD.Randi() % 27;
+		uint randB = GD.Randi() % 27;
 		for (int i = 0; i < playerPieces.GetChildCount(); i++)
 		{
 			Piece piece = playerPieces.GetChild<Piece>(i);

@@ -5,6 +5,8 @@ public partial class Enemy : CharacterBody3D
 {
 	[Export] Node3D playerPieces;
 	[Export] public Node3D currentTarget;
+	[Export] float initHealth;
+	float currentHealth;
 	const float Speed = 5.0f;
 	const float gravity = 50;
 	const float minRandWalkTime = 1.0f;
@@ -25,6 +27,7 @@ public partial class Enemy : CharacterBody3D
 
     public override void _Ready()
     {      
+		currentHealth = initHealth;
 		for (int i = 0; i < playerPieces.GetChildCount(); i++)
 		{
 			Piece piece = playerPieces.GetChild<Piece>(i);
@@ -105,8 +108,8 @@ public partial class Enemy : CharacterBody3D
 
 	void RandomizePieceColors()
 	{
-		uint randA = GD.Randi() % 26;
-		uint randB = GD.Randi() % 26;
+		uint randA = GD.Randi() % 27;
+		uint randB = GD.Randi() % 27;
 		for (int i = 0; i < playerPieces.GetChildCount(); i++)
 		{
 			Piece piece = playerPieces.GetChild<Piece>(i);
@@ -143,4 +146,19 @@ public partial class Enemy : CharacterBody3D
 		}
 	}
 
+	public void AddDamage(int health)
+	{
+		(GetChild(2) as AudioStreamPlayer3D).Stream = GD.Load<AudioStream>("res://Sounds/Pain Test.wav");
+		(GetChild(2) as AudioStreamPlayer3D).Play();
+		currentHealth += health;
+		if(currentHealth <= 0)
+		{
+			Die();
+		}
+	}
+
+	public void Die()
+	{
+		QueueFree();
+	}
 }

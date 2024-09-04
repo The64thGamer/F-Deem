@@ -23,6 +23,7 @@ public partial class Gun : Node3D
 		if(battleMode && Input.IsActionPressed("Action") && cooldown == 0)
         {
 			cooldown = setCooldown;
+			(GetChild(0) as AudioStreamPlayer3D).Stream = GD.Load<AudioStream>("res://Sounds/Magic Missle.wav");
 			(GetChild(0) as AudioStreamPlayer3D).Play();
 			PhysicsDirectSpaceState3D spaceState = GetWorld3D().DirectSpaceState;
 			PhysicsRayQueryParameters3D query = PhysicsRayQueryParameters3D.Create(GlobalPosition, GlobalPosition - (GlobalBasis.Z*1000));
@@ -33,14 +34,21 @@ public partial class Gun : Node3D
 				Node resultNode = (Node)result["collider"];
 				if(resultNode != null)
 				{
-					GD.Print(resultNode.Name);
-					(GetChild(0) as AudioStreamPlayer3D).Stream = GD.Load<AudioStream>("res://Sounds/Explode.wav");
-					(GetChild(0) as AudioStreamPlayer3D).Play();
+					if(resultNode is Enemy)
+					{
+						(resultNode as Enemy).AddDamage(-25);
+					}
+					else
+					{
+						(GetChild(0) as AudioStreamPlayer3D).Stream = GD.Load<AudioStream>("res://Sounds/Explode.wav");
+						(GetChild(0) as AudioStreamPlayer3D).Play();
+						Enemy spawn = GD.Load<PackedScene>("res://Prefabs/Enemy.tscn").Instantiate() as Enemy;
+						GetTree().Root.AddChild(spawn);
+						spawn.currentTarget = this;
+						spawn.GlobalPosition = (Vector3)result["position"];
+					}
 
-					Enemy spawn = GD.Load<PackedScene>("res://Prefabs/Enemy.tscn").Instantiate() as Enemy;
-					GetTree().Root.AddChild(spawn);
-					spawn.currentTarget = this;
-					spawn.GlobalPosition = (Vector3)result["position"];
+					
 				}
 			}
 		}

@@ -116,6 +116,11 @@ transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, 
 script = ExtResource("2_e3hlk")
 pieceColor = 6
 
+[node name="Horse Head22" parent="." instance=ExtResource("1_ie1tq")]
+transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -17, 6, 6)
+script = ExtResource("2_e3hlk")
+pieceColor = 26
+
 [node name="Horse Head25" parent="." instance=ExtResource("1_ie1tq")]
 transform = Transform3D(-4.37114e-06, 0, 100, 0, 100, 0, -100, 0, -4.37114e-06, -19, 6, 6)
 script = ExtResource("2_e3hlk")

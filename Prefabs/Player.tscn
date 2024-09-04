@@ -40,3 +40,4 @@ pieceColor = 5
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 2)
 
 [node name="Gun" parent="." instance=ExtResource("6_y855l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)

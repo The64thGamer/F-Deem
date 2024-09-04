@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctrj3m4drfqlt"]
+[gd_scene load_steps=13 format=3 uid="uid://ctrj3m4drfqlt"]
 
 [ext_resource type="PackedScene" uid="uid://doq1dunqiiotr" path="res://Prefabs/Player.tscn" id="2_v4f0i"]
 [ext_resource type="Script" path="res://Scripts/Camera.cs" id="3_x8u0p"]
 [ext_resource type="PackedScene" uid="uid://jwh880k4vgkh" path="res://Prefabs/Enemy.tscn" id="3_y2gcm"]
 [ext_resource type="PackedScene" uid="uid://dvt5vff0wbm72" path="res://Prefabs/UI/UI.tscn" id="7_i0gl2"]
+[ext_resource type="PackedScene" uid="uid://dv33vmdra7y2s" path="res://Scenes/Sets/Red.tscn" id="8_eqpoh"]
 [ext_resource type="PackedScene" uid="uid://cpcal5nkkrdda" path="res://Scenes/Sets/Ruins.tscn" id="8_o85i3"]
 [ext_resource type="PackedScene" uid="uid://bjo550wbqdlpr" path="res://Scenes/Sets/Ramp Ruins.tscn" id="10_c2e0n"]
 [ext_resource type="PackedScene" uid="uid://t2ihxsglrl5c" path="res://Scenes/Sets/Stable.tscn" id="11_qmqg7"]
@@ -46,6 +47,7 @@ script = ExtResource("3_x8u0p")
 target = NodePath("../../../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_v4f0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("currentTarget") instance=ExtResource("3_y2gcm")]
 currentTarget = NodePath("../Player")
@@ -69,10 +71,34 @@ shape = SubResource("WorldBoundaryShape3D_oah8o")
 [node name="Ui" parent="." instance=ExtResource("7_i0gl2")]
 
 [node name="Node3D" parent="." instance=ExtResource("8_o85i3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 1)
+
+[node name="Node3D7" parent="." instance=ExtResource("8_o85i3")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 53, 0, 51)
 
 [node name="Node3D2" parent="." instance=ExtResource("10_c2e0n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 18)
 
+[node name="Node3D8" parent="." instance=ExtResource("10_c2e0n")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 72, 0, 17)
+
+[node name="Node3D9" parent="." instance=ExtResource("10_c2e0n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 88, 0, 17)
+
+[node name="Node3D10" parent="." instance=ExtResource("10_c2e0n")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 72, 0, 1)
+
+[node name="Node3D11" parent="." instance=ExtResource("10_c2e0n")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 88, 0, 1)
+
 [node name="Node3D3" parent="." instance=ExtResource("11_qmqg7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 0, 17)
+
+[node name="Node3D4" parent="." instance=ExtResource("8_eqpoh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 0, 15)
+
+[node name="Node3D5" parent="." instance=ExtResource("8_eqpoh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 30)
+
+[node name="Node3D6" parent="." instance=ExtResource("8_eqpoh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 38)

@@ -34,6 +34,7 @@ public partial class Piece : Node
 		trans_rights_blue,
 		trans_rights_pink,
 		trans_rights_black,
+		lumen,
 		none,
 	}
 	const string materialPaths = "res://Materials/";

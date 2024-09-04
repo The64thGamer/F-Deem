@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvt5vff0wbm72"]
+[gd_scene load_steps=11 format=3 uid="uid://dvt5vff0wbm72"]
 
 [ext_resource type="Theme" uid="uid://cflj1gw0d2yp6" path="res://UI/OFH.tres" id="1_0em6u"]
 [ext_resource type="Texture2D" uid="uid://ct6l7idj3yb1q" path="res://UI/Logo 4K.png" id="2_5hple"]
@@ -7,6 +7,9 @@
 [ext_resource type="Theme" uid="uid://cvqve1ajdsx34" path="res://UI/OFH Accent.tres" id="2_sroed"]
 [ext_resource type="Texture2D" uid="uid://uk4bf78yxg82" path="res://UI/Paper Overlay.jpg" id="5_0ibaq"]
 [ext_resource type="Shader" path="res://Shaders/Multiply UI.gdshader" id="5_2g1y1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6f1p"]
+bg_color = Color(0.215427, 0.152895, 0.246693, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5cdr"]
 bg_color = Color(0.811917, 0.670726, 0.290166, 1)
@@ -26,6 +29,15 @@ grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("1_0em6u")
 script = ExtResource("2_cliky")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t6f1p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
