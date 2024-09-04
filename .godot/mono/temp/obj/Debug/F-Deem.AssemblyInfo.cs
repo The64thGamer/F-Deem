@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("F-Deem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e5a0b8355b5756f0e90cd630c8a6dfedcf8529e7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10b8790706b9856be04b64dcc6e0ceab37fbee19")]
 [assembly: System.Reflection.AssemblyProductAttribute("F-Deem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("F-Deem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

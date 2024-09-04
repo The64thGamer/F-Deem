@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvkd4g1pna01q"]
+
+[ext_resource type="PackedScene" uid="uid://dtriauepijy8v" path="res://Prefabs/Parts/1x1.tscn" id="1_0mw0c"]
+
+[node name="TestMarker" type="Node3D"]
+
+[node name="1x1" parent="." instance=ExtResource("1_0mw0c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1, 0.5)
+pieceColor = 26

@@ -7,6 +7,7 @@ public partial class Enemy : CharacterBody3D
 	[Export] public Node3D currentTarget;
 	[Export] float initHealth;
 	float currentHealth;
+	float currentSpeed;
 	const float Speed = 5.0f;
 	const float gravity = 50;
 	const float minRandWalkTime = 1.0f;
@@ -26,7 +27,8 @@ public partial class Enemy : CharacterBody3D
 	};
 
     public override void _Ready()
-    {      
+    {    
+		currentSpeed = Speed;
 		currentHealth = initHealth;
 		for (int i = 0; i < playerPieces.GetChildCount(); i++)
 		{
@@ -51,21 +53,21 @@ public partial class Enemy : CharacterBody3D
 		if(moveTimer == 0)
 		{
 			moveTimer = (GD.Randf() * (maxRandWalkTime-minRandWalkTime)) + minRandWalkTime;
-			currentDirection = currentTarget.GlobalPosition - this.GlobalPosition;
-				currentDirection = currentDirection.Normalized();
-				float newAngle = float.MaxValue;
-				float angle;
-				int finalIndex = 0;
-				for (int i = 0; i < directions.Length; i++)
+			currentDirection = (currentTarget.GlobalPosition - this.GlobalPosition).Normalized();
+
+			float newAngle = float.MaxValue;
+			float angle;
+			int finalIndex = 0;
+			for (int i = 0; i < directions.Length; i++)
+			{
+				angle = currentDirection.AngleTo(directions[i]);
+				if (angle < newAngle)
 				{
-					angle = currentDirection.AngleTo(directions[i]);
-					if (angle < newAngle)
-					{
-						newAngle = angle;
-						finalIndex = i;
-					}
+					newAngle = angle;
+					finalIndex = i;
 				}
-				currentDirection = directions[finalIndex];
+			}
+			currentDirection = directions[finalIndex];
 		}
 		if((currentTarget.GlobalPosition - this.GlobalPosition).Length() < 3.5f)
 		{
@@ -82,6 +84,7 @@ public partial class Enemy : CharacterBody3D
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector3 velocity = Velocity;
+		currentSpeed = Mathf.Lerp(currentSpeed,Speed,(float)delta*2);
 
 		if (!IsOnFloor())
 			velocity.Y -= gravity * (float)delta;
@@ -93,8 +96,8 @@ public partial class Enemy : CharacterBody3D
 
         if (currentDirection != Vector3.Zero)
 		{
-			velocity.X = currentDirection.X * Speed;
-			velocity.Z = currentDirection.Z * Speed;
+			velocity.X = currentDirection.X * currentSpeed;
+			velocity.Z = currentDirection.Z * currentSpeed;
 		}
 		else
 		{
@@ -151,6 +154,8 @@ public partial class Enemy : CharacterBody3D
 		(GetChild(2) as AudioStreamPlayer3D).Stream = GD.Load<AudioStream>("res://Sounds/Pain Test.wav");
 		(GetChild(2) as AudioStreamPlayer3D).Play();
 		currentHealth += health;
+		Velocity = new Vector3(0,Velocity.Y,0);
+		currentSpeed = 0;
 		if(currentHealth <= 0)
 		{
 			Die();
