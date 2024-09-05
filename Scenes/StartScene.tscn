@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctrj3m4drfqlt"]
+[gd_scene load_steps=14 format=3 uid="uid://ctrj3m4drfqlt"]
 
 [ext_resource type="PackedScene" uid="uid://doq1dunqiiotr" path="res://Prefabs/Player.tscn" id="2_v4f0i"]
 [ext_resource type="Script" path="res://Scripts/Camera.cs" id="3_x8u0p"]
 [ext_resource type="PackedScene" uid="uid://jwh880k4vgkh" path="res://Prefabs/Enemy.tscn" id="3_y2gcm"]
 [ext_resource type="PackedScene" uid="uid://dvt5vff0wbm72" path="res://Prefabs/UI/UI.tscn" id="7_i0gl2"]
-[ext_resource type="PackedScene" uid="uid://dv33vmdra7y2s" path="res://Scenes/Sets/Red.tscn" id="8_eqpoh"]
+[ext_resource type="PackedScene" uid="uid://dv33vmdra7y2s" path="res://Scenes/Sets/Red Tree.tscn" id="8_eqpoh"]
 [ext_resource type="PackedScene" uid="uid://cpcal5nkkrdda" path="res://Scenes/Sets/Ruins.tscn" id="8_o85i3"]
+[ext_resource type="PackedScene" uid="uid://k4okbubehb4i" path="res://Scenes/Sets/Tux.tscn" id="9_k5j3f"]
 [ext_resource type="PackedScene" uid="uid://bjo550wbqdlpr" path="res://Scenes/Sets/Ramp Ruins.tscn" id="10_c2e0n"]
 [ext_resource type="PackedScene" uid="uid://t2ihxsglrl5c" path="res://Scenes/Sets/Stable.tscn" id="11_qmqg7"]
 
@@ -41,6 +42,7 @@ volumetric_fog_sky_affect = 0.0
 [node name="Pivot" type="Node3D" parent="Camera Parent"]
 
 [node name="Camera3D" type="Camera3D" parent="Camera Parent/Pivot" node_paths=PackedStringArray("target")]
+current = true
 fov = 90.0
 size = 20.047
 script = ExtResource("3_x8u0p")
@@ -102,3 +104,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 30)
 
 [node name="Node3D6" parent="." instance=ExtResource("8_eqpoh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 38)
+
+[node name="Node3D12" parent="." instance=ExtResource("9_k5j3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 55)

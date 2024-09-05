@@ -1,9 +1,29 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cvqve1ajdsx34"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cvqve1ajdsx34"]
+
+[ext_resource type="FontFile" uid="uid://dgwmu04ty8ss8" path="res://UI/Fonts/Logo.ttf" id="1_3obl0"]
+[ext_resource type="StyleBox" uid="uid://c105tsvtvpyxd" path="res://UI/TabBox.tres" id="2_bhvoq"]
+[ext_resource type="StyleBox" uid="uid://u5dej3avi8gg" path="res://UI/TabBoxDisabled.tres" id="2_cx2i2"]
+[ext_resource type="StyleBox" uid="uid://de6t0dw2qnxwv" path="res://UI/TabBoxUnselected.tres" id="3_t4x7h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1kva"]
 bg_color = Color(0.359233, 0.52, 0.2444, 1)
 
 [resource]
 HBoxContainer/constants/separation = 2
+Label/colors/font_color = Color(0.882353, 0.858824, 0.776471, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 0)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/fonts/font = ExtResource("1_3obl0")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_s1kva")
+TabContainer/colors/font_disabled_color = Color(0.388235, 0.478431, 0.670588, 1)
+TabContainer/colors/font_hovered_color = Color(0.882353, 0.858824, 0.776471, 1)
+TabContainer/colors/font_selected_color = Color(0.882353, 0.858824, 0.776471, 1)
+TabContainer/colors/font_unselected_color = Color(0.811765, 0.670588, 0.290196, 1)
+TabContainer/font_sizes/font_size = 24
+TabContainer/fonts/font = ExtResource("1_3obl0")
+TabContainer/styles/tab_disabled = ExtResource("2_cx2i2")
+TabContainer/styles/tab_focus = ExtResource("2_bhvoq")
+TabContainer/styles/tab_hovered = ExtResource("3_t4x7h")
+TabContainer/styles/tab_selected = ExtResource("2_bhvoq")
+TabContainer/styles/tab_unselected = ExtResource("3_t4x7h")
 VBoxContainer/constants/separation = 2

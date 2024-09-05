@@ -1,7 +1,14 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cflj1gw0d2yp6"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cflj1gw0d2yp6"]
 
 [ext_resource type="FontFile" uid="uid://begsvepmjkbul" path="res://UI/Fonts/Text Light.otf" id="1_hxicm"]
 [ext_resource type="StyleBox" uid="uid://ciqvgwg1mseld" path="res://Prefabs/UI/Box Empty.tres" id="2_kkiv6"]
+[ext_resource type="FontFile" uid="uid://cgbd7qgqs7mfg" path="res://UI/Fonts/Text.otf" id="3_ha7tp"]
+[ext_resource type="StyleBox" uid="uid://c105tsvtvpyxd" path="res://UI/TabBox.tres" id="4_q1686"]
+
+[sub_resource type="FontVariation" id="FontVariation_t1yq7"]
+base_font = ExtResource("1_hxicm")
+spacing_glyph = 2
+spacing_space = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kv3j"]
 bg_color = Color(0.880973, 0.8569, 0.776367, 1)
@@ -24,5 +31,15 @@ Button/styles/hover_pressed_mirrored = ExtResource("2_kkiv6")
 Button/styles/normal = ExtResource("2_kkiv6")
 Button/styles/pressed = ExtResource("2_kkiv6")
 HBoxContainer/constants/separation = 2
+Label/colors/font_color = Color(0.388235, 0.478431, 0.670588, 1)
+Label/colors/font_outline_color = Color(0.215686, 0.152941, 0.247059, 1)
+Label/colors/font_shadow_color = Color(0.3886, 0.47771, 0.67, 0.588235)
+Label/constants/outline_size = 2
+Label/constants/shadow_offset_x = 2
+Label/constants/shadow_offset_y = 1
+Label/font_sizes/font_size = 24
+Label/fonts/font = SubResource("FontVariation_t1yq7")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_8kv3j")
+TabContainer/fonts/font = ExtResource("3_ha7tp")
+TabContainer/styles/tab_selected = ExtResource("4_q1686")
 VBoxContainer/constants/separation = 2

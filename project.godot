@@ -129,3 +129,4 @@ Inventory={
 [rendering]
 
 anti_aliasing/quality/msaa_3d=2
+mesh_lod/lod_change/threshold_pixels=5.0

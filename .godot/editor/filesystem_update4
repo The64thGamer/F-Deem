@@ -48,3 +48,7 @@ res://Materials/trans_rights_pink.tres
 res://Materials/trans_rights_black.tres
 res://Materials/lumen.tres
 res://Prefabs/TestMarker.tscn
+res://Scenes/Sets/Tux.tscn
+res://Prefabs/UI/Options.tscn
+res://UI/TabBox.tres
+res://UI/TabBoxUnselected.tres

@@ -38,7 +38,7 @@ _subresources={
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 0.0,
-"lods/normal_split_angle": 1.0,
+"lods/normal_split_angle": 0.0,
 "save_to_file/enabled": false,
 "save_to_file/path": ""
 }
