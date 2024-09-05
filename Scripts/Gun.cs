@@ -31,7 +31,7 @@ public partial class Gun : Node3D
 			query.CollisionMask = 0b00000000_00000000_00000000_00000111;
 			Godot.Collections.Array<Enemy> enemyHits = new Godot.Collections.Array<Enemy>();
 
-			for (int i = -90; i < 91; i++)
+			for (int i = -69; i < 70; i++)
 			{
 				query.To = (GlobalPosition - (GlobalBasis.Z*500)).Rotated(this.GlobalBasis.X.Normalized(),Mathf.DegToRad(i));
 				Godot.Collections.Dictionary result = spaceState.IntersectRay(query);
