@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvt5vff0wbm72"]
+[gd_scene load_steps=12 format=3 uid="uid://dvt5vff0wbm72"]
 
 [ext_resource type="Theme" uid="uid://cflj1gw0d2yp6" path="res://UI/OFH.tres" id="1_0em6u"]
 [ext_resource type="Texture2D" uid="uid://ct6l7idj3yb1q" path="res://UI/Logo 4K.png" id="2_5hple"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://cvqve1ajdsx34" path="res://UI/OFH Accent.tres" id="2_sroed"]
 [ext_resource type="Texture2D" uid="uid://uk4bf78yxg82" path="res://UI/Paper Overlay.jpg" id="5_0ibaq"]
 [ext_resource type="Shader" path="res://Shaders/Multiply UI.gdshader" id="5_2g1y1"]
+[ext_resource type="PackedScene" uid="uid://dq7ctse1wq8rp" path="res://Prefabs/UI/Options.tscn" id="8_rva5w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6f1p"]
 bg_color = Color(0.215427, 0.152895, 0.246693, 1)
@@ -120,3 +121,6 @@ mouse_filter = 2
 texture = ExtResource("5_0ibaq")
 expand_mode = 1
 stretch_mode = 6
+
+[node name="Options" parent="." instance=ExtResource("8_rva5w")]
+layout_mode = 1

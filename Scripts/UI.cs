@@ -7,11 +7,23 @@ public partial class UI : Control
 	public override void _Ready()
 	{
 		OpenMenu();
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if(Input.IsActionJustPressed("Pause"))
+		{
+			if(Visible)
+			{
+				CloseMenu();
+			}
+			else
+			{
+				OpenMenu();
+			}
+		}
 	}
 
 	public void CloseMenu()

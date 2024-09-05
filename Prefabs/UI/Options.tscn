@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dq7ctse1wq8rp"]
+[gd_scene load_steps=9 format=3 uid="uid://dq7ctse1wq8rp"]
 
 [ext_resource type="Theme" uid="uid://cflj1gw0d2yp6" path="res://UI/OFH.tres" id="1_f1hpr"]
 [ext_resource type="Script" path="res://Scripts/UI.cs" id="2_ibic7"]
 [ext_resource type="Theme" uid="uid://cvqve1ajdsx34" path="res://UI/OFH Accent.tres" id="4_pr2ax"]
+[ext_resource type="PackedScene" uid="uid://mlfk76qy41wi" path="res://Prefabs/UI/OptionsSlider.tscn" id="4_yhsqa"]
 [ext_resource type="Shader" path="res://Shaders/Multiply UI.gdshader" id="6_ub1b2"]
 [ext_resource type="Texture2D" uid="uid://uk4bf78yxg82" path="res://UI/Paper Overlay.jpg" id="7_ugj4a"]
 
@@ -23,7 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 theme = ExtResource("4_pr2ax")
 script = ExtResource("2_ibic7")
 
@@ -41,6 +42,7 @@ offset_right = 480.0
 offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7dqsh")
 
 [node name="Card" type="PanelContainer" parent="."]
@@ -57,6 +59,7 @@ offset_right = 480.0
 offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Visual" type="VBoxContainer" parent="Card"]
 layout_mode = 2
@@ -75,81 +78,15 @@ vertical_alignment = 1
 [node name="TabContainer" type="TabContainer" parent="Card/Visual"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
-
-[node name="Visual" type="PanelContainer" parent="Card/Visual/TabContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("1_f1hpr")
-metadata/_tab_index = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="Card/Visual/TabContainer/Visual"]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Card/Visual/TabContainer/Visual/MarginContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Card/Visual/TabContainer/Visual/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Card/Visual/TabContainer/Visual/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Needs More Lods"
-vertical_alignment = 1
-
-[node name="HSlider" type="HSlider" parent="Card/Visual/TabContainer/Visual/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-
-[node name="CheckBox" type="CheckBox" parent="Card/Visual/TabContainer/Visual/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Audio" type="PanelContainer" parent="Card/Visual/TabContainer"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("1_f1hpr")
-metadata/_tab_index = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="Card/Visual/TabContainer/Audio"]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Card/Visual/TabContainer/Audio/MarginContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Card/Visual/TabContainer/Audio/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Card/Visual/TabContainer/Audio/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Needs More Lods"
-vertical_alignment = 1
-
-[node name="HSlider" type="HSlider" parent="Card/Visual/TabContainer/Audio/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-
-[node name="CheckBox" type="CheckBox" parent="Card/Visual/TabContainer/Audio/MarginContainer/VBoxContainer"]
-layout_mode = 2
+current_tab = 1
 
 [node name="Gameplay" type="PanelContainer" parent="Card/Visual/TabContainer"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 theme = ExtResource("1_f1hpr")
-metadata/_tab_index = 2
+metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Card/Visual/TabContainer/Gameplay"]
 layout_mode = 2
@@ -161,22 +98,59 @@ theme_override_constants/margin_bottom = 50
 [node name="VBoxContainer" type="VBoxContainer" parent="Card/Visual/TabContainer/Gameplay/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Card/Visual/TabContainer/Gameplay/MarginContainer/VBoxContainer"]
+[node name="Video" type="PanelContainer" parent="Card/Visual/TabContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme = ExtResource("1_f1hpr")
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Card/Visual/TabContainer/Video"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Card/Visual/TabContainer/Video/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Card/Visual/TabContainer/Gameplay/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PlayerPrefSlider2" parent="Card/Visual/TabContainer/Video/MarginContainer/VBoxContainer" instance=ExtResource("4_yhsqa")]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Needs More Lods"
-vertical_alignment = 1
+maxValue = 25.0
+unsavedValue = 5.0
+step = 1.0
+startLabel = "There's no LODs!"
+middleLabels = ["Not enough LODs", "LODs too balanced", "I can see the LODs!"]
+endLabel = "LODs too polygonal!"
+action = 2
 
-[node name="HSlider" type="HSlider" parent="Card/Visual/TabContainer/Gameplay/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Audio" type="PanelContainer" parent="Card/Visual/TabContainer"]
+visible = false
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 3
+theme = ExtResource("1_f1hpr")
+metadata/_tab_index = 2
 
-[node name="CheckBox" type="CheckBox" parent="Card/Visual/TabContainer/Gameplay/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Card/Visual/TabContainer/Audio"]
 layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Card/Visual/TabContainer/Audio/MarginContainer"]
+layout_mode = 2
+
+[node name="PlayerPrefSlider" parent="Card/Visual/TabContainer/Audio/MarginContainer/VBoxContainer" instance=ExtResource("4_yhsqa")]
+layout_mode = 2
+
+[node name="PlayerPrefSlider2" parent="Card/Visual/TabContainer/Audio/MarginContainer/VBoxContainer" instance=ExtResource("4_yhsqa")]
+layout_mode = 2
+startLabel = "No Music???"
+middleLabels = ["Music Too Quiet...", "Music Pretty Quiet", "Music Is Noisy", "Music Is Very Noisy"]
+endLabel = "Music Too Loud!!!"
+action = 1
 
 [node name="Cardboard Filter" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_gxtct")

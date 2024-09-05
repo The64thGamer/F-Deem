@@ -52,3 +52,7 @@ res://Scenes/Sets/Tux.tscn
 res://Prefabs/UI/Options.tscn
 res://UI/TabBox.tres
 res://UI/TabBoxUnselected.tres
+res://Scripts/PlayerPrefSlider.cs
+res://addons/PlayerPrefs/PlayerPrefs.gd
+res://Prefabs/UI/OptionsSlider.tscn
+res://default_bus_layout.tres
