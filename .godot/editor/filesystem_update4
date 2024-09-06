@@ -1,9 +1,12 @@
+res://default_bus_layout.tres
 res://Scenes/StartScene.tscn
-res://UI/OFH.tres
-res://UI/OFH Accent.tres
+res://Shaders/Metallic.tres.gdshader
 res://Shaders/Multiply UI.gdshader
 res://Materials/white.tres
-res://Shaders/Metallic.tres.gdshader
+res://UI/TabBox.tres
+res://UI/OFH.tres
+res://UI/TabBoxUnselected.tres
+res://UI/OFH Accent.tres
 res://Materials/orange.tres
 res://Materials/soaked_green.tres
 res://Materials/gray.tres
@@ -12,47 +15,18 @@ res://Materials/green.tres
 res://Materials/soaked_orange.tres
 res://Materials/yellow.tres
 res://Materials/blue.tres
-res://Prefabs/UI/UI.tscn
-res://Prefabs/UI/Menu Button.tscn
-res://Prefabs/Player.tscn
-res://Scenes/Color Test.tscn
+res://Materials/red.tres
+res://Materials/lumen.tres
 res://Scripts/Camera.cs
-res://Scripts/Piece.cs
+res://Scripts/MenuButton.cs
 res://Scripts/Player.cs
 res://Scripts/Enemy.cs
 res://Scripts/UI.cs
 res://Scripts/ButtonHoverEffect.cs
-res://Scripts/MenuButton.cs
 res://Scripts/InventoryBox.cs
 res://Scripts/Gun.cs
-res://Prefabs/GenericGun.tscn
-res://Prefabs/Enemy.tscn
-res://Scenes/Sets/Red.tscn
-res://Materials/red.tres
-res://Materials/plated_orange.tres
-res://Scenes/Sets/Ruins.tscn
-res://Materials/tinged_yellow.tres
-res://Materials/tinged_green.tres
-res://Materials/tinged_blue.tres
-res://Materials/purple.tres
-res://Materials/pink.tres
-res://Materials/soaked_pink.tres
-res://Materials/plated_gray.tres
-res://Materials/plated_yellow.tres
-res://Materials/trans_rights_white.tres
-res://Materials/trans_rights_red.tres
-res://Materials/trans_rights_yellow.tres
-res://Materials/trans_rights_green.tres
-res://Materials/trans_rights_blue.tres
-res://Materials/trans_rights_pink.tres
-res://Materials/trans_rights_black.tres
-res://Materials/lumen.tres
-res://Prefabs/TestMarker.tscn
-res://Scenes/Sets/Tux.tscn
-res://Prefabs/UI/Options.tscn
-res://UI/TabBox.tres
-res://UI/TabBoxUnselected.tres
+res://Scripts/Piece.cs
 res://Scripts/PlayerPrefSlider.cs
-res://addons/PlayerPrefs/PlayerPrefs.gd
-res://Prefabs/UI/OptionsSlider.tscn
-res://default_bus_layout.tres
+res://Prefabs/UI/UI.tscn
+res://Prefabs/UI/Options.tscn
+res://Prefabs/Enemy.tscn

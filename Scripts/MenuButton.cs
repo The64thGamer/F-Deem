@@ -12,6 +12,7 @@ public partial class MenuButton : Node
 		none,
 		closePauseMenu,
 		openPauseMenu,
+		toggleOptionsMenu,
 	}
 	string oldText;
 	// Called when the node enters the scene tree for the first time.
@@ -40,6 +41,9 @@ public partial class MenuButton : Node
 			case buttonSetting.openPauseMenu:
 				(GetChild(2) as Button).Pressed += () => ui.OpenMenu();
 			break;
+			case buttonSetting.toggleOptionsMenu:
+				(GetChild(2) as Button).Pressed += () => ui.ToggleOptionsMenu();
+				break;
 			default:
 			break;
 		}

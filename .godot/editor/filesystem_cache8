@@ -1,8 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1725517730
-ES.cs::CSharpScript::-1::1725517730::0::1::::<><>::
+::res://::1725647815
+default_bus_layout.tres::AudioBusLayout::8779095358061507910::1725522721::0::1::::<><>::
 README.md::TextFile::-1::1724828262::0::1::::<><>::
-::res://Addons/::1725517725
+::res://Addons/::1725517734
+ES.cs::CSharpScript::-1::1725520155::0::1::::<><>::
 ::res://Development/::1724799549
 TestSetRender2.png::CompressedTexture2D::3323673027618466890::1724521492::1724605062::1::::<><>::
 TestSetRender3.png::CompressedTexture2D::2827451782730306785::1724604964::1724605062::1::::<><>::
@@ -37,8 +38,8 @@ trans_rights_white.tres::StandardMaterial3D::8217831747030329580::1725474978::0:
 trans_rights_yellow.tres::StandardMaterial3D::8216110500893280709::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 white.tres::StandardMaterial3D::3341299404838252109::1725506634::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 yellow.tres::StandardMaterial3D::4691157481300061665::1725380905::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-::res://Models/::1725349346
-blender_assets.cats.txt::TextFile::-1::1725349346::0::1::::<><>::
+::res://Models/::1725646887
+blender_assets.cats.txt::TextFile::-1::1725646887::0::1::::<><>::
 ::res://Models/Parts (GLB)/::1725505519
 1x1.glb::PackedScene::7583105269830357879::1724631282::1725505519::1::::<><>::
 1x2.glb::PackedScene::9064168266086184421::1724631275::1725505519::1::::<><>::
@@ -71,10 +72,10 @@ Horse Tail.glb::PackedScene::2524268703136600561::1725085290::1725086794::1::::<
 Horse Tall Head.glb::PackedScene::5047459490267771161::1725085298::1725085340::1::::<><>::
 Peg Half Bone.glb::PackedScene::3155265610476014817::1724827093::1724827316::1::::<><>::
 ::res://Models/Parts (STL)/::1724924365
-::res://Prefabs/::1725481221
-Enemy.tscn::PackedScene::677601625864439147::1725481089::0::1::::<><>::res://Scripts/Enemy.cs<>uid://bo8e1f24c554n::::res://Prefabs/Parts/Horse Body Standing.tscn<>uid://catyhlprfht8q::::res://Prefabs/Parts/Horse Hair A.tscn<>uid://bfnde5noi5sxj::::res://Prefabs/Parts/Horse Head.tscn<>uid://d28xxjfs5l5ua::::res://Prefabs/Parts/Horse Tail.tscn
-GenericGun.tscn::PackedScene::6909124970121094031::1725481088::0::1::::<><>::res://Scripts/Gun.cs<>uid://tr1rtqnioab5::::res://Sounds/Magic Missle.wav
-Player.tscn::PackedScene::8176520976557804751::1725481088::0::1::::<><>::res://Scripts/Player.cs<>uid://bo8e1f24c554n::::res://Prefabs/Parts/Horse Body Standing.tscn<>uid://catyhlprfht8q::::res://Prefabs/Parts/Horse Hair A.tscn<>uid://bfnde5noi5sxj::::res://Prefabs/Parts/Horse Head.tscn<>uid://d28xxjfs5l5ua::::res://Prefabs/Parts/Horse Tail.tscn<>uid://c5o3jqk3aqj00::::res://Prefabs/GenericGun.tscn
+::res://Prefabs/::1725522524
+Enemy.tscn::PackedScene::677601625864439147::1725522524::0::1::::<><>::res://Scripts/Enemy.cs<>uid://bo8e1f24c554n::::res://Prefabs/Parts/Horse Body Standing.tscn<>uid://catyhlprfht8q::::res://Prefabs/Parts/Horse Hair A.tscn<>uid://bfnde5noi5sxj::::res://Prefabs/Parts/Horse Head.tscn<>uid://d28xxjfs5l5ua::::res://Prefabs/Parts/Horse Tail.tscn
+GenericGun.tscn::PackedScene::6909124970121094031::1725522524::0::1::::<><>::res://Scripts/Gun.cs<>uid://tr1rtqnioab5::::res://Sounds/Magic Missle.wav
+Player.tscn::PackedScene::8176520976557804751::1725522524::0::1::::<><>::res://Scripts/Player.cs<>uid://bo8e1f24c554n::::res://Prefabs/Parts/Horse Body Standing.tscn<>uid://catyhlprfht8q::::res://Prefabs/Parts/Horse Hair A.tscn<>uid://bfnde5noi5sxj::::res://Prefabs/Parts/Horse Head.tscn<>uid://d28xxjfs5l5ua::::res://Prefabs/Parts/Horse Tail.tscn<>uid://c5o3jqk3aqj00::::res://Prefabs/GenericGun.tscn
 TestMarker.tscn::PackedScene::6267685156330970520::1725481221::0::1::::<><>::uid://dtriauepijy8v::::res://Prefabs/Parts/1x1.tscn
 ::res://Prefabs/Parts/::1725150757
 1x1.tscn::PackedScene::8528431295301891583::1724735365::0::1::::<><>::uid://dgbkvvc71msqp::::res://Models/Parts (GLB)/1x1.glb<>res://Scripts/Piece.cs
@@ -104,13 +105,13 @@ Horse Body Standing.tscn::PackedScene::3437478564770104911::1725150757::0::1::::
 Horse Hair A.tscn::PackedScene::4813534854805367206::1724740373::0::1::::<><>::uid://yktnn05coql0::::res://Models/Parts (GLB)/Horse Hair A.glb<>res://Scripts/Piece.cs<>uid://bnusyii3vnp38::::res://Materials/white.tres
 Horse Head.tscn::PackedScene::2764392703270908111::1724740373::0::1::::<><>::uid://bv4bka34p3von::::res://Models/Parts (GLB)/Horse Head.glb<>res://Scripts/Piece.cs<>uid://bnusyii3vnp38::::res://Materials/white.tres
 Horse Tail.tscn::PackedScene::9123923340576160216::1725150757::0::1::::<><>::uid://bb71lpjikiqxd::::res://Models/Parts (GLB)/Horse Tail.glb<>res://Scripts/Piece.cs<>uid://bnusyii3vnp38::::res://Materials/white.tres
-::res://Prefabs/UI/::1725516793
+::res://Prefabs/UI/::1725522710
 Box Empty.tres::StyleBoxEmpty::5368669098147541913::1725333790::0::1::::<><>::
 Menu Button.tscn::PackedScene::7372707798986614756::1725474813::0::1::::<><>::res://Scripts/MenuButton.cs<>uid://cflj1gw0d2yp6::::res://UI/OFH.tres<>uid://dii32kt8wmnux::::res://UI/SlideUI.png<>uid://cf076uhnkpf1b::::res://UI/BulletPoint.png<>res://Scripts/ButtonHoverEffect.cs
-Options.tscn::PackedScene::8348499954298368373::1725516793::0::1::::<><>::uid://cflj1gw0d2yp6::::res://UI/OFH.tres<>res://Scripts/UI.cs<>uid://cvqve1ajdsx34::::res://UI/OFH Accent.tres<>uid://mlfk76qy41wi::::res://Prefabs/UI/OptionsSlider.tscn<>res://Shaders/Multiply UI.gdshader<>uid://uk4bf78yxg82::::res://UI/Paper Overlay.jpg
-OptionsSlider.tscn::PackedScene::865297451250278404::1725515863::0::1::::<><>::res://Scripts/PlayerPrefSlider.cs
+Options.tscn::PackedScene::8348499954298368373::1725522710::0::1::::<><>::uid://cflj1gw0d2yp6::::res://UI/OFH.tres<>res://Scripts/UI.cs<>uid://cvqve1ajdsx34::::res://UI/OFH Accent.tres<>uid://mlfk76qy41wi::::res://Prefabs/UI/OptionsSlider.tscn<>res://Shaders/Multiply UI.gdshader<>uid://uk4bf78yxg82::::res://UI/Paper Overlay.jpg
+OptionsSlider.tscn::PackedScene::865297451250278404::1725522524::0::1::::<><>::res://Scripts/PlayerPrefSlider.cs
 Print Box.tscn::PackedScene::8042613057810199903::1725229270::0::1::::<><>::res://Scripts/InventoryBox.cs<>uid://hl4ggoijdm6e::::res://UI/Slot Case.png<>uid://bgoxnkm4njyam::::res://UI/Slot Bar.png<>uid://b6jm1ius4pmvp::::res://UI/Slot Print Head.png
-UI.tscn::PackedScene::8674310227766227795::1725516745::0::1::::<><>::uid://cflj1gw0d2yp6::::res://UI/OFH.tres<>uid://ct6l7idj3yb1q::::res://UI/Logo 4K.png<>res://Scripts/UI.cs<>uid://ddbnoj32uji4c::::res://Prefabs/UI/Menu Button.tscn<>uid://cvqve1ajdsx34::::res://UI/OFH Accent.tres<>uid://uk4bf78yxg82::::res://UI/Paper Overlay.jpg<>res://Shaders/Multiply UI.gdshader
+UI.tscn::PackedScene::8674310227766227795::1725522524::0::1::::<><>::uid://cflj1gw0d2yp6::::res://UI/OFH.tres<>uid://ct6l7idj3yb1q::::res://UI/Logo 4K.png<>res://Scripts/UI.cs<>uid://ddbnoj32uji4c::::res://Prefabs/UI/Menu Button.tscn<>uid://cvqve1ajdsx34::::res://UI/OFH Accent.tres<>uid://uk4bf78yxg82::::res://UI/Paper Overlay.jpg<>res://Shaders/Multiply UI.gdshader<>uid://dq7ctse1wq8rp::::res://Prefabs/UI/Options.tscn
 ::res://Scenes/::1725500682
 Color Test.tscn::PackedScene::8074048830250767742::1725477272::0::1::::<><>::uid://bv4bka34p3von::::res://Models/Parts (GLB)/Horse Head.glb<>res://Scripts/Piece.cs
 StartScene.tscn::PackedScene::6142120948730838049::1725500682::0::1::::<><>::uid://doq1dunqiiotr::::res://Prefabs/Player.tscn<>res://Scripts/Camera.cs<>uid://jwh880k4vgkh::::res://Prefabs/Enemy.tscn<>uid://dvt5vff0wbm72::::res://Prefabs/UI/UI.tscn<>uid://dv33vmdra7y2s::::res://Scenes/Sets/Red Tree.tscn<>uid://cpcal5nkkrdda::::res://Scenes/Sets/Ruins.tscn<>uid://k4okbubehb4i::::res://Scenes/Sets/Tux.tscn<>uid://bjo550wbqdlpr::::res://Scenes/Sets/Ramp Ruins.tscn<>uid://t2ihxsglrl5c::::res://Scenes/Sets/Stable.tscn
@@ -129,11 +130,11 @@ InventoryBox.cs::CSharpScript::-1::1725334754::0::1::::<>Node<>::
 MenuButton.cs::CSharpScript::-1::1725342590::0::1::::<>Node<>::
 Piece.cs::CSharpScript::-1::1725475277::0::1::::<>Node<>::
 Player.cs::CSharpScript::-1::1725479822::0::1::::<>CharacterBody3D<>::
-PlayerPrefSlider.cs::CSharpScript::-1::1725516875::0::1::::<>Control<>::
-UI.cs::CSharpScript::-1::1725342415::0::1::::<>Control<>::
-::res://Shaders/::1725516793
-Metallic.tres.gdshader::Shader::-1::1725516793::0::1::::<><>::
-Multiply UI.gdshader::Shader::-1::1725516793::0::1::::<><>::
+PlayerPrefSlider.cs::CSharpScript::-1::1725522522::0::1::::<>Control<>::
+UI.cs::CSharpScript::-1::1725522118::0::1::::<>Control<>::
+::res://Shaders/::1725522730
+Metallic.tres.gdshader::Shader::-1::1725522730::0::1::::<><>::
+Multiply UI.gdshader::Shader::-1::1725522730::0::1::::<><>::
 ::res://Sounds/::1725392024
 Explode.wav::AudioStreamWAV::4155725012614604431::1725392001::1725392019::1::::<><>::
 Magic Missle.wav::AudioStreamWAV::1370292474512367696::1725386691::1725386700::1::::<><>::
@@ -168,3 +169,8 @@ Text Italic.otf::FontFile::5176508473636966738::1707668150::1725254354::1::::<><
 Text Light Italic.otf::FontFile::3023793790865715902::1707668150::1725254365::1::::<><>::
 Text Light.otf::FontFile::2680692966134502231::1707668150::1725254359::1::::<><>::
 Text.otf::FontFile::5196278953746433664::1707668150::1725254368::1::::<><>::
+::res://user:/::1725518729
+::res://user:/Your Precious Save Data/::1725518729
+::res://usr:/::1725519078
+::res://usr:/Your Precious Save Data/::1725522720
+Options.json::JSON::-1::1725522720::0::1::::<><>::

@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dq7ctse1wq8rp"]
+[gd_scene load_steps=8 format=3 uid="uid://dq7ctse1wq8rp"]
 
 [ext_resource type="Theme" uid="uid://cflj1gw0d2yp6" path="res://UI/OFH.tres" id="1_f1hpr"]
-[ext_resource type="Script" path="res://Scripts/UI.cs" id="2_ibic7"]
 [ext_resource type="Theme" uid="uid://cvqve1ajdsx34" path="res://UI/OFH Accent.tres" id="4_pr2ax"]
 [ext_resource type="PackedScene" uid="uid://mlfk76qy41wi" path="res://Prefabs/UI/OptionsSlider.tscn" id="4_yhsqa"]
 [ext_resource type="Shader" path="res://Shaders/Multiply UI.gdshader" id="6_ub1b2"]
@@ -14,7 +13,9 @@ shadow_size = 20
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gxtct"]
 shader = ExtResource("6_ub1b2")
-shader_parameter/alpha = 0.1
+shader_parameter/alphaA = 4.3
+shader_parameter/alphaB = 0.2
+shader_parameter/offset = Vector2(0.415, 0.26)
 shader_parameter/overlay = ExtResource("7_ugj4a")
 
 [node name="Options" type="Control"]
@@ -26,7 +27,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("4_pr2ax")
-script = ExtResource("2_ibic7")
 
 [node name="Shadow" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(960, 640)
@@ -152,6 +152,10 @@ middleLabels = ["Music Too Quiet...", "Music Pretty Quiet", "Music Is Noisy", "M
 endLabel = "Music Too Loud!!!"
 action = 1
 
+[node name="Keep this before Filter" type="BackBufferCopy" parent="."]
+position = Vector2(240, 160)
+copy_mode = 2
+
 [node name="Cardboard Filter" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_gxtct")
 custom_minimum_size = Vector2(960, 640)
@@ -161,6 +165,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -320.0
+offset_right = 480.0
+offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

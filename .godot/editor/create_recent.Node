@@ -1,3 +1,5 @@
+Control
+BackBufferCopy
 Label
 HBoxContainer
 HSlider
@@ -8,7 +10,5 @@ TabContainer
 PanelContainer
 AudioStreamPlayer3D
 Node3D
-Control
 TextureRect
 Container
-Button
