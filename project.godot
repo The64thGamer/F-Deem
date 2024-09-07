@@ -16,6 +16,12 @@ run/main_scene="res://Scenes/StartScene.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://UI/Icon.png"
 
+[autoload]
+
+FileSaver="*res://Scripts/FileSaver.cs"
+Console="*res://addons/sofiaconsole/Console.tscn"
+UI="*res://Prefabs/UI/UI.tscn"
+
 [display]
 
 window/size/viewport_width=1440

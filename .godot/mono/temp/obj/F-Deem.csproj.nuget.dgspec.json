@@ -55,6 +55,10 @@
             "GodotSharpEditor": {
               "target": "Package",
               "version": "[4.3.0, )"
+            },
+            "MemoryPack": {
+              "target": "Package",
+              "version": "[1.21.1, )"
             }
           },
           "imports": [

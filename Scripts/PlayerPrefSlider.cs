@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Linq;
+using Console = media.Laura.SofiaConsole.Console;
 
 [Tool]
 public partial class PlayerPrefSlider : Control
@@ -10,6 +11,7 @@ public partial class PlayerPrefSlider : Control
 	[Export] float maxValue;
 	[Export] float unsavedValue;
 	[Export] float step;
+	[Export] bool displayValue;
 	[ExportCategory("Labels")]
 	[Export] string startLabel;
 	[Export] Godot.Collections.Array<string> middleLabels;
@@ -21,6 +23,7 @@ public partial class PlayerPrefSlider : Control
 		volumeSound,
 		volumeMusic,
 		lods,
+		autoSave,
 	}
 
 	Slider slider;
@@ -46,12 +49,13 @@ public partial class PlayerPrefSlider : Control
 		{
 			slider.Value = unsavedValue;
 		}
+		UpdateValue(slider.Value);
 	}
 
 	void UpdateValue(double value)
 	{
 		ES.Save(action.ToString(),(float)value);
-		GD.Print(action.ToString() + " set to " + value);
+		Console.Instance.Print(action.ToString() + " set to " + value);
 
 		if(step == 1)
 		{
@@ -61,6 +65,7 @@ public partial class PlayerPrefSlider : Control
 		{
 			valueLabel.Text = value.ToString("0.###");
 		}
+		valueLabel.Visible = displayValue;
 
 		if(value == minValue)
 		{
@@ -86,6 +91,9 @@ public partial class PlayerPrefSlider : Control
 				break;
 			case PPSliderActions.volumeMusic:
 				AudioServer.SetBusVolumeDb(1,Mathf.LinearToDb((float)slider.Value));
+				break;
+			case PPSliderActions.autoSave:
+				
 				break;
 			default:
 			GD.PrintErr("You forgot to implement this action!!! (" + action.ToString() + ")");

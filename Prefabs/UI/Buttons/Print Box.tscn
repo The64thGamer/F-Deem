@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmt5wrkdm32dn"]
+
+[ext_resource type="Script" path="res://Scripts/InventoryBox.cs" id="1_ykq28"]
+[ext_resource type="Texture2D" uid="uid://hl4ggoijdm6e" path="res://UI/Slot Case.png" id="2_wa2ok"]
+[ext_resource type="Texture2D" uid="uid://bgoxnkm4njyam" path="res://UI/Slot Bar.png" id="3_xyr23"]
+[ext_resource type="Texture2D" uid="uid://b6jm1ius4pmvp" path="res://UI/Slot Print Head.png" id="4_j764a"]
+
+[node name="Print Box" type="Node2D"]
+position = Vector2(2, 0)
+script = ExtResource("1_ykq28")
+
+[node name="Inventory Box" type="TextureRect" parent="."]
+offset_left = 192.0
+offset_top = 152.0
+offset_right = 267.0
+offset_bottom = 227.0
+texture = ExtResource("2_wa2ok")
+expand_mode = 1
+
+[node name="Image Bar" type="TextureRect" parent="Inventory Box"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = -71.0
+offset_right = 75.0
+offset_bottom = 4.0
+texture = ExtResource("3_xyr23")
+expand_mode = 1
+
+[node name="Image Print Head" type="TextureRect" parent="Inventory Box/Image Bar"]
+layout_mode = 0
+offset_left = -3.30879
+offset_right = 71.6912
+offset_bottom = 75.0
+texture = ExtResource("4_j764a")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="Inventory Box"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 75.0
+offset_bottom = 69.0
+
+[node name="Inventory Box2" type="TextureRect" parent="Inventory Box/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.5
+offset_top = -66.0
+offset_right = 32.5
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 6

@@ -1,7 +1,8 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cflj1gw0d2yp6"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cflj1gw0d2yp6"]
 
 [ext_resource type="FontFile" uid="uid://begsvepmjkbul" path="res://UI/Fonts/Text Light.otf" id="1_hxicm"]
-[ext_resource type="StyleBox" uid="uid://ciqvgwg1mseld" path="res://Prefabs/UI/Box Empty.tres" id="2_kkiv6"]
+[ext_resource type="StyleBox" uid="uid://ciqvgwg1mseld" path="res://UI/Box Empty.tres" id="2_kkiv6"]
+[ext_resource type="StyleBox" uid="uid://cu6b85m1ska6l" path="res://UI/LineEditBox.tres" id="3_bu05n"]
 [ext_resource type="FontFile" uid="uid://cgbd7qgqs7mfg" path="res://UI/Fonts/Text.otf" id="3_ha7tp"]
 [ext_resource type="StyleBox" uid="uid://c105tsvtvpyxd" path="res://UI/TabBox.tres" id="4_q1686"]
 
@@ -69,6 +70,13 @@ Label/constants/shadow_offset_x = 2
 Label/constants/shadow_offset_y = 1
 Label/font_sizes/font_size = 24
 Label/fonts/font = SubResource("FontVariation_t1yq7")
+LineEdit/colors/font_color = Color(0.882353, 0.858824, 0.776471, 1)
+LineEdit/colors/font_placeholder_color = Color(0.709804, 0.423529, 0.184314, 1)
+LineEdit/font_sizes/font_size = 24
+LineEdit/fonts/font = ExtResource("1_hxicm")
+LineEdit/styles/focus = ExtResource("3_bu05n")
+LineEdit/styles/normal = ExtResource("3_bu05n")
+LineEdit/styles/read_only = ExtResource("3_bu05n")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_8kv3j")
 TabContainer/fonts/font = ExtResource("3_ha7tp")
 TabContainer/styles/tab_selected = ExtResource("4_q1686")

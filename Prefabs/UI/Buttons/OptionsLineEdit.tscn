@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://56jlvllqa5iw"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerPrefString.cs" id="1_5km5g"]
+
+[node name="PlayerPrefSlider2" type="HBoxContainer"]
+script = ExtResource("1_5km5g")
+unsavedValue = "My World"
+text = "World Name"
+prefName = "worldName"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "World Name"
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "fwfew"
+placeholder_text = "My World"
+alignment = 2

@@ -1,0 +1,79 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cavh1cbw5jtn"]
+
+[ext_resource type="FontFile" uid="uid://begsvepmjkbul" path="res://UI/Fonts/Text Light.otf" id="1_omaiq"]
+[ext_resource type="StyleBox" uid="uid://dr0exoik42351" path="res://UI/Box Green.tres" id="3_4w6p3"]
+[ext_resource type="StyleBox" uid="uid://cu6b85m1ska6l" path="res://UI/LineEditBox.tres" id="3_irk3g"]
+[ext_resource type="FontFile" uid="uid://cgbd7qgqs7mfg" path="res://UI/Fonts/Text.otf" id="4_l1otn"]
+[ext_resource type="StyleBox" uid="uid://b57wxw32uon40" path="res://UI/Box Blue.tres" id="4_n20at"]
+[ext_resource type="StyleBox" uid="uid://c105tsvtvpyxd" path="res://UI/TabBox.tres" id="5_53edh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dpmn"]
+bg_color = Color(0.709804, 0.423529, 0.184314, 1)
+border_color = Color(0.811765, 0.670588, 0.290196, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81ycp"]
+bg_color = Color(0.811765, 0.670588, 0.290196, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0a2t0"]
+bg_color = Color(0.215686, 0.152941, 0.247059, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.215427, 0.152895, 0.246693, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="FontVariation" id="FontVariation_dm3la"]
+base_font = ExtResource("1_omaiq")
+spacing_space = 4
+
+[resource]
+Button/colors/font_color = Color(0.215427, 0.152895, 0.246693, 1)
+Button/colors/font_focus_color = Color(0.215686, 0.152941, 0.247059, 1)
+Button/colors/font_hover_color = Color(0.215686, 0.152941, 0.247059, 1)
+Button/colors/font_outline_color = Color(0.815824, 0.670726, 0.294087, 1)
+Button/constants/outline_size = 10
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_omaiq")
+Button/styles/disabled = ExtResource("4_n20at")
+Button/styles/disabled_mirrored = ExtResource("4_n20at")
+Button/styles/focus = ExtResource("3_4w6p3")
+Button/styles/hover = ExtResource("3_4w6p3")
+Button/styles/hover_mirrored = ExtResource("3_4w6p3")
+Button/styles/hover_pressed = ExtResource("3_4w6p3")
+Button/styles/hover_pressed_mirrored = ExtResource("4_n20at")
+Button/styles/normal = ExtResource("4_n20at")
+Button/styles/pressed = ExtResource("3_4w6p3")
+HBoxContainer/constants/separation = 2
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_7dpmn")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_81ycp")
+HSlider/styles/slider = SubResource("StyleBoxFlat_0a2t0")
+Label/colors/font_color = Color(0.215427, 0.152895, 0.246693, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 0)
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 16
+Label/fonts/font = SubResource("FontVariation_dm3la")
+LineEdit/colors/font_color = Color(0.882353, 0.858824, 0.776471, 1)
+LineEdit/colors/font_placeholder_color = Color(0.709804, 0.423529, 0.184314, 1)
+LineEdit/font_sizes/font_size = 24
+LineEdit/fonts/font = ExtResource("1_omaiq")
+LineEdit/styles/focus = ExtResource("3_irk3g")
+LineEdit/styles/normal = ExtResource("3_irk3g")
+LineEdit/styles/read_only = ExtResource("3_irk3g")
+PanelContainer/styles/panel = ExtResource("4_n20at")
+TabContainer/fonts/font = ExtResource("4_l1otn")
+TabContainer/styles/tab_selected = ExtResource("5_53edh")
+VBoxContainer/constants/separation = 2
