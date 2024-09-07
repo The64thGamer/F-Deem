@@ -1,7 +1,7 @@
 
 # Oh Funny Horse!
 <p align="center">
-  <img width="20%" src="UI/Icon.png">
+  <img width="70%" src="UI/Logo 4K.png">
 </p>
 
 > [!NOTE]
@@ -14,5 +14,8 @@ All of the game's 3D assets are made to be 3D print compatible. In the ```/Model
 
 # Compiling
 The software uses Godot 4.3 C# to run. The project folder also may need to be set as "F-Deem" to properly compile.
+
+The NuGet package "MemoryPack" will also need to be installed. If you have VSCode just paste this into the terminal.
+```dotnet add package MemoryPack --version 1.21.1```
 
 ![image](Development/TestSetRender3.png)
