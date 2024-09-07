@@ -63,7 +63,9 @@ public partial class FileSaver : Node
 		Console.Instance.Print("Saving World Data: " + data);
 
 		//Create 
-		FileAccess.Open(savePath + hashFolderName + "/" + worldSaveDataFile, FileAccess.ModeFlags.Write).StoreString(Json.Stringify(data));
+		FileAccess f = FileAccess.Open(savePath + hashFolderName + "/" + worldSaveDataFile, FileAccess.ModeFlags.Write);
+		f.StoreString(Json.Stringify(data));
+		f.Flush();
 		if(alsoLoadFile)
 		{
 			loadedWorldData = data;

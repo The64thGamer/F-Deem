@@ -72,7 +72,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="History" type="PanelContainer" parent="ConsoleCanvas/Background/Window/Content"]
+custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ConsoleCanvas/Background/Window/Content/History"]
