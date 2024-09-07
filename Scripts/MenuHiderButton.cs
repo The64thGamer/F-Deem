@@ -1,7 +1,6 @@
 using Godot;
 using System;
 
-[Tool]
 public partial class MenuHiderButton : Button
 {
 	UI ui;

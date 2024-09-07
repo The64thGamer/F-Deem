@@ -117,8 +117,14 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="World Button Container" type="VBoxContainer" parent="Card/Visual/TabContainer/Collection/HBoxContainer/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Card/Visual/TabContainer/Collection/HBoxContainer/MarginContainer"]
 layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="World Button Container" type="VBoxContainer" parent="Card/Visual/TabContainer/Collection/HBoxContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("3_0pq3v")
 script = ExtResource("4_3k0n3")
 fileNode = ExtResource("4_q4bqe")
@@ -171,7 +177,7 @@ size_flags_vertical = 3
 [node name="Menu Button" parent="Card/Visual/TabContainer/New Order/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_r5u3d")]
 layout_mode = 2
 text = "Order!"
-setting = 5
+setting = 6
 
 [node name="TextureRect" type="TextureRect" parent="Card/Visual/TabContainer/New Order/HBoxContainer"]
 clip_contents = true

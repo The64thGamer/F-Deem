@@ -1,7 +1,6 @@
 using Godot;
 using System;
 
-[Tool]
 public partial class MenuButton : Node
 {
 	[Export] string text = "TEST!";

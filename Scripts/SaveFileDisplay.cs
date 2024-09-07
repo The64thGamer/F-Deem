@@ -90,16 +90,16 @@ public partial class SaveFileDisplay : Control
 			else
 			{
 				check = false;
+				desc += "<Save Data Null>";
 			}
 
 			if(!check)
 			{
 				sfm.SetTitle(Tr("ERROR_CORRUPTED_WORLD"));
 			}
-			else
-			{
-				sfm.SetDescription(desc);
-			}
+
+			sfm.SetDescription(desc);
+
 		}
 	}
 }

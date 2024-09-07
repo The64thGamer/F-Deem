@@ -27,7 +27,7 @@ public partial class Camera : Camera3D
     const float scrollDownMult = 1.25f;
     const float minSize = 0.1f;
     const float maxSize = 200;
-    const float minFov = 1;
+    const float minFov = 2;
     const float maxFov = 180;
     const float startingYRot = 45;
     const float startingXRot = -30;

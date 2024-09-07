@@ -43,6 +43,7 @@ public partial class FileSaver : Node
 		//Ensure saves folder exists
 		if(!DirAccess.DirExistsAbsolute(savePath))
 		{
+			Console.Instance.Print("Save folder doesn't exist, creating new one.");
 			DirAccess.MakeDirAbsolute(savePath);
 		}
 
@@ -74,6 +75,11 @@ public partial class FileSaver : Node
 	//folderPath is just the random string folder name.
 	public bool LoadNewSaveFile(string folderPath)
 	{
+		if(folderPath == loadedFolderPath && loadedWorldData != null)
+		{
+			Console.Instance.Print("Save File Already Loaded.");
+			return true;
+		}
 		Godot.Collections.Dictionary<string, Variant> data = AcquireSaveData(folderPath);
 		if(data == null)
 		{
@@ -87,6 +93,11 @@ public partial class FileSaver : Node
 
 	public Godot.Collections.Dictionary<string, Variant> AcquireSaveData(string folderPath)
 	{
+		if(folderPath == loadedFolderPath && loadedWorldData != null)
+		{
+			Console.Instance.Print("Save File Already Loaded.");
+			return loadedWorldData;
+		}
 		if(!DirAccess.DirExistsAbsolute(savePath))
 		{
 			Console.Instance.Print("No parent save folder found", Console.PrintType.Error);
@@ -107,7 +118,7 @@ public partial class FileSaver : Node
         Error parseResult = json.Parse(saveGame.GetLine());
         if (parseResult != Error.Ok)
         {
-            Console.Instance.Print($"JSON Parse Error: {json.GetErrorMessage()} at line {json.GetErrorLine()}", Console.PrintType.Error);
+            Console.Instance.Print($"JSON Parse Error: {json.GetErrorMessage()} at line {json.GetErrorLine()}. Data was: " + saveGame.GetLine(), Console.PrintType.Error);
 			return null;
         }
 
