@@ -46,3 +46,5 @@ text = "MY WORLD"
 layout_mode = 2
 size_flags_vertical = 3
 text = "A description about my world."
+
+[connection signal="pressed" from="." to="." method="StartWorld"]

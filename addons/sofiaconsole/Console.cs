@@ -215,7 +215,7 @@ public partial class Console : Node
         var newLabel = new Label
         {
             Text = text,
-            
+            AutowrapMode = TextServer.AutowrapMode.Arbitrary
         };
         newLabel.AddThemeColorOverride("font_color",new Color(1,1,1,1));
 

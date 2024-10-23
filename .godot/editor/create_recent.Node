@@ -1,7 +1,7 @@
+Label
 ScrollContainer
 Button
 MarginContainer
-Label
 VBoxContainer
 TextureRect
 HBoxContainer
@@ -12,4 +12,3 @@ TextEdit
 BackBufferCopy
 HSlider
 CheckBox
-TabContainer

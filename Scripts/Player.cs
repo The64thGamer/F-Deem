@@ -4,6 +4,9 @@ using System;
 public partial class Player : CharacterBody3D
 {
 	[Export] Node3D playerPieces;
+
+	public Vector2 currentChunk;
+
 	const float Speed = 10.0f;
 	const float stopSpeed = 7f;
 	public float gravity = 50;

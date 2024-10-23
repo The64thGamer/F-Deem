@@ -4,7 +4,7 @@ using System;
 public partial class SaveFileManipulator : Node
 {
 	string saveFolder;
-	
+
 	public void SetTitle(string name)
 	{
 		(FindChild("Title",true) as Label).Text = name;
@@ -17,10 +17,7 @@ public partial class SaveFileManipulator : Node
 
 	public void StartWorld()
 	{
-		if(GetNode<FileSaver>("/root/FileSaver").LoadNewSaveFile(saveFolder))
-		{
-			GetTree().ChangeSceneToFile("res://Scenes/World.tscn");
-		}
+		GetNode<FileSaver>("/root/FileSaver").LoadNewSaveFile(saveFolder);
 	}
 
 

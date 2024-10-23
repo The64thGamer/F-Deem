@@ -11,31 +11,31 @@ public partial class FileSaver : Node
 
 	string loadedFolderPath;
 	float autoSaveTimer;
+	UI ui;
 
 	//Consts
 	public const string savePath = "user://Your Precious Save Files/";
 	public const string savePathFolderName = "Your Precious Save Files";
 	public const string worldSaveDataFile = "World Save Data";
-	public const string regionPath = "/Chunks/Region ";
-	public const string regionExtension = ".pneuChunks";
-	public const int regionSize = 16;
-		
+	public const string setsPath = "/Sets/";
+	public const string setsExtension = ".set";
+
 	public override void _Ready()
-	{    			
+	{
+		ui = GetNode<UI>("/root/UI");
 		autoSaveTimer =  Mathf.Max(1,ES.Load("autoSave",300)) * 60;
 	}
 
 	public override void _Process(double delta)
 	{
 		//Autosaving
-
-			autoSaveTimer -= Mathf.Min((float)delta,0.2f);
-			if(autoSaveTimer <= 0)
-			{
-				autoSaveTimer = Mathf.Max(1,ES.Load("autoSave",300)) * 60;
-				//SaveAllChunks();
-				Console.Instance.Print("Autosave! " + System.DateTime.Now.ToUniversalTime().ToString(@"MM\/dd\/yyyy h\:mm tt"),Console.PrintType.Success);
-			}
+		autoSaveTimer -= Mathf.Min((float)delta,0.2f);
+		if(autoSaveTimer <= 0)
+		{
+			autoSaveTimer = Mathf.Max(1,ES.Load("autoSave",300)) * 60;
+			//SaveAllChunks();
+			Console.Instance.Print("Autosave! " + System.DateTime.Now.ToUniversalTime().ToString(@"MM\/dd\/yyyy h\:mm tt"),Console.PrintType.Success);
+		}
 	}
 
 	public void CreateNewSaveFile(Godot.Collections.Dictionary<string, Variant> data, bool alsoLoadFile)
@@ -89,6 +89,11 @@ public partial class FileSaver : Node
 		}
 		loadedWorldData = data;
 		loadedFolderPath = folderPath;
+
+		//Change Everything
+		GetTree().ChangeSceneToFile("res://Scenes/World.tscn");
+		ui.CloseMenu();
+
 		Console.Instance.Print("Save File Loaded :" + savePath + folderPath, Console.PrintType.Success);
 		return true;
 	}
@@ -125,6 +130,40 @@ public partial class FileSaver : Node
         }
 
         return new Godot.Collections.Dictionary<string, Variant>((Godot.Collections.Dictionary)json.Data);
+	}
+
+	public bool SaveChunk(FileTypeChunk chunk)
+	{
+		if(loadedFolderPath == "" || loadedWorldData == null)
+		{
+			Console.Instance.Print("Tried to save chunk to blank save file.");
+			return false;
+		}
+		if(!DirAccess.DirExistsAbsolute(savePath))
+		{
+			Console.Instance.Print("No parent save folder found", Console.PrintType.Error);
+			return false;
+		}
+		if (!DirAccess.DirExistsAbsolute(savePath + loadedFolderPath))
+		{
+			Console.Instance.Print("Given save folder name not found", Console.PrintType.Error);
+			return false;
+		}
+		if (!DirAccess.DirExistsAbsolute(savePath + loadedFolderPath + setsPath))
+		{
+			Console.Instance.Print("Sets folder doesn't exist, creating new one.");
+			DirAccess.MakeDirAbsolute(savePath + loadedFolderPath + setsPath);
+		}
+
+		//Create 
+		FileAccess f = FileAccess.Open(savePath + loadedFolderPath + setsPath + chunk.id.X + "," + chunk.id.Y, FileAccess.ModeFlags.Write);
+		f.StoreString(Json.Stringify(chunk));
+		f.Flush();
+		Console.Instance.Print(
+			"Saved World File to " + savePath + loadedFolderPath + setsPath + chunk.id.X + "," + chunk.id.Y,
+			Console.PrintType.Success
+		);
+		return true;
 	}
 
 	public string GetSeed()

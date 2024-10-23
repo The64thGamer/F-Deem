@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 [Tool]
-public partial class Piece : Node
+public partial class Piece : Node3D
 {
 	[Export] public PieceColor pieceColor;
 	PieceColor oldColor = PieceColor.none;
@@ -43,7 +43,7 @@ public partial class Piece : Node
     {      
 		oldColor = PieceColor.none;
 	}
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{		    
 		if(pieceColor != oldColor)
 		{
@@ -71,5 +71,15 @@ public partial class Piece : Node
 		MeshInstance3D child = GetChild<MeshInstance3D>(0);
 		child.MaterialOverride = GD.Load<Material>(materialPaths + pieceColor.ToString()+".tres");
 		child.LodBias = lodBias;
+	}
+
+	public FileTypePiece GenerateSaveFile()
+	{
+		return new FileTypePiece(){
+			savePieceName = SceneFilePath,
+			savePieceColor = pieceColor,
+			savePosition = (GetParent() as Node3D).ToLocal(ToGlobal(Position)),
+			saveRotation = Rotation,
+		};
 	}
 }

@@ -1,56 +1,45 @@
-res://default_bus_layout.tres
-res://Prefabs/UI/World List.tscn
-res://Materials/white.tres
+res://addons/sofiaconsole/SofiaConsole.cs
+res://Scripts/MenuButton.cs
+res://Scripts/Player.cs
+res://Scripts/Enemy.cs
+res://Scripts/ResetTabContainerOnHide.cs
+res://addons/sofiaconsole/Commands/FpsCounterCommand.cs
+res://Scripts/FileTypes/FileTypeChunk.cs
+res://Scripts/FileSaver.cs
+res://Scripts/Piece.cs
+res://Scripts/PlayerPrefString.cs
+res://Scripts/FileTypes/FileTypePiece.cs
+res://Scripts/Gun.cs
+res://Scripts/MenuHiderButton.cs
+res://Scripts/Camera.cs
+res://Scripts/SaveFileDisplay.cs
+res://Scripts/SaveFileManipulator.cs
+res://Scripts/PlayerPrefSlider.cs
+res://Scripts/ButtonHoverEffect.cs
+res://Scripts/InventoryBox.cs
+res://addons/sofiaconsole/Console.cs
+res://Scripts/UI.cs
+res://Scripts/WorldManager.cs
+res://Scenes/Sets/5.tscn
+res://UI/LineEditBox.tres
 res://UI/TabBox.tres
 res://UI/OFH.tres
 res://UI/TabBoxUnselected.tres
 res://UI/OFH Accent.tres
 res://Shaders/Multiply UI.gdshader
-res://Shaders/Metallic.tres.gdshader
-res://Scripts/Camera.cs
-res://Scripts/MenuButton.cs
-res://Scripts/Player.cs
-res://Scripts/Enemy.cs
-res://Scripts/UI.cs
-res://Scripts/ButtonHoverEffect.cs
-res://Scripts/InventoryBox.cs
-res://Scripts/Gun.cs
-res://Scripts/Piece.cs
-res://Scripts/PlayerPrefSlider.cs
-res://Prefabs/UI/Options.tscn
-res://UI/LineEditBox.tres
-res://Scripts/PlayerPrefString.cs
-res://Prefabs/UI/UI.tscn
-res://Prefabs/UI/Sub Menus/World List.tscn
-res://Materials/orange.tres
-res://Prefabs/UI/Buttons/Menu Button.tscn
-res://UI/OFH Accent 2.tres
+res://UI/Box Green.tres
 res://UI/Box Blue.tres
-res://Prefabs/UI/Buttons/WorldButton.tscn
-res://Prefabs/UI/Sub Menus/Options.tscn
-res://Scripts/FileSaver.cs
-res://Addons/sofiaconsole/Commands/FpsCounterCommand.cs
-res://Addons/sofiaconsole/SofiaConsole.cs
-res://Addons/sofiaconsole/Console.cs
-res://Scripts/SaveFileDisplay.cs
-res://Scripts/SaveFileManipulator.cs
-res://Prefabs/UI/Buttons/World Button.tscn
-res://Scenes/StartScene.tscn
+res://UI/OFH Accent 2.tres
+res://Materials/white.tres
+res://Shaders/Metallic.tres.gdshader
+res://Materials/green.tres
+res://Materials/yellow.tres
 res://Materials/soaked_green.tres
+res://Materials/soaked_orange.tres
+res://Materials/blue.tres
+res://Materials/orange.tres
 res://Materials/gray.tres
 res://Materials/black.tres
-res://Materials/green.tres
-res://Materials/soaked_orange.tres
-res://Materials/yellow.tres
-res://Materials/blue.tres
+res://Materials/tinged_yellow.tres
+res://Materials/plated_orange.tres
 res://Materials/red.tres
-res://Materials/lumen.tres
-res://Addons/ES.cs
-res://addons/sofiaconsole/Console.tscn
-res://addons/sofiaconsole/SofiaConsole.cs
-res://addons/sofiaconsole/Commands/FpsCounterCommand.cs
-res://addons/sofiaconsole/Console.cs
-res://Prefabs/UI/Buttons/OptionsLineEdit.tscn
-res://Scripts/MenuHiderButton.cs
-res://Scripts/ResetTabContainerOnHide.cs
-res://UI/Box Green.tres
