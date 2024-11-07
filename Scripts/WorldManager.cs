@@ -5,12 +5,13 @@ using System.Linq;
 
 public partial class WorldManager : Node
 {
-	Godot.Collections.Dictionary<Vector2,Node3D> LoadedChunks;
+	Godot.Collections.Dictionary<Vector2,Node3D> LoadedChunks = new Godot.Collections.Dictionary<Vector2, Node3D>();
 	FileSaver fileSaver;
 	const string setPath = "res://Scenes/Sets/";
 	public override void _Ready()
 	{
 		fileSaver = GetNode<FileSaver>("/root/FileSaver");
+		GenerateChunk(Vector2.Zero);
 	}
 
 	public void ResetChunks()
@@ -29,7 +30,9 @@ public partial class WorldManager : Node
 		}
 		Random rnd = new Random();
 		int i = rnd.Next() % 5;
-		LoadedChunks.Add(id,GD.Load<PackedScene>(setPath+i+".tscn").Instantiate() as Node3D);
+		Node3D chunk = GD.Load<PackedScene>(setPath+i+".tscn").Instantiate() as Node3D;
+		LoadedChunks.Add(id,chunk);
+		GetTree().Root.CallDeferred("add_child", chunk);
 	}
 
 	public void SaveAndUnloadChunk(Vector2 id)

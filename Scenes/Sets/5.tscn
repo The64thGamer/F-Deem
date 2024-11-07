@@ -17,7 +17,7 @@
 margin = 1.0
 size = Vector3(24, 14, 24)
 
-[node name="Ruins Arches" type="Node3D"]
+[node name="Birch Fork" type="Node3D"]
 
 [node name="Area3D" type="Area3D" parent="."]
 
