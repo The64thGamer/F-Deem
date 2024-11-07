@@ -1,5 +1,5 @@
 
-# Oh Funny Horse!
+# F-Deem!
 <p align="center">
   <img width="70%" src="UI/Logo 4K.png">
 </p>
