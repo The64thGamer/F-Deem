@@ -1,8 +1,5 @@
 
 # F-Deem!
-<p align="center">
-  <img width="70%" src="UI/Logo 4K.png">
-</p>
 
 > [!NOTE]
 > Software is still in the extremely early development stages!
