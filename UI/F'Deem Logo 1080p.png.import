@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://hdpgfn2auf0a"
+path="res://.godot/imported/F'Deem Logo 1080p.png-03703792f9aedf6d7668eb648c1467fc.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/F'Deem Logo 1080p.png"
+dest_files=["res://.godot/imported/F'Deem Logo 1080p.png-03703792f9aedf6d7668eb648c1467fc.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

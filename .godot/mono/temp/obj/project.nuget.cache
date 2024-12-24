@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CWBwlMM4jV4kSQ/uI73uPGlRWCaQmFViij3802hZw/Io8Vl4kS15iNTmiPqbq32CzKz72V532eHO6logejK95Q==",
+  "dgSpecHash": "fFFec/4mMKs=",
   "success": true,
   "projectFilePath": "/home/the64thgamer/Desktop/My Archive/My Games/Godot Projects/F-Deem/F-Deem.csproj",
   "expectedPackageFiles": [
@@ -12,8 +12,8 @@
     "/home/the64thgamer/.nuget/packages/memorypack.generator/1.21.1/memorypack.generator.1.21.1.nupkg.sha512",
     "/home/the64thgamer/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/home/the64thgamer/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "/home/the64thgamer/.nuget/packages/microsoft.netcore.app.ref/6.0.35/microsoft.netcore.app.ref.6.0.35.nupkg.sha512",
-    "/home/the64thgamer/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.35/microsoft.aspnetcore.app.ref.6.0.35.nupkg.sha512"
+    "/home/the64thgamer/.nuget/packages/microsoft.netcore.app.ref/6.0.32/microsoft.netcore.app.ref.6.0.32.nupkg.sha512",
+    "/home/the64thgamer/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.32/microsoft.aspnetcore.app.ref.6.0.32.nupkg.sha512"
   ],
   "logs": []
 }

@@ -10,16 +10,7 @@ res://UI/Box Blue.tres
 res://UI/OFH Accent 2.tres
 res://Materials/white.tres
 res://Shaders/Metallic.tres.gdshader
-res://Materials/soaked_green.tres
 res://Materials/orange.tres
-res://Materials/black.tres
-res://Materials/gray.tres
-res://Materials/yellow.tres
-res://Materials/soaked_orange.tres
-res://Materials/red.tres
-res://Materials/green.tres
-res://Materials/lumen.tres
-res://Materials/blue.tres
 res://Scenes/Sets/0.tscn
 res://Scenes/Sets/1.tscn
 res://Scenes/Sets/5.tscn
