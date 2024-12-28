@@ -1,0 +1,254 @@
+[gd_scene load_steps=4 format=3 uid="uid://cobxnfwqn6bdh"]
+
+[sub_resource type="GDScript" id="GDScript_f08oq"]
+resource_name = "batch_edit"
+script/source = "@tool
+extends TabBar
+
+signal changes_made
+
+@onready var CommandListRef: ItemList = %List
+@onready var PermissionRef: OptionButton = %PermissionLevel
+@onready var CheatsRef: CheckBox = %RequiresCheats
+@onready var KeywordRef: CheckBox = %RequiresKeyword
+@onready var TargetNameRef: LineEdit = %TargetName
+@onready var SelectButtonRef: Button = %SelectAll
+
+
+func init_batch_edit() -> void:
+	update_command_list()
+	
+	# Add permission levels to option button
+	for permission in Console.PermissionLevel:
+		PermissionRef.add_item(permission)
+
+
+func update_command_list() -> void:
+	CommandListRef.clear()
+	
+	for command in Console.COMMAND_LIST_.keys():
+		CommandListRef.add_item(command)
+
+
+func on_edit_commands_pressed() -> void:
+	var permission: int = PermissionRef.get_selected()
+	var cheats: bool = CheatsRef.is_pressed()
+	var keyword: bool = KeywordRef.is_pressed()
+	var target: String = TargetNameRef.get_text()
+	
+	for i in CommandListRef.get_selected_items():
+		var commandInfo_: Dictionary =\\
+			Console.COMMAND_LIST_[CommandListRef.get_item_text(i)]
+		
+		commandInfo_[\"target\"] = target
+		commandInfo_[\"minPermission\"] = permission
+		commandInfo_[\"cheats\"] = cheats
+		commandInfo_[\"requiresKeyword\"] = keyword
+	
+	reset_tab()
+	emit_signal(\"changes_made\")
+
+
+func reset_tab() -> void:
+	CommandListRef.deselect_all()
+	PermissionRef.select(0)
+	CheatsRef.set_pressed(false)
+	KeywordRef.set_pressed(false)
+	TargetNameRef.clear()
+	SelectButtonRef.set_text(\"Select All\")
+
+
+func on_remove_commands_pressed() -> void:
+	for i in CommandListRef.get_selected_items():
+		Console.COMMAND_LIST_.erase(CommandListRef.get_item_text(i))
+	
+	update_command_list()
+	emit_signal(\"changes_made\")
+
+
+func on_select_all_pressed() -> void:
+	var itemCount: int = CommandListRef.get_item_count()
+	
+	# Deselect all if all items are selected
+	if CommandListRef.get_selected_items().size() == itemCount:
+		CommandListRef.deselect_all()
+		SelectButtonRef.set_text(\"Select All\")
+		return
+	
+	# Select all items
+	for i in range(itemCount):
+		CommandListRef.select(i, false)
+	
+	SelectButtonRef.set_text(\"Deselect All\")
+
+
+func on_list_item_selected(_index, _selected) -> void:
+	if CommandListRef.get_selected_items().size() > 0:
+		SelectButtonRef.set_text(\"Deselect All\")
+	else:
+		SelectButtonRef.set_text(\"Select All\")
+
+
+func on_requires_keyword_toggled(state: bool) -> void:
+	TargetNameRef.set_editable(!state)
+	TargetNameRef.clear()
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlw61"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.187176, 0.187176, 0.187176, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ba6ah"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.187176, 0.187176, 0.187176, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Batch Edit" type="TabBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_f08oq")
+
+[node name="VBoxContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CommandList" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/CommandList"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="List" type="ItemList" parent="VBoxContainer/CommandList/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/v_separation = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_rlw61")
+select_mode = 1
+
+[node name="SelectAll" type="Button" parent="VBoxContainer/CommandList"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Select All"
+
+[node name="CommandInfo" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/CommandInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ba6ah")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CommandInfo/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Permission" type="VBoxContainer" parent="VBoxContainer/CommandInfo/PanelContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "The required permission level needed to be able to use the command."
+
+[node name="Label" type="Label" parent="VBoxContainer/CommandInfo/PanelContainer/VBoxContainer/Permission"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Minimum Permission"
+
+[node name="PermissionLevel" type="OptionButton" parent="VBoxContainer/CommandInfo/PanelContainer/VBoxContainer/Permission"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Cheats" type="VBoxContainer" parent="VBoxContainer/CommandInfo/PanelContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Toggle whether the command requires cheats
+to be enabed to be used."
+
+[node name="Label" type="Label" parent="VBoxContainer/CommandInfo/PanelContainer/VBoxContainer/Cheats"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Requires Cheats"
+
+[node name="RequiresCheats" type="CheckBox" parent="VBoxContainer/CommandInfo/PanelContainer/VBoxContainer/Cheats"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "On"
+
+[node name="Keyword" type="VBoxContainer" parent="VBoxContainer/CommandInfo/PanelContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Toggle whether the command requires a keyword to be used."
+
+[node name="Label" type="Label" parent="VBoxContainer/CommandInfo/PanelContainer/VBoxContainer/Keyword"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Requires Keyword"
+
+[node name="RequiresKeyword" type="CheckBox" parent="VBoxContainer/CommandInfo/PanelContainer/VBoxContainer/Keyword"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "On"
+
+[node name="Target" type="VBoxContainer" parent="VBoxContainer/CommandInfo/PanelContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "The name of the target node that has the method that the command will call.
+Leave empty to use the console directly."
+
+[node name="Label" type="Label" parent="VBoxContainer/CommandInfo/PanelContainer/VBoxContainer/Target"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Target Name"
+
+[node name="TargetName" type="LineEdit" parent="VBoxContainer/CommandInfo/PanelContainer/VBoxContainer/Target"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+caret_blink = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CommandInfo"]
+layout_mode = 2
+
+[node name="EditCommands" type="Button" parent="VBoxContainer/CommandInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Edit Commands"
+
+[node name="RemoveCommands" type="Button" parent="VBoxContainer/CommandInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Remove Commands"
+
+[connection signal="multi_selected" from="VBoxContainer/CommandList/ScrollContainer/List" to="." method="on_list_item_selected"]
+[connection signal="pressed" from="VBoxContainer/CommandList/SelectAll" to="." method="on_select_all_pressed"]
+[connection signal="toggled" from="VBoxContainer/CommandInfo/PanelContainer/VBoxContainer/Keyword/RequiresKeyword" to="." method="on_requires_keyword_toggled"]
+[connection signal="pressed" from="VBoxContainer/CommandInfo/HBoxContainer/EditCommands" to="." method="on_edit_commands_pressed"]
+[connection signal="pressed" from="VBoxContainer/CommandInfo/HBoxContainer/RemoveCommands" to="." method="on_remove_commands_pressed"]

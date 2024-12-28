@@ -1,36 +1,43 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1734944613
-default_bus_layout.tres::AudioBusLayout::8779095358061507910::1725681068::0::1::::<><>::
-README.md::TextFile::-1::1731089183::0::1::::<><>::
-::res://addons/::1725669182
-ES.cs::CSharpScript::-1::1725678968::0::1::::<><>::
-::res://addons/sofiaconsole/::1729580937
-Console.cs::CSharpScript::-1::1727731067::0::1::::<>Node<>::
-Console.tscn::PackedScene::8893391671142587995::1729580937::0::1::::<><>::res://addons/sofiaconsole/Console.cs<>uid://cflj1gw0d2yp6::::res://UI/OFH.tres<>res://Scripts/MenuHiderButton.cs<>res://addons/sofiaconsole/Commands/FpsCounterCommand.cs
-ConsoleCommandAttribute.cs::CSharpScript::-1::1716533541::0::1::::<><>::
-ConsoleCommandReference.cs::CSharpScript::-1::1716533541::0::1::::<><>::
-icon.svg::CompressedTexture2D::8944719837802866444::1716533541::1725678295::1::::<><>::
-plugin.cfg::TextFile::-1::1716533541::0::1::::<><>::
-SofiaConsole.cs::CSharpScript::-1::1716533541::0::1::::<>EditorPlugin<>::
-::res://addons/sofiaconsole/Commands/::1723429800
-ClearCommand.cs::CSharpScript::-1::1716533541::0::1::::<><>::
-FpsCounterCommand.cs::CSharpScript::-1::1716533541::0::1::::<>Node<>::
-HelpCommand.cs::CSharpScript::-1::1716533541::0::1::::<><>::
-InfoCommand.cs::CSharpScript::-1::1716533541::0::1::::<><>::
-ReloadCommand.cs::CSharpScript::-1::1716533541::0::1::::<><>::
-TimeCommand.cs::CSharpScript::-1::1716533541::0::1::::<><>::
-::res://Development/::1724799549
-TestSetRender2.png::CompressedTexture2D::3323673027618466890::1724521492::1724605062::1::::<><>::
-TestSetRender3.png::CompressedTexture2D::2827451782730306785::1724604964::1724605062::1::::<><>::
-TestSetRender4.png::CompressedTexture2D::1146314499317085901::1724799535::1724799549::1::::<><>::
-TestSetRender.png::CompressedTexture2D::4072504557197659248::1724359595::1724605062::1::::<><>::
-::res://Materials/::1730236853
+::res://::1735288277
+icon.svg::CompressedTexture2D::6099819464740842484::1735202149::1735202853::1::::<><>::
+::res://addons/::1735209103
+::res://addons/simply-console/::1735209109
+plugin.cfg::TextFile::-1::1735209103::0::1::::<><>::
+plugin.gd::GDScript::-1::1735209103::0::1::::<>EditorPlugin<>::
+::res://addons/simply-console/data/::1735209109
+command_list.json::JSON::-1::1735209109::0::1::::<><>::
+::res://addons/simply-console/modules/::1735209103
+base_module.gd::GDScript::-1::1735209103::0::1::::ConsoleModule<>Control<>::
+::res://addons/simply-console/modules/object-picker/::1735209103
+object_picker.gd::GDScript::-1::1735209103::0::1::::<>ConsoleModule<>::
+object_picker.tscn::PackedScene::6293560507137864525::1735209103::0::1::::<><>::res://addons/simply-console/modules/object-picker/object_picker.gd
+::res://addons/simply-console/modules/property-tracker/::1735209103
+property_tracker.gd::GDScript::-1::1735209103::0::1::::<>ConsoleModule<>::
+property_tracker.tscn::PackedScene::196755075269243142::1735209103::0::1::::<><>::res://addons/simply-console/modules/property-tracker/property_tracker.gd
+::res://addons/simply-console/scenes/::1735209103
+::res://addons/simply-console/scenes/command-editor/::1735209103
+batch_edit_tab.tscn::PackedScene::5758969559575114297::1735209103::0::1::::<><>::
+command_editor.tscn::PackedScene::2079067797224827461::1735209103::0::1::::<><>::uid://s3sg33uiq718::::res://addons/simply-console/scenes/command-editor/editor_tab.tscn<>uid://cobxnfwqn6bdh::::res://addons/simply-console/scenes/command-editor/batch_edit_tab.tscn<>uid://dyvdqe2orc8v1::::res://addons/simply-console/scenes/command-editor/extras_tab.tscn
+editor_tab.tscn::PackedScene::1322306898059875989::1735209103::0::1::::<><>::
+extras_tab.tscn::PackedScene::8887357207370164360::1735209103::0::1::::<><>::
+::res://addons/simply-console/scenes/console-window/::1735209103
+console_window.tscn::PackedScene::5650511457403785330::1735209103::0::1::::<><>::res://addons/simply-console/scripts/console_window.gd<>uid://cvwwa0qyx0kwb::::res://addons/simply-console/modules/object-picker/object_picker.tscn<>uid://c2kr6ux8lx4i::::res://addons/simply-console/modules/property-tracker/property_tracker.tscn<>res://addons/simply-console/scripts/command_suggestions.gd<>uid://rdai81bo3phn::::res://addons/simply-console/scenes/console-window/suggestion.tscn
+suggestion.tscn::PackedScene::1199419534960700823::1735209103::0::1::::<><>::
+::res://addons/simply-console/scripts/::1735209103
+command_lexer.gd::GDScript::-1::1735209103::0::1::::CommandLexer<>Node<>::
+command_parser.gd::GDScript::-1::1735209103::0::1::::CommandParser<>Node<>::
+command_suggestions.gd::GDScript::-1::1735209103::0::1::::<>PanelContainer<>::
+console_window.gd::GDScript::-1::1735209103::0::1::::<>Window<>::
+::res://addons/simply-console/singletons/::1735209103
+console_manager.gd::GDScript::-1::1735209103::0::1::::<>Node<>::
+::res://Materials/::1735201492
 black.tres::StandardMaterial3D::2196063992521965207::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 blue.tres::StandardMaterial3D::378595569498086060::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 gray.tres::StandardMaterial3D::3256906300673596071::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 green.tres::StandardMaterial3D::8823253178259083330::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 lumen.tres::StandardMaterial3D::5032108874528853354::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-orange.tres::StandardMaterial3D::8895512417927719991::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+orange.tres::StandardMaterial3D::8895512417927719991::1735201492::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 pink.tres::StandardMaterial3D::3219364068497143575::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 plated_gray.tres::ShaderMaterial::7033811740122828238::1725474978::0::1::::<><>::res://Shaders/Metallic.tres.gdshader<>uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://b4c5md0ijj27q::::res://Textures/MultiMaterialRoughMetal.png<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 plated_orange.tres::ShaderMaterial::5858253699533066285::1729670388::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>res://Shaders/Metallic.tres.gdshader<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg<>uid://b4c5md0ijj27q::::res://Textures/MultiMaterialRoughMetal.png
@@ -51,12 +58,12 @@ trans_rights_pink.tres::StandardMaterial3D::2734904926188396885::1725474978::0::
 trans_rights_red.tres::StandardMaterial3D::6403487574631420539::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 trans_rights_white.tres::StandardMaterial3D::8217831747030329580::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 trans_rights_yellow.tres::StandardMaterial3D::8216110500893280709::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-white.tres::StandardMaterial3D::3341299404838252109::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+white.tres::StandardMaterial3D::3341299404838252109::1735201492::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 yellow.tres::StandardMaterial3D::4691157481300061665::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 ::res://Models/::1732925564
 blender_assets.cats.txt::TextFile::-1::1732825133::0::1::::<><>::
-::res://Models/Parts (BLEND)/::1734681140
-::res://Models/Parts (GLB)/::1730947640
+::res://Models/Parts (BLEND)/::1735111077
+::res://Models/Parts (GLB)/::1734944617
 1x1.glb::PackedScene::7583105269830357879::1724631282::1725505519::1::::<><>::
 1x2.glb::PackedScene::9064168266086184421::1724631275::1725505519::1::::<><>::
 1x3.glb::PackedScene::4237438540888854322::1724631269::1725505518::1::::<><>::
@@ -89,123 +96,48 @@ Horse Tail Broom.glb::PackedScene::7987249278667238406::1725688313::1725723403::
 Horse Tail.glb::PackedScene::2524268703136600561::1725085290::1725086794::1::::<><>::
 Horse Tall Head.glb::PackedScene::5047459490267771161::1725085298::1725085340::1::::<><>::
 Peg Half Bone.glb::PackedScene::3155265610476014817::1724827093::1724827316::1::::<><>::
-::res://Models/Parts (STL)/::1734603448
+::res://Models/Parts (STL)/::1735031218
 ::res://Models/Sets (BLEND)/::1731833464
-::res://Prefabs/::1725659188
-Enemy.tscn::PackedScene::677601625864439147::1725651313::0::1::::<><>::res://Scripts/Enemy.cs<>uid://bo8e1f24c554n::::res://Prefabs/Parts/Horse Body Standing.tscn<>uid://catyhlprfht8q::::res://Prefabs/Parts/Horse Hair A.tscn<>uid://bfnde5noi5sxj::::res://Prefabs/Parts/Horse Head.tscn<>uid://d28xxjfs5l5ua::::res://Prefabs/Parts/Horse Tail.tscn
-GenericGun.tscn::PackedScene::6909124970121094031::1725522524::0::1::::<><>::res://Scripts/Gun.cs<>uid://tr1rtqnioab5::::res://Sounds/Magic Missle.wav
-Player.tscn::PackedScene::8176520976557804751::1725522524::0::1::::<><>::res://Scripts/Player.cs<>uid://bo8e1f24c554n::::res://Prefabs/Parts/Horse Body Standing.tscn<>uid://catyhlprfht8q::::res://Prefabs/Parts/Horse Hair A.tscn<>uid://bfnde5noi5sxj::::res://Prefabs/Parts/Horse Head.tscn<>uid://d28xxjfs5l5ua::::res://Prefabs/Parts/Horse Tail.tscn<>uid://c5o3jqk3aqj00::::res://Prefabs/GenericGun.tscn
-::res://Prefabs/Debug/::1725659188
-TestMarker.tscn::PackedScene::6267685156330970520::1725481221::0::1::::<><>::uid://dtriauepijy8v::::res://Prefabs/Parts/1x1.tscn
-::res://Prefabs/Parts/::1725150757
-1x1.tscn::PackedScene::8528431295301891583::1724735365::0::1::::<><>::uid://dgbkvvc71msqp::::res://Models/Parts (GLB)/1x1.glb<>res://Scripts/Piece.cs
-1x2.tscn::PackedScene::2564555233080539014::1724737089::0::1::::<><>::uid://d2e0r6jhckna8::::res://Models/Parts (GLB)/1x2.glb<>res://Scripts/Piece.cs<>uid://bnusyii3vnp38::::res://Materials/white.tres
-1x3.tscn::PackedScene::524017263632295364::1724736912::0::1::::<><>::uid://b1mv81xihugri::::res://Models/Parts (GLB)/1x3.glb<>res://Scripts/Piece.cs
-1x4.tscn::PackedScene::64825086790742612::1724737079::0::1::::<><>::uid://cpdxfk7pvvmwu::::res://Models/Parts (GLB)/1x4.glb<>res://Scripts/Piece.cs
-1x6.tscn::PackedScene::4439897446069101969::1724737149::0::1::::<><>::uid://dg55kf854hsoq::::res://Models/Parts (GLB)/1x6.glb<>res://Scripts/Piece.cs
-1x8.tscn::PackedScene::2695533693829963742::1724737203::0::1::::<><>::uid://82otl3qrgie0::::res://Models/Parts (GLB)/1x8.glb<>res://Scripts/Piece.cs
-1x10.tscn::PackedScene::8310560334828646455::1724737273::0::1::::<><>::uid://cbpb4tkhhajic::::res://Models/Parts (GLB)/1x10.glb<>res://Scripts/Piece.cs
-1x16.tscn::PackedScene::7719010576419454444::1724737382::0::1::::<><>::uid://44bllh1s4nm::::res://Models/Parts (GLB)/1x16.glb<>res://Scripts/Piece.cs
-2x2 Ramp.tscn::PackedScene::892371848752909029::1724809920::0::1::::<><>::uid://cmydduj7kkplk::::res://Models/Parts (GLB)/2x2 Ramp.glb<>res://Scripts/Piece.cs
-2x2.tscn::PackedScene::5838859186131166198::1724737590::0::1::::<><>::uid://dhxai6il2oa8x::::res://Models/Parts (GLB)/2x2.glb<>res://Scripts/Piece.cs
-2x3 Haybale.tscn::PackedScene::2759336903278245077::1724737665::0::1::::<><>::uid://xu7f1s861r7n::::res://Models/Parts (GLB)/2x3 Haybale.glb<>res://Scripts/Piece.cs
-2x3 Ramp.tscn::PackedScene::3655172574911152528::1724810423::0::1::::<><>::uid://c1u4yfv1orojs::::res://Models/Parts (GLB)/2x3 Ramp.glb<>res://Scripts/Piece.cs
-2x3.tscn::PackedScene::8439096923981079235::1724738592::0::1::::<><>::uid://b54e3txiv5k1o::::res://Models/Parts (GLB)/2x3.glb<>res://Scripts/Piece.cs
-2x4 Ramp.tscn::PackedScene::2975746342386598778::1724810478::0::1::::<><>::uid://m3ejnwntkkw4::::res://Models/Parts (GLB)/2x4 Ramp.glb<>res://Scripts/Piece.cs
-2x4.tscn::PackedScene::8408653267044249255::1724738658::0::1::::<><>::uid://3x6iauhukq2l::::res://Models/Parts (GLB)/2x4.glb<>res://Scripts/Piece.cs
-2x6.tscn::PackedScene::2991719715568613765::1724738708::0::1::::<><>::uid://yxvt0w37mobe::::res://Models/Parts (GLB)/2x6.glb<>res://Scripts/Piece.cs
-2x10.tscn::PackedScene::6352921161843892723::1724738767::0::1::::<><>::uid://bnvblgg7yfwp6::::res://Models/Parts (GLB)/2x10.glb<>res://Scripts/Piece.cs
-2x16.tscn::PackedScene::2368455269228475777::1724738817::0::1::::<><>::uid://nun0qwam3sff::::res://Models/Parts (GLB)/2x16.glb<>res://Scripts/Piece.cs
-3x2 Shingle.tscn::PackedScene::3833390558004225846::1724810796::0::1::::<><>::uid://cnujubedmfk3m::::res://Models/Parts (GLB)/3x2 Shingle.glb<>res://Scripts/Piece.cs
-4x4.tscn::PackedScene::6084621088773404900::1724738888::0::1::::<><>::uid://dokmalvxqel8l::::res://Models/Parts (GLB)/4x4.glb<>res://Scripts/Piece.cs
-4x6.tscn::PackedScene::5990785058351809156::1724738929::0::1::::<><>::uid://7t1fnmfbcfqc::::res://Models/Parts (GLB)/4x6.glb<>res://Scripts/Piece.cs
-8x8.tscn::PackedScene::3292199680037709476::1724738970::0::1::::<><>::uid://bbxvnh54ueagt::::res://Models/Parts (GLB)/8x8.glb<>res://Scripts/Piece.cs
-16x16.tscn::PackedScene::92914161002230114::1724740776::0::1::::<><>::uid://bjx4xg4j8tgl1::::res://Models/Parts (GLB)/16x16.glb<>res://Scripts/Piece.cs<>uid://bnusyii3vnp38::::res://Materials/white.tres
-Horse Body Standing.tscn::PackedScene::3437478564770104911::1725150757::0::1::::<><>::uid://ds74l0b1yaeeg::::res://Models/Parts (GLB)/Horse Body Standing.glb<>res://Scripts/Piece.cs<>uid://bnusyii3vnp38::::res://Materials/white.tres
-Horse Hair A.tscn::PackedScene::4813534854805367206::1724740373::0::1::::<><>::uid://yktnn05coql0::::res://Models/Parts (GLB)/Horse Hair A.glb<>res://Scripts/Piece.cs<>uid://bnusyii3vnp38::::res://Materials/white.tres
-Horse Head.tscn::PackedScene::2764392703270908111::1724740373::0::1::::<><>::uid://bv4bka34p3von::::res://Models/Parts (GLB)/Horse Head.glb<>res://Scripts/Piece.cs<>uid://bnusyii3vnp38::::res://Materials/white.tres
-Horse Tail.tscn::PackedScene::9123923340576160216::1725150757::0::1::::<><>::uid://bb71lpjikiqxd::::res://Models/Parts (GLB)/Horse Tail.glb<>res://Scripts/Piece.cs<>uid://bnusyii3vnp38::::res://Materials/white.tres
-::res://Prefabs/UI/::1729580937
-UI.tscn::PackedScene::8674310227766227795::1729580937::0::1::::<><>::uid://cflj1gw0d2yp6::::res://UI/OFH.tres<>uid://ct6l7idj3yb1q::::res://UI/Logo 4K.png<>res://Scripts/UI.cs<>uid://ddbnoj32uji4c::::res://Prefabs/UI/Buttons/Menu Button.tscn<>uid://cvqve1ajdsx34::::res://UI/OFH Accent.tres<>uid://uk4bf78yxg82::::res://UI/Paper Overlay.jpg<>res://Shaders/Multiply UI.gdshader<>uid://dq7ctse1wq8rp::::res://Prefabs/UI/Sub Menus/Options.tscn<>uid://brsmc0mu2c78f::::res://Prefabs/UI/Sub Menus/World List.tscn
-::res://Prefabs/UI/Buttons/::1729580938
-Menu Button.tscn::PackedScene::7372707798986614756::1729580938::0::1::::<><>::res://Scripts/MenuButton.cs<>uid://cflj1gw0d2yp6::::res://UI/OFH.tres<>uid://dii32kt8wmnux::::res://UI/SlideUI.png<>uid://cf076uhnkpf1b::::res://UI/BulletPoint.png<>res://Scripts/ButtonHoverEffect.cs
-OptionsLineEdit.tscn::PackedScene::2170228236689084222::1725679766::0::1::::<><>::res://Scripts/PlayerPrefString.cs
-OptionsSlider.tscn::PackedScene::865297451250278404::1725522524::0::1::::<><>::res://Scripts/PlayerPrefSlider.cs
-Print Box.tscn::PackedScene::8042613057810199903::1725229270::0::1::::<><>::res://Scripts/InventoryBox.cs<>uid://hl4ggoijdm6e::::res://UI/Slot Case.png<>uid://bgoxnkm4njyam::::res://UI/Slot Bar.png<>uid://b6jm1ius4pmvp::::res://UI/Slot Print Head.png
-World Button.tscn::PackedScene::7679292684763607483::1729580937::0::1::::<><>::res://Scripts/SaveFileManipulator.cs<>uid://bfe0gfkrih7ql::::res://UI/Icon.png<>uid://cvqve1ajdsx34::::res://UI/OFH Accent.tres
-::res://Prefabs/UI/Sub Menus/::1729580937
-Options.tscn::PackedScene::8348499954298368373::1725726038::0::1::::<><>::uid://cflj1gw0d2yp6::::res://UI/OFH.tres<>res://Scripts/MenuHiderButton.cs<>uid://56jlvllqa5iw::::res://Prefabs/UI/Buttons/OptionsLineEdit.tscn<>uid://cvqve1ajdsx34::::res://UI/OFH Accent.tres<>uid://mlfk76qy41wi::::res://Prefabs/UI/Buttons/OptionsSlider.tscn<>res://Shaders/Multiply UI.gdshader<>uid://uk4bf78yxg82::::res://UI/Paper Overlay.jpg
-World List.tscn::PackedScene::3617523333180047783::1729580937::0::1::::<><>::uid://cvqve1ajdsx34::::res://UI/OFH Accent.tres<>res://Scripts/MenuHiderButton.cs<>uid://cflj1gw0d2yp6::::res://UI/OFH.tres<>uid://cavh1cbw5jtn::::res://UI/OFH Accent 2.tres<>uid://56jlvllqa5iw::::res://Prefabs/UI/Buttons/OptionsLineEdit.tscn<>res://Scripts/ResetTabContainerOnHide.cs<>res://Scripts/SaveFileDisplay.cs<>uid://qljvq752njnx::::res://Development/TestSetRender4.png<>res://Shaders/Multiply UI.gdshader<>uid://dhn53f2xxtcal::::res://Prefabs/UI/Buttons/World Button.tscn<>uid://ddbnoj32uji4c::::res://Prefabs/UI/Buttons/Menu Button.tscn<>uid://uk4bf78yxg82::::res://UI/Paper Overlay.jpg
-::res://Scenes/::1730237883
-Color Test.tscn::PackedScene::8074048830250767742::1725477272::0::1::::<><>::uid://bv4bka34p3von::::res://Models/Parts (GLB)/Horse Head.glb<>res://Scripts/Piece.cs
-World.tscn::PackedScene::6142120948730838049::1730237883::0::1::::<><>::res://Scripts/Camera.cs<>uid://doq1dunqiiotr::::res://Prefabs/Player.tscn<>uid://jwh880k4vgkh::::res://Prefabs/Enemy.tscn
-::res://Scenes/Sets/::1730237883
-0.tscn::PackedScene::1389825701113222178::1730237883::0::1::::<><>::uid://c1u4yfv1orojs::::res://Models/Parts (GLB)/2x3 Ramp.glb<>uid://m3ejnwntkkw4::::res://Models/Parts (GLB)/2x4 Ramp.glb<>uid://cnujubedmfk3m::::res://Models/Parts (GLB)/3x2 Shingle.glb<>uid://blaju0sos0eg::::res://Prefabs/Parts/16x16.tscn<>uid://cpgnfmllbltqc::::res://Prefabs/Parts/2x2.tscn<>uid://bivhgly5u68eb::::res://Prefabs/Parts/2x6.tscn<>uid://bcsj35urd16kw::::res://Prefabs/Parts/1x2.tscn<>uid://bm51bvgeoyruy::::res://Prefabs/Parts/8x8.tscn<>uid://ben0btkrdt487::::res://Prefabs/Parts/1x8.tscn<>uid://6nwovgb7oh5::::res://Prefabs/Parts/1x4.tscn<>uid://cwrnxh74p8upn::::res://Prefabs/Parts/2x10.tscn<>uid://dh8e8g0xlcrrg::::res://Prefabs/Parts/1x16.tscn<>uid://80kd2021l506::::res://Prefabs/Parts/2x16.tscn<>uid://dr2hj5ffjn1v4::::res://Prefabs/Parts/2x4.tscn<>uid://bfkv41iwnoe3n::::res://Prefabs/Parts/2x3 Haybale.tscn<>uid://myjh7qa7ani8::::res://Prefabs/Parts/2x2 Ramp.tscn<>uid://buu6nac3ig1io::::res://Prefabs/Parts/3x2 Shingle.tscn
-1.tscn::PackedScene::5829824017449112346::1730237883::0::1::::<><>::uid://blaju0sos0eg::::res://Prefabs/Parts/16x16.tscn<>uid://bm51bvgeoyruy::::res://Prefabs/Parts/8x8.tscn<>uid://cpgnfmllbltqc::::res://Prefabs/Parts/2x2.tscn<>uid://bivhgly5u68eb::::res://Prefabs/Parts/2x6.tscn<>uid://dr2hj5ffjn1v4::::res://Prefabs/Parts/2x4.tscn<>uid://dsh7xtsh6vc3l::::res://Prefabs/Parts/2x3.tscn<>uid://myjh7qa7ani8::::res://Prefabs/Parts/2x2 Ramp.tscn<>uid://bcsj35urd16kw::::res://Prefabs/Parts/1x2.tscn<>uid://dtriauepijy8v::::res://Prefabs/Parts/1x1.tscn<>uid://buu6nac3ig1io::::res://Prefabs/Parts/3x2 Shingle.tscn
-2.tscn::PackedScene::3048897995728768883::1730237883::0::1::::<><>::uid://blaju0sos0eg::::res://Prefabs/Parts/16x16.tscn<>uid://binqdwjcjql67::::res://Prefabs/Parts/2x4 Ramp.tscn<>uid://dr2hj5ffjn1v4::::res://Prefabs/Parts/2x4.tscn<>uid://cpgnfmllbltqc::::res://Prefabs/Parts/2x2.tscn<>uid://ben0btkrdt487::::res://Prefabs/Parts/1x8.tscn<>uid://6nwovgb7oh5::::res://Prefabs/Parts/1x4.tscn<>uid://bm51bvgeoyruy::::res://Prefabs/Parts/8x8.tscn<>uid://dtriauepijy8v::::res://Prefabs/Parts/1x1.tscn<>uid://hp3qt4nqflxc::::res://Prefabs/Parts/1x3.tscn<>uid://b4iypymwf8ao4::::res://Prefabs/Parts/1x6.tscn<>uid://bcsj35urd16kw::::res://Prefabs/Parts/1x2.tscn
-3.tscn::PackedScene::8692768557749424360::1730237883::0::1::::<><>::uid://blaju0sos0eg::::res://Prefabs/Parts/16x16.tscn<>uid://csxo25llx5vtk::::res://Prefabs/Parts/4x4.tscn<>uid://buu6nac3ig1io::::res://Prefabs/Parts/3x2 Shingle.tscn<>uid://binqdwjcjql67::::res://Prefabs/Parts/2x4 Ramp.tscn<>uid://myjh7qa7ani8::::res://Prefabs/Parts/2x2 Ramp.tscn<>uid://dtriauepijy8v::::res://Prefabs/Parts/1x1.tscn<>uid://hp3qt4nqflxc::::res://Prefabs/Parts/1x3.tscn<>uid://bcsj35urd16kw::::res://Prefabs/Parts/1x2.tscn<>uid://6nwovgb7oh5::::res://Prefabs/Parts/1x4.tscn<>uid://cwrnxh74p8upn::::res://Prefabs/Parts/2x10.tscn<>uid://bivhgly5u68eb::::res://Prefabs/Parts/2x6.tscn
-4.tscn::PackedScene::762623370556333310::1730237883::0::1::::<><>::uid://blaju0sos0eg::::res://Prefabs/Parts/16x16.tscn<>uid://cpgnfmllbltqc::::res://Prefabs/Parts/2x2.tscn<>uid://bivhgly5u68eb::::res://Prefabs/Parts/2x6.tscn<>uid://dr2hj5ffjn1v4::::res://Prefabs/Parts/2x4.tscn<>uid://dsh7xtsh6vc3l::::res://Prefabs/Parts/2x3.tscn<>uid://myjh7qa7ani8::::res://Prefabs/Parts/2x2 Ramp.tscn<>uid://bcsj35urd16kw::::res://Prefabs/Parts/1x2.tscn<>uid://buu6nac3ig1io::::res://Prefabs/Parts/3x2 Shingle.tscn<>uid://6nwovgb7oh5::::res://Prefabs/Parts/1x4.tscn<>uid://b4iypymwf8ao4::::res://Prefabs/Parts/1x6.tscn<>uid://dtriauepijy8v::::res://Prefabs/Parts/1x1.tscn<>uid://ben0btkrdt487::::res://Prefabs/Parts/1x8.tscn
-5.tscn::PackedScene::4853822195505604253::1730237883::0::1::::<><>::uid://blaju0sos0eg::::res://Prefabs/Parts/16x16.tscn<>uid://bm51bvgeoyruy::::res://Prefabs/Parts/8x8.tscn<>uid://cpgnfmllbltqc::::res://Prefabs/Parts/2x2.tscn<>uid://bivhgly5u68eb::::res://Prefabs/Parts/2x6.tscn<>uid://myjh7qa7ani8::::res://Prefabs/Parts/2x2 Ramp.tscn<>uid://hp3qt4nqflxc::::res://Prefabs/Parts/1x3.tscn<>uid://crl8mb8a0x8o3::::res://Prefabs/Parts/4x6.tscn<>uid://bcsj35urd16kw::::res://Prefabs/Parts/1x2.tscn<>uid://dtriauepijy8v::::res://Prefabs/Parts/1x1.tscn<>uid://csxo25llx5vtk::::res://Prefabs/Parts/4x4.tscn<>uid://cwrnxh74p8upn::::res://Prefabs/Parts/2x10.tscn<>uid://6nwovgb7oh5::::res://Prefabs/Parts/1x4.tscn
-::res://Scripts/::1729582570
-ButtonHoverEffect.cs::CSharpScript::-1::1725335422::0::1::::<>Button<>::
-Camera.cs::CSharpScript::-1::1725726488::0::1::::<>Camera3D<>::
-Enemy.cs::CSharpScript::-1::1725482307::0::1::::<>CharacterBody3D<>::
-FileSaver.cs::CSharpScript::-1::1729587062::0::1::::<>Node<>::
-Gun.cs::CSharpScript::-1::1725511085::0::1::::<>Node3D<>::
-InventoryBox.cs::CSharpScript::-1::1725334754::0::1::::<>Node<>::
-MenuButton.cs::CSharpScript::-1::1725728131::0::1::::<>Node<>::
-MenuHiderButton.cs::CSharpScript::-1::1725728135::0::1::::<>Button<>::
-Piece.cs::CSharpScript::-1::1729584163::0::1::::<>Node3D<>::
-Player.cs::CSharpScript::-1::1729582090::0::1::::<>CharacterBody3D<>::
-PlayerPrefSlider.cs::CSharpScript::-1::1725725421::0::1::::<>Control<>::
-PlayerPrefString.cs::CSharpScript::-1::1725725425::0::1::::<>Control<>::
-ResetTabContainerOnHide.cs::CSharpScript::-1::1725681677::0::1::::<>TabContainer<>::
-SaveFileDisplay.cs::CSharpScript::-1::1725726614::0::1::::<>Control<>::
-SaveFileManipulator.cs::CSharpScript::-1::1729566176::0::1::::<>Node<>::
-UI.cs::CSharpScript::-1::1725725871::0::1::::<>Control<>::
-WorldManager.cs::CSharpScript::-1::1730237796::0::1::::<>Node<>::
-::res://Scripts/FileTypes/::1729584634
-FileTypeChunk.cs::CSharpScript::-1::1729585792::0::1::::<>Resource<>::
-FileTypePiece.cs::CSharpScript::-1::1729583203::0::1::::<>Resource<>::
-::res://Shaders/::1730242773
-Metallic.tres.gdshader::Shader::-1::1730242773::0::1::::<><>::
-Multiply UI.gdshader::Shader::-1::1730242773::0::1::::<><>::
-::res://Sounds/::1725392024
-Explode.wav::AudioStreamWAV::4155725012614604431::1725392001::1725392019::1::::<><>::
-Magic Missle.wav::AudioStreamWAV::1370292474512367696::1725386691::1725386700::1::::<><>::
-Pain Test.wav::AudioStreamWAV::3922125929531876401::1725391998::1725392024::1::::<><>::
+::res://Scenes/::1735287924
+Server.tscn::PackedScene::7176847330991478367::1735287924::0::1::::<><>::res://Scripts/Console.gd
+::res://Scripts/::1735287818
+Console.gd::GDScript::-1::1735287385::0::1::::<>Node<>::
+Server.gd::GDScript::-1::1735287818::0::1::::<>Node<>::
+::res://Shaders/::1735287924
+Metallic.tres.gdshader::Shader::-1::1735287924::0::1::::<><>::
+Multiply UI.gdshader::Shader::-1::1735287924::0::1::::<><>::
 ::res://Textures/::1724651820
 MultiMaterialOrange.png::CompressedTexture2D::6634052985714086117::1724651818::1724651820::1::::<><>::
 MultiMaterialRoughMetal.png::CompressedTexture2D::4427869040580069716::1724651374::1724651385::1::::<><>::
 PrintBump.png::CompressedTexture2D::1633438086862887336::1724604184::1724648050::1::::<><>::
 PrintGoo.jpg::CompressedTexture2D::3744740201031210678::1724648492::1724648604::1::::<><>::
 PrintGooAO.jpg::CompressedTexture2D::4916196248596816332::1724649163::1724649165::1::::<><>::
-::res://UI/::1731927433
-Box Blue.tres::StyleBoxFlat::4559524128086936503::1730236853::0::1::::<><>::
+::res://UI/::1735203175
+Box Blue.tres::StyleBoxFlat::4559524128086936503::1735203175::0::1::::<><>::
 Box Empty.tres::StyleBoxEmpty::5368669098147541913::1725333790::0::1::::<><>::
-Box Green.tres::StyleBoxFlat::8404366526187766510::1730236853::0::1::::<><>::
+Box Green.tres::StyleBoxFlat::8404366526187766510::1735203175::0::1::::<><>::
 BulletPoint.png::CompressedTexture2D::5177394394692690945::1725261407::1725261408::1::::<><>::
 F'Deem Logo 1080p.png::CompressedTexture2D::498436792310089638::1732825124::1734944616::1::::<><>::
 F'Deem Outline Logo 1080p.png::CompressedTexture2D::5533221284565267687::1731927433::1734944616::1::::<><>::
 Icon Unaltered.png::CompressedTexture2D::4891060197509832176::1724779962::1724779967::1::::<><>::
 Icon.png::CompressedTexture2D::2747151331330293507::1724780255::1724780257::1::::<><>::
-LineEditBox.tres::StyleBoxFlat::6240735194158257369::1730236853::0::1::::<><>::
+LineEditBox.tres::StyleBoxFlat::6240735194158257369::1735203175::0::1::::<><>::
 Logo 4K.png::CompressedTexture2D::6171150564478554216::1725260516::1725260523::1::::<><>::
 Logo Tiny.png::CompressedTexture2D::4480491957661592870::1725670395::1725674426::1::::<><>::
-OFH Accent 2.tres::Theme::141666613454232359::1730236853::0::1::::<><>::uid://begsvepmjkbul::::res://UI/Fonts/Text Light.otf<>uid://dr0exoik42351::::res://UI/Box Green.tres<>uid://cu6b85m1ska6l::::res://UI/LineEditBox.tres<>uid://cgbd7qgqs7mfg::::res://UI/Fonts/Text.otf<>uid://b57wxw32uon40::::res://UI/Box Blue.tres<>uid://c105tsvtvpyxd::::res://UI/TabBox.tres
-OFH Accent.tres::Theme::6281120693894320529::1730236853::0::1::::<><>::uid://dgwmu04ty8ss8::::res://UI/Fonts/Logo.ttf<>uid://c105tsvtvpyxd::::res://UI/TabBox.tres<>uid://u5dej3avi8gg::::res://UI/TabBoxDisabled.tres<>uid://de6t0dw2qnxwv::::res://UI/TabBoxUnselected.tres
-OFH.tres::Theme::5147086974714229157::1730236853::0::1::::<><>::uid://begsvepmjkbul::::res://UI/Fonts/Text Light.otf<>uid://ciqvgwg1mseld::::res://UI/Box Empty.tres<>uid://cu6b85m1ska6l::::res://UI/LineEditBox.tres<>uid://cgbd7qgqs7mfg::::res://UI/Fonts/Text.otf<>uid://c105tsvtvpyxd::::res://UI/TabBox.tres
+OFH Accent 2.tres::Theme::141666613454232359::1735203175::0::1::::<><>::uid://begsvepmjkbul::::res://UI/Fonts/Text Light.otf<>uid://dr0exoik42351::::res://UI/Box Green.tres<>uid://cu6b85m1ska6l::::res://UI/LineEditBox.tres<>uid://cgbd7qgqs7mfg::::res://UI/Fonts/Text.otf<>uid://b57wxw32uon40::::res://UI/Box Blue.tres<>uid://c105tsvtvpyxd::::res://UI/TabBox.tres
+OFH Accent.tres::Theme::6281120693894320529::1735203175::0::1::::<><>::uid://dgwmu04ty8ss8::::res://UI/Fonts/Logo.ttf<>uid://c105tsvtvpyxd::::res://UI/TabBox.tres<>uid://u5dej3avi8gg::::res://UI/TabBoxDisabled.tres<>uid://de6t0dw2qnxwv::::res://UI/TabBoxUnselected.tres
+OFH.tres::Theme::5147086974714229157::1735203175::0::1::::<><>::uid://begsvepmjkbul::::res://UI/Fonts/Text Light.otf<>uid://ciqvgwg1mseld::::res://UI/Box Empty.tres<>uid://cu6b85m1ska6l::::res://UI/LineEditBox.tres<>uid://cgbd7qgqs7mfg::::res://UI/Fonts/Text.otf<>uid://c105tsvtvpyxd::::res://UI/TabBox.tres
 Paper Overlay.jpg::CompressedTexture2D::1426183542468222957::1725328245::1725328249::1::::<><>::
 SlideUI.png::CompressedTexture2D::7739036670562974739::1725332307::1725332309::1::::<><>::
 Slot Bar.png::CompressedTexture2D::2837875285339060132::1725089125::1725089366::1::::<><>::
 Slot Case.png::CompressedTexture2D::515801905457547002::1725227193::1725227197::1::::<><>::
 Slot Print Head.png::CompressedTexture2D::4581629722753452817::1725089144::1725089366::1::::<><>::
-TabBox.tres::StyleBoxFlat::6651217164446874969::1730236853::0::1::::<><>::
+TabBox.tres::StyleBoxFlat::6651217164446874969::1735203175::0::1::::<><>::
 TabBoxDisabled.tres::StyleBoxFlat::1465898015529450726::1725508525::0::1::::<><>::
-TabBoxUnselected.tres::StyleBoxFlat::7505211596521894693::1730236853::0::1::::<><>::
+TabBoxUnselected.tres::StyleBoxFlat::7505211596521894693::1735203175::0::1::::<><>::
 UIBrick.png::CompressedTexture2D::8527240571692410947::1725251413::1725251416::1::::<><>::
 UIPrint.png::CompressedTexture2D::2626725135797966092::1725249602::1725249604::1::::<><>::
-::res://UI/Fonts/::1731918643
+::res://UI/Fonts/::1734944615
 Bricks.woff::FontFile::4012935743495635488::1703337430::1725254347::1::::<><>::
 license.txt::TextFile::-1::1711576588::0::1::::<><>::
 Logo.ttf::FontFile::7626577102067853301::1663619328::1725254343::1::::<><>::

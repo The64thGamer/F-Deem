@@ -1,0 +1,79 @@
+{
+	"help": {
+		"target": "",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "show_command_list"
+	},
+	"clear": {
+		"target": "",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "clear_console"
+	},
+	"cheats": {
+		"target": "",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "toggle_cheats"
+	},
+	"host": {
+		"target": "Server",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "host"
+	},
+	"join": {
+		"target": "Server",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "join"
+	},
+	"getAddress": {
+		"target": "Server",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "getAddress"
+	},
+	"chat": {
+		"target": "Server",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "chat"
+	},
+	"getPlayerList": {
+		"target": "Server",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "getPlayerList"
+	},
+	"getPlayerName": {
+		"target": "Server",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "getPlayerName"
+	},
+	"setPlayerName": {
+		"target": "Server",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "setPlayerName"
+	},
+	"getServerUptime": {
+		"target": "Server",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "getServerUptime"
+	}
+}

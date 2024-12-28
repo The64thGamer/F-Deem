@@ -1,3 +1,6 @@
+MultiplayerSynchronizer
+Node
+Panel
 Label
 ScrollContainer
 Button
@@ -10,5 +13,3 @@ Control
 LineEdit
 TextEdit
 BackBufferCopy
-HSlider
-CheckBox
