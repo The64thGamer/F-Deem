@@ -105,14 +105,14 @@ func playername_send(playerName:String) -> void:
 			playerInfo[id]["name"] = playerName
 			
 @rpc("any_peer","reliable","call_local")
-func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int,pos:Vector3,rot:Quaternion) -> void:
+func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int,pos:Vector3,rot:Vector3) -> void:
 	if multiplayer.is_server():
 		var id = multiplayer.get_remote_sender_id()
 		if check_player_permissions(id,"cheater") || check_player_permissions(id,"admin"):		
 			#Strip bad dictionary stuff from piece
 			var parsed_piece = {
-				"color": piece.get("color", null),
-				"id": piece.get("id", null)
+				"color": piece.get("color", "green"),
+				"id": piece.get("id", 0)
 			}
 			
 			#Add
@@ -125,7 +125,8 @@ func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int,pos:Vector
 				loadedMaps[mapName] ={
 					"pieces" : []
 				}
-			loadedMaps[mapName]["pieces"].add(parsed_piece)		
+			loadedMaps[mapName]["pieces"].append(parsed_piece)
+			server_send_message.rpc("'" + playerInfo[id]["name"] + "' placed piece '" + str(parsed_piece["color"]) + str(parsed_piece["id"]) + "' at " + str(pos))
 #endregion
 
 #region Connecting
@@ -218,6 +219,15 @@ func getPlayerName() -> void:
 func setPlayerName(newName: String) -> void:
 	if checkOnline(): 
 		playername_send.rpc(newName)
+		
+func place(piece:int,color:String,mapX:int,mapY:int,mapZ:int,mapW:int,pos:Vector3,rot:Vector3) -> void:
+	if checkOnline(): 
+		var pieceDictionary = {"id":piece,"color":color}
+		place_piece.rpc(pieceDictionary,mapX,mapY,mapZ,mapW,pos,rot)
+		
+func setPlayerPermissions(setID:int,permission:String) -> void:
+	if checkOnline(): 
+		set_player_permissions.rpc(setID,permission)
 		
 func getServerUptime() -> void:
 	if checkOnline(): 

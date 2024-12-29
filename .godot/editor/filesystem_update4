@@ -3,3 +3,4 @@ res://Shaders/Metallic.tres.gdshader
 res://Shaders/Multiply UI.gdshader
 res://Scripts/Server.gd
 res://Scripts/Objects/Map.gd
+res://addons/simply-console/data/command_list.json

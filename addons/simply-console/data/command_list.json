@@ -75,5 +75,19 @@
 		"cheats": false,
 		"requiresKeyword": false,
 		"method": "getServerUptime"
+	},
+	"setPlayerPermissions": {
+		"target": "Server",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "setPlayerPermissions"
+	},
+	"place": {
+		"target": "Server",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "place"
 	}
 }
