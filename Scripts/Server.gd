@@ -1,14 +1,21 @@
 extends Node
 
-@export var address = "127.0.0.1"
-@export var port = 7888
-var peer = null
-var playerInfo = {}
+#Server Settings
+@export var address: String = "127.0.0.1"
+@export var port: int = 7888
+
+#Player Settings
+var playerInfo: Dictionary = {}
+var loadedMaps: Dictionary = {}
+
+#World Settings
 
 #Slow Sync
-@export var totalConnections = 0
-@export var serverUptime = 0
+@export var totalConnections: int = 0
+@export var serverUptime: float = 0
 
+#Objects
+var peer = null
 var synchronizer : MultiplayerSynchronizer
 var slowSynchronizer : MultiplayerSynchronizer
 
@@ -80,6 +87,27 @@ func playername_send(playerName:String) -> void:
 			server_send_message.rpc(playerInfo[id]["name"] + "'s name changed to '" + playerName + "'")
 			playerInfo[id]["name"] = playerName
 			
+@rpc("any_peer","reliable","call_local")
+func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int,pos:Vector3,rot:Quaternion) -> void:
+	if multiplayer.is_server():
+		#Strip bad 
+		var parsed_piece = {
+			"color": piece.get("color", null),
+			"id": piece.get("id", null)
+		}
+		
+		#Add
+		var mapName = str(mapX) + "," + str(mapY) + "," + str(mapZ) + "," + str(mapW)
+		if not mapName in loadedMaps:
+			#DO THIS LATER
+			#loadmap from savefile
+			#if (map) is null
+				#create map
+			loadedMaps[mapName] ={
+				"pieces" : []
+			}
+		loadedMaps[mapName]["pieces"].add(parsed_piece)
+		
 #endregion
 
 #region Connecting

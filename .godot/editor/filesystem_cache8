@@ -1,12 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1735288277
+::res://::1735372233
 icon.svg::CompressedTexture2D::6099819464740842484::1735202149::1735202853::1::::<><>::
-::res://addons/::1735209103
+::res://addons/::1735375223
 ::res://addons/simply-console/::1735209109
 plugin.cfg::TextFile::-1::1735209103::0::1::::<><>::
 plugin.gd::GDScript::-1::1735209103::0::1::::<>EditorPlugin<>::
-::res://addons/simply-console/data/::1735209109
-command_list.json::JSON::-1::1735209109::0::1::::<><>::
+::res://addons/simply-console/data/::1735362978
+command_list.json::JSON::-1::1735362978::0::1::::<><>::
 ::res://addons/simply-console/modules/::1735209103
 base_module.gd::GDScript::-1::1735209103::0::1::::ConsoleModule<>Control<>::
 ::res://addons/simply-console/modules/object-picker/::1735209103
@@ -24,10 +24,10 @@ extras_tab.tscn::PackedScene::8887357207370164360::1735209103::0::1::::<><>::
 ::res://addons/simply-console/scenes/console-window/::1735209103
 console_window.tscn::PackedScene::5650511457403785330::1735209103::0::1::::<><>::res://addons/simply-console/scripts/console_window.gd<>uid://cvwwa0qyx0kwb::::res://addons/simply-console/modules/object-picker/object_picker.tscn<>uid://c2kr6ux8lx4i::::res://addons/simply-console/modules/property-tracker/property_tracker.tscn<>res://addons/simply-console/scripts/command_suggestions.gd<>uid://rdai81bo3phn::::res://addons/simply-console/scenes/console-window/suggestion.tscn
 suggestion.tscn::PackedScene::1199419534960700823::1735209103::0::1::::<><>::
-::res://addons/simply-console/scripts/::1735209103
+::res://addons/simply-console/scripts/::1735329227
 command_lexer.gd::GDScript::-1::1735209103::0::1::::CommandLexer<>Node<>::
 command_parser.gd::GDScript::-1::1735209103::0::1::::CommandParser<>Node<>::
-command_suggestions.gd::GDScript::-1::1735209103::0::1::::<>PanelContainer<>::
+command_suggestions.gd::GDScript::-1::1735329227::0::1::::<>PanelContainer<>::
 console_window.gd::GDScript::-1::1735209103::0::1::::<>Window<>::
 ::res://addons/simply-console/singletons/::1735209103
 console_manager.gd::GDScript::-1::1735209103::0::1::::<>Node<>::
@@ -60,7 +60,7 @@ trans_rights_white.tres::StandardMaterial3D::8217831747030329580::1725474978::0:
 trans_rights_yellow.tres::StandardMaterial3D::8216110500893280709::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 white.tres::StandardMaterial3D::3341299404838252109::1735201492::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 yellow.tres::StandardMaterial3D::4691157481300061665::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-::res://Models/::1732925564
+::res://Models/::1735371587
 blender_assets.cats.txt::TextFile::-1::1732825133::0::1::::<><>::
 ::res://Models/Parts (BLEND)/::1735111077
 ::res://Models/Parts (GLB)/::1734944617
@@ -96,16 +96,19 @@ Horse Tail Broom.glb::PackedScene::7987249278667238406::1725688313::1725723403::
 Horse Tail.glb::PackedScene::2524268703136600561::1725085290::1725086794::1::::<><>::
 Horse Tall Head.glb::PackedScene::5047459490267771161::1725085298::1725085340::1::::<><>::
 Peg Half Bone.glb::PackedScene::3155265610476014817::1724827093::1724827316::1::::<><>::
-::res://Models/Parts (STL)/::1735031218
-::res://Models/Sets (BLEND)/::1731833464
-::res://Scenes/::1735287924
-Server.tscn::PackedScene::7176847330991478367::1735287924::0::1::::<><>::res://Scripts/Console.gd
-::res://Scripts/::1735287818
+::res://Models/Parts (STL)/::1735372122
+::res://Models/Sets (BLEND)/::1735372202
+::res://Scenes/::1735420932
+Server.tscn::PackedScene::7176847330991478367::1735420932::0::1::::<><>::res://Scripts/Console.gd<>res://Scripts/Server.gd
+::res://Scripts/::1735420932
 Console.gd::GDScript::-1::1735287385::0::1::::<>Node<>::
-Server.gd::GDScript::-1::1735287818::0::1::::<>Node<>::
-::res://Shaders/::1735287924
-Metallic.tres.gdshader::Shader::-1::1735287924::0::1::::<><>::
-Multiply UI.gdshader::Shader::-1::1735287924::0::1::::<><>::
+Server.gd::GDScript::-1::1735420932::0::1::::<>Node<>::
+::res://Shaders/::1735420933
+Metallic.tres.gdshader::Shader::-1::1735420933::0::1::::<><>::
+Multiply UI.gdshader::Shader::-1::1735420933::0::1::::<><>::
+::res://StlImporter-main/::1735372220
+::res://StlImporter-main/addons/::1735370214
+::res://StlImporter-main/addons/stl_importer/::1735372219
 ::res://Textures/::1724651820
 MultiMaterialOrange.png::CompressedTexture2D::6634052985714086117::1724651818::1724651820::1::::<><>::
 MultiMaterialRoughMetal.png::CompressedTexture2D::4427869040580069716::1724651374::1724651385::1::::<><>::
