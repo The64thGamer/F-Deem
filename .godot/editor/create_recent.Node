@@ -1,5 +1,5 @@
-MultiplayerSynchronizer
 Node
+MultiplayerSynchronizer
 Panel
 Label
 ScrollContainer
@@ -12,4 +12,3 @@ PanelContainer
 Control
 LineEdit
 TextEdit
-BackBufferCopy
