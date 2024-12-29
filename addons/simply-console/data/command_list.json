@@ -21,80 +21,88 @@
 		"method": "toggle_cheats"
 	},
 	"host": {
-		"target": "Server",
+		"target": "F'Deem",
 		"minPermission": 0,
 		"cheats": false,
 		"requiresKeyword": false,
 		"method": "host"
 	},
 	"join": {
-		"target": "Server",
+		"target": "F'Deem",
 		"minPermission": 0,
 		"cheats": false,
 		"requiresKeyword": false,
 		"method": "join"
 	},
 	"getAddress": {
-		"target": "Server",
+		"target": "F'Deem",
 		"minPermission": 0,
 		"cheats": false,
 		"requiresKeyword": false,
 		"method": "getAddress"
 	},
 	"chat": {
-		"target": "Server",
+		"target": "F'Deem",
 		"minPermission": 0,
 		"cheats": false,
 		"requiresKeyword": false,
 		"method": "chat"
 	},
 	"getPlayerList": {
-		"target": "Server",
+		"target": "F'Deem",
 		"minPermission": 0,
 		"cheats": false,
 		"requiresKeyword": false,
 		"method": "getPlayerList"
 	},
 	"getPlayerName": {
-		"target": "Server",
+		"target": "F'Deem",
 		"minPermission": 0,
 		"cheats": false,
 		"requiresKeyword": false,
 		"method": "getPlayerName"
 	},
 	"setPlayerName": {
-		"target": "Server",
+		"target": "F'Deem",
 		"minPermission": 0,
 		"cheats": false,
 		"requiresKeyword": false,
 		"method": "setPlayerName"
 	},
 	"getServerUptime": {
-		"target": "Server",
+		"target": "F'Deem",
 		"minPermission": 0,
 		"cheats": false,
 		"requiresKeyword": false,
 		"method": "getServerUptime"
 	},
 	"setPlayerPermissions": {
-		"target": "Server",
+		"target": "F'Deem",
 		"minPermission": 0,
 		"cheats": false,
 		"requiresKeyword": false,
 		"method": "setPlayerPermissions"
 	},
 	"getLoadedMaps": {
-		"target": "Server",
+		"target": "F'Deem",
 		"minPermission": 0,
 		"cheats": false,
 		"requiresKeyword": false,
 		"method": "getLoadedMaps"
 	},
 	"place": {
-		"target": "Server",
+		"target": "F'Deem",
 		"minPermission": 0,
 		"cheats": false,
 		"requiresKeyword": false,
 		"method": "place"
+	}
+	,
+	"setMode": {
+		"target": "F'Deem",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "setMode"
 	}
 }

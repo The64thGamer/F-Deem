@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dairvk2ir6u3p"]
 
 [ext_resource type="Script" path="res://Scripts/Console.gd" id="1_f2bn5"]
-[ext_resource type="Script" path="res://Scripts/Server.gd" id="2_vfqox"]
+[ext_resource type="Script" path="res://Scripts/Client.gd" id="3_yhcxh"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,5 +12,5 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f2bn5")
 
-[node name="Server" type="Node" parent="."]
-script = ExtResource("2_vfqox")
+[node name="F\'Deem" type="Node" parent="."]
+script = ExtResource("3_yhcxh")

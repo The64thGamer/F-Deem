@@ -1,12 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1735372233
+::res://::1735440182
 icon.svg::CompressedTexture2D::6099819464740842484::1735202149::1735202853::1::::<><>::
 ::res://addons/::1735375223
 ::res://addons/simply-console/::1735209109
 plugin.cfg::TextFile::-1::1735209103::0::1::::<><>::
 plugin.gd::GDScript::-1::1735209103::0::1::::<>EditorPlugin<>::
-::res://addons/simply-console/data/::1735362978
-command_list.json::JSON::-1::1735362978::0::1::::<><>::
+::res://addons/simply-console/data/::1735439422
+command_list.json::JSON::-1::1735439422::0::1::::<><>::
 ::res://addons/simply-console/modules/::1735209103
 base_module.gd::GDScript::-1::1735209103::0::1::::ConsoleModule<>Control<>::
 ::res://addons/simply-console/modules/object-picker/::1735209103
@@ -63,49 +63,20 @@ yellow.tres::StandardMaterial3D::4691157481300061665::1730236853::0::1::::<><>::
 ::res://Models/::1735371587
 blender_assets.cats.txt::TextFile::-1::1732825133::0::1::::<><>::
 ::res://Models/Parts (BLEND)/::1735111077
-::res://Models/Parts (GLB)/::1734944617
-1x1.glb::PackedScene::7583105269830357879::1724631282::1725505519::1::::<><>::
-1x2.glb::PackedScene::9064168266086184421::1724631275::1725505519::1::::<><>::
-1x3.glb::PackedScene::4237438540888854322::1724631269::1725505518::1::::<><>::
-1x4.glb::PackedScene::5833273150399697544::1724631261::1725505518::1::::<><>::
-1x6.glb::PackedScene::7644166128248742972::1724631255::1725505517::1::::<><>::
-1x8.glb::PackedScene::2372854629158911105::1724631250::1725505517::1::::<><>::
-1x10.glb::PackedScene::4874109396070249478::1724631244::1725505516::1::::<><>::
-1x16.glb::PackedScene::61630128555100170::1724631238::1725505516::1::::<><>::
-2x2 Ramp.glb::PackedScene::5664841131337989740::1724798030::1725505515::1::::<><>::
-2x2.glb::PackedScene::7698080572358855801::1724631232::1725505515::1::::<><>::
-2x3 Haybale.glb::PackedScene::1657584226449412977::1724631221::1725505514::1::::<><>::
-2x3 Ramp.glb::PackedScene::6640842805158542436::1724797994::1725505507::1::::<><>::
-2x3.glb::PackedScene::4552246851769101354::1724631226::1725505507::1::::<><>::
-2x4 Ramp.glb::PackedScene::900328358291977553::1724798079::1725505506::1::::<><>::
-2x4.glb::PackedScene::2014664854576556625::1724631215::1725505505::1::::<><>::
-2x6.glb::PackedScene::1733323270973334078::1724631210::1725505505::1::::<><>::
-2x10.glb::PackedScene::3342308270443653149::1724631203::1725505504::1::::<><>::
-2x16.glb::PackedScene::954577362505659927::1724631197::1725505504::1::::<><>::
-3x2 Shingle.glb::PackedScene::5727166117429933876::1724798265::1725505503::1::::<><>::
-4x4.glb::PackedScene::8163278854729863385::1724631190::1725505502::1::::<><>::
-4x6.glb::PackedScene::2286854446095427830::1724631184::1725505501::1::::<><>::
-8x8.glb::PackedScene::2505388903195462623::1724631177::1725505500::1::::<><>::
-16x16.glb::PackedScene::3067403191222008368::1724631170::1725245452::1::::<><>::
-Cheese Wedge.glb::PackedScene::6113551386345621487::1734421564::1734944617::1::::<><>::
-Horse Body Standing.glb::PackedScene::8490503077058936094::1725861491::1727685400::1::::<><>::
-Horse Hair A.glb::PackedScene::1706353585826668255::1725084630::1725086792::1::::<><>::
-Horse Hard Hat.glb::PackedScene::153460441414838961::1725085322::1725086792::1::::<><>::
-Horse Head.glb::PackedScene::3920331974484651309::1725085313::1725086793::1::::<><>::
-Horse Tail Broom.glb::PackedScene::7987249278667238406::1725688313::1725723403::1::::<><>::
-Horse Tail.glb::PackedScene::2524268703136600561::1725085290::1725086794::1::::<><>::
-Horse Tall Head.glb::PackedScene::5047459490267771161::1725085298::1725085340::1::::<><>::
-Peg Half Bone.glb::PackedScene::3155265610476014817::1724827093::1724827316::1::::<><>::
+::res://Models/Parts (GLB)/::1735459592
+2x2 Brick.glb::PackedScene::4620471668195719747::1735459558::1735459599::1::::<><>::
+2x4 Brick.glb::PackedScene::7232081792033303821::1735459592::1735459599::1::::<><>::
 ::res://Models/Parts (STL)/::1735372122
 ::res://Models/Sets (BLEND)/::1735372202
-::res://Scenes/::1735420932
-Server.tscn::PackedScene::7176847330991478367::1735420932::0::1::::<><>::res://Scripts/Console.gd<>res://Scripts/Server.gd
-::res://Scripts/::1735420932
+::res://Scenes/::1735452539
+Server.tscn::PackedScene::7176847330991478367::1735452539::0::1::::<><>::res://Scripts/Console.gd<>res://Scripts/Server.gd<>res://Scripts/Client.gd
+::res://Scripts/::1735452527
 Console.gd::GDScript::-1::1735287385::0::1::::<>Node<>::
-Server.gd::GDScript::-1::1735420932::0::1::::<>Node<>::
-::res://Shaders/::1735420933
-Metallic.tres.gdshader::Shader::-1::1735420933::0::1::::<><>::
-Multiply UI.gdshader::Shader::-1::1735420933::0::1::::<><>::
+Client.gd::GDScript::-1::1735452527::0::1::::<>Node<>::
+Server.gd::GDScript::-1::1735440164::0::1::::<>Node<>::
+::res://Shaders/::1735452539
+Metallic.tres.gdshader::Shader::-1::1735452539::0::1::::<><>::
+Multiply UI.gdshader::Shader::-1::1735452539::0::1::::<><>::
 ::res://StlImporter-main/::1735372220
 ::res://StlImporter-main/addons/::1735370214
 ::res://StlImporter-main/addons/stl_importer/::1735372219

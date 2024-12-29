@@ -1,18 +1,19 @@
 extends Node
+class_name Server
 
 #Server Settings
-@export var address: String = "127.0.0.1"
-@export var port: int = 7888
+var address: String = "127.0.0.1"
+var port: int = 7888
 
 #Player Settings
 var playerInfo: Dictionary = {}
-var loadedMaps: Dictionary = {}
 
 #World Settings
+var loadedMaps: Dictionary = {}
 
 #Slow Sync
-@export var totalConnections: int = 0
-@export var serverUptime: float = 0
+var totalConnections: int = 0
+var serverUptime: float = 0
 
 #Objects
 var peer = null
@@ -22,8 +23,6 @@ var slowSynchronizer : MultiplayerSynchronizer
 func _ready():
 	multiplayer.peer_connected.connect(peer_connected)
 	multiplayer.peer_disconnected.connect(peer_disconnected)
-	multiplayer.connected_to_server.connect(connected_to_server)
-	multiplayer.connection_failed.connect(connection_failed)
 	
 func _process(delta: float) -> void:
 	if multiplayer.is_server():
@@ -31,6 +30,16 @@ func _process(delta: float) -> void:
 	pass
 
 #region Hosting
+func setMode(modeSet: String = "client") -> void:
+	if modeSet.to_lower() == "client":
+		Console.output_text("Mode set to 'Client'")
+		set_script(load("res://Scripts/Client.gd"))
+	elif modeSet.to_lower() == "server":
+		Console.output_text("Mode set to 'Server'")
+		set_script(load("res://Scripts/Server.gd"))
+	else:
+		Console.output_error("'" + modeSet + "' not a valid Mode")
+
 func host(setaddress: String = address) -> void:
 	address = setaddress;
 	peer = ENetMultiplayerPeer.new()
@@ -41,8 +50,6 @@ func host(setaddress: String = address) -> void:
 		peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 		multiplayer.set_multiplayer_peer(peer)
 		if multiplayer.is_server():
-			#Synchronizer
-			create_syncrhonizer()
 			
 			#Done hosts
 			Console.output_text("Hosting '" + address + "'")
@@ -58,6 +65,9 @@ func host(setaddress: String = address) -> void:
 			Console.output_text("Player Joined '" + str(id) + "'")
 		else:
 			Console.output_text("Cannot Host 'set_multiplayer_peer failed'")
+
+func join(setaddress: String) -> void:
+	Console.output_error("Currently in Server Mode, use 'setMode client' and then join.")
 
 func peer_connected(id):
 	if multiplayer.is_server():
@@ -131,113 +141,15 @@ func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
 			server_send_message.rpc("'" + playerInfo[id]["name"] + "' placed piece '" + str(parsed_piece["color"]) + str(parsed_piece["id"]) + "' at " + str(parsed_piece["position"]))
 #endregion
 
-#region Connecting
-func join(setaddress: String = address) -> void:
-	address = setaddress;
-	Console.output_text("Joining '" + address + "'")
-	peer = ENetMultiplayerPeer.new()
-	peer.create_client(address,port)
-	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
-	multiplayer.set_multiplayer_peer(peer)
+#region DUMMY CLIENT RPCS, REQUIRED SAME BOILERPLATE
+#https://docs.godotengine.org/en/stable/tutorials/networking/high_level_multiplayer.html#remote-procedure-calls
 
-func connected_to_server():
-	var id = multiplayer.get_unique_id()
-	if not multiplayer.is_server():
-		Console.output_text("You joined the server '" + str(id) + "'")
-	create_syncrhonizer()
-	pass
-	
-func connection_failed():
-	pass
-	
-func create_syncrhonizer() -> void:
-	synchronizer = MultiplayerSynchronizer.new()
-	synchronizer.delta_interval = 0
-	synchronizer.replication_interval = 0
-	add_child(synchronizer)
-	var config = SceneReplicationConfig.new()
-	config.add_property(".:loadedMaps")
-	config.property_set_replication_mode(".:loadedMaps", SceneReplicationConfig.ReplicationMode.REPLICATION_MODE_ON_CHANGE);
-	synchronizer.replication_config = config
-	
-	slowSynchronizer = MultiplayerSynchronizer.new()
-	slowSynchronizer.delta_interval = 1.0
-	slowSynchronizer.replication_interval = 1.0
-	add_child(slowSynchronizer)
-	config = SceneReplicationConfig.new()
-	config.add_property(".:serverUptime")
-	config.property_set_replication_mode(".:serverUptime", SceneReplicationConfig.ReplicationMode.REPLICATION_MODE_ALWAYS);
-	config.add_property(".:totalConnections")
-	config.property_set_replication_mode(".:totalConnections", SceneReplicationConfig.ReplicationMode.REPLICATION_MODE_ALWAYS);
-	config.add_property(".:playerInfo")
-	config.property_set_replication_mode(".:playerInfo", SceneReplicationConfig.ReplicationMode.REPLICATION_MODE_ALWAYS);
-	slowSynchronizer.replication_config = config
-	
 @rpc("authority","call_local","reliable")
 func display_chat(chatText: String, id: int) -> void:
-	if playerInfo.has(id):
-		var player_name = "Unknown Player Name (" + str(id) + ")"
-		if "name" in playerInfo[id]:
-			player_name = playerInfo[id]["name"]
-		Console.output_text(player_name + ": " + chatText)
-	else:
-		Console.output_text("Unknown Player (" + str(id) + "): " + chatText)
+	pass
 		
 @rpc("authority","call_local","reliable")
 func server_send_message(message: String) -> void:
-	Console.output_text(message)
-#endregion
-
-#region General Commands
-func checkOnline() -> bool:
-	if is_instance_valid(peer):
-		return true
-	else:
-		Console.output_error("Not Connected to Server")
-		return false
-
-func getaddress() -> void:
-	Console.output_text(address)
+	pass
 	
-func chat(chatText: String) -> void:
-	if checkOnline(): 
-		chat_send.rpc(chatText)
-		
-func getPlayerName() -> void:
-	if checkOnline():
-		var id = multiplayer.get_unique_id()
-		var player_name = "No Player Name Set (" + str(id) + ")"
-		if "name" in playerInfo[id]:
-			player_name = playerInfo[id]["name"]
-		Console.output_text(player_name)
-			
-func setPlayerName(newName: String) -> void:
-	if checkOnline(): 
-		playername_send.rpc(newName)
-		
-func place(piece:int,color:String,mapX:int,mapY:int,mapZ:int,mapW:int,posX:float,posY:float,posZ:float,rotX:float,rotY:float,rotZ:float,rotW:float) -> void:
-	if checkOnline(): 
-		var pieceDictionary = {
-			"id": piece,
-			"color": color,
-			"position": Vector3(posX,posY,posZ),
-			"rotation": Quaternion(rotX,rotY,rotZ,rotW)
-			}
-		place_piece.rpc(pieceDictionary,mapX,mapY,mapZ,mapW)
-		
-func setPlayerPermissions(setID:int,permission:String) -> void:
-	if checkOnline(): 
-		set_player_permissions.rpc(setID,permission)
-		
-func getServerUptime() -> void:
-	if checkOnline(): 
-		Console.output_text(str(serverUptime))
-
-func getPlayerList() -> void:
-	if checkOnline(): 
-		Console.output_text(str(playerInfo))
-
-func getLoadedMaps() -> void:
-	if checkOnline(): 
-		Console.output_text(str(loadedMaps))
 #endregion

@@ -23,8 +23,8 @@ Console="*res://addons/simply-console/singletons/console_manager.gd"
 
 [display]
 
-window/size/viewport_width=960
-window/size/viewport_height=640
+window/size/viewport_width=640
+window/size/viewport_height=480
 
 [dotnet]
 
