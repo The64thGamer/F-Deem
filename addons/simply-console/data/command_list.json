@@ -83,6 +83,13 @@
 		"requiresKeyword": false,
 		"method": "setPlayerPermissions"
 	},
+	"getLoadedMaps": {
+		"target": "Server",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "getLoadedMaps"
+	},
 	"place": {
 		"target": "Server",
 		"minPermission": 0,

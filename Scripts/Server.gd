@@ -236,4 +236,8 @@ func getServerUptime() -> void:
 func getPlayerList() -> void:
 	if checkOnline(): 
 		Console.output_text(str(playerInfo))
+
+func getLoadedMaps() -> void:
+	if checkOnline(): 
+		Console.output_text(str(loadedMaps))
 #endregion
