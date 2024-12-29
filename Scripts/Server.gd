@@ -52,7 +52,8 @@ func host(setaddress: String = address) -> void:
 			var id = multiplayer.get_unique_id()
 			playerInfo[id] ={
 				"id" : id,
-				"name" : "Guest " + str(totalConnections)
+				"name" : "Guest " + str(totalConnections),
+				"permissions" : "admin"
 			}
 			Console.output_text("Player Joined '" + str(id) + "'")
 		else:
@@ -63,7 +64,8 @@ func peer_connected(id):
 		totalConnections += 1
 		playerInfo[id] ={
 			"id" : id,
-			"name" : "Guest " + str(totalConnections)
+			"name" : "Guest " + str(totalConnections),
+			"permissions" : "player"
 		}
 	Console.output_text("Player Joined '" + str(id) + "'")
 	pass
@@ -73,41 +75,57 @@ func peer_disconnected(id):
 		playerInfo.erase(id)
 	Console.output_text("Player Left '" + str(id) + "'")
 	pass
-		
+	
+func check_player_permissions(setID:int,permission:String) -> bool:
+	if not "permissions" in playerInfo[setID]:
+		return false
+	if playerInfo[setID]["permissions"] == permission:
+		return true
+	return false
+
+@rpc("any_peer","reliable","call_local")
+func set_player_permissions(setID:int,permission:String) -> void:
+	if multiplayer.is_server():
+		var id = multiplayer.get_remote_sender_id()
+		if check_player_permissions(id,"admin"):
+			server_send_message.rpc("'" + playerInfo[id]["name"] + "' set permissions of '" + playerInfo[setID]["name"] + "' to '" + permission + "'")
+			playerInfo[setID]["permissions"] = permission
+
 @rpc("any_peer","reliable","call_local")
 func chat_send(chatText:String) -> void:
 	if multiplayer.is_server():
 		display_chat.rpc(chatText,multiplayer.get_remote_sender_id())
-		
+
 @rpc("any_peer","reliable","call_local")
 func playername_send(playerName:String) -> void:
 	if multiplayer.is_server():
 		var id = multiplayer.get_remote_sender_id()
 		if "name" in playerInfo[id]:
-			server_send_message.rpc(playerInfo[id]["name"] + "'s name changed to '" + playerName + "'")
+			server_send_message.rpc("'" + playerInfo[id]["name"] + "' changed name to '" + playerName + "'")
 			playerInfo[id]["name"] = playerName
 			
 @rpc("any_peer","reliable","call_local")
 func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int,pos:Vector3,rot:Quaternion) -> void:
 	if multiplayer.is_server():
-		#Strip bad 
-		var parsed_piece = {
-			"color": piece.get("color", null),
-			"id": piece.get("id", null)
-		}
-		
-		#Add
-		var mapName = str(mapX) + "," + str(mapY) + "," + str(mapZ) + "," + str(mapW)
-		if not mapName in loadedMaps:
-			#DO THIS LATER
-			#loadmap from savefile
-			#if (map) is null
-				#create map
-			loadedMaps[mapName] ={
-				"pieces" : []
+		var id = multiplayer.get_remote_sender_id()
+		if check_player_permissions(id,"cheater") || check_player_permissions(id,"admin"):		
+			#Strip bad dictionary stuff from piece
+			var parsed_piece = {
+				"color": piece.get("color", null),
+				"id": piece.get("id", null)
 			}
-		loadedMaps[mapName]["pieces"].add(parsed_piece)
-		
+			
+			#Add
+			var mapName = str(mapX) + "," + str(mapY) + "," + str(mapZ) + "," + str(mapW)
+			if not mapName in loadedMaps:
+				#DO THIS LATER
+				#loadmap from savefile
+				#if (map) is null
+					#create map
+				loadedMaps[mapName] ={
+					"pieces" : []
+				}
+			loadedMaps[mapName]["pieces"].add(parsed_piece)		
 #endregion
 
 #region Connecting
@@ -137,16 +155,20 @@ func connection_failed():
 	pass
 	
 func create_syncrhonizer() -> void:
-	#synchronizer = MultiplayerSynchronizer.new()
-	#synchronizer.delta_interval = 0
-	#synchronizer.replication_interval = 0
-	#add_child(synchronizer)
+	synchronizer = MultiplayerSynchronizer.new()
+	synchronizer.delta_interval = 0
+	synchronizer.replication_interval = 0
+	add_child(synchronizer)
+	var config = SceneReplicationConfig.new()
+	config.add_property(".:loadedMaps")
+	config.property_set_replication_mode(".:loadedMaps", SceneReplicationConfig.ReplicationMode.REPLICATION_MODE_ON_CHANGE);
+	synchronizer.replication_config = config
 	
 	slowSynchronizer = MultiplayerSynchronizer.new()
 	slowSynchronizer.delta_interval = 1.0
 	slowSynchronizer.replication_interval = 1.0
 	add_child(slowSynchronizer)
-	var config = SceneReplicationConfig.new()
+	config = SceneReplicationConfig.new()
 	config.add_property(".:serverUptime")
 	config.property_set_replication_mode(".:serverUptime", SceneReplicationConfig.ReplicationMode.REPLICATION_MODE_ALWAYS);
 	config.add_property(".:totalConnections")
