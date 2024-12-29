@@ -105,14 +105,16 @@ func playername_send(playerName:String) -> void:
 			playerInfo[id]["name"] = playerName
 			
 @rpc("any_peer","reliable","call_local")
-func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int,pos:Vector3,rot:Vector3) -> void:
+func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
 	if multiplayer.is_server():
 		var id = multiplayer.get_remote_sender_id()
 		if check_player_permissions(id,"cheater") || check_player_permissions(id,"admin"):		
 			#Strip bad dictionary stuff from piece
 			var parsed_piece = {
 				"color": piece.get("color", "green"),
-				"id": piece.get("id", 0)
+				"id": piece.get("id", 0),
+				"position": piece.get("position", Vector3.ZERO),
+				"rotation": piece.get("rotation", Quaternion.IDENTITY)
 			}
 			
 			#Add
@@ -126,7 +128,7 @@ func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int,pos:Vector
 					"pieces" : []
 				}
 			loadedMaps[mapName]["pieces"].append(parsed_piece)
-			server_send_message.rpc("'" + playerInfo[id]["name"] + "' placed piece '" + str(parsed_piece["color"]) + str(parsed_piece["id"]) + "' at " + str(pos))
+			server_send_message.rpc("'" + playerInfo[id]["name"] + "' placed piece '" + str(parsed_piece["color"]) + str(parsed_piece["id"]) + "' at " + str(parsed_piece["position"]))
 #endregion
 
 #region Connecting
@@ -140,14 +142,7 @@ func join(setaddress: String = address) -> void:
 
 func connected_to_server():
 	var id = multiplayer.get_unique_id()
-	if multiplayer.is_server():
-		totalConnections += 1		
-		playerInfo[id] ={
-			"id" : id,
-			"name" : "Guest " + str(totalConnections)
-		}
-		Console.output_text("Player Joined '" + str(id) + "'")
-	else:
+	if not multiplayer.is_server():
 		Console.output_text("You joined the server '" + str(id) + "'")
 	create_syncrhonizer()
 	pass
@@ -220,10 +215,15 @@ func setPlayerName(newName: String) -> void:
 	if checkOnline(): 
 		playername_send.rpc(newName)
 		
-func place(piece:int,color:String,mapX:int,mapY:int,mapZ:int,mapW:int,pos:Vector3,rot:Vector3) -> void:
+func place(piece:int,color:String,mapX:int,mapY:int,mapZ:int,mapW:int,posX:float,posY:float,posZ:float,rotX:float,rotY:float,rotZ:float,rotW:float) -> void:
 	if checkOnline(): 
-		var pieceDictionary = {"id":piece,"color":color}
-		place_piece.rpc(pieceDictionary,mapX,mapY,mapZ,mapW,pos,rot)
+		var pieceDictionary = {
+			"id": piece,
+			"color": color,
+			"position": Vector3(posX,posY,posZ),
+			"rotation": Quaternion(rotX,rotY,rotZ,rotW)
+			}
+		place_piece.rpc(pieceDictionary,mapX,mapY,mapZ,mapW)
 		
 func setPlayerPermissions(setID:int,permission:String) -> void:
 	if checkOnline(): 
