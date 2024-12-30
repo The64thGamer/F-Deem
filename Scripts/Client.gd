@@ -101,9 +101,9 @@ func setPlayerPermissions(setID:int,permission:String) -> void:
 	if checkOnline(): 
 		set_player_permissions.rpc(setID,permission)
 		
-func getServerUptime() -> void:
+func getServerVar(key:String) -> void:
 	if checkOnline(): 
-		Console.output_text(str(serverVariables["serverUptime"]))
+		Console.output_text(str(serverVariables[key]))
 
 func getPlayerList() -> void:
 	if checkOnline(): 

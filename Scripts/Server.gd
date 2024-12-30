@@ -74,6 +74,11 @@ func peer_connected(id):
 	setPlayerInfo(id,"name","Guest " + str(serverVariables["totalConnections"]))
 	setPlayerInfo(id,"permissions","player")
 	server_send_message.rpc("Player Joined '" + str(id) + "'")
+	for key in serverVariables:
+		server_update_server_variable.rpc_id(id,key,serverVariables[key])
+	for playerID in playerInfo:
+		for value in playerInfo[playerID]:
+			server_update_player_info.rpc_id(id,playerID,value,playerInfo[playerID][value])
 
 func peer_disconnected(id):
 	playerInfo.erase(id)
@@ -149,9 +154,9 @@ func setPlayerPermissions(setID:int,permission:String) -> void:
 func getaddress() -> void:
 	Console.output_text(address)
 		
-func getServerUptime() -> void:
+func getServerVar(key:String) -> void:
 	if checkOnline(): 
-		Console.output_text(str(localUptime))
+		Console.output_text(str(serverVariables[key]))
 
 func getPlayerList() -> void:
 	if checkOnline(): 

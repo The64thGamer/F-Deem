@@ -69,12 +69,12 @@
 		"requiresKeyword": false,
 		"method": "setPlayerName"
 	},
-	"getServerUptime": {
+	"getServerVar": {
 		"target": "F'Deem",
 		"minPermission": 0,
 		"cheats": false,
 		"requiresKeyword": false,
-		"method": "getServerUptime"
+		"method": "getServerVar"
 	},
 	"setPlayerPermissions": {
 		"target": "F'Deem",
