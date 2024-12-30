@@ -96,13 +96,19 @@
 		"cheats": false,
 		"requiresKeyword": false,
 		"method": "place"
-	}
-	,
+	},
 	"setMode": {
 		"target": "F'Deem",
 		"minPermission": 0,
 		"cheats": false,
 		"requiresKeyword": false,
 		"method": "setMode"
+	},
+	"commandSetVar": {
+		"target": "F'Deem",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "commandSetVar"
 	}
 }

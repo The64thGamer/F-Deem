@@ -25,12 +25,17 @@ func _ready():
 func _process(delta: float) -> void:
 	localUptime += delta
 	if localUptime - serverVariables["serverUptime"] > 5:
-		setServerVariable("serverUptime",localUptime)
+		set_server_variable("serverUptime",localUptime,false)
 
 #region Hosting
 
-func setServerVariable(key, value) -> void:
+func commandSetVar(key:String, value:String) -> void:
+	set_server_variable(key,value,true)
+
+func set_server_variable(key, value, broadcast:bool) -> void:
 	serverVariables[key] = value
+	if broadcast:
+		Console.output_text("'"+ str(key) + "' set to '" + str(value) +"'")
 	server_update_server_variable.rpc(key,value)
 	
 func setPlayerInfo(id,key,value) -> void:
@@ -69,7 +74,7 @@ func join(setaddress: String) -> void:
 	Console.output_error("Currently in Server Mode, use 'setMode client' and then join.")
 
 func peer_connected(id):
-	setServerVariable("totalConnections", serverVariables["totalConnections"] + 1)
+	set_server_variable("totalConnections", serverVariables["totalConnections"] + 1,true)
 	setPlayerInfo(id,"id",id)
 	setPlayerInfo(id,"name","Guest " + str(serverVariables["totalConnections"]))
 	setPlayerInfo(id,"permissions","player")
