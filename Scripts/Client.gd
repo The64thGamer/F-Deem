@@ -5,15 +5,14 @@ class_name Client
 var address: String = "127.0.0.1"
 var port: int = 7888
 
-#Player Settings
+#Sync Settings
 var playerInfo: Dictionary = {}
-
-#World Settings
 var loadedMaps: Dictionary = {}
-
-#Slow Sync
-var totalConnections: int = 0
-var serverUptime: float = 0
+var serverVariables: Dictionary = {
+	"totalConnections": 0,
+	"serverUptime": 0,
+	"serverName": "Unnamed Server",
+}
 
 #Objects
 var peer = null
@@ -21,6 +20,9 @@ var peer = null
 func _ready():
 	multiplayer.connected_to_server.connect(connected_to_server)
 	multiplayer.connection_failed.connect(connection_failed)
+	
+func _process(delta: float) -> void:
+	serverVariables["serverUptime"] += delta
 
 #region Connecting
 
@@ -28,9 +30,11 @@ func setMode(modeSet: String = "server") -> void:
 	if modeSet.to_lower() == "client":
 		Console.output_text("Mode set to 'Client'")
 		set_script(load("res://Scripts/Client.gd"))
+		_ready()
 	elif modeSet.to_lower() == "server":
 		Console.output_text("Mode set to 'Server'")
 		set_script(load("res://Scripts/Server.gd"))
+		_ready()
 	else:
 		Console.output_error("'" + modeSet + "' not a valid Mode")
 
@@ -75,7 +79,7 @@ func getPlayerName() -> void:
 	if checkOnline():
 		var id = multiplayer.get_unique_id()
 		var player_name = "No Player Name Set (" + str(id) + ")"
-		if "name" in playerInfo[id]:
+		if playerInfo.find_key(id) && "name" in playerInfo[id]:
 			player_name = playerInfo[id]["name"]
 		Console.output_text(player_name)
 			
@@ -99,7 +103,7 @@ func setPlayerPermissions(setID:int,permission:String) -> void:
 		
 func getServerUptime() -> void:
 	if checkOnline(): 
-		Console.output_text(str(serverUptime))
+		Console.output_text(str(serverVariables["serverUptime"]))
 
 func getPlayerList() -> void:
 	if checkOnline(): 
@@ -124,6 +128,23 @@ func display_chat(chatText: String, id: int) -> void:
 @rpc("authority","call_local","reliable")
 func server_send_message(message: String) -> void:
 	Console.output_text(message)
+	
+@rpc("authority","call_local","reliable")
+func server_update_server_variable(key, value) -> void:
+	serverVariables[key] = value
+	pass
+	
+@rpc("authority","call_local","reliable")
+func server_update_player_info(id,key, value) -> void:
+	if not playerInfo.has(id):
+		playerInfo[id] = {}
+	playerInfo[id][key] = value
+	pass	
+	
+@rpc("authority","call_local","reliable")
+func server_erase_player_info(id) -> void:
+	playerInfo.erase(id)
+	pass	
 #endregion
 
 #region DUMMY SERVER RPCS, REQUIRED SAME BOILERPLATE
