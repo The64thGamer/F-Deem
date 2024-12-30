@@ -34,6 +34,7 @@ func _process(delta: float) -> void:
 #region Connecting
 
 func disconnect_from_server():
+	multiplayer.multiplayer_peer.close()
 	peer = null
 	disconnectTimer = 5
 	Console.output_text("Disconnected from server")

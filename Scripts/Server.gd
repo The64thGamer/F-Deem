@@ -5,6 +5,7 @@ class_name Server
 var address: String = "127.0.0.1"
 var port: int = 7888
 var localUptime: float = 0
+var secretPlayerInfo: Dictionary = {}
 
 #Sync Settings
 var playerInfo: Dictionary = {}
@@ -23,9 +24,15 @@ func _ready():
 	multiplayer.peer_disconnected.connect(peer_disconnected)
 	
 func _process(delta: float) -> void:
-	localUptime += delta
-	if localUptime - serverVariables["serverUptime"] > 5:
-		set_server_variable("serverUptime",localUptime,false)
+	if checkOnline():
+		localUptime += delta
+		if localUptime - serverVariables["serverUptime"] > 5:
+			set_server_variable("serverUptime",localUptime,false)
+		for key in playerInfo:
+			if playerInfo[key].has("permissions") && playerInfo[key]["permissions"] == "pingas":
+				secretPlayerInfo[key]["disconnectTimer"] -= delta
+				if secretPlayerInfo[key]["disconnectTimer"] <= 0:
+					multiplayer.multiplayer_peer.disconnect_peer(key)
 
 #region Hosting
 
@@ -76,12 +83,12 @@ func join(setaddress: String) -> void:
 func ping(setaddress: String) -> void:
 	Console.output_error("Currently in Server Mode, use 'setMode client' and then ping.")
 
-
 func peer_connected(id):
 	set_server_variable("totalConnections", serverVariables["totalConnections"] + 1,true)
 	setPlayerInfo(id,"id",id)
 	setPlayerInfo(id,"name","Guest " + str(serverVariables["totalConnections"]))
 	setPlayerInfo(id,"permissions","pingas")
+	secretPlayerInfo[id]["disconnectTimer"] = 5
 	Console.output_text("Server is being pinged by '" + str(id) + "'")
 	for key in serverVariables:
 		server_update_server_variable.rpc_id(id,key,serverVariables[key])
