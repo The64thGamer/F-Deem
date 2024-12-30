@@ -87,12 +87,21 @@ func check_player_permissions(setID:int,permission:String) -> bool:
 		return true
 	return false
 
+func checkOnline() -> bool:
+	if is_instance_valid(peer):
+		return true
+	else:
+		Console.output_error("Not Connected to Server")
+		return false
+
 @rpc("any_peer","reliable","call_local")
 func set_player_permissions(setID:int,permission:String) -> void:
 	var id = multiplayer.get_remote_sender_id()
 	if check_player_permissions(id,"admin"):
 		server_send_message.rpc("'" + playerInfo[id]["name"] + "' set permissions of '" + playerInfo[setID]["name"] + "' to '" + permission + "'")
 		setPlayerInfo(setID,"permissions",permission)
+	else:
+		server_send_message.rpc_id(id,"You do not have permissions to change this.")
 
 @rpc("any_peer","reliable","call_local")
 func chat_send(chatText:String) -> void:
@@ -130,6 +139,29 @@ func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
 		loadedMaps[mapName]["pieces"].append(parsed_piece)
 		server_send_message.rpc("'" + playerInfo[id]["name"] + "' placed piece '" + str(parsed_piece["color"]) + str(parsed_piece["id"]) + "' at " + str(parsed_piece["position"]))
 #endregion
+
+#region commands
+func setPlayerPermissions(setID:int,permission:String) -> void:
+	if checkOnline(): 
+		server_send_message.rpc("The Server set permissions of '" + playerInfo[setID]["name"] + "' to '" + permission + "'")
+		setPlayerInfo(setID,"permissions",permission)
+
+func getaddress() -> void:
+	Console.output_text(address)
+		
+func getServerUptime() -> void:
+	if checkOnline(): 
+		Console.output_text(str(localUptime))
+
+func getPlayerList() -> void:
+	if checkOnline(): 
+		Console.output_text(str(playerInfo))
+
+func getLoadedMaps() -> void:
+	if checkOnline(): 
+		Console.output_text(str(loadedMaps))
+#endregion
+
 
 #region DUMMY CLIENT RPCS, REQUIRED SAME BOILERPLATE
 #https://docs.godotengine.org/en/stable/tutorials/networking/high_level_multiplayer.html#remote-procedure-calls
