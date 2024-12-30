@@ -1,7 +1,6 @@
 res://Scenes/Server.tscn
 res://Shaders/Metallic.tres.gdshader
 res://Shaders/Multiply UI.gdshader
-res://Scripts/Server.gd
-res://Scripts/Objects/Map.gd
-res://addons/simply-console/data/command_list.json
 res://Scripts/Client.gd
+res://Scripts/Server.gd
+res://addons/simply-console/data/command_list.json

@@ -17,13 +17,15 @@ var serverVariables: Dictionary = {
 #Objects
 var peer = null
 var disconnectTimer = 5
+var justPinging: bool = true
 
 func _ready():
 	multiplayer.connected_to_server.connect(connected_to_server)
 	multiplayer.connection_failed.connect(connection_failed)
+	multiplayer.server_disconnected.connect(server_disconnected)
 	
 func _process(delta: float) -> void:
-	if checkOnline():
+	if checkOnline(false):
 		serverVariables["serverUptime"] += delta
 		if playerInfo.has(multiplayer.get_unique_id()) && playerInfo[multiplayer.get_unique_id()]["permissions"] == "pingas":
 			disconnectTimer -= delta
@@ -33,11 +35,18 @@ func _process(delta: float) -> void:
 
 #region Connecting
 
+func server_disconnected():
+	if not peer == null:
+		disconnect_from_server()
+
 func disconnect_from_server():
 	multiplayer.multiplayer_peer.close()
 	peer = null
 	disconnectTimer = 5
-	Console.output_text("Disconnected from server")
+	if justPinging:
+		Console.output_text(str(serverVariables))
+	else:
+		Console.output_text("Disconnected from server")
 
 func setMode(modeSet: String = "server") -> void:
 	if modeSet.to_lower() == "client":
@@ -53,29 +62,25 @@ func setMode(modeSet: String = "server") -> void:
 
 func join(setaddress: String = address) -> void:
 	address = setaddress;
-	Console.output_text("Joining '" + address + "'")
 	peer = ENetMultiplayerPeer.new()
 	peer.create_client(address,port)
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(peer)
-	request_membership.rpc()
-
+	justPinging = false
+	
 func ping(setaddress: String = address) -> void:
-	address = setaddress;
-	Console.output_text("Pinging '" + address + "'")
-	peer = ENetMultiplayerPeer.new()
-	peer.create_client(address,port)
-	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
-	multiplayer.set_multiplayer_peer(peer)
+	join()
+	justPinging = true
 	
 func host(setaddress: String) -> void:
 	Console.output_error("Currently in Client Mode, use 'setMode server' and then host.")
 
 func connected_to_server():
-	var id = multiplayer.get_unique_id()
-	if not multiplayer.is_server():
-		Console.output_text("You joined the server '" + str(id) + "'")
-	pass
+	if justPinging:
+		Console.output_text("Pinging '" + address + "'")
+	else:
+		Console.output_text("Joined '" + address + "' as '" + str(multiplayer.get_unique_id()) + "'")
+		request_membership.rpc()
 	
 func connection_failed():
 	Console.output_text("Failed to connect to server")
@@ -83,22 +88,22 @@ func connection_failed():
 #endregion
 
 #region General Commands
-func checkOnline() -> bool:
+func checkOnline(announce:bool) -> bool:
 	if is_instance_valid(peer):
 		return true
-	else:
+	elif announce:
 		Console.output_error("Not Connected to Server")
-		return false
+	return false
 
 func getaddress() -> void:
 	Console.output_text(address)
 	
 func chat(chatText: String) -> void:
-	if checkOnline(): 
+	if checkOnline(true): 
 		chat_send.rpc(chatText)
 		
 func getPlayerName() -> void:
-	if checkOnline():
+	if checkOnline(true):
 		var id = multiplayer.get_unique_id()
 		var player_name = "No Player Name Set (" + str(id) + ")"
 		if playerInfo.find_key(id) && "name" in playerInfo[id]:
@@ -106,11 +111,11 @@ func getPlayerName() -> void:
 		Console.output_text(player_name)
 			
 func setPlayerName(newName: String) -> void:
-	if checkOnline(): 
+	if checkOnline(true): 
 		playername_send.rpc(newName)
 		
 func place(piece:int,color:String,mapX:int,mapY:int,mapZ:int,mapW:int,posX:float,posY:float,posZ:float,rotX:float,rotY:float,rotZ:float,rotW:float) -> void:
-	if checkOnline(): 
+	if checkOnline(true): 
 		var pieceDictionary = {
 			"id": piece,
 			"color": color,
@@ -120,19 +125,19 @@ func place(piece:int,color:String,mapX:int,mapY:int,mapZ:int,mapW:int,posX:float
 		place_piece.rpc(pieceDictionary,mapX,mapY,mapZ,mapW)
 		
 func setPlayerPermissions(setID:int,permission:String) -> void:
-	if checkOnline(): 
+	if checkOnline(true): 
 		set_player_permissions.rpc(setID,permission)
 		
 func getServerVar(key:String) -> void:
-	if checkOnline(): 
+	if checkOnline(true): 
 		Console.output_text(str(serverVariables[key]))
 
 func getPlayerList() -> void:
-	if checkOnline(): 
+	if checkOnline(true): 
 		Console.output_text(str(playerInfo))
 
 func getLoadedMaps() -> void:
-	if checkOnline(): 
+	if checkOnline(true): 
 		Console.output_text(str(loadedMaps))
 #endregion
 
@@ -167,6 +172,12 @@ func server_update_player_info(id,key, value) -> void:
 func server_erase_player_info(id) -> void:
 	playerInfo.erase(id)
 	pass	
+	
+@rpc("authority","call_local","reliable")
+func server_dismiss_pingas() -> void:
+	if justPinging:
+		disconnect_from_server()
+		
 #endregion
 
 #region DUMMY SERVER RPCS, REQUIRED SAME BOILERPLATE
@@ -189,7 +200,7 @@ func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
 	pass
 	
 @rpc("any_peer","reliable","call_local")
-func request_membership(playerName:String) -> void:
+func request_membership() -> void:
 	pass
 
 #endregion

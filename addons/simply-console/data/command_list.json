@@ -34,6 +34,13 @@
 		"requiresKeyword": false,
 		"method": "join"
 	},
+	"ping": {
+		"target": "F'Deem",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "ping"
+	},
 	"getAddress": {
 		"target": "F'Deem",
 		"minPermission": 0,

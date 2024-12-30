@@ -1,12 +1,13 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1735440182
+::res://::1735535734
+export_presets.cfg::TextFile::-1::1735523205::0::1::::<><>::
 icon.svg::CompressedTexture2D::6099819464740842484::1735202149::1735202853::1::::<><>::
 ::res://addons/::1735375223
 ::res://addons/simply-console/::1735209109
 plugin.cfg::TextFile::-1::1735209103::0::1::::<><>::
 plugin.gd::GDScript::-1::1735209103::0::1::::<>EditorPlugin<>::
-::res://addons/simply-console/data/::1735439422
-command_list.json::JSON::-1::1735439422::0::1::::<><>::
+::res://addons/simply-console/data/::1735527862
+command_list.json::JSON::-1::1735527862::0::1::::<><>::
 ::res://addons/simply-console/modules/::1735209103
 base_module.gd::GDScript::-1::1735209103::0::1::::ConsoleModule<>Control<>::
 ::res://addons/simply-console/modules/object-picker/::1735209103
@@ -63,20 +64,20 @@ yellow.tres::StandardMaterial3D::4691157481300061665::1730236853::0::1::::<><>::
 ::res://Models/::1735371587
 blender_assets.cats.txt::TextFile::-1::1732825133::0::1::::<><>::
 ::res://Models/Parts (BLEND)/::1735111077
-::res://Models/Parts (GLB)/::1735459592
+::res://Models/Parts (GLB)/::1735459599
 2x2 Brick.glb::PackedScene::4620471668195719747::1735459558::1735459599::1::::<><>::
 2x4 Brick.glb::PackedScene::7232081792033303821::1735459592::1735459599::1::::<><>::
 ::res://Models/Parts (STL)/::1735372122
 ::res://Models/Sets (BLEND)/::1735372202
-::res://Scenes/::1735452539
-Server.tscn::PackedScene::7176847330991478367::1735452539::0::1::::<><>::res://Scripts/Console.gd<>res://Scripts/Server.gd<>res://Scripts/Client.gd
-::res://Scripts/::1735452527
+::res://Scenes/::1735535706
+Server.tscn::PackedScene::7176847330991478367::1735535706::0::1::::<><>::res://Scripts/Console.gd<>res://Scripts/Client.gd
+::res://Scripts/::1735535644
+Client.gd::GDScript::-1::1735535507::0::1::::Client<>Node<>::
 Console.gd::GDScript::-1::1735287385::0::1::::<>Node<>::
-Client.gd::GDScript::-1::1735452527::0::1::::<>Node<>::
-Server.gd::GDScript::-1::1735440164::0::1::::<>Node<>::
-::res://Shaders/::1735452539
-Metallic.tres.gdshader::Shader::-1::1735452539::0::1::::<><>::
-Multiply UI.gdshader::Shader::-1::1735452539::0::1::::<><>::
+Server.gd::GDScript::-1::1735535644::0::1::::Server<>Node<>::
+::res://Shaders/::1735535709
+Metallic.tres.gdshader::Shader::-1::1735535709::0::1::::<><>::
+Multiply UI.gdshader::Shader::-1::1735535709::0::1::::<><>::
 ::res://StlImporter-main/::1735372220
 ::res://StlImporter-main/addons/::1735370214
 ::res://StlImporter-main/addons/stl_importer/::1735372219

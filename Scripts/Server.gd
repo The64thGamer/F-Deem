@@ -24,13 +24,13 @@ func _ready():
 	multiplayer.peer_disconnected.connect(peer_disconnected)
 	
 func _process(delta: float) -> void:
-	if checkOnline():
+	if checkOnline(false):
 		localUptime += delta
 		if localUptime - serverVariables["serverUptime"] > 5:
 			set_server_variable("serverUptime",localUptime,false)
 		for key in playerInfo:
 			if playerInfo[key].has("permissions") && playerInfo[key]["permissions"] == "pingas":
-				secretPlayerInfo[key]["disconnectTimer"] -= delta
+				setSecretPlayerInfo(key,"disconnectTimer",secretPlayerInfo[key]["disconnectTimer"] - delta)
 				if secretPlayerInfo[key]["disconnectTimer"] <= 0:
 					multiplayer.multiplayer_peer.disconnect_peer(key)
 
@@ -50,6 +50,11 @@ func setPlayerInfo(id,key,value) -> void:
 		playerInfo[id] = {}
 	playerInfo[id][key] = value
 	server_update_player_info.rpc(id,key,value)
+
+func setSecretPlayerInfo(id,key,value) -> void:
+	if not secretPlayerInfo.has(id):
+		secretPlayerInfo[id] = {}
+	secretPlayerInfo[id][key] = value
 
 func setMode(modeSet: String = "client") -> void:
 	if modeSet.to_lower() == "client":
@@ -88,13 +93,14 @@ func peer_connected(id):
 	setPlayerInfo(id,"id",id)
 	setPlayerInfo(id,"name","Guest " + str(serverVariables["totalConnections"]))
 	setPlayerInfo(id,"permissions","pingas")
-	secretPlayerInfo[id]["disconnectTimer"] = 5
+	setSecretPlayerInfo(id,"disconnectTimer",5)
 	Console.output_text("Server is being pinged by '" + str(id) + "'")
 	for key in serverVariables:
 		server_update_server_variable.rpc_id(id,key,serverVariables[key])
 	for playerID in playerInfo:
 		for value in playerInfo[playerID]:
 			server_update_player_info.rpc_id(id,playerID,value,playerInfo[playerID][value])
+			server_dismiss_pingas.rpc_id(id)
 
 func peer_disconnected(id):
 	playerInfo.erase(id)
@@ -108,12 +114,12 @@ func check_player_permissions(setID:int,permission:String) -> bool:
 		return true
 	return false
 
-func checkOnline() -> bool:
+func checkOnline(announce:bool) -> bool:
 	if is_instance_valid(peer):
 		return true
-	else:
+	elif announce:
 		Console.output_error("Not Connected to Server")
-		return false
+	return false
 
 @rpc("any_peer","reliable","call_local")
 func set_player_permissions(setID:int,permission:String) -> void:
@@ -136,7 +142,7 @@ func playername_send(playerName:String) -> void:
 		setPlayerInfo(id,"name",playerName)
 		
 @rpc("any_peer","reliable","call_local")
-func request_membership(playerName:String) -> void:
+func request_membership() -> void:
 	var id = multiplayer.get_remote_sender_id()
 	if check_player_permissions(id,"pingas"):
 		setPlayerInfo(id,"permissions","member")
@@ -171,7 +177,7 @@ func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
 
 #region commands
 func setPlayerPermissions(setID:int,permission:String) -> void:
-	if checkOnline(): 
+	if checkOnline(true): 
 		server_send_message.rpc("The Server set permissions of '" + playerInfo[setID]["name"] + "' to '" + permission + "'")
 		setPlayerInfo(setID,"permissions",permission)
 
@@ -179,15 +185,15 @@ func getaddress() -> void:
 	Console.output_text(address)
 		
 func getServerVar(key:String) -> void:
-	if checkOnline(): 
+	if checkOnline(true): 
 		Console.output_text(str(serverVariables[key]))
 
 func getPlayerList() -> void:
-	if checkOnline(): 
+	if checkOnline(true): 
 		Console.output_text(str(playerInfo))
 
 func getLoadedMaps() -> void:
-	if checkOnline(): 
+	if checkOnline(true): 
 		Console.output_text(str(loadedMaps))
 #endregion
 
@@ -219,5 +225,9 @@ func server_update_player_info(id,key, value) -> void:
 	
 @rpc("authority","call_local","reliable")
 func server_erase_player_info(id) -> void:
+	pass	
+
+@rpc("authority","call_local","reliable")
+func server_dismiss_pingas() -> void:
 	pass	
 #endregion
