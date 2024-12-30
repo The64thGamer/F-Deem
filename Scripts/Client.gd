@@ -16,15 +16,27 @@ var serverVariables: Dictionary = {
 
 #Objects
 var peer = null
+var disconnectTimer = 5
 
 func _ready():
 	multiplayer.connected_to_server.connect(connected_to_server)
 	multiplayer.connection_failed.connect(connection_failed)
 	
 func _process(delta: float) -> void:
-	serverVariables["serverUptime"] += delta
+	if checkOnline():
+		serverVariables["serverUptime"] += delta
+		if playerInfo.has(multiplayer.get_unique_id()) && playerInfo[multiplayer.get_unique_id()]["permissions"] == "pingas":
+			disconnectTimer -= delta
+			if disconnectTimer <= 0:
+				disconnect_from_server()
+		
 
 #region Connecting
+
+func disconnect_from_server():
+	peer = null
+	disconnectTimer = 5
+	Console.output_text("Disconnected from server")
 
 func setMode(modeSet: String = "server") -> void:
 	if modeSet.to_lower() == "client":
@@ -41,6 +53,15 @@ func setMode(modeSet: String = "server") -> void:
 func join(setaddress: String = address) -> void:
 	address = setaddress;
 	Console.output_text("Joining '" + address + "'")
+	peer = ENetMultiplayerPeer.new()
+	peer.create_client(address,port)
+	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
+	multiplayer.set_multiplayer_peer(peer)
+	request_membership.rpc()
+
+func ping(setaddress: String = address) -> void:
+	address = setaddress;
+	Console.output_text("Pinging '" + address + "'")
 	peer = ENetMultiplayerPeer.new()
 	peer.create_client(address,port)
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
@@ -164,6 +185,10 @@ func playername_send(playerName:String) -> void:
 			
 @rpc("any_peer","reliable","call_local")
 func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
+	pass
+	
+@rpc("any_peer","reliable","call_local")
+func request_membership(playerName:String) -> void:
 	pass
 
 #endregion

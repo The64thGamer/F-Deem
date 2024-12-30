@@ -73,12 +73,16 @@ func host(setaddress: String = address) -> void:
 func join(setaddress: String) -> void:
 	Console.output_error("Currently in Server Mode, use 'setMode client' and then join.")
 
+func ping(setaddress: String) -> void:
+	Console.output_error("Currently in Server Mode, use 'setMode client' and then ping.")
+
+
 func peer_connected(id):
 	set_server_variable("totalConnections", serverVariables["totalConnections"] + 1,true)
 	setPlayerInfo(id,"id",id)
 	setPlayerInfo(id,"name","Guest " + str(serverVariables["totalConnections"]))
-	setPlayerInfo(id,"permissions","player")
-	server_send_message.rpc("Player Joined '" + str(id) + "'")
+	setPlayerInfo(id,"permissions","pingas")
+	Console.output_text("Server is being pinged by '" + str(id) + "'")
 	for key in serverVariables:
 		server_update_server_variable.rpc_id(id,key,serverVariables[key])
 	for playerID in playerInfo:
@@ -123,6 +127,14 @@ func playername_send(playerName:String) -> void:
 	if playerInfo[id].has("name"):
 		server_send_message.rpc("'" + playerInfo[id]["name"] + "' changed name to '" + playerName + "'")
 		setPlayerInfo(id,"name",playerName)
+		
+@rpc("any_peer","reliable","call_local")
+func request_membership(playerName:String) -> void:
+	var id = multiplayer.get_remote_sender_id()
+	if check_player_permissions(id,"pingas"):
+		setPlayerInfo(id,"permissions","member")
+		if playerInfo[id].has("name"):
+			server_send_message.rpc("'" + playerInfo[id]["name"] + "' joined the game.")	
 			
 @rpc("any_peer","reliable","call_local")
 func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
