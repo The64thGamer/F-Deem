@@ -44,6 +44,7 @@ func transport_player(id:int,x:int,y:int,z:int,w:int):
 	var mapName = str(x) + "," + str(y) + "," + str(z) + "," + str(w)
 	if not mapName in loadedMaps:
 		load_map(x,y,z,w)
+	server_transport_player.rpc_id(id,loadedMaps[mapName])
 			
 func load_map(mapX:int,mapY:int,mapZ:int,mapW:int):
 	var mapName = str(mapX) + "," + str(mapY) + "," + str(mapZ) + "," + str(mapW)
@@ -62,19 +63,33 @@ func load_map(mapX:int,mapY:int,mapZ:int,mapW:int):
 		var map_data:Dictionary = JSON.parse_string(file.get_line())
 		file.close()
 		loadedMaps[mapName] = map_data
-		Console.output_text("Map loaded: " + mapName)
+		Console.output_text("Map loaded: " + mapName + file.get_path_absolute())
 	else:
 		Console.output_error("Failed to open map file: " + map_file_path)
 
 func create_map(mapX:int,mapY:int,mapZ:int,mapW:int):
 	var mapName = str(mapX) + "," + str(mapY) + "," + str(mapZ) + "," + str(mapW)
+	
 	# Path to the new map file in the corresponding world folder
-	var world_folder = "user://My Precious Save Files/" + str(mapW) + "/"
-	if not DirAccess.dir_exists_absolute(world_folder):
-		var dir = DirAccess.open(world_folder)
-		if dir:
-			dir.make_dir_recursive(world_folder)
-		else:
+	var save_folder = "/My Precious Save Files/"
+	var world_folder = "/"+str(mapW) + "/"
+
+	# Access the DirAccess API
+	var dir = DirAccess.open("user://")
+	if dir == null:
+		Console.output_error("Failed to access base user directory.")
+		return
+	
+	# Check and create the save folder if it doesn't exist
+	if not dir.dir_exists(save_folder):
+		if dir.make_dir_recursive(save_folder) != OK:
+			Console.output_error("Failed to create save folder: " + save_folder)
+			return
+		dir.open(save_folder)
+	
+	# Check and create the world folder if it doesn't exist
+	if not dir.dir_exists(world_folder):
+		if dir.make_dir_recursive(world_folder) != OK:
 			Console.output_error("Failed to create world folder: " + world_folder)
 			return
 
@@ -150,9 +165,11 @@ func ping(setaddress: String) -> void:
 
 func peer_connected(id):
 	set_server_variable("totalConnections", serverVariables["totalConnections"] + 1,true)
-	setPlayerInfo(id,"id",id)
-	setPlayerInfo(id,"name","Guest " + str(serverVariables["totalConnections"]))
-	setPlayerInfo(id,"permissions","pingas")
+	if not playerInfo.has(id):
+		setPlayerInfo(id,"id",id)
+		setPlayerInfo(id,"name","Guest " + str(serverVariables["totalConnections"]))
+		setPlayerInfo(id,"permissions","pingas")
+		transport_player(id,0,0,0,0)
 	setSecretPlayerInfo(id,"disconnectTimer",5)
 	Console.output_text("Server is being pinged by '" + str(id) + "'")
 	for key in serverVariables:
@@ -251,6 +268,10 @@ func getServerVar(key:String) -> void:
 func getPlayerList() -> void:
 	if checkOnline(true): 
 		Console.output_text(str(playerInfo))
+		
+func getSecretPlayerInfo() -> void:
+	if checkOnline(true): 
+		Console.output_text(str(secretPlayerInfo))
 
 func getLoadedMaps() -> void:
 	if checkOnline(true): 

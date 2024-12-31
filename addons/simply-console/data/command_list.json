@@ -62,6 +62,13 @@
 		"requiresKeyword": false,
 		"method": "getPlayerList"
 	},
+	"getSecretPlayerInfo": {
+		"target": "F'Deem",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "getSecretPlayerInfo"
+	},
 	"getPlayerName": {
 		"target": "F'Deem",
 		"minPermission": 0,
