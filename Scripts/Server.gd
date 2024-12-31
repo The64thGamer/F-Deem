@@ -36,6 +36,66 @@ func _process(delta: float) -> void:
 
 #region Hosting
 
+func transport_player(id:int,x:int,y:int,z:int,w:int):
+	setSecretPlayerInfo(id,"mapPositionX",x)
+	setSecretPlayerInfo(id,"mapPositionY",y)
+	setSecretPlayerInfo(id,"mapPositionZ",z)
+	setSecretPlayerInfo(id,"mapPositionW",w)
+	var mapName = str(x) + "," + str(y) + "," + str(z) + "," + str(w)
+	if not mapName in loadedMaps:
+		load_map(x,y,z,w)
+			
+func load_map(mapX:int,mapY:int,mapZ:int,mapW:int):
+	var mapName = str(mapX) + "," + str(mapY) + "," + str(mapZ) + "," + str(mapW)
+	# Path to the map file in the corresponding world folder
+	var world_folder = "user://My Precious Save Files/" + str(mapW) + "/"
+	var map_file_path = world_folder + str(mapX) + "," + str(mapY) + "," + str(mapZ) + ".map"
+
+	if not FileAccess.file_exists(map_file_path):
+		Console.output_text("Map file not found: " + map_file_path + ". Creating a new map.")
+		create_map(mapX,mapY,mapZ,mapW)
+		return
+
+	# Load the map file
+	var file = FileAccess.open(map_file_path, FileAccess.READ)
+	if file:
+		var map_data:Dictionary = JSON.parse_string(file.get_line())
+		file.close()
+		loadedMaps[mapName] = map_data
+		Console.output_text("Map loaded: " + mapName)
+	else:
+		Console.output_error("Failed to open map file: " + map_file_path)
+
+func create_map(mapX:int,mapY:int,mapZ:int,mapW:int):
+	var mapName = str(mapX) + "," + str(mapY) + "," + str(mapZ) + "," + str(mapW)
+	# Path to the new map file in the corresponding world folder
+	var world_folder = "user://My Precious Save Files/" + str(mapW) + "/"
+	if not DirAccess.dir_exists_absolute(world_folder):
+		var dir = DirAccess.open(world_folder)
+		if dir:
+			dir.make_dir_recursive(world_folder)
+		else:
+			Console.output_error("Failed to create world folder: " + world_folder)
+			return
+
+	var map_file_path = world_folder + str(mapX) + "," + str(mapY) + "," + str(mapZ) + ".map"
+
+	# Initialize the default map structure
+	var default_map_data = {
+		"pieces": []
+	}
+
+	# Save the new map file
+	var file = FileAccess.open(map_file_path, FileAccess.WRITE)
+	if file:
+		file.store_line(JSON.stringify(default_map_data))
+		file.close()
+		loadedMaps[mapName] = default_map_data
+		Console.output_text("New map created: " + mapName)
+	else:
+		Console.output_error("Failed to create map file: " + map_file_path)
+
+
 func commandSetVar(key:String, value:String) -> void:
 	set_server_variable(key,value,true)
 
