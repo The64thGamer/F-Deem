@@ -290,4 +290,8 @@ func server_erase_player_info(id) -> void:
 @rpc("authority","call_local","reliable")
 func server_dismiss_pingas() -> void:
 	pass	
+	
+@rpc("authority","call_local","reliable")
+func server_transport_player(value:Dictionary) -> void:
+	pass	
 #endregion

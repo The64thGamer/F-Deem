@@ -7,7 +7,7 @@ var port: int = 7888
 
 #Sync Settings
 var playerInfo: Dictionary = {}
-var loadedMaps: Dictionary = {}
+var loadedMap: Dictionary = {}
 var serverVariables: Dictionary = {
 	"totalConnections": 0,
 	"serverUptime": 0,
@@ -85,6 +85,28 @@ func connected_to_server():
 func connection_failed():
 	Console.output_text("Failed to connect to server")
 	pass
+	
+func client_reload_map():
+	var pieces = find_child("pieces")
+	if pieces == null:
+		pieces = Node3D.new()
+		add_child(pieces)
+	for child:Node in pieces:
+		child.queue_free()
+	if loadedMap.has("pieces"):
+		for piece:Dictionary in loadedMap["pieces"]:
+			if piece.has("id"):
+				var prefab_path = "res://Prefabs/Pieces/" + piece["id"] + ".tscn"
+				var prefab = load(prefab_path)
+				if prefab and prefab is PackedScene:
+					var instance = prefab.instance()  # Create an instance of the prefab
+					pieces.add_child(instance)  # Add the instance as a child of 'pieces'
+					# Optionally set its position or other properties based on 'piece'
+					if piece.has("position"):
+						instance.global_transform.origin = piece["position"]
+					if piece.has("rotation"):
+						instance.global_transform.basis = Basis(piece["rotation"])
+			
 #endregion
 
 #region General Commands
@@ -114,7 +136,7 @@ func setPlayerName(newName: String) -> void:
 	if checkOnline(true): 
 		playername_send.rpc(newName)
 		
-func place(piece:int,color:String,mapX:int,mapY:int,mapZ:int,mapW:int,posX:float,posY:float,posZ:float,rotX:float,rotY:float,rotZ:float,rotW:float) -> void:
+func place(piece:String,color:String,mapX:int,mapY:int,mapZ:int,mapW:int,posX:float,posY:float,posZ:float,rotX:float,rotY:float,rotZ:float,rotW:float) -> void:
 	if checkOnline(true): 
 		var pieceDictionary = {
 			"id": piece,
@@ -138,7 +160,7 @@ func getPlayerList() -> void:
 
 func getLoadedMaps() -> void:
 	if checkOnline(true): 
-		Console.output_text(str(loadedMaps))
+		Console.output_text(str(loadedMap))
 #endregion
 
 #region Server Called RPCS
@@ -177,7 +199,11 @@ func server_erase_player_info(id) -> void:
 func server_dismiss_pingas() -> void:
 	if justPinging:
 		disconnect_from_server()
-		
+
+@rpc("authority","call_local","reliable")
+func server_transport_player(value:Dictionary) -> void:
+	loadedMap = value
+	client_reload_map()
 #endregion
 
 #region DUMMY SERVER RPCS, REQUIRED SAME BOILERPLATE
