@@ -1,164 +1,163 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1735640143
-export_presets.cfg::TextFile::-1::1735523205::0::1::::<><>::
-icon.svg::CompressedTexture2D::6099819464740842484::1735202149::1735202853::1::::<><>::
-::res://addons/::1735375223
-::res://addons/simply-console/::1735209109
-plugin.cfg::TextFile::-1::1735209103::0::1::::<><>::
-plugin.gd::GDScript::-1::1735209103::0::1::::<>EditorPlugin<>::
-::res://addons/simply-console/data/::1735536459
-command_list.json::JSON::-1::1735536459::0::1::::<><>::
-::res://addons/simply-console/modules/::1735209103
-base_module.gd::GDScript::-1::1735209103::0::1::::ConsoleModule<>Control<>::
-::res://addons/simply-console/modules/object-picker/::1735209103
-object_picker.gd::GDScript::-1::1735209103::0::1::::<>ConsoleModule<>::
-object_picker.tscn::PackedScene::6293560507137864525::1735209103::0::1::::<><>::res://addons/simply-console/modules/object-picker/object_picker.gd
-::res://addons/simply-console/modules/property-tracker/::1735209103
-property_tracker.gd::GDScript::-1::1735209103::0::1::::<>ConsoleModule<>::
-property_tracker.tscn::PackedScene::196755075269243142::1735209103::0::1::::<><>::res://addons/simply-console/modules/property-tracker/property_tracker.gd
-::res://addons/simply-console/scenes/::1735209103
-::res://addons/simply-console/scenes/command-editor/::1735209103
-batch_edit_tab.tscn::PackedScene::5758969559575114297::1735209103::0::1::::<><>::
-command_editor.tscn::PackedScene::2079067797224827461::1735209103::0::1::::<><>::uid://s3sg33uiq718::::res://addons/simply-console/scenes/command-editor/editor_tab.tscn<>uid://cobxnfwqn6bdh::::res://addons/simply-console/scenes/command-editor/batch_edit_tab.tscn<>uid://dyvdqe2orc8v1::::res://addons/simply-console/scenes/command-editor/extras_tab.tscn
-editor_tab.tscn::PackedScene::1322306898059875989::1735209103::0::1::::<><>::
-extras_tab.tscn::PackedScene::8887357207370164360::1735209103::0::1::::<><>::
-::res://addons/simply-console/scenes/console-window/::1735209103
-console_window.tscn::PackedScene::5650511457403785330::1735209103::0::1::::<><>::res://addons/simply-console/scripts/console_window.gd<>uid://cvwwa0qyx0kwb::::res://addons/simply-console/modules/object-picker/object_picker.tscn<>uid://c2kr6ux8lx4i::::res://addons/simply-console/modules/property-tracker/property_tracker.tscn<>res://addons/simply-console/scripts/command_suggestions.gd<>uid://rdai81bo3phn::::res://addons/simply-console/scenes/console-window/suggestion.tscn
-suggestion.tscn::PackedScene::1199419534960700823::1735209103::0::1::::<><>::
-::res://addons/simply-console/scripts/::1735329227
-command_lexer.gd::GDScript::-1::1735209103::0::1::::CommandLexer<>Node<>::
-command_parser.gd::GDScript::-1::1735209103::0::1::::CommandParser<>Node<>::
-command_suggestions.gd::GDScript::-1::1735329227::0::1::::<>PanelContainer<>::
-console_window.gd::GDScript::-1::1735209103::0::1::::<>Window<>::
-::res://addons/simply-console/singletons/::1735209103
-console_manager.gd::GDScript::-1::1735209103::0::1::::<>Node<>::
-::res://Materials/::1735201492
-black.tres::StandardMaterial3D::2196063992521965207::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-blue.tres::StandardMaterial3D::378595569498086060::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-gray.tres::StandardMaterial3D::3256906300673596071::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-green.tres::StandardMaterial3D::8823253178259083330::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-lumen.tres::StandardMaterial3D::5032108874528853354::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-orange.tres::StandardMaterial3D::8895512417927719991::1735201492::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-pink.tres::StandardMaterial3D::3219364068497143575::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-plated_gray.tres::ShaderMaterial::7033811740122828238::1725474978::0::1::::<><>::res://Shaders/Metallic.tres.gdshader<>uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://b4c5md0ijj27q::::res://Textures/MultiMaterialRoughMetal.png<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-plated_orange.tres::ShaderMaterial::5858253699533066285::1729670388::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>res://Shaders/Metallic.tres.gdshader<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg<>uid://b4c5md0ijj27q::::res://Textures/MultiMaterialRoughMetal.png
-plated_yellow.tres::ShaderMaterial::4579323515742830908::1725475063::0::1::::<><>::res://Shaders/Metallic.tres.gdshader<>uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://b4c5md0ijj27q::::res://Textures/MultiMaterialRoughMetal.png<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-purple.tres::StandardMaterial3D::2334587970134194402::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-red.tres::StandardMaterial3D::3817535593023244837::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-soaked_green.tres::StandardMaterial3D::5779847294534071734::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-soaked_orange.tres::StandardMaterial3D::542154536231805578::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-soaked_pink.tres::StandardMaterial3D::2869181209964416532::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-test.tres::StandardMaterial3D::1826736361911557499::1724651976::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://c1rt5bih5j8vp::::res://Textures/MultiMaterialOrange.png<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg<>uid://b4c5md0ijj27q::::res://Textures/MultiMaterialRoughMetal.png
-tinged_blue.tres::StandardMaterial3D::6509807627361793028::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-tinged_green.tres::StandardMaterial3D::1019569702794102379::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-tinged_yellow.tres::StandardMaterial3D::2620140025230126387::1729670388::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-trans_rights_black.tres::StandardMaterial3D::251386420294438983::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-trans_rights_blue.tres::StandardMaterial3D::2633575822389593762::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-trans_rights_green.tres::StandardMaterial3D::1942929257227354183::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-trans_rights_pink.tres::StandardMaterial3D::2734904926188396885::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-trans_rights_red.tres::StandardMaterial3D::6403487574631420539::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-trans_rights_white.tres::StandardMaterial3D::8217831747030329580::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-trans_rights_yellow.tres::StandardMaterial3D::8216110500893280709::1725474978::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-white.tres::StandardMaterial3D::3341299404838252109::1735201492::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-yellow.tres::StandardMaterial3D::4691157481300061665::1730236853::0::1::::<><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-::res://Models/::1735371587
-blender_assets.cats.txt::TextFile::-1::1732825133::0::1::::<><>::
-::res://Models/Parts (BLEND)/::1735111077
-::res://Models/Parts (GLB)/::1735459599
-2x2 Brick.glb::PackedScene::4620471668195719747::1735459558::1735459599::1::::<><>::
-2x4 Brick.glb::PackedScene::7232081792033303821::1735459592::1735459599::1::::<><>::
-::res://Models/Parts (STL)/::1735372122
-::res://Models/Sets (BLEND)/::1735372202
-::res://Prefabs/::1735638845
-::res://Prefabs/Pieces/::1735639675
-2x2 Brick.tscn::PackedScene::1261700694066895858::1735639675::0::1::::<><>::
-::res://Scenes/::1735639010
-Server.tscn::PackedScene::7176847330991478367::1735639010::0::1::::<><>::res://Scripts/Console.gd<>res://Scripts/Client.gd
-::res://Scripts/::1735639002
-Client.gd::GDScript::-1::1735639002::0::1::::Client<>Node<>::
-Console.gd::GDScript::-1::1735287385::0::1::::<>Node<>::
-Server.gd::GDScript::-1::1735631525::0::1::::Server<>Node<>::
-::res://Shaders/::1735639675
-Metallic.tres.gdshader::Shader::-1::1735639675::0::1::::<><>::
-Multiply UI.gdshader::Shader::-1::1735639675::0::1::::<><>::
-::res://StlImporter-main/::1735372220
-::res://StlImporter-main/addons/::1735370214
-::res://StlImporter-main/addons/stl_importer/::1735372219
-::res://Textures/::1724651820
-MultiMaterialOrange.png::CompressedTexture2D::6634052985714086117::1724651818::1724651820::1::::<><>::
-MultiMaterialRoughMetal.png::CompressedTexture2D::4427869040580069716::1724651374::1724651385::1::::<><>::
-PrintBump.png::CompressedTexture2D::1633438086862887336::1724604184::1724648050::1::::<><>::
-PrintGoo.jpg::CompressedTexture2D::3744740201031210678::1724648492::1724648604::1::::<><>::
-PrintGooAO.jpg::CompressedTexture2D::4916196248596816332::1724649163::1724649165::1::::<><>::
-::res://UI/::1735203175
-Box Blue.tres::StyleBoxFlat::4559524128086936503::1735203175::0::1::::<><>::
-Box Empty.tres::StyleBoxEmpty::5368669098147541913::1725333790::0::1::::<><>::
-Box Green.tres::StyleBoxFlat::8404366526187766510::1735203175::0::1::::<><>::
-BulletPoint.png::CompressedTexture2D::5177394394692690945::1725261407::1725261408::1::::<><>::
-F'Deem Logo 1080p.png::CompressedTexture2D::498436792310089638::1732825124::1734944616::1::::<><>::
-F'Deem Outline Logo 1080p.png::CompressedTexture2D::5533221284565267687::1731927433::1734944616::1::::<><>::
-Icon Unaltered.png::CompressedTexture2D::4891060197509832176::1724779962::1724779967::1::::<><>::
-Icon.png::CompressedTexture2D::2747151331330293507::1724780255::1724780257::1::::<><>::
-LineEditBox.tres::StyleBoxFlat::6240735194158257369::1735203175::0::1::::<><>::
-Logo 4K.png::CompressedTexture2D::6171150564478554216::1725260516::1725260523::1::::<><>::
-Logo Tiny.png::CompressedTexture2D::4480491957661592870::1725670395::1725674426::1::::<><>::
-OFH Accent 2.tres::Theme::141666613454232359::1735203175::0::1::::<><>::uid://begsvepmjkbul::::res://UI/Fonts/Text Light.otf<>uid://dr0exoik42351::::res://UI/Box Green.tres<>uid://cu6b85m1ska6l::::res://UI/LineEditBox.tres<>uid://cgbd7qgqs7mfg::::res://UI/Fonts/Text.otf<>uid://b57wxw32uon40::::res://UI/Box Blue.tres<>uid://c105tsvtvpyxd::::res://UI/TabBox.tres
-OFH Accent.tres::Theme::6281120693894320529::1735203175::0::1::::<><>::uid://dgwmu04ty8ss8::::res://UI/Fonts/Logo.ttf<>uid://c105tsvtvpyxd::::res://UI/TabBox.tres<>uid://u5dej3avi8gg::::res://UI/TabBoxDisabled.tres<>uid://de6t0dw2qnxwv::::res://UI/TabBoxUnselected.tres
-OFH.tres::Theme::5147086974714229157::1735203175::0::1::::<><>::uid://begsvepmjkbul::::res://UI/Fonts/Text Light.otf<>uid://ciqvgwg1mseld::::res://UI/Box Empty.tres<>uid://cu6b85m1ska6l::::res://UI/LineEditBox.tres<>uid://cgbd7qgqs7mfg::::res://UI/Fonts/Text.otf<>uid://c105tsvtvpyxd::::res://UI/TabBox.tres
-Paper Overlay.jpg::CompressedTexture2D::1426183542468222957::1725328245::1725328249::1::::<><>::
-SlideUI.png::CompressedTexture2D::7739036670562974739::1725332307::1725332309::1::::<><>::
-Slot Bar.png::CompressedTexture2D::2837875285339060132::1725089125::1725089366::1::::<><>::
-Slot Case.png::CompressedTexture2D::515801905457547002::1725227193::1725227197::1::::<><>::
-Slot Print Head.png::CompressedTexture2D::4581629722753452817::1725089144::1725089366::1::::<><>::
-TabBox.tres::StyleBoxFlat::6651217164446874969::1735203175::0::1::::<><>::
-TabBoxDisabled.tres::StyleBoxFlat::1465898015529450726::1725508525::0::1::::<><>::
-TabBoxUnselected.tres::StyleBoxFlat::7505211596521894693::1735203175::0::1::::<><>::
-UIBrick.png::CompressedTexture2D::8527240571692410947::1725251413::1725251416::1::::<><>::
-UIPrint.png::CompressedTexture2D::2626725135797966092::1725249602::1725249604::1::::<><>::
-::res://UI/Fonts/::1734944615
-Bricks.woff::FontFile::4012935743495635488::1703337430::1725254347::1::::<><>::
-license.txt::TextFile::-1::1711576588::0::1::::<><>::
-Logo.ttf::FontFile::7626577102067853301::1663619328::1725254343::1::::<><>::
-Text Italic.otf::FontFile::5176508473636966738::1707668150::1725254354::1::::<><>::
-Text Light Italic.otf::FontFile::3023793790865715902::1707668150::1725254365::1::::<><>::
-Text Light.otf::FontFile::2680692966134502231::1707668150::1725254359::1::::<><>::
-Text.otf::FontFile::5196278953746433664::1707668150::1725254368::1::::<><>::
-TMT-MiniMochi-Sour.otf::FontFile::3235768997694168061::1711577784::1734944615::1::::<><>::
-TMT-MiniMochi-Sour.woff::FontFile::2137325989220395779::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-Sour.woff2::FontFile::7335880357755560540::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SournSliced.otf::FontFile::2601463933806996156::1711577784::1734944615::1::::<><>::
-TMT-MiniMochi-SournSliced.woff::FontFile::6565385171291653008::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SournSliced.woff2::FontFile::4903380485602987696::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SournSquishy.otf::FontFile::3179387940250623863::1711577784::1734944615::1::::<><>::
-TMT-MiniMochi-SournSquishy.woff::FontFile::7132061803319355012::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SournSquishy.woff2::FontFile::7003242915843055413::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SournSquishynSliced.otf::FontFile::1557288847743225777::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SournSquishynSliced.woff::FontFile::4476460364672287633::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SournSquishynSliced.woff2::FontFile::1907947212960869786::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SournStretchy.otf::FontFile::8156419561063390570::1711577784::1734944615::1::::<><>::
-TMT-MiniMochi-SournStretchy.woff::FontFile::7381746831331871180::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SournStretchy.woff2::FontFile::8478145224887604556::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SournStretchynSliced.otf::FontFile::8088009902532489620::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SournStretchynSliced.woff::FontFile::1056765041069055345::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SournStretchynSliced.woff2::FontFile::1177176303950992746::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-Sweet.otf::FontFile::3405018576998443524::1711577784::1734944615::1::::<><>::
-TMT-MiniMochi-Sweet.woff::FontFile::8429830091726992938::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-Sweet.woff2::FontFile::7925761974664679522::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SweetnSliced.otf::FontFile::5034387677592822199::1711577784::1734944615::1::::<><>::
-TMT-MiniMochi-SweetnSliced.woff::FontFile::7160221243085612957::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SweetnSliced.woff2::FontFile::3735278782249353649::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SweetnSquishy.otf::FontFile::1613180377782237131::1711577784::1734944615::1::::<><>::
-TMT-MiniMochi-SweetnSquishy.woff::FontFile::7675002324792523698::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SweetnSquishy.woff2::FontFile::6997960960234559645::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SweetnSquishynSliced.otf::FontFile::6995345864421719642::1711577784::1734944615::1::::<><>::
-TMT-MiniMochi-SweetnSquishynSliced.woff::FontFile::5707701319741616189::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SweetnSquishynSliced.woff2::FontFile::4661852373011959443::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SweetnStretchy.otf::FontFile::6936648540012944386::1711577784::1734944615::1::::<><>::
-TMT-MiniMochi-SweetnStretchy.woff::FontFile::3674171321058957501::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SweetnStretchy.woff2::FontFile::6887394943705335727::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SweetnStretchynSliced.otf::FontFile::6288008335841611989::1711577784::1734944615::1::::<><>::
-TMT-MiniMochi-SweetnStretchynSliced.woff::FontFile::7995222039478991747::1711577785::1734944615::1::::<><>::
-TMT-MiniMochi-SweetnStretchynSliced.woff2::FontFile::1707148302530962614::1711577785::1734944615::1::::<><>::
-TMT-MiniMochiVF.ttf::FontFile::4556458671089649329::1711577787::1734944615::1::::<><>::
-TMT-MiniMochiVF.woff::FontFile::2978924441978984725::1711577787::1734944615::1::::<><>::
-TMT-MiniMochiVF.woff2::FontFile::2196069565924659469::1711577787::1734944615::1::::<><>::
+::res://::1735640921.0
+export_presets.cfg::TextFile::-1::1735523205::0::1::::<><><><>::
+icon.svg::CompressedTexture2D::6099819464740842484::1735202149::1735202853::1::::<><><>00404ac3c89987ef1f7220fa5f0e5c82<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://addons/::1735375223.0
+::res://addons/simply-console/::1735640810.0
+plugin.cfg::TextFile::-1::1735209103::0::1::::<><><><>::
+plugin.gd::GDScript::1184659503004787653::1735209103::0::1::::<>EditorPlugin<><><>::
+::res://addons/simply-console/data/::1735536459.0
+command_list.json::JSON::-1::1735536459::0::1::::<><><><>::
+::res://addons/simply-console/modules/::1735640810.0
+base_module.gd::GDScript::678770814429025319::1735209103::0::1::::ConsoleModule<>Control<><><>::
+::res://addons/simply-console/modules/object-picker/::1735640810.0
+object_picker.gd::GDScript::6824235497924544939::1735209103::0::1::::<>ConsoleModule<><><>::
+object_picker.tscn::PackedScene::6293560507137864525::1735209103::0::1::::<><><><>::res://addons/simply-console/modules/object-picker/object_picker.gd
+::res://addons/simply-console/modules/property-tracker/::1735640810.0
+property_tracker.gd::GDScript::5798356185147680908::1735209103::0::1::::<>ConsoleModule<><><>::
+property_tracker.tscn::PackedScene::196755075269243142::1735209103::0::1::::<><><><>::res://addons/simply-console/modules/property-tracker/property_tracker.gd
+::res://addons/simply-console/scenes/::1735209103.0
+::res://addons/simply-console/scenes/command-editor/::1735209103.0
+batch_edit_tab.tscn::PackedScene::5758969559575114297::1735209103::0::1::::<><><><>::
+command_editor.tscn::PackedScene::2079067797224827461::1735209103::0::1::::<><><><>::uid://s3sg33uiq718::::res://addons/simply-console/scenes/command-editor/editor_tab.tscn<>uid://cobxnfwqn6bdh::::res://addons/simply-console/scenes/command-editor/batch_edit_tab.tscn<>uid://dyvdqe2orc8v1::::res://addons/simply-console/scenes/command-editor/extras_tab.tscn
+editor_tab.tscn::PackedScene::1322306898059875989::1735209103::0::1::::<><><><>::
+extras_tab.tscn::PackedScene::8887357207370164360::1735209103::0::1::::<><><><>::
+::res://addons/simply-console/scenes/console-window/::1735209103.0
+console_window.tscn::PackedScene::5650511457403785330::1735209103::0::1::::<><><><>::res://addons/simply-console/scripts/console_window.gd<>uid://cvwwa0qyx0kwb::::res://addons/simply-console/modules/object-picker/object_picker.tscn<>uid://c2kr6ux8lx4i::::res://addons/simply-console/modules/property-tracker/property_tracker.tscn<>res://addons/simply-console/scripts/command_suggestions.gd<>uid://rdai81bo3phn::::res://addons/simply-console/scenes/console-window/suggestion.tscn
+suggestion.tscn::PackedScene::1199419534960700823::1735209103::0::1::::<><><><>::
+::res://addons/simply-console/scripts/::1735640810.0
+command_lexer.gd::GDScript::4571606767109402184::1735209103::0::1::::CommandLexer<>Node<><><>::
+command_parser.gd::GDScript::3998870029229102885::1735209103::0::1::::CommandParser<>Node<><><>::
+command_suggestions.gd::GDScript::5671863216869050501::1735329227::0::1::::<>PanelContainer<><><>::
+console_window.gd::GDScript::3447989020519595433::1735209103::0::1::::<>Window<><><>::
+::res://addons/simply-console/singletons/::1735640810.0
+console_manager.gd::GDScript::6859567777498555429::1735209103::0::1::::<>Node<><><>::
+::res://Materials/::1735201492.0
+black.tres::StandardMaterial3D::2196063992521965207::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+blue.tres::StandardMaterial3D::378595569498086060::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+gray.tres::StandardMaterial3D::3256906300673596071::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+green.tres::StandardMaterial3D::8823253178259083330::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+lumen.tres::StandardMaterial3D::5032108874528853354::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+orange.tres::StandardMaterial3D::8895512417927719991::1735201492::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+pink.tres::StandardMaterial3D::3219364068497143575::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+plated_gray.tres::ShaderMaterial::7033811740122828238::1725474978::0::1::::<><><><>::res://Shaders/Metallic.tres.gdshader<>uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://b4c5md0ijj27q::::res://Textures/MultiMaterialRoughMetal.png<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+plated_orange.tres::ShaderMaterial::5858253699533066285::1729670388::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>res://Shaders/Metallic.tres.gdshader<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg<>uid://b4c5md0ijj27q::::res://Textures/MultiMaterialRoughMetal.png
+plated_yellow.tres::ShaderMaterial::4579323515742830908::1725475063::0::1::::<><><><>::res://Shaders/Metallic.tres.gdshader<>uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://b4c5md0ijj27q::::res://Textures/MultiMaterialRoughMetal.png<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+purple.tres::StandardMaterial3D::2334587970134194402::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+red.tres::StandardMaterial3D::3817535593023244837::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+soaked_green.tres::StandardMaterial3D::5779847294534071734::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+soaked_orange.tres::StandardMaterial3D::542154536231805578::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+soaked_pink.tres::StandardMaterial3D::2869181209964416532::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+test.tres::StandardMaterial3D::1826736361911557499::1724651976::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://c1rt5bih5j8vp::::res://Textures/MultiMaterialOrange.png<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg<>uid://b4c5md0ijj27q::::res://Textures/MultiMaterialRoughMetal.png
+tinged_blue.tres::StandardMaterial3D::6509807627361793028::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+tinged_green.tres::StandardMaterial3D::1019569702794102379::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+tinged_yellow.tres::StandardMaterial3D::2620140025230126387::1729670388::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+trans_rights_black.tres::StandardMaterial3D::251386420294438983::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+trans_rights_blue.tres::StandardMaterial3D::2633575822389593762::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+trans_rights_green.tres::StandardMaterial3D::1942929257227354183::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+trans_rights_pink.tres::StandardMaterial3D::2734904926188396885::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+trans_rights_red.tres::StandardMaterial3D::6403487574631420539::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+trans_rights_white.tres::StandardMaterial3D::8217831747030329580::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+trans_rights_yellow.tres::StandardMaterial3D::8216110500893280709::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+white.tres::StandardMaterial3D::3341299404838252109::1735201492::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+yellow.tres::StandardMaterial3D::4691157481300061665::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+::res://Models/::1735640921.0
+blender_assets.cats.txt::TextFile::-1::1732825133::0::1::::<><><><>::
+::res://Models/Parts (BLEND)/::1735111077.0
+::res://Models/Parts (OBJ)/::1735640917.0
+2x2 Brick.obj::Mesh::7938780716111449036::1735640193::1735640921::1::::<><><>1bea171483be5c5c33a9070102aef4ff<>res://.godot/imported/2x2 Brick.obj-a03e11e9461c2cb4d18f591f8941bce2.mesh<*>res://.godot/imported/2x2 Brick.obj-a03e11e9461c2cb4d18f591f8941bce2.mesh::
+::res://Models/Parts (STL)/::1735372122.0
+::res://Models/Sets (BLEND)/::1735372202.0
+::res://Prefabs/::1735638845.0
+::res://Prefabs/Pieces/::1735639675.0
+2x2 Brick.tscn::PackedScene::1261700694066895858::1735639675::0::1::::<><><><>::
+::res://Scenes/::1735639010.0
+Server.tscn::PackedScene::7176847330991478367::1735639010::0::1::::<><><><>::res://Scripts/Console.gd<>res://Scripts/Client.gd
+::res://Scripts/::1735640810.0
+Client.gd::GDScript::4176322133335888251::1735639002::0::1::::Client<>Node<><><>::
+Console.gd::GDScript::3454797361675007015::1735287385::0::1::::<>Node<><><>::
+Server.gd::GDScript::5552787134588422748::1735631525::0::1::::Server<>Node<><><>::
+::res://Shaders/::1735640810.0
+Metallic.tres.gdshader::Shader::1913477225148309877::1735639675::0::1::::<><><><>::
+Multiply UI.gdshader::Shader::7728383307340507062::1735639675::0::1::::<><><><>::
+::res://StlImporter-main/::1735372220.0
+::res://StlImporter-main/addons/::1735370214.0
+::res://StlImporter-main/addons/stl_importer/::1735372219.0
+::res://Textures/::1724651820.0
+MultiMaterialOrange.png::CompressedTexture2D::6634052985714086117::1724651818::1724651820::1::::<><><>5367293c373e1ce98ab726ec44ada294<>res://.godot/imported/MultiMaterialOrange.png-f8468616bd3863473da73bc7734e6413.s3tc.ctex::
+MultiMaterialRoughMetal.png::CompressedTexture2D::4427869040580069716::1724651374::1724651385::1::::<><><>74ebf21d96dbaad84b355b6a2c70c435<>res://.godot/imported/MultiMaterialRoughMetal.png-38e334ff29a46e6b2131002b3bce6cf8.s3tc.ctex::
+PrintBump.png::CompressedTexture2D::1633438086862887336::1724604184::1724648050::1::::<><><>0252b5717d01950682a59460ccd8017c<>res://.godot/imported/PrintBump.png-60566e5fc20159793b1cc0b8c477a89f.s3tc.ctex::
+PrintGoo.jpg::CompressedTexture2D::3744740201031210678::1724648492::1724648604::1::::<><><>f1b2eff3cf7acad454474751e0c87920<>res://.godot/imported/PrintGoo.jpg-08ff111af22975af38b0217e37969da9.s3tc.ctex::
+PrintGooAO.jpg::CompressedTexture2D::4916196248596816332::1724649163::1724649165::1::::<><><>eb0506613fd7281215c75624021bbcc1<>res://.godot/imported/PrintGooAO.jpg-33a679387843a63109fc8cb4764d7134.s3tc.ctex::
+::res://UI/::1735203175.0
+Box Blue.tres::StyleBoxFlat::4559524128086936503::1735203175::0::1::::<><><><>::
+Box Empty.tres::StyleBoxEmpty::5368669098147541913::1725333790::0::1::::<><><><>::
+Box Green.tres::StyleBoxFlat::8404366526187766510::1735203175::0::1::::<><><><>::
+BulletPoint.png::CompressedTexture2D::5177394394692690945::1725261407::1725261408::1::::<><><>e610ba336cf43b5ce4e15d34abdde7f4<>res://.godot/imported/BulletPoint.png-8de381a5d1827633b62d8e9d66a8997f.ctex::
+F'Deem Logo 1080p.png::CompressedTexture2D::498436792310089638::1732825124::1734944616::1::::<><><>368ee7c02161e687630592348e1fc801<>res://.godot/imported/F'Deem Logo 1080p.png-03703792f9aedf6d7668eb648c1467fc.ctex::
+F'Deem Outline Logo 1080p.png::CompressedTexture2D::5533221284565267687::1731927433::1734944616::1::::<><><>719de13f763e4e3586e373d0a6bdb3d7<>res://.godot/imported/F'Deem Outline Logo 1080p.png-00c5475bb37e5c187a51876cd3b89fcf.ctex::
+Icon Unaltered.png::CompressedTexture2D::4891060197509832176::1724779962::1724779967::1::::<><><>83c5de0930b31161c5d08c4425cee828<>res://.godot/imported/Icon Unaltered.png-19e5b9f5eedf983bfdbe42dc2d1918d0.ctex::
+Icon.png::CompressedTexture2D::2747151331330293507::1724780255::1724780257::1::::<><><>94d05487f57a2ab14b61a9b2b66794bf<>res://.godot/imported/Icon.png-ea7df9ba6ac6fdecc2e8b747f10131af.ctex::
+LineEditBox.tres::StyleBoxFlat::6240735194158257369::1735203175::0::1::::<><><><>::
+Logo 4K.png::CompressedTexture2D::6171150564478554216::1725260516::1725260523::1::::<><><>bc52c9dc121c6235035d7013c60d0e34<>res://.godot/imported/Logo 4K.png-17259e1c395f433b46d3c33abf6de1b8.ctex::
+Logo Tiny.png::CompressedTexture2D::4480491957661592870::1725670395::1725674426::1::::<><><>45ebeb7610d3f8c56cd123efb240782c<>res://.godot/imported/Logo Tiny.png-9161725f4be22c88d887ae29efe12689.ctex::
+OFH Accent 2.tres::Theme::141666613454232359::1735203175::0::1::::<><><><>::uid://begsvepmjkbul::::res://UI/Fonts/Text Light.otf<>uid://dr0exoik42351::::res://UI/Box Green.tres<>uid://cu6b85m1ska6l::::res://UI/LineEditBox.tres<>uid://cgbd7qgqs7mfg::::res://UI/Fonts/Text.otf<>uid://b57wxw32uon40::::res://UI/Box Blue.tres<>uid://c105tsvtvpyxd::::res://UI/TabBox.tres
+OFH Accent.tres::Theme::6281120693894320529::1735203175::0::1::::<><><><>::uid://dgwmu04ty8ss8::::res://UI/Fonts/Logo.ttf<>uid://c105tsvtvpyxd::::res://UI/TabBox.tres<>uid://u5dej3avi8gg::::res://UI/TabBoxDisabled.tres<>uid://de6t0dw2qnxwv::::res://UI/TabBoxUnselected.tres
+OFH.tres::Theme::5147086974714229157::1735203175::0::1::::<><><><>::uid://begsvepmjkbul::::res://UI/Fonts/Text Light.otf<>uid://ciqvgwg1mseld::::res://UI/Box Empty.tres<>uid://cu6b85m1ska6l::::res://UI/LineEditBox.tres<>uid://cgbd7qgqs7mfg::::res://UI/Fonts/Text.otf<>uid://c105tsvtvpyxd::::res://UI/TabBox.tres
+Paper Overlay.jpg::CompressedTexture2D::1426183542468222957::1725328245::1725328249::1::::<><><>2a01d3c63feb99d3b29df3ca89119cc6<>res://.godot/imported/Paper Overlay.jpg-5385b5dc6cd582264288f82ba7f594ac.ctex::
+SlideUI.png::CompressedTexture2D::7739036670562974739::1725332307::1725332309::1::::<><><>dac939adaeaee9d3cfd018f87adc1b4e<>res://.godot/imported/SlideUI.png-40049cdd187387433cc97576332e5f5b.ctex::
+Slot Bar.png::CompressedTexture2D::2837875285339060132::1725089125::1725089366::1::::<><><>175238e92a9e4018e74daaadd8aed949<>res://.godot/imported/Slot Bar.png-b51d398c031a8a4b607afd71123cd122.ctex::
+Slot Case.png::CompressedTexture2D::515801905457547002::1725227193::1725227197::1::::<><><>25e452ebbe0f357105bf991b910cafe2<>res://.godot/imported/Slot Case.png-d3931cbddcfe9ae3186f6e3601f2a913.ctex::
+Slot Print Head.png::CompressedTexture2D::4581629722753452817::1725089144::1725089366::1::::<><><>2d98b8099e3ebd3b366c2d5b809431d4<>res://.godot/imported/Slot Print Head.png-79a768b81ba4202da0bfa545efd4c50e.ctex::
+TabBox.tres::StyleBoxFlat::6651217164446874969::1735203175::0::1::::<><><><>::
+TabBoxDisabled.tres::StyleBoxFlat::1465898015529450726::1725508525::0::1::::<><><><>::
+TabBoxUnselected.tres::StyleBoxFlat::7505211596521894693::1735203175::0::1::::<><><><>::
+UIBrick.png::CompressedTexture2D::8527240571692410947::1725251413::1725251416::1::::<><><>ea1d780a6eb28ab20289dae5c7633a0a<>res://.godot/imported/UIBrick.png-2d87918ef04c27d62782071a539dde44.ctex::
+UIPrint.png::CompressedTexture2D::2626725135797966092::1725249602::1725249604::1::::<><><>2d10ec97c5acd6f4423e004300b0a431<>res://.godot/imported/UIPrint.png-fb4cbd7e8733bb1dfe8791744ca5ad6a.ctex::
+::res://UI/Fonts/::1734944615.0
+Bricks.woff::FontFile::4012935743495635488::1703337430::1725254347::1::::<><><>623ca38ba34f0a436e94fef955adc307<>res://.godot/imported/Bricks.woff-669c013963c45ae6f36c5666fada0241.fontdata::
+license.txt::TextFile::-1::1711576588::0::1::::<><><><>::
+Logo.ttf::FontFile::7626577102067853301::1663619328::1725254343::1::::<><><>343487acc39f2de78a560e9968fbf666<>res://.godot/imported/Logo.ttf-353c195255faed9c8d8edbfdca8d4bf7.fontdata::
+Text Italic.otf::FontFile::5176508473636966738::1707668150::1725254354::1::::<><><>9feee02557643d817b53f5b6a9b325bc<>res://.godot/imported/Text Italic.otf-573ffa3e9627aaf36edcfa7390066f42.fontdata::
+Text Light Italic.otf::FontFile::3023793790865715902::1707668150::1725254365::1::::<><><>af2eef600a81aa6690132330eed8e8da<>res://.godot/imported/Text Light Italic.otf-dc9290a5e6e221caa0b22ad23c7c7308.fontdata::
+Text Light.otf::FontFile::2680692966134502231::1707668150::1725254359::1::::<><><>5d05f24a1693a7c9639ef58d66458535<>res://.godot/imported/Text Light.otf-1b379893288a413ea8dde24f7d8b1401.fontdata::
+Text.otf::FontFile::5196278953746433664::1707668150::1725254368::1::::<><><>babbe25e94ec0f67e8884d8a61b3aa27<>res://.godot/imported/Text.otf-d15dbfa5bef3277cddc13617198e2f73.fontdata::
+TMT-MiniMochi-Sour.otf::FontFile::3235768997694168061::1711577784::1734944615::1::::<><><>b2d5c76171ee3b506e6c60d6bf10f343<>res://.godot/imported/TMT-MiniMochi-Sour.otf-58163b9152a55928dca5ccb31c1583af.fontdata::
+TMT-MiniMochi-Sour.woff::FontFile::2137325989220395779::1711577785::1734944615::1::::<><><>8b46a2589b1b8248ace622c480a2f534<>res://.godot/imported/TMT-MiniMochi-Sour.woff-851094121fad98b85a0f8ec940810863.fontdata::
+TMT-MiniMochi-Sour.woff2::FontFile::7335880357755560540::1711577785::1734944615::1::::<><><>fe5d5c2abd986185294cd3d96748ff5e<>res://.godot/imported/TMT-MiniMochi-Sour.woff2-94761179d471c74da7bddac7e9e04486.fontdata::
+TMT-MiniMochi-SournSliced.otf::FontFile::2601463933806996156::1711577784::1734944615::1::::<><><>6a788c4ae4fae434d52d2c66820236db<>res://.godot/imported/TMT-MiniMochi-SournSliced.otf-4a97bf748997f047395998d93ac09184.fontdata::
+TMT-MiniMochi-SournSliced.woff::FontFile::6565385171291653008::1711577785::1734944615::1::::<><><>fca10e8a1ebd36e4a2d42ad79b44badc<>res://.godot/imported/TMT-MiniMochi-SournSliced.woff-1b01dd6dfee8b40a6174260bd9df66c0.fontdata::
+TMT-MiniMochi-SournSliced.woff2::FontFile::4903380485602987696::1711577785::1734944615::1::::<><><>3a7cace2fe5169e2222b0b59c61b3cb8<>res://.godot/imported/TMT-MiniMochi-SournSliced.woff2-7c360e78396b2ef943c72b04a46c5d63.fontdata::
+TMT-MiniMochi-SournSquishy.otf::FontFile::3179387940250623863::1711577784::1734944615::1::::<><><>afa620a01e5b228fc881f27683a30150<>res://.godot/imported/TMT-MiniMochi-SournSquishy.otf-ec5aca9cb52450e7a4ccd667deaa26e5.fontdata::
+TMT-MiniMochi-SournSquishy.woff::FontFile::7132061803319355012::1711577785::1734944615::1::::<><><>1e22b4ccac5172a9f660bd0d4e1c58c5<>res://.godot/imported/TMT-MiniMochi-SournSquishy.woff-423f7d202db363bfc68877be8887016d.fontdata::
+TMT-MiniMochi-SournSquishy.woff2::FontFile::7003242915843055413::1711577785::1734944615::1::::<><><>cb28a67ec5f98046e05249bcb7a0746a<>res://.godot/imported/TMT-MiniMochi-SournSquishy.woff2-138e7e2cea2263e9f575c5799bd9615f.fontdata::
+TMT-MiniMochi-SournSquishynSliced.otf::FontFile::1557288847743225777::1711577785::1734944615::1::::<><><>8b81845d7c4e951bfc94c8923bbb4500<>res://.godot/imported/TMT-MiniMochi-SournSquishynSliced.otf-4e3683e69a8a1f70eb9cfdc56fc540b3.fontdata::
+TMT-MiniMochi-SournSquishynSliced.woff::FontFile::4476460364672287633::1711577785::1734944615::1::::<><><>1567f1f3768da8ac6fec683667a9dcaf<>res://.godot/imported/TMT-MiniMochi-SournSquishynSliced.woff-f1de1eee03c8be1c9f98beb08c486a32.fontdata::
+TMT-MiniMochi-SournSquishynSliced.woff2::FontFile::1907947212960869786::1711577785::1734944615::1::::<><><>6675ceb9f43035ff1d46c96a6ee3b7da<>res://.godot/imported/TMT-MiniMochi-SournSquishynSliced.woff2-06b5447d4b1558bf75c275a798e41dc3.fontdata::
+TMT-MiniMochi-SournStretchy.otf::FontFile::8156419561063390570::1711577784::1734944615::1::::<><><>886be9355d64b1041db04f7e3db84e26<>res://.godot/imported/TMT-MiniMochi-SournStretchy.otf-791b4898d1e62d53be8e81e658d07665.fontdata::
+TMT-MiniMochi-SournStretchy.woff::FontFile::7381746831331871180::1711577785::1734944615::1::::<><><>041acad3072edf626c387b67db658c9f<>res://.godot/imported/TMT-MiniMochi-SournStretchy.woff-8a9eec5e52762d7644829d0c432a84b3.fontdata::
+TMT-MiniMochi-SournStretchy.woff2::FontFile::8478145224887604556::1711577785::1734944615::1::::<><><>141a2edf474ebfd4a98e7c5d1b6a224b<>res://.godot/imported/TMT-MiniMochi-SournStretchy.woff2-9d3e132504aaacc27669075363c82e6d.fontdata::
+TMT-MiniMochi-SournStretchynSliced.otf::FontFile::8088009902532489620::1711577785::1734944615::1::::<><><>31bbd1d8b107bb9504ae3b3ef6293ad3<>res://.godot/imported/TMT-MiniMochi-SournStretchynSliced.otf-481e71c24bd3d69b35d120099051ee71.fontdata::
+TMT-MiniMochi-SournStretchynSliced.woff::FontFile::1056765041069055345::1711577785::1734944615::1::::<><><>9d5a76c0afbe78056a6540632e928cbe<>res://.godot/imported/TMT-MiniMochi-SournStretchynSliced.woff-7c233bb9df5abd11459e4d00ed88f5ac.fontdata::
+TMT-MiniMochi-SournStretchynSliced.woff2::FontFile::1177176303950992746::1711577785::1734944615::1::::<><><>a1435c59db2b7f499033554514d2cd73<>res://.godot/imported/TMT-MiniMochi-SournStretchynSliced.woff2-febec870ee152e2bdbe27a920b098bd6.fontdata::
+TMT-MiniMochi-Sweet.otf::FontFile::3405018576998443524::1711577784::1734944615::1::::<><><>c5143e2541429be39a391f7589153df8<>res://.godot/imported/TMT-MiniMochi-Sweet.otf-3420bbc69543bd65d523a9538f571eea.fontdata::
+TMT-MiniMochi-Sweet.woff::FontFile::8429830091726992938::1711577785::1734944615::1::::<><><>e76706083c50daff86e990e55bc42bc3<>res://.godot/imported/TMT-MiniMochi-Sweet.woff-4652b96e2515bd59af9e967957194c41.fontdata::
+TMT-MiniMochi-Sweet.woff2::FontFile::7925761974664679522::1711577785::1734944615::1::::<><><>29b315e99a0011e43b9c1ef8c032e4c0<>res://.godot/imported/TMT-MiniMochi-Sweet.woff2-7f2b902ae0f93dadf00eed8bb76e4080.fontdata::
+TMT-MiniMochi-SweetnSliced.otf::FontFile::5034387677592822199::1711577784::1734944615::1::::<><><>5ee4012b9cd69116b82300e413c79835<>res://.godot/imported/TMT-MiniMochi-SweetnSliced.otf-5cc303f907d2eeafd3262aa0c03328f1.fontdata::
+TMT-MiniMochi-SweetnSliced.woff::FontFile::7160221243085612957::1711577785::1734944615::1::::<><><>d92cf23e3818f377d443c13d519af7fd<>res://.godot/imported/TMT-MiniMochi-SweetnSliced.woff-630b750716738e349adf07f88ddf99d0.fontdata::
+TMT-MiniMochi-SweetnSliced.woff2::FontFile::3735278782249353649::1711577785::1734944615::1::::<><><>2a4d11a87784903f7f0a4b887ce7eda2<>res://.godot/imported/TMT-MiniMochi-SweetnSliced.woff2-7e3bab58e2656295aa65cc3898fb7249.fontdata::
+TMT-MiniMochi-SweetnSquishy.otf::FontFile::1613180377782237131::1711577784::1734944615::1::::<><><>cfc4000fdb85aa2d7e87afdb63b3bd4a<>res://.godot/imported/TMT-MiniMochi-SweetnSquishy.otf-133bc159e9b699197bba0640c2141254.fontdata::
+TMT-MiniMochi-SweetnSquishy.woff::FontFile::7675002324792523698::1711577785::1734944615::1::::<><><>4e4bd339a2672c78778d6539829567af<>res://.godot/imported/TMT-MiniMochi-SweetnSquishy.woff-d24e9908152524d0f7e79ee29d6a5afd.fontdata::
+TMT-MiniMochi-SweetnSquishy.woff2::FontFile::6997960960234559645::1711577785::1734944615::1::::<><><>e99488963024e2948a304df367c62ae2<>res://.godot/imported/TMT-MiniMochi-SweetnSquishy.woff2-0ef1b44b6228144c87e21e75f010c36f.fontdata::
+TMT-MiniMochi-SweetnSquishynSliced.otf::FontFile::6995345864421719642::1711577784::1734944615::1::::<><><>3f9fab69c2a603a6b3c039b21b43c931<>res://.godot/imported/TMT-MiniMochi-SweetnSquishynSliced.otf-b357ca83a319d53a2ca7e403a1dbb70b.fontdata::
+TMT-MiniMochi-SweetnSquishynSliced.woff::FontFile::5707701319741616189::1711577785::1734944615::1::::<><><>203d1aad7204c9f22d5cb02d1902dd4e<>res://.godot/imported/TMT-MiniMochi-SweetnSquishynSliced.woff-a79ff7b23e7580efb7b0ec881bdf1c52.fontdata::
+TMT-MiniMochi-SweetnSquishynSliced.woff2::FontFile::4661852373011959443::1711577785::1734944615::1::::<><><>d363ebe17f10fef4a43145dfd5562781<>res://.godot/imported/TMT-MiniMochi-SweetnSquishynSliced.woff2-e4391aa7732b13f45b497c1f2577b178.fontdata::
+TMT-MiniMochi-SweetnStretchy.otf::FontFile::6936648540012944386::1711577784::1734944615::1::::<><><>bee326b728d301efecfba9d1eb974b39<>res://.godot/imported/TMT-MiniMochi-SweetnStretchy.otf-1e04c5a4b0a36e7bb8021bb33839d54f.fontdata::
+TMT-MiniMochi-SweetnStretchy.woff::FontFile::3674171321058957501::1711577785::1734944615::1::::<><><>3afb5a72212e5c0349cb34f3d55679ca<>res://.godot/imported/TMT-MiniMochi-SweetnStretchy.woff-799013f208a980462e2b7decc6155735.fontdata::
+TMT-MiniMochi-SweetnStretchy.woff2::FontFile::6887394943705335727::1711577785::1734944615::1::::<><><>f106c73a6c01b54af42302ba53253866<>res://.godot/imported/TMT-MiniMochi-SweetnStretchy.woff2-e34e3a9d00dadd9dcd2ff096eef8c4d7.fontdata::
+TMT-MiniMochi-SweetnStretchynSliced.otf::FontFile::6288008335841611989::1711577784::1734944615::1::::<><><>889f73139cafc82fd5a5650de2a31db7<>res://.godot/imported/TMT-MiniMochi-SweetnStretchynSliced.otf-2acd8a60abaa7f17162d9172df2f3031.fontdata::
+TMT-MiniMochi-SweetnStretchynSliced.woff::FontFile::7995222039478991747::1711577785::1734944615::1::::<><><>09af19e2442539490fff700c5d3323ad<>res://.godot/imported/TMT-MiniMochi-SweetnStretchynSliced.woff-0a677af86676c4aec90f6086d3276621.fontdata::
+TMT-MiniMochi-SweetnStretchynSliced.woff2::FontFile::1707148302530962614::1711577785::1734944615::1::::<><><>23716d4315694648446e8ce7a13cb38b<>res://.godot/imported/TMT-MiniMochi-SweetnStretchynSliced.woff2-367bf22df567889b55076ea69ad3dc83.fontdata::
+TMT-MiniMochiVF.ttf::FontFile::4556458671089649329::1711577787::1734944615::1::::<><><>6336ff3f9de23e5f3ab21e1c60d981f2<>res://.godot/imported/TMT-MiniMochiVF.ttf-672f4c42019bddd6aaa626a947020108.fontdata::
+TMT-MiniMochiVF.woff::FontFile::2978924441978984725::1711577787::1734944615::1::::<><><>42ced49000f84d35dbba0dc1ec34c380<>res://.godot/imported/TMT-MiniMochiVF.woff-f3ec3cf24f67ba7453be3e8f480cc459.fontdata::
+TMT-MiniMochiVF.woff2::FontFile::2196069565924659469::1711577787::1734944615::1::::<><><>6c103f82e2f4a35265ef45ba1a584aab<>res://.godot/imported/TMT-MiniMochiVF.woff2-9f3a99e18a246cd3e9c0d5f5680057e2.fontdata::
