@@ -23,6 +23,17 @@ func _ready():
 	multiplayer.connected_to_server.connect(connected_to_server)
 	multiplayer.connection_failed.connect(connection_failed)
 	multiplayer.server_disconnected.connect(server_disconnected)
+	var cam = Camera3D.new()
+	var env = WorldEnvironment.new()
+	var light = DirectionalLight3D.new()
+	cam.set_script(preload("res://Scripts/FreeCam.gd"))
+	cam.current = true
+	env.environment = Environment.new()
+	env.environment.background_mode = Environment.BG_COLOR
+	env.environment.background_color = "#9bedd4"
+	get_tree().root.call_deferred("add_child",cam)
+	get_tree().root.call_deferred("add_child",env)
+	get_tree().root.call_deferred("add_child",light)
 	
 func _process(delta: float) -> void:
 	if checkOnline(false):
@@ -89,26 +100,50 @@ func connection_failed():
 	pass
 	
 func client_reload_map():
-	var pieces = find_child("pieces")
-	if pieces == null:
-		pieces = Node3D.new()
-		pieces.name = "pieces"  # Make sure the new node has the expected name
-		add_child(pieces)
-	for child in pieces.get_children():
+	var piece_holder = find_child("Piece Holder")
+	if piece_holder == null:
+		piece_holder = Node3D.new()
+		piece_holder.name = "Piece Holder"  # Make sure the new node has the expected name
+		add_child(piece_holder)
+	for child in piece_holder.get_children():
 		child.queue_free()
 	if loadedMap.has("pieces"):
-		for piece:Dictionary in loadedMap["pieces"]:
+		for piece in loadedMap["pieces"]:
+			piece = loadedMap["pieces"][piece]
 			if piece.has("id"):
-				var prefab_path = "res://Prefabs/Pieces/" + piece["id"] + ".tscn"
+				var prefab_path:String = "res://Prefabs/Pieces/" + piece["id"] + ".tscn"
 				var prefab = load(prefab_path)
 				if prefab and prefab is PackedScene:
-					var instance = prefab.instance()  # Create an instance of the prefab
-					pieces.add_child(instance)  # Add the instance as a child of 'pieces'
+					prefab = prefab.instantiate()
+					piece_holder.add_child(prefab)  # Add the instance as a child of 'pieces'
 					# Optionally set its position or other properties based on 'piece'
 					if piece.has("position"):
-						instance.global_transform.origin = piece["position"]
+						var position_parts = piece["position"]
+						if position_parts is String:
+							position_parts = position_parts.split(",")
+							if position_parts.size() == 3:
+								prefab.global_transform.origin = Vector3(
+									float(position_parts[0]), 
+									float(position_parts[1]), 
+									float(position_parts[2])
+								)
+							else:
+								Console.output_text("Invalid position format: " + piece["position"])
+						elif position_parts is Vector3:
+							prefab.global_transform.origin = position_parts
 					if piece.has("rotation"):
-						instance.global_transform.basis = Basis(piece["rotation"])
+						var rotation_parts = piece["rotation"].split(",")
+						if rotation_parts.size() == 4:
+							prefab.global_transform.basis = Basis(Quaternion(
+								float(rotation_parts[0]), 
+								float(rotation_parts[1]), 
+								float(rotation_parts[2]),
+								float(rotation_parts[3])
+							))
+						else:
+							Console.output_text("Invalid rotation format: " + piece["rotation"])
+				else:
+					Console.output_text(prefab_path + " doesn't exist.")
 			
 #endregion
 
@@ -212,6 +247,7 @@ func server_transport_player(value:Dictionary) -> void:
 func update_piece(id:int,piece:Dictionary) -> void:
 	if loadedMap.has("pieces"):
 		loadedMap["pieces"][id] = piece
+		client_reload_map()
 		Console.output_text("Piece has been placed: " + str(piece))
 #endregion
 
