@@ -140,7 +140,7 @@ func save_map(map_name: String) -> void:
 	var mapW = int(parts[3])
 
 	# Construct the file path
-	var save_folder = "/My Precious Save Files/"
+	var save_folder = "/My Precious Save Files"
 	var world_folder = "/"+str(mapW) + "/"
 	var map_file_path = world_folder + str(mapX) + "," + str(mapY) + "," + str(mapZ) + ".map"
 	
@@ -164,14 +164,15 @@ func save_map(map_name: String) -> void:
 			return
 
 	# Save the map data to the file
-	var file = FileAccess.open("user://" + save_folder + world_folder + map_file_path, FileAccess.WRITE)
+	var finalPath = "user:/" + save_folder + map_file_path
+	var file = FileAccess.open(finalPath, FileAccess.WRITE)
 	if file:
 		var map_data = loadedMaps[map_name]
 		file.store_string(JSON.stringify(map_data))
 		file.close()
 		Console.output_text("Map saved: " + map_name + " (" + file.get_path_absolute() + ")")
 	else:
-		Console.output_error("Failed to save map file: " + map_file_path)
+		Console.output_error("Failed to save map file: " + finalPath + " - " + str(FileAccess.get_open_error()))
 
 
 func commandSetVar(key:String, value:String) -> void:
@@ -305,6 +306,7 @@ func request_membership() -> void:
 	var id = multiplayer.get_remote_sender_id()
 	if check_player_permissions(id,"pingas"):
 		setPlayerInfo(id,"permissions","member")
+		setSecretPlayerInfo(id,"disconnectTimer",5)
 		if playerInfo[id].has("name"):
 			server_send_message.rpc("'" + playerInfo[id]["name"] + "' joined the game.")	
 			
