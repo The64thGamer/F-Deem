@@ -329,7 +329,7 @@ func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
 			
 		var rng = RandomNumberGenerator.new()
 		rng.seed = Time.get_ticks_msec()
-		var random_int = rng.randi_range(-9223372036854775808, 9223372036854775807)
+		var random_int = rng.randi()
 		
 		loadedMaps[mapName]["pieces"][str(random_int)] = parsed_piece
 		
