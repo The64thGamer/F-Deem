@@ -62,6 +62,8 @@ func setMode(modeSet: String = "server") -> void:
 
 func join(setaddress: String = address) -> void:
 	address = setaddress;
+	if peer != null:
+		disconnect_from_server()
 	peer = ENetMultiplayerPeer.new()
 	peer.create_client(address,port)
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
