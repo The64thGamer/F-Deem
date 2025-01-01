@@ -114,15 +114,15 @@ func client_reload_map():
 				var prefab_path:String = "res://Prefabs/Pieces/" + piece["id"] + ".tscn"
 				var prefab = load(prefab_path)
 				if prefab and prefab is PackedScene:
-					prefab = prefab.instantiate()
+					prefab = prefab.instantiate() as Node3D
 					piece_holder.add_child(prefab)  # Add the instance as a child of 'pieces'
 					# Optionally set its position or other properties based on 'piece'
 					if piece.has("position"):
 						var position_parts = piece["position"]
 						if position_parts is String:
-							position_parts = position_parts.split(",")
+							position_parts = position_parts.replace('(',"").replace(')',"").split(",")
 							if position_parts.size() == 3:
-								prefab.global_transform.origin = Vector3(
+								prefab.global_position = Vector3(
 									float(position_parts[0]), 
 									float(position_parts[1]), 
 									float(position_parts[2])
@@ -132,16 +132,22 @@ func client_reload_map():
 						elif position_parts is Vector3:
 							prefab.global_transform.origin = position_parts
 					if piece.has("rotation"):
-						var rotation_parts = piece["rotation"].split(",")
-						if rotation_parts.size() == 4:
-							prefab.global_transform.basis = Basis(Quaternion(
-								float(rotation_parts[0]), 
-								float(rotation_parts[1]), 
-								float(rotation_parts[2]),
-								float(rotation_parts[3])
-							))
-						else:
-							Console.output_text("Invalid rotation format: " + piece["rotation"])
+						var rotation_parts = piece["rotation"]
+						if rotation_parts is String:
+							rotation_parts = rotation_parts.replace('(',"").replace(')',"").split(",")
+							if rotation_parts.size() == 4:
+								prefab.global_transform.basis = Basis(Quaternion(
+									float(rotation_parts[0]), 
+									float(rotation_parts[1]), 
+									float(rotation_parts[2]),
+									float(rotation_parts[3])
+								))
+							else:
+								Console.output_text("Invalid rotation format: " + piece["rotation"])
+						elif rotation_parts is Quaternion:
+							prefab.global_transform.basis = Basis(rotation_parts)
+						elif rotation_parts is Vector4:
+							prefab.global_transform.basis = Basis(Quaternion(rotation_parts.X,rotation_parts.Y,rotation_parts.Z,rotation_parts.W))
 				else:
 					Console.output_text(prefab_path + " doesn't exist.")
 			
