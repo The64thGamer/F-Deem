@@ -103,7 +103,7 @@ func create_map(mapX:int,mapY:int,mapZ:int,mapW:int):
 
 	# Initialize the default map structure
 	var default_map_data = {
-		"pieces": []
+		"pieces": {}
 	}
 
 	# Save the new map file
@@ -181,7 +181,8 @@ func set_server_variable(key, value, broadcast:bool) -> void:
 	serverVariables[key] = value
 	if broadcast:
 		Console.output_text("'"+ str(key) + "' set to '" + str(value) +"'")
-	server_update_server_variable.rpc(key,value)
+	if multiplayer.get_peers().size() > 0:
+		server_update_server_variable.rpc(key,value)
 	
 func setPlayerInfo(id,key,value) -> void:
 	if not playerInfo.has(id):
@@ -245,7 +246,8 @@ func peer_connected(id):
 func peer_disconnected(id):
 	playerInfo.erase(id)
 	server_erase_player_info.rpc(id)
-	server_send_message.rpc("Player Left '" + str(id) + "'")
+	if multiplayer.get_peers().size() > 0:
+		server_send_message.rpc("Player Left '" + str(id) + "'")
 
 func _on_server_shutdown() -> void:
 	Console.output_text("Server is shutting down...")
@@ -311,7 +313,7 @@ func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
 	var id = multiplayer.get_remote_sender_id()
 	if check_player_permissions(id,"cheater") || check_player_permissions(id,"admin"):		
 		#Strip bad dictionary stuff from piece
-		var parsed_piece = {
+		var parsed_piece:Dictionary = {
 			"color": piece.get("color", "green"),
 			"id": piece.get("id", 0),
 			"position": piece.get("position", Vector3.ZERO),
@@ -327,12 +329,12 @@ func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
 		rng.seed = Time.get_ticks_msec()
 		var random_int = rng.randi_range(-9223372036854775808, 9223372036854775807)
 		
-		loadedMaps[mapName]["pieces"][random_int] = parsed_piece
+		loadedMaps[mapName]["pieces"][str(random_int)] = parsed_piece
 		
 		#Send Updates to players
 		for player in secretPlayerInfo:
-			if player.has("mapPositionX") && player.has("mapPositionY") && player.has("mapPositionZ") && player.has("mapPositionW"):
-				if player["mapPositionX"] == mapX && player["mapPositionY"] == mapY && player["mapPositionZ"] == mapZ && player["mapPositionW"] == mapW:
+			if secretPlayerInfo[player].has("mapPositionX") && secretPlayerInfo[player].has("mapPositionY") && secretPlayerInfo[player].has("mapPositionZ") && secretPlayerInfo[player].has("mapPositionW"):
+				if secretPlayerInfo[player]["mapPositionX"] == mapX && secretPlayerInfo[player]["mapPositionY"] == mapY && secretPlayerInfo[player]["mapPositionZ"] == mapZ && secretPlayerInfo[player]["mapPositionW"] == mapW:
 					update_piece.rpc_id(random_int, parsed_piece)
 
 		server_send_message.rpc("'" + playerInfo[id]["name"] + "' placed piece '" + str(parsed_piece["color"]) + str(parsed_piece["id"]) + "' at " + str(parsed_piece["position"]))
