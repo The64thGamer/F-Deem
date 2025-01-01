@@ -69,6 +69,13 @@
 		"requiresKeyword": false,
 		"method": "getSecretPlayerInfo"
 	},
+	"stopHost": {
+		"target": "F'Deem",
+		"minPermission": 0,
+		"cheats": false,
+		"requiresKeyword": false,
+		"method": "stopHost"
+	},
 	"getPlayerName": {
 		"target": "F'Deem",
 		"minPermission": 0,

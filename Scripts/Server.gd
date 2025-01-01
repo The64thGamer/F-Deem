@@ -22,7 +22,13 @@ var peer = null
 func _ready():
 	multiplayer.peer_connected.connect(peer_connected)
 	multiplayer.peer_disconnected.connect(peer_disconnected)
-	
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		_on_server_shutdown()
+	elif what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		_on_server_shutdown()
+
 func _process(delta: float) -> void:
 	if checkOnline(false):
 		localUptime += delta
@@ -110,6 +116,63 @@ func create_map(mapX:int,mapY:int,mapZ:int,mapW:int):
 	else:
 		Console.output_error("Failed to create map file: " + map_file_path)
 
+func save_all_maps() -> void:
+	Console.output_text("Saving all maps...")
+	for map_name in loadedMaps.keys():
+		save_map(map_name)
+	Console.output_text("All maps saved.")
+
+func save_map(map_name: String) -> void:
+	# Check if the map exists in loadedMaps
+	if not loadedMaps.has(map_name):
+		Console.output_error("Cannot save. Map '" + map_name + "' is not loaded.")
+		return
+	
+	# Parse the map name to get X, Y, Z, and W values
+	var parts = map_name.split(",")
+	if parts.size() != 4:
+		Console.output_error("Invalid map name format: " + map_name)
+		return
+
+	var mapX = int(parts[0])
+	var mapY = int(parts[1])
+	var mapZ = int(parts[2])
+	var mapW = int(parts[3])
+
+	# Construct the file path
+	var save_folder = "/My Precious Save Files/"
+	var world_folder = "/"+str(mapW) + "/"
+	var map_file_path = world_folder + str(mapX) + "," + str(mapY) + "," + str(mapZ) + ".map"
+	
+	# Access the DirAccess API
+	var dir = DirAccess.open("user://")
+	if dir == null:
+		Console.output_error("Failed to access base user directory.")
+		return
+	
+	# Check and create the save folder if it doesn't exist
+	if not dir.dir_exists(save_folder):
+		if dir.make_dir_recursive(save_folder) != OK:
+			Console.output_error("Failed to create save folder: " + save_folder)
+			return
+		dir.open(save_folder)
+	
+	# Check and create the world folder if it doesn't exist
+	if not dir.dir_exists(world_folder):
+		if dir.make_dir_recursive(world_folder) != OK:
+			Console.output_error("Failed to create world folder: " + world_folder)
+			return
+
+	# Save the map data to the file
+	var file = FileAccess.open(map_file_path, FileAccess.WRITE)
+	if file:
+		var map_data = loadedMaps[map_name]
+		file.store_string(JSON.stringify(map_data))
+		file.close()
+		Console.output_text("Map saved: " + map_name)
+	else:
+		Console.output_error("Failed to save map file: " + map_file_path)
+
 
 func commandSetVar(key:String, value:String) -> void:
 	set_server_variable(key,value,true)
@@ -183,7 +246,24 @@ func peer_disconnected(id):
 	playerInfo.erase(id)
 	server_erase_player_info.rpc(id)
 	server_send_message.rpc("Player Left '" + str(id) + "'")
+
+func _on_server_shutdown() -> void:
+	Console.output_text("Server is shutting down...")
+
+	# Save all loaded maps
+	save_all_maps()
+
+	# Disconnect peers if the server is active
+	if multiplayer.is_server():
+		Console.output_text("Disconnecting all peers...")
+		if is_instance_valid(peer):
+			peer.close()
+		else:
+			Console.output_text("No active peer to close.")
 	
+	Console.output_text("Shutdown complete.")
+
+
 func check_player_permissions(setID:int,permission:String) -> bool:
 	if not playerInfo[setID].has("permissions"):
 		return false
@@ -241,14 +321,20 @@ func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
 		#Add
 		var mapName = str(mapX) + "," + str(mapY) + "," + str(mapZ) + "," + str(mapW)
 		if not mapName in loadedMaps:
-			#DO THIS LATER
-			#loadmap from savefile
-			#if (map) is null
-				#create map
-			loadedMaps[mapName] ={
-				"pieces" : []
-			}
-		loadedMaps[mapName]["pieces"].append(parsed_piece)
+			return
+			
+		var rng = RandomNumberGenerator.new()
+		rng.seed = Time.get_ticks_msec()
+		var random_int = rng.randi_range(-9223372036854775808, 9223372036854775807)
+		
+		loadedMaps[mapName]["pieces"][random_int] = parsed_piece
+		
+		#Send Updates to players
+		for player in secretPlayerInfo:
+			if player.has("mapPositionX") && player.has("mapPositionY") && player.has("mapPositionZ") && player.has("mapPositionW"):
+				if player["mapPositionX"] == mapX && player["mapPositionY"] == mapY && player["mapPositionZ"] == mapZ && player["mapPositionW"] == mapW:
+					update_piece.rpc_id(random_int, parsed_piece)
+
 		server_send_message.rpc("'" + playerInfo[id]["name"] + "' placed piece '" + str(parsed_piece["color"]) + str(parsed_piece["id"]) + "' at " + str(parsed_piece["position"]))
 #endregion
 
@@ -276,6 +362,9 @@ func getSecretPlayerInfo() -> void:
 func getLoadedMaps() -> void:
 	if checkOnline(true): 
 		Console.output_text(str(loadedMaps))
+		
+func stopHost() -> void:
+	_on_server_shutdown()
 #endregion
 
 
@@ -314,5 +403,9 @@ func server_dismiss_pingas() -> void:
 	
 @rpc("authority","call_local","reliable")
 func server_transport_player(value:Dictionary) -> void:
+	pass	
+	
+@rpc("authority","call_local","reliable")
+func update_piece(id:int,piece:Dictionary) -> void:
 	pass	
 #endregion

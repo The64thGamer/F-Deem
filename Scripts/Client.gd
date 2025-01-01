@@ -205,6 +205,12 @@ func server_dismiss_pingas() -> void:
 func server_transport_player(value:Dictionary) -> void:
 	loadedMap = value
 	client_reload_map()
+	
+@rpc("authority","call_local","reliable")
+func update_piece(id:int,piece:Dictionary) -> void:
+	if loadedMap.has("pieces"):
+		loadedMap["pieces"][id] = piece
+		Console.output_text("Piece has been placed: " + str(piece))
 #endregion
 
 #region DUMMY SERVER RPCS, REQUIRED SAME BOILERPLATE
