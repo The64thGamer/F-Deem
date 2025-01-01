@@ -335,7 +335,7 @@ func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
 		for player in secretPlayerInfo:
 			if secretPlayerInfo[player].has("mapPositionX") && secretPlayerInfo[player].has("mapPositionY") && secretPlayerInfo[player].has("mapPositionZ") && secretPlayerInfo[player].has("mapPositionW"):
 				if secretPlayerInfo[player]["mapPositionX"] == mapX && secretPlayerInfo[player]["mapPositionY"] == mapY && secretPlayerInfo[player]["mapPositionZ"] == mapZ && secretPlayerInfo[player]["mapPositionW"] == mapW:
-					update_piece.rpc_id(random_int, parsed_piece)
+					update_piece.rpc_id(player,random_int, parsed_piece)
 
 		server_send_message.rpc("'" + playerInfo[id]["name"] + "' placed piece '" + str(parsed_piece["color"]) + str(parsed_piece["id"]) + "' at " + str(parsed_piece["position"]))
 #endregion
