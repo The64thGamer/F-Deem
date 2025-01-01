@@ -116,7 +116,7 @@ func create_map(mapX:int,mapY:int,mapZ:int,mapW:int):
 	else:
 		Console.output_error("Failed to create map file: " + map_file_path)
 
-func save_all_maps() -> void:
+func saveAllMaps() -> void:
 	Console.output_text("Saving all maps...")
 	for map_name in loadedMaps.keys():
 		save_map(map_name)
@@ -164,12 +164,12 @@ func save_map(map_name: String) -> void:
 			return
 
 	# Save the map data to the file
-	var file = FileAccess.open(map_file_path, FileAccess.WRITE)
+	var file = FileAccess.open("user://" + save_folder + world_folder + map_file_path, FileAccess.WRITE)
 	if file:
 		var map_data = loadedMaps[map_name]
 		file.store_string(JSON.stringify(map_data))
 		file.close()
-		Console.output_text("Map saved: " + map_name)
+		Console.output_text("Map saved: " + map_name + " (" + file.get_path_absolute() + ")")
 	else:
 		Console.output_error("Failed to save map file: " + map_file_path)
 
@@ -253,7 +253,7 @@ func _on_server_shutdown() -> void:
 	Console.output_text("Server is shutting down...")
 
 	# Save all loaded maps
-	save_all_maps()
+	saveAllMaps()
 
 	# Disconnect peers if the server is active
 	if multiplayer.is_server():
