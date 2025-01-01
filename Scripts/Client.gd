@@ -90,8 +90,9 @@ func client_reload_map():
 	var pieces = find_child("pieces")
 	if pieces == null:
 		pieces = Node3D.new()
+		pieces.name = "pieces"  # Make sure the new node has the expected name
 		add_child(pieces)
-	for child:Node in pieces:
+	for child in pieces.get_children():
 		child.queue_free()
 	if loadedMap.has("pieces"):
 		for piece:Dictionary in loadedMap["pieces"]:
