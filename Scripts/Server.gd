@@ -22,12 +22,12 @@ var peer = null
 func _ready():
 	multiplayer.peer_connected.connect(peer_connected)
 	multiplayer.peer_disconnected.connect(peer_disconnected)
+	get_tree().set_auto_accept_quit(false)
 
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST || what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		_on_server_shutdown()
-	elif what == NOTIFICATION_WM_GO_BACK_REQUEST:
-		_on_server_shutdown()
+		get_tree().quit()
 
 func _process(delta: float) -> void:
 	if checkOnline(false):
