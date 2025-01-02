@@ -19,6 +19,13 @@ var peer = null
 var disconnectTimer = 5
 var justPinging: bool = true
 
+#Const
+const colorVars : Dictionary = {
+	"Red": "#EF3114",
+	"Green": "#71B047",
+	"Brown": "#60432E",
+}
+
 func _ready():
 	multiplayer.connected_to_server.connect(connected_to_server)
 	multiplayer.connection_failed.connect(connection_failed)
@@ -148,6 +155,27 @@ func client_reload_map():
 							prefab.global_transform.basis = Basis(rotation_parts)
 						elif rotation_parts is Vector4:
 							prefab.global_transform.basis = Basis(Quaternion(rotation_parts.X,rotation_parts.Y,rotation_parts.Z,rotation_parts.W))
+					# Set color
+					if piece.has("color"):
+						var color_value = piece["color"]
+						var final_color:Color = Color.WHITE
+						# Check in colorVars dictionary
+						if colorVars.has(color_value):
+							final_color = Color.html(colorVars[color_value])
+							Console.output_text(str(final_color))
+						elif color_value.begins_with("#") and color_value.length() == 7:
+							final_color = Color(color_value)
+						if final_color != null:
+							# Apply color to the material of the first MeshInstance3D
+							var mesh_instance = prefab.get_child(0)
+							if mesh_instance and mesh_instance is MeshInstance3D:
+								var material = mesh_instance.get_surface_override_material(0)
+								if not material:
+									material = StandardMaterial3D.new()
+									mesh_instance.set_surface_override_material(0, material)
+								material.albedo_color = final_color
+						else:
+							Console.output_text("Invalid color format: " + color_value)
 				else:
 					Console.output_text(prefab_path + " doesn't exist.")
 			

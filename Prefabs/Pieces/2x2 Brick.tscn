@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://r8ga5fva3cx3"]
+[gd_scene load_steps=4 format=3 uid="uid://r8ga5fva3cx3"]
 
 [ext_resource type="ArrayMesh" uid="uid://dldus8whxymee" path="res://Models/Parts (OBJ)/2x2 Brick.obj" id="1_0c2r1"]
+[ext_resource type="Material" uid="uid://bnusyii3vnp38" path="res://Materials/Filament.tres" id="1_eyhh1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ott2t"]
 size = Vector3(2, 2, 2)
@@ -9,8 +10,10 @@ size = Vector3(2, 2, 2)
 
 [node name="2x2 Brick" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+material_override = ExtResource("1_eyhh1")
 mesh = ExtResource("1_0c2r1")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_eyhh1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

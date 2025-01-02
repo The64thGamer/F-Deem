@@ -1,13 +1,13 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1735640921.0
+::res://::1735777199.0
 export_presets.cfg::TextFile::-1::1735523205::0::1::::<><><><>::
 icon.svg::CompressedTexture2D::6099819464740842484::1735202149::1735202853::1::::<><><>00404ac3c89987ef1f7220fa5f0e5c82<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://addons/::1735375223.0
 ::res://addons/simply-console/::1735640810.0
 plugin.cfg::TextFile::-1::1735209103::0::1::::<><><><>::
 plugin.gd::GDScript::1184659503004787653::1735209103::0::1::::<>EditorPlugin<><><>::
-::res://addons/simply-console/data/::1735536459.0
-command_list.json::JSON::-1::1735536459::0::1::::<><><><>::
+::res://addons/simply-console/data/::1735700430.0
+command_list.json::JSON::-1::1735700430::0::1::::<><><><>::
 ::res://addons/simply-console/modules/::1735640810.0
 base_module.gd::GDScript::678770814429025319::1735209103::0::1::::ConsoleModule<>Control<><><>::
 ::res://addons/simply-console/modules/object-picker/::1735640810.0
@@ -32,54 +32,28 @@ command_suggestions.gd::GDScript::5671863216869050501::1735329227::0::1::::<>Pan
 console_window.gd::GDScript::3447989020519595433::1735209103::0::1::::<>Window<><><>::
 ::res://addons/simply-console/singletons/::1735640810.0
 console_manager.gd::GDScript::6859567777498555429::1735209103::0::1::::<>Node<><><>::
-::res://Materials/::1735201492.0
-black.tres::StandardMaterial3D::2196063992521965207::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-blue.tres::StandardMaterial3D::378595569498086060::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-gray.tres::StandardMaterial3D::3256906300673596071::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-green.tres::StandardMaterial3D::8823253178259083330::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-lumen.tres::StandardMaterial3D::5032108874528853354::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-orange.tres::StandardMaterial3D::8895512417927719991::1735201492::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-pink.tres::StandardMaterial3D::3219364068497143575::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-plated_gray.tres::ShaderMaterial::7033811740122828238::1725474978::0::1::::<><><><>::res://Shaders/Metallic.tres.gdshader<>uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://b4c5md0ijj27q::::res://Textures/MultiMaterialRoughMetal.png<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-plated_orange.tres::ShaderMaterial::5858253699533066285::1729670388::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>res://Shaders/Metallic.tres.gdshader<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg<>uid://b4c5md0ijj27q::::res://Textures/MultiMaterialRoughMetal.png
-plated_yellow.tres::ShaderMaterial::4579323515742830908::1725475063::0::1::::<><><><>::res://Shaders/Metallic.tres.gdshader<>uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://b4c5md0ijj27q::::res://Textures/MultiMaterialRoughMetal.png<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-purple.tres::StandardMaterial3D::2334587970134194402::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-red.tres::StandardMaterial3D::3817535593023244837::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-soaked_green.tres::StandardMaterial3D::5779847294534071734::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-soaked_orange.tres::StandardMaterial3D::542154536231805578::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-soaked_pink.tres::StandardMaterial3D::2869181209964416532::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-test.tres::StandardMaterial3D::1826736361911557499::1724651976::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://c1rt5bih5j8vp::::res://Textures/MultiMaterialOrange.png<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg<>uid://b4c5md0ijj27q::::res://Textures/MultiMaterialRoughMetal.png
-tinged_blue.tres::StandardMaterial3D::6509807627361793028::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-tinged_green.tres::StandardMaterial3D::1019569702794102379::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-tinged_yellow.tres::StandardMaterial3D::2620140025230126387::1729670388::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-trans_rights_black.tres::StandardMaterial3D::251386420294438983::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-trans_rights_blue.tres::StandardMaterial3D::2633575822389593762::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-trans_rights_green.tres::StandardMaterial3D::1942929257227354183::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-trans_rights_pink.tres::StandardMaterial3D::2734904926188396885::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-trans_rights_red.tres::StandardMaterial3D::6403487574631420539::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-trans_rights_white.tres::StandardMaterial3D::8217831747030329580::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-trans_rights_yellow.tres::StandardMaterial3D::8216110500893280709::1725474978::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-white.tres::StandardMaterial3D::3341299404838252109::1735201492::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
-yellow.tres::StandardMaterial3D::4691157481300061665::1730236853::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
+::res://Materials/::1735768708.0
+Filament.tres::StandardMaterial3D::3341299404838252109::1735768708::0::1::::<><><><>::uid://ccbpbfilpbyau::::res://Textures/PrintGooAO.jpg<>uid://btl8lasnwbjpm::::res://Textures/PrintGoo.jpg
 ::res://Models/::1735640921.0
 blender_assets.cats.txt::TextFile::-1::1732825133::0::1::::<><><><>::
 ::res://Models/Parts (BLEND)/::1735111077.0
-::res://Models/Parts (OBJ)/::1735640917.0
+::res://Models/Parts (OBJ)/::1735640921.0
 2x2 Brick.obj::Mesh::7938780716111449036::1735640193::1735640921::1::::<><><>1bea171483be5c5c33a9070102aef4ff<>res://.godot/imported/2x2 Brick.obj-a03e11e9461c2cb4d18f591f8941bce2.mesh<*>res://.godot/imported/2x2 Brick.obj-a03e11e9461c2cb4d18f591f8941bce2.mesh::
 ::res://Models/Parts (STL)/::1735372122.0
 ::res://Models/Sets (BLEND)/::1735372202.0
 ::res://Prefabs/::1735638845.0
-::res://Prefabs/Pieces/::1735639675.0
-2x2 Brick.tscn::PackedScene::1261700694066895858::1735639675::0::1::::<><><><>::
-::res://Scenes/::1735639010.0
-Server.tscn::PackedScene::7176847330991478367::1735639010::0::1::::<><><><>::res://Scripts/Console.gd<>res://Scripts/Client.gd
-::res://Scripts/::1735640810.0
-Client.gd::GDScript::4176322133335888251::1735639002::0::1::::Client<>Node<><><>::
+::res://Prefabs/Pieces/::1735775096.0
+2x2 Brick.tscn::PackedScene::1261700694066895858::1735775096::0::1::::<><><><>::uid://dldus8whxymee::::res://Models/Parts (OBJ)/2x2 Brick.obj<>uid://bnusyii3vnp38::::res://Materials/Filament.tres
+::res://Scenes/::1735775045.0
+Server.tscn::PackedScene::7176847330991478367::1735775045::0::1::::<><><><>::uid://bphsajamf4grv::::res://Scripts/Console.gd<>uid://b0rboefu4qk7d::::res://Scripts/Client.gd
+::res://Scripts/::1735774964.0
+Client.gd::GDScript::4176322133335888251::1735774964::0::1::::Client<>Node<><><>::
 Console.gd::GDScript::3454797361675007015::1735287385::0::1::::<>Node<><><>::
-Server.gd::GDScript::5552787134588422748::1735631525::0::1::::Server<>Node<><><>::
-::res://Shaders/::1735640810.0
-Metallic.tres.gdshader::Shader::1913477225148309877::1735639675::0::1::::<><><><>::
-Multiply UI.gdshader::Shader::7728383307340507062::1735639675::0::1::::<><><><>::
+FreeCam.gd::GDScript::6555741438025860574::1735707595::0::1::::FreeLookCamera<>Camera3D<><><>::
+Server.gd::GDScript::5552787134588422748::1735727200::0::1::::Server<>Node<><><>::
+::res://Shaders/::1735775096.0
+Metallic.tres.gdshader::Shader::1913477225148309877::1735775096::0::1::::<><><><>::
+Multiply UI.gdshader::Shader::7728383307340507062::1735775096::0::1::::<><><><>::
 ::res://StlImporter-main/::1735372220.0
 ::res://StlImporter-main/addons/::1735370214.0
 ::res://StlImporter-main/addons/stl_importer/::1735372219.0
