@@ -10,7 +10,6 @@ size = Vector3(2, 2, 2)
 
 [node name="2x2 Brick" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-material_override = ExtResource("1_eyhh1")
 mesh = ExtResource("1_0c2r1")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_eyhh1")

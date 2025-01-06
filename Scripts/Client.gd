@@ -38,6 +38,8 @@ func _ready():
 	env.environment = Environment.new()
 	env.environment.background_mode = Environment.BG_COLOR
 	env.environment.background_color = "#9bedd4"
+	light.rotation = Vector3(30,45,0)
+	light.shadow_enabled = true
 	get_tree().root.call_deferred("add_child",cam)
 	get_tree().root.call_deferred("add_child",env)
 	get_tree().root.call_deferred("add_child",light)
@@ -169,10 +171,19 @@ func client_reload_map():
 							# Apply color to the material of the first MeshInstance3D
 							var mesh_instance = prefab.get_child(0)
 							if mesh_instance and mesh_instance is MeshInstance3D:
+								# Get the existing material or create a new one if it doesn't exist
 								var material = mesh_instance.get_surface_override_material(0)
 								if not material:
+									# If no material exists, create a new one
 									material = StandardMaterial3D.new()
-									mesh_instance.set_surface_override_material(0, material)
+								else:
+									# If a material exists, create a unique copy for this mesh
+									material = material.duplicate()
+								
+								# Assign the unique material to this mesh
+								mesh_instance.set_surface_override_material(0, material)
+								
+								# Set the desired color
 								material.albedo_color = final_color
 						else:
 							Console.output_text("Invalid color format: " + color_value)
