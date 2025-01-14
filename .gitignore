@@ -5,6 +5,7 @@ export_presets.cfg
 
 # Imported translations (automatically generated from CSV files)
 *.translation
+*.blend1
 
 # Mono-specific ignores
 .mono/
@@ -18,3 +19,8 @@ data_*/
 Models/Set Tests.blend
 Models/Set Tests.blend1
 /.godot/editor
+Models/Sets (BLEND)/Benchy.blend
+Models/Sets (BLEND)/Benchy.blend1
+Models/Sets (BLEND)/Boaty.blend
+Models/Sets (BLEND)/Boaty.blend1
+*.blend1
