@@ -26,6 +26,7 @@ Console="*res://addons/simply-console/singletons/console_manager.gd"
 
 window/size/viewport_width=620
 window/size/viewport_height=540
+display_server/driver.linuxbsd="wayland"
 
 [dotnet]
 
