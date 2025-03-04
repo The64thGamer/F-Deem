@@ -77,7 +77,7 @@ func create_map(mapX:int,mapY:int,mapZ:int,mapW:int):
 	var mapName = str(mapX) + "," + str(mapY) + "," + str(mapZ) + "," + str(mapW)
 	
 	# Path to the new map file in the corresponding world folder
-	var save_folder = "/My Precious Save Files/"
+	var save_folder = "user://My Precious Save Files/"
 	var world_folder = "/"+str(mapW) + "/"
 
 	# Access the DirAccess API
@@ -88,14 +88,14 @@ func create_map(mapX:int,mapY:int,mapZ:int,mapW:int):
 	
 	# Check and create the save folder if it doesn't exist
 	if not dir.dir_exists(save_folder):
-		if dir.make_dir_recursive(save_folder) != OK:
+		if dir.make_dir(save_folder) != OK:
 			Console.output_error("Failed to create save folder: " + save_folder)
 			return
 		dir.open(save_folder)
 	
 	# Check and create the world folder if it doesn't exist
-	if not dir.dir_exists(world_folder):
-		if dir.make_dir_recursive(world_folder) != OK:
+	if not dir.dir_exists(save_folder + world_folder):
+		if dir.make_dir(save_folder + world_folder) != OK:
 			Console.output_error("Failed to create world folder: " + world_folder)
 			return
 
@@ -107,7 +107,7 @@ func create_map(mapX:int,mapY:int,mapZ:int,mapW:int):
 	}
 
 	# Save the new map file
-	var file = FileAccess.open(map_file_path, FileAccess.WRITE)
+	var file = FileAccess.open(save_folder + map_file_path, FileAccess.WRITE)
 	if file:
 		file.store_line(JSON.stringify(default_map_data))
 		file.close()
