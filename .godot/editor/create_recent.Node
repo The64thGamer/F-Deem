@@ -1,6 +1,8 @@
 MeshInstance3D
-StaticBody3D
+Camera3D
+CharacterBody3D
 CollisionShape3D
+StaticBody3D
 Label
 Node
 MultiplayerSynchronizer
@@ -10,6 +12,3 @@ Button
 MarginContainer
 VBoxContainer
 TextureRect
-HBoxContainer
-PanelContainer
-Control

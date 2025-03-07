@@ -30,28 +30,41 @@ func _ready():
 	multiplayer.connected_to_server.connect(connected_to_server)
 	multiplayer.connection_failed.connect(connection_failed)
 	multiplayer.server_disconnected.connect(server_disconnected)
-	var cam = Camera3D.new()
+	var cam = load("res://Prefabs/Other/Player.tscn")
+	cam = cam.instantiate() as Node3D
+	get_tree().root.call_deferred("add_child",cam)
+	cam = cam.get_node("Camera") as Camera3D
 	var env = WorldEnvironment.new()
 	var light = DirectionalLight3D.new()
-	cam.set_script(preload("res://Scripts/FreeCam.gd"))
 	cam.current = true
 	env.environment = Environment.new()
 	env.environment.background_mode = Environment.BG_COLOR
 	env.environment.background_color = "#9bedd4"
 	light.rotation = Vector3(30,45,0)
 	light.shadow_enabled = true
-	get_tree().root.call_deferred("add_child",cam)
 	get_tree().root.call_deferred("add_child",env)
 	get_tree().root.call_deferred("add_child",light)
 	
 func _process(delta: float) -> void:
 	if checkOnline(false):
 		serverVariables["serverUptime"] += delta
+		if playerInfo.has(multiplayer.get_unique_id()) && playerInfo[multiplayer.get_unique_id()]["permissions"] != "pingas":
+			send_keystrokes()
 		if playerInfo.has(multiplayer.get_unique_id()) && playerInfo[multiplayer.get_unique_id()]["permissions"] == "pingas":
 			disconnectTimer -= delta
 			if disconnectTimer <= 0:
 				disconnect_from_server()
 		
+
+func send_keystrokes():
+	var keystrokes = {}
+	var actions = ["forward", "left", "backward", "right", "up", "down", "jump", "action", "alt_action"]
+
+	for action in actions:
+		if Input.is_action_just_pressed(action) or Input.is_action_just_released(action):
+			keystrokes[action] = Input.is_action_pressed(action)
+
+	update_keystrokes.rpc(keystrokes)
 
 #region Connecting
 
@@ -293,6 +306,8 @@ func update_piece(id:int,piece:Dictionary) -> void:
 		loadedMap["pieces"][id] = piece
 		client_reload_map()
 		Console.output_text("Piece has been placed: " + str(piece))
+		
+	
 #endregion
 
 #region DUMMY SERVER RPCS, REQUIRED SAME BOILERPLATE
@@ -317,5 +332,8 @@ func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
 @rpc("any_peer","reliable","call_local")
 func request_membership() -> void:
 	pass
-
+	
+@rpc("any_peer","unreliable_ordered","call_local")
+func update_keystrokes(keystrokes: Dictionary) -> void:
+	pass
 #endregion

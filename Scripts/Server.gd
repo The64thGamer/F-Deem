@@ -324,6 +324,23 @@ func request_membership() -> void:
 		setSecretPlayerInfo(id,"disconnectTimer",5)
 		if playerInfo[id].has("name"):
 			server_send_message.rpc("'" + playerInfo[id]["name"] + "' joined the game.")	
+
+@rpc("any_peer","unreliable_ordered","call_local")
+func update_keystrokes(keystrokes: Dictionary) -> void:
+	# DDOS attack in this, fix later to kick player if string doesn't match list
+	var id = multiplayer.get_remote_sender_id()
+	if not check_player_permissions(id, "pingas"):
+		var newKey = {}
+		var valid_keys = ["forward", "left", "backward", "right", "up", "down", "jump", "action", "alt_action"]
+
+		for key in valid_keys:
+			var check = false
+			if secretPlayerInfo[id].has("keystrokes"):
+				check = secretPlayerInfo[id]["keystrokes"][key]
+			var value = keystrokes.get(key, check)
+			newKey[key] = value if typeof(value) == TYPE_BOOL else false
+
+		setSecretPlayerInfo(id, "keystrokes", newKey)
 			
 @rpc("any_peer","reliable","call_local")
 func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
