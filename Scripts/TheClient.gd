@@ -1,5 +1,5 @@
 extends Node
-class_name Client
+class_name TheClient
 
 #Server Settings
 var address: String = "127.0.0.1"
@@ -30,18 +30,18 @@ func _ready():
 	multiplayer.connected_to_server.connect(connected_to_server)
 	multiplayer.connection_failed.connect(connection_failed)
 	multiplayer.server_disconnected.connect(server_disconnected)
-	var cam = load("res://Prefabs/Other/Player.tscn")
-	cam = cam.instantiate() as Node3D
-	get_tree().root.call_deferred("add_child",cam)
-	cam = cam.get_node("Camera") as Camera3D
 	var env = WorldEnvironment.new()
 	var light = DirectionalLight3D.new()
-	cam.current = true
 	env.environment = Environment.new()
 	env.environment.background_mode = Environment.BG_COLOR
 	env.environment.background_color = "#9bedd4"
 	light.rotation = Vector3(30,45,0)
 	light.shadow_enabled = true
+	var wbs = StaticBody3D.new()
+	var webcol = CollisionShape3D.new()
+	webcol.shape = WorldBoundaryShape3D.new()
+	get_tree().root.call_deferred("add_child",wbs)
+	wbs.call_deferred("add_child",webcol)
 	get_tree().root.call_deferred("add_child",env)
 	get_tree().root.call_deferred("add_child",light)
 	
@@ -84,11 +84,11 @@ func disconnect_from_server():
 func setMode(modeSet: String = "server") -> void:
 	if modeSet.to_lower() == "client":
 		Console.output_text("Mode set to 'Client'")
-		set_script(load("res://Scripts/Client.gd"))
+		set_script(load("res://Scripts/TheClient.gd"))
 		_ready()
 	elif modeSet.to_lower() == "server":
 		Console.output_text("Mode set to 'Server'")
-		set_script(load("res://Scripts/Server.gd"))
+		set_script(load("res://Scripts/TheServer.gd"))
 		_ready()
 	else:
 		Console.output_error("'" + modeSet + "' not a valid Mode")
@@ -284,6 +284,12 @@ func server_update_player_info(id,key, value) -> void:
 		playerInfo[id] = {}
 	playerInfo[id][key] = value
 	pass	
+
+@rpc("authority","call_local","reliable")
+func server_spawn_player(id) -> void:
+	var playerBody = load("res://Prefabs/Other/ClientPlayer.tscn").instantiate()
+	playerBody.id = id
+	get_tree().root.call_deferred("add_child",playerBody)
 	
 @rpc("authority","call_local","reliable")
 func server_erase_player_info(id) -> void:

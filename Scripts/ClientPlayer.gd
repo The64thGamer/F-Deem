@@ -1,5 +1,5 @@
-class_name FreeLookCamera extends Camera3D
-
+extends CharacterBody3D
+class_name ClientPlayer
 # Modifier keys' speed multiplier
 const SHIFT_MULTIPLIER = 2.5
 const ALT_MULTIPLIER = 1.0 / SHIFT_MULTIPLIER
@@ -9,10 +9,17 @@ const ALT_MULTIPLIER = 1.0 / SHIFT_MULTIPLIER
 # Mouse state
 var _mouse_position = Vector2(0.0, 0.0)
 var _total_pitch = 0.0
-var client : Client
+var client : TheClient
+var id : int
+var cam : Camera3D
 
 func _ready():
-	client = get_node("/root/F'Deem") as Client
+	client = get_node("/root/Control/F'Deem") as TheClient
+	cam = get_node("Camera") as Camera3D
+	if id == multiplayer.get_unique_id():
+		cam.current = true
+	else:
+		cam.queue_free()
 
 func _process(delta):
 	_update_mouselook()
@@ -29,10 +36,13 @@ func _input(event):
 
 func _update_movement(delta:float):
 	if client.checkOnline(false):
-		if playerInfo.has(multiplayer.get_unique_id()):
-			position = client.playerInfo[multiplayer.get_unique_id()]["position"]
+		position = client.playerInfo[id]["position"]
+		velocity = client.playerInfo[id]["velocity"]
+		#move_and_slide()
 
 func _update_mouselook():
+	if cam == null:
+		return
 	# Only rotates mouse if the mouse is captured
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		_mouse_position *= sensitivity
@@ -44,5 +54,5 @@ func _update_mouselook():
 		pitch = clamp(pitch, -90 - _total_pitch, 90 - _total_pitch)
 		_total_pitch += pitch
 	
-		rotate_y(deg_to_rad(-yaw))
-		rotate_object_local(Vector3(1,0,0), deg_to_rad(-pitch))
+		cam.rotate_y(deg_to_rad(-yaw))
+		cam.rotate_object_local(Vector3(1,0,0), deg_to_rad(-pitch))

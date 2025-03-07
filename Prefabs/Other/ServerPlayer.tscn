@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0d60ljkewmyp"]
+
+[ext_resource type="Script" uid="uid://7he5qiknxx28" path="res://Scripts/ServerPlayer.gd" id="1_8ltir"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3umpe"]
+height = 6.0
+radius = 1.0
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_8ltir")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("CylinderShape3D_3umpe")

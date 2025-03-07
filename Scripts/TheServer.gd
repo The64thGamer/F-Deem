@@ -1,5 +1,5 @@
 extends Node
-class_name Server
+class_name TheServer
 
 #Server Settings
 var address: String = "127.0.0.1"
@@ -23,6 +23,11 @@ func _ready():
 	multiplayer.peer_connected.connect(peer_connected)
 	multiplayer.peer_disconnected.connect(peer_disconnected)
 	get_tree().set_auto_accept_quit(false)
+	var wbs = StaticBody3D.new()
+	var webcol = CollisionShape3D.new()
+	webcol.shape = WorldBoundaryShape3D.new()
+	get_tree().root.call_deferred("add_child",wbs)
+	wbs.call_deferred("add_child",webcol)
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST || what == NOTIFICATION_WM_GO_BACK_REQUEST:
@@ -39,6 +44,7 @@ func _process(delta: float) -> void:
 				setSecretPlayerInfo(key,"disconnectTimer",secretPlayerInfo[key]["disconnectTimer"] - delta)
 				if secretPlayerInfo[key]["disconnectTimer"] <= 0:
 					multiplayer.multiplayer_peer.disconnect_peer(key)
+	
 
 #region Hosting
 
@@ -255,6 +261,7 @@ func peer_connected(id):
 	for key in serverVariables:
 		server_update_server_variable.rpc_id(id,key,serverVariables[key])
 	for playerID in playerInfo:
+		server_spawn_player.rpc_id(id,playerID)
 		for value in playerInfo[playerID]:
 			server_update_player_info.rpc_id(id,playerID,value,playerInfo[playerID][value])
 			server_dismiss_pingas.rpc_id(id)
@@ -296,6 +303,7 @@ func checkOnline(announce:bool) -> bool:
 		Console.output_error("Not Connected to Server")
 	return false
 
+
 @rpc("any_peer","reliable","call_local")
 func set_player_permissions(setID:int,permission:String) -> void:
 	var id = multiplayer.get_remote_sender_id()
@@ -322,6 +330,14 @@ func request_membership() -> void:
 	if check_player_permissions(id,"pingas"):
 		setPlayerInfo(id,"permissions","member")
 		setSecretPlayerInfo(id,"disconnectTimer",5)
+		setPlayerInfo(id,"position",Vector3(id % 10,5,id % 10))
+		setPlayerInfo(id,"velocity",Vector3.ZERO)
+		setSecretPlayerInfo(id,"keystrokes",{})
+		var playerBody = load("res://Prefabs/Other/ServerPlayer.tscn").instantiate()
+		playerBody.id = id
+		get_tree().root.call_deferred("add_child",playerBody)
+		setSecretPlayerInfo(id,"playerObject",playerBody)
+		server_spawn_player.rpc(id)
 		if playerInfo[id].has("name"):
 			server_send_message.rpc("'" + playerInfo[id]["name"] + "' joined the game.")	
 
@@ -336,7 +352,7 @@ func update_keystrokes(keystrokes: Dictionary) -> void:
 		for key in valid_keys:
 			var check = false
 			if secretPlayerInfo[id].has("keystrokes"):
-				check = secretPlayerInfo[id]["keystrokes"][key]
+				check = secretPlayerInfo[id]["keystrokes"].get(key,false)
 			var value = keystrokes.get(key, check)
 			newKey[key] = value if typeof(value) == TYPE_BOOL else false
 
@@ -435,6 +451,10 @@ func server_dismiss_pingas() -> void:
 @rpc("authority","call_local","reliable")
 func server_transport_player(value:Dictionary) -> void:
 	pass	
+	
+@rpc("authority","call_local","reliable")
+func server_spawn_player(id) -> void:
+	pass
 	
 @rpc("authority","call_local","reliable")
 func update_piece(id:int,piece:Dictionary) -> void:

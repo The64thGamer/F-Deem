@@ -1,10 +1,10 @@
+CollisionShape3D
+StaticBody3D
+Node
 MeshInstance3D
 Camera3D
 CharacterBody3D
-CollisionShape3D
-StaticBody3D
 Label
-Node
 MultiplayerSynchronizer
 Panel
 ScrollContainer

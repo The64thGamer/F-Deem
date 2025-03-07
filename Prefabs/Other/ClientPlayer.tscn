@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf6wnswhxtk30"]
+
+[ext_resource type="Script" uid="uid://c0nwdr38jp3yw" path="res://Scripts/ClientPlayer.gd" id="1_h1eul"]
+[ext_resource type="Material" uid="uid://bnusyii3vnp38" path="res://Materials/Filament.tres" id="1_tkf1o"]
+[ext_resource type="ArrayMesh" uid="uid://dldus8whxymee" path="res://Models/Parts (OBJ)/2x2 Brick.obj" id="2_h1eul"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3umpe"]
+height = 6.0
+radius = 1.0
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_h1eul")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("CylinderShape3D_3umpe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1, 0, 1)
+material_override = ExtResource("1_tkf1o")
+mesh = ExtResource("2_h1eul")
+skeleton = NodePath("")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)

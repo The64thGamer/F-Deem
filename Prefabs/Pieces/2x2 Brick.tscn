@@ -3,7 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dldus8whxymee" path="res://Models/Parts (OBJ)/2x2 Brick.obj" id="1_0c2r1"]
 [ext_resource type="Material" uid="uid://bnusyii3vnp38" path="res://Materials/Filament.tres" id="1_eyhh1"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ott2t"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_eyhh1"]
 size = Vector3(2, 2, 2)
 
 [node name="2x2Brick" type="Node3D"]
@@ -14,9 +14,8 @@ mesh = ExtResource("1_0c2r1")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_eyhh1")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
-shape = SubResource("BoxShape3D_ott2t")
-debug_color = Color(0, 0.6, 0.7, 0.42)
+shape = SubResource("BoxShape3D_eyhh1")
