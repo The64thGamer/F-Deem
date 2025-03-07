@@ -21,9 +21,9 @@ var justPinging: bool = true
 
 #Const
 const colorVars : Dictionary = {
-	"Red": "#EF3114",
-	"Green": "#71B047",
-	"Brown": "#60432E",
+	"red": "#EF3114",
+	"green": "#71B047",
+	"brown": "#60432E",
 }
 
 func _ready():
@@ -120,7 +120,7 @@ func client_reload_map():
 		for piece in loadedMap["pieces"]:
 			piece = loadedMap["pieces"][piece]
 			if piece.has("id"):
-				var prefab_path:String = "res://Prefabs/Pieces/" + piece["id"] + ".tscn"
+				var prefab_path:String = "res://Prefabs/Pieces/" + str(piece["id"]) + ".tscn"
 				var prefab = load(prefab_path)
 				if prefab and prefab is PackedScene:
 					prefab = prefab.instantiate() as Node3D
@@ -162,9 +162,8 @@ func client_reload_map():
 						var color_value = piece["color"]
 						var final_color:Color = Color.WHITE
 						# Check in colorVars dictionary
-						if colorVars.has(color_value):
+						if colorVars.has(color_value.to_lower()):
 							final_color = Color.html(colorVars[color_value])
-							Console.output_text(str(final_color))
 						elif color_value.begins_with("#") and color_value.length() == 7:
 							final_color = Color(color_value)
 						if final_color != null:
