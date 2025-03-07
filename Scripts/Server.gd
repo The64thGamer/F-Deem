@@ -105,7 +105,14 @@ func create_map(mapX:int,mapY:int,mapZ:int,mapW:int):
 	var default_map_data = {
 		"pieces": {}
 	}
-
+	
+	var rng = RandomNumberGenerator.new()
+	rng.seed = Time.get_ticks_msec()
+	
+	for x in 10:
+		for z in 10:
+			default_map_data["pieces"][str(rng.randi())] = parsePiece({"position": Vector3(x*2,0,z*2)})
+	
 	# Save the new map file
 	var file = FileAccess.open(save_folder + map_file_path, FileAccess.WRITE)
 	if file:
@@ -174,6 +181,14 @@ func save_map(map_name: String) -> void:
 	else:
 		Console.output_error("Failed to save map file: " + finalPath + " - " + str(FileAccess.get_open_error()))
 
+func parsePiece(key:Dictionary) -> Dictionary:
+	return {
+			"color": key.get("color", "green"),
+			"id": key.get("id", "2x2 Brick"),
+			"position": key.get("position", Vector3.ZERO),
+			"rotation": key.get("rotation", Quaternion.IDENTITY)
+		}
+	
 
 func commandSetVar(key:String, value:String) -> void:
 	set_server_variable(key,value,true)
@@ -315,12 +330,7 @@ func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
 	var id = multiplayer.get_remote_sender_id()
 	if check_player_permissions(id,"cheater") || check_player_permissions(id,"admin"):		
 		#Strip bad dictionary stuff from piece
-		var parsed_piece:Dictionary = {
-			"color": piece.get("color", "green"),
-			"id": piece.get("id", 0),
-			"position": piece.get("position", Vector3.ZERO),
-			"rotation": piece.get("rotation", Quaternion.IDENTITY)
-		}
+		var parsed_piece = parsePiece(piece)
 		
 		#Add
 		var mapName = str(mapX) + "," + str(mapY) + "," + str(mapZ) + "," + str(mapW)
