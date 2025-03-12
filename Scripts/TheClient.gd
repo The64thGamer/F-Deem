@@ -137,6 +137,7 @@ func client_reload_map():
 		child.queue_free()
 	if loadedMap.has("pieces"):
 		for piece in loadedMap["pieces"]:
+			var id = piece
 			piece = loadedMap["pieces"][piece]
 			if piece.has("id"):
 				var prefab_path:String = "res://Prefabs/Pieces/" + str(piece["id"]) + ".tscn"
@@ -144,6 +145,8 @@ func client_reload_map():
 				if prefab and prefab is PackedScene:
 					prefab = prefab.instantiate() as Node3D
 					piece_holder.add_child(prefab)  # Add the instance as a child of 'pieces'
+					prefab.name = str(id)
+					
 					# Optionally set its position or other properties based on 'piece'
 					if piece.has("position"):
 						var position_parts = piece["position"]

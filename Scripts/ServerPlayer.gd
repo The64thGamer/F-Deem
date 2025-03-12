@@ -50,16 +50,13 @@ func _check_action():
 			var query = PhysicsRayQueryParameters3D.create(from, to)
 			result = space_state.intersect_ray(query)
 			if result != null:
-
 				if result.has("collider"):
 					if result.collider.is_in_group("Brick"):
 						Console.output_text("Hit a Brick at: " + str(result.position))
 						break
 					elif result.collider.is_in_group("Player"):
-						Console.output_text("Hit a Player, continuing raycast...")
 						from = result.position + (direction.normalized() * 0.1)  # Move forward slightly to avoid re-hitting the same player
-					else:
-						Console.output_text("Hit something else, stopping." + str(result))
+					else: #Hit random thing
 						break
 				else:
 					break 

@@ -216,11 +216,11 @@ func setSecretPlayerInfo(id,key,value) -> void:
 func setMode(modeSet: String = "client") -> void:
 	if modeSet.to_lower() == "client":
 		Console.output_text("Mode set to 'Client'")
-		set_script(load("res://Scripts/Client.gd"))
+		set_script(load("res://Scripts/TheClient.gd"))
 		_ready()
 	elif modeSet.to_lower() == "server":
 		Console.output_text("Mode set to 'Server'")
-		set_script(load("res://Scripts/Server.gd"))
+		set_script(load("res://Scripts/TheServer.gd"))
 		_ready()
 	else:
 		Console.output_error("'" + modeSet + "' not a valid Mode")
@@ -318,6 +318,7 @@ func server_reload_map():
 		child.queue_free()
 	if loadedMaps["0,0,0,0"].has("pieces"):
 		for piece in loadedMaps["0,0,0,0"]["pieces"]:
+			var id = piece
 			piece = loadedMaps["0,0,0,0"]["pieces"][piece]
 			if piece.has("id"):
 				var prefab_path:String = "res://Prefabs/Pieces/" + str(piece["id"]) + ".tscn"
@@ -325,6 +326,7 @@ func server_reload_map():
 				if prefab and prefab is PackedScene:
 					prefab = prefab.instantiate() as Node3D
 					piece_holder.add_child(prefab)  # Add the instance as a child of 'pieces'
+					prefab.name = str(id)
 					
 					#Destroy Meshes
 					for child in prefab.get_children():

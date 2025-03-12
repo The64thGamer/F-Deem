@@ -25,13 +25,13 @@ func _process(delta):
 		
 func _update_movement(delta:float):
 	if client.checkOnline(false):
-		position = client.playerInfo[id]["position"]
-		velocity = client.playerInfo[id]["velocity"]
+		position = client.playerInfo[id].get("position",Vector3.ZERO)
+		velocity = client.playerInfo[id].get("velocity",Vector3.ZERO)
 		#move_and_slide()
 
 func _update_mouselook():
 	if cam == null:
 		return
-	var rot = client.playerInfo[id]["look_rot"]
+	var rot = client.playerInfo[id].get("look_rot",Vector2.ZERO)
 	cam.rotation.y = deg_to_rad(-rot.x)  # Yaw
 	cam.rotation.x = deg_to_rad(-rot.y)  # Pitch
