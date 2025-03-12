@@ -40,6 +40,11 @@ enabled=PackedStringArray("res://addons/simply-console/plugin.cfg")
 
 import/blender/enabled=false
 
+[global_group]
+
+Player=""
+Brick=""
+
 [input]
 
 Console={

@@ -309,12 +309,10 @@ func checkOnline(announce:bool) -> bool:
 
 func server_reload_map():
 	var piece_holder = find_child("Piece Holder")
-	Console.output_text("???")
 	if piece_holder == null:
 		piece_holder = Node3D.new()
 		piece_holder.name = "Piece Holder"  # Make sure the new node has the expected name
 		add_child(piece_holder)
-		Console.output_text("???fDwfwefw")
 
 	for child in piece_holder.get_children():
 		child.queue_free()

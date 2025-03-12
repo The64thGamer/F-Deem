@@ -12,9 +12,12 @@ var _mouse_position = Vector2(0.0, 0.0)
 var _total_pitch = 0.0
 var _total_yaw = 0.0
 var in_air : bool
+var holding_action : bool
 
-const gravity = 10
+const gravity = 15
 const jump_power = 10
+const eye_level = 6
+const reach = 15
 
 func _ready():
 	server = get_node("/root/Control/F'Deem") as TheServer
@@ -24,6 +27,51 @@ func _ready():
 func _process(delta):
 	_update_movement(delta)
 	_update_mouselook()
+	_check_action()
+
+func _check_action():
+	var check = server.secretPlayerInfo[id]["keystrokes"].get("action", false)
+	
+	if check && !holding_action:
+		var space_state = get_world_3d().direct_space_state
+		var from = position + Vector3.UP * eye_level
+		var direction = Vector3(
+			-sin(deg_to_rad(_total_yaw)) * cos(deg_to_rad(_total_pitch)),
+			-sin(deg_to_rad(_total_pitch)),
+			-cos(deg_to_rad(_total_yaw)) * cos(deg_to_rad(_total_pitch))
+		).normalized()
+		
+		var max_iterations = 5  # Prevent infinite loops
+		var iteration = 0
+		var result
+
+		while iteration < max_iterations:
+			var to = from + (direction * reach)
+			var query = PhysicsRayQueryParameters3D.create(from, to)
+			result = space_state.intersect_ray(query)
+			if result != null:
+
+				if result.has("collider"):
+					if result.collider.is_in_group("Brick"):
+						Console.output_text("Hit a Brick at: " + str(result.position))
+						break
+					elif result.collider.is_in_group("Player"):
+						Console.output_text("Hit a Player, continuing raycast...")
+						from = result.position + (direction.normalized() * 0.1)  # Move forward slightly to avoid re-hitting the same player
+					else:
+						Console.output_text("Hit something else, stopping." + str(result))
+						break
+				else:
+					break 
+			else:
+				break
+
+			iteration += 1
+
+	# Do this last
+	if check != holding_action:
+		holding_action = check
+
 	
 func _update_movement(delta):
 	var keystrokes = server.secretPlayerInfo[id]["keystrokes"]
