@@ -56,6 +56,11 @@ func _process(delta: float) -> void:
 				disconnect_from_server()
 		
 
+func _input(event):
+	# Receives mouse motion
+	if event is InputEventMouseMotion:
+		update_mousePos.rpc(event.relative)
+
 func send_keystrokes():
 	var keystrokes = {}
 	var actions = ["forward", "left", "backward", "right", "up", "down", "jump", "action", "alt_action"]
@@ -341,5 +346,9 @@ func request_membership() -> void:
 	
 @rpc("any_peer","unreliable_ordered","call_local")
 func update_keystrokes(keystrokes: Dictionary) -> void:
+	pass
+	
+@rpc("any_peer","unreliable_ordered","call_local")
+func update_mousePos(mousePOS: Vector2) -> void:
 	pass
 #endregion

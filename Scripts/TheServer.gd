@@ -332,6 +332,8 @@ func request_membership() -> void:
 		setSecretPlayerInfo(id,"disconnectTimer",5)
 		setPlayerInfo(id,"position",Vector3(id % 10,5,id % 10))
 		setPlayerInfo(id,"velocity",Vector3.ZERO)
+		setSecretPlayerInfo(id,"mouse_position",Vector2.ZERO)
+		setPlayerInfo(id,"look_rot",Vector2.ZERO)
 		setSecretPlayerInfo(id,"keystrokes",{})
 		var playerBody = load("res://Prefabs/Other/ServerPlayer.tscn").instantiate()
 		playerBody.id = id
@@ -357,6 +359,13 @@ func update_keystrokes(keystrokes: Dictionary) -> void:
 			newKey[key] = value if typeof(value) == TYPE_BOOL else false
 
 		setSecretPlayerInfo(id, "keystrokes", newKey)
+		
+@rpc("any_peer","unreliable_ordered","call_local")
+func update_mousePos(mousePOS: Vector2) -> void:
+	# DDOS attack in this, fix later to kick player if string doesn't match list
+	var id = multiplayer.get_remote_sender_id()
+	if not check_player_permissions(id, "pingas"):
+		setSecretPlayerInfo(id,"mouse_position",mousePOS)
 			
 @rpc("any_peer","reliable","call_local")
 func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
