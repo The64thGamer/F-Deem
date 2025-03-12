@@ -11,6 +11,10 @@ var lastMousePos : Vector2
 var _mouse_position = Vector2(0.0, 0.0)
 var _total_pitch = 0.0
 var _total_yaw = 0.0
+var in_air : bool
+
+const gravity = 10
+const jump_power = 10
 
 func _ready():
 	server = get_node("/root/Control/F'Deem") as TheServer
@@ -37,12 +41,23 @@ func _update_movement(delta):
 	).normalized()
 
 	_velocity += direction * _acceleration * delta
-	_velocity.y -= 5 * delta  # Gravity
+	
+	if (is_on_floor() || is_on_ceiling()) && in_air:
+		in_air = false
+		_velocity.y = 0
+	
+	if not is_on_floor():
+		in_air = true
+		_velocity.y -= gravity * delta
+		
+	if is_on_floor() && keystrokes.get("jump",false):
+		_velocity.y = jump_power
+		
 
-	_velocity.x = clamp(_velocity.x, -_vel_multiplier, _vel_multiplier)
-	_velocity.z = clamp(_velocity.z, -_vel_multiplier, _vel_multiplier)
-
+	_velocity.x = clamp(_velocity.x, -_vel_multiplier, _vel_multiplier) * 0.9
+	_velocity.z = clamp(_velocity.z, -_vel_multiplier, _vel_multiplier) * 0.9
 	velocity = _velocity
+	
 	move_and_slide()
 
 	server.setPlayerInfo(id, "velocity", velocity)

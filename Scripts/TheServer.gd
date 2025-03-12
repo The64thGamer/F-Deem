@@ -23,11 +23,6 @@ func _ready():
 	multiplayer.peer_connected.connect(peer_connected)
 	multiplayer.peer_disconnected.connect(peer_disconnected)
 	get_tree().set_auto_accept_quit(false)
-	var wbs = StaticBody3D.new()
-	var webcol = CollisionShape3D.new()
-	webcol.shape = WorldBoundaryShape3D.new()
-	get_tree().root.call_deferred("add_child",wbs)
-	wbs.call_deferred("add_child",webcol)
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST || what == NOTIFICATION_WM_GO_BACK_REQUEST:
@@ -57,6 +52,7 @@ func transport_player(id:int,x:int,y:int,z:int,w:int):
 	if not mapName in loadedMaps:
 		load_map(x,y,z,w)
 	server_transport_player.rpc_id(id,loadedMaps[mapName])
+	server_reload_map()
 			
 func load_map(mapX:int,mapY:int,mapZ:int,mapW:int):
 	var mapName = str(mapX) + "," + str(mapY) + "," + str(mapZ) + "," + str(mapW)
@@ -242,6 +238,13 @@ func host(setaddress: String = address) -> void:
 			Console.output_text("Hosting '" + address + "'")
 		else:
 			Console.output_text("Cannot Host 'set_multiplayer_peer failed'")
+	
+	var wbs = StaticBody3D.new()
+	var webcol = CollisionShape3D.new()
+	webcol.shape = WorldBoundaryShape3D.new()
+	wbs.name = "World Boundary"
+	get_tree().root.call_deferred("add_child",wbs)
+	wbs.call_deferred("add_child",webcol)
 
 func join(setaddress: String) -> void:
 	Console.output_error("Currently in Server Mode, use 'setMode client' and then join.")
@@ -303,6 +306,68 @@ func checkOnline(announce:bool) -> bool:
 		Console.output_error("Not Connected to Server")
 	return false
 
+
+func server_reload_map():
+	var piece_holder = find_child("Piece Holder")
+	Console.output_text("???")
+	if piece_holder == null:
+		piece_holder = Node3D.new()
+		piece_holder.name = "Piece Holder"  # Make sure the new node has the expected name
+		add_child(piece_holder)
+		Console.output_text("???fDwfwefw")
+
+	for child in piece_holder.get_children():
+		child.queue_free()
+	if loadedMaps["0,0,0,0"].has("pieces"):
+		for piece in loadedMaps["0,0,0,0"]["pieces"]:
+			piece = loadedMaps["0,0,0,0"]["pieces"][piece]
+			if piece.has("id"):
+				var prefab_path:String = "res://Prefabs/Pieces/" + str(piece["id"]) + ".tscn"
+				var prefab = load(prefab_path)
+				if prefab and prefab is PackedScene:
+					prefab = prefab.instantiate() as Node3D
+					piece_holder.add_child(prefab)  # Add the instance as a child of 'pieces'
+					
+					#Destroy Meshes
+					for child in prefab.get_children():
+						if child is MeshInstance3D:
+							child.queue_free()
+					
+					# Optionally set its position or other properties based on 'piece'
+					if piece.has("position"):
+						var position_parts = piece["position"]
+						if position_parts is String:
+							position_parts = position_parts.replace('(',"").replace(')',"").split(",")
+							if position_parts.size() == 3:
+								prefab.global_position = Vector3(
+									float(position_parts[0]), 
+									float(position_parts[1]), 
+									float(position_parts[2])
+								)
+							else:
+								Console.output_text("Invalid position format: " + piece["position"])
+						elif position_parts is Vector3:
+							prefab.global_transform.origin = position_parts
+					if piece.has("rotation"):
+						var rotation_parts = piece["rotation"]
+						if rotation_parts is String:
+							rotation_parts = rotation_parts.replace('(',"").replace(')',"").split(",")
+							if rotation_parts.size() == 4:
+								prefab.global_transform.basis = Basis(Quaternion(
+									float(rotation_parts[0]), 
+									float(rotation_parts[1]), 
+									float(rotation_parts[2]),
+									float(rotation_parts[3])
+								))
+							else:
+								Console.output_text("Invalid rotation format: " + piece["rotation"])
+						elif rotation_parts is Quaternion:
+							prefab.global_transform.basis = Basis(rotation_parts)
+						elif rotation_parts is Vector4:
+							prefab.global_transform.basis = Basis(Quaternion(rotation_parts.X,rotation_parts.Y,rotation_parts.Z,rotation_parts.W))
+				else:
+					Console.output_text(prefab_path + " doesn't exist.")
+		
 
 @rpc("any_peer","reliable","call_local")
 func set_player_permissions(setID:int,permission:String) -> void:
@@ -390,6 +455,7 @@ func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
 			if secretPlayerInfo[player].has("mapPositionX") && secretPlayerInfo[player].has("mapPositionY") && secretPlayerInfo[player].has("mapPositionZ") && secretPlayerInfo[player].has("mapPositionW"):
 				if secretPlayerInfo[player]["mapPositionX"] == mapX && secretPlayerInfo[player]["mapPositionY"] == mapY && secretPlayerInfo[player]["mapPositionZ"] == mapZ && secretPlayerInfo[player]["mapPositionW"] == mapW:
 					update_piece.rpc_id(player,random_int, parsed_piece)
+		server_reload_map()
 
 		server_send_message.rpc("'" + playerInfo[id]["name"] + "' placed piece '" + str(parsed_piece["color"]) + str(parsed_piece["id"]) + "' at " + str(parsed_piece["position"]))
 #endregion
@@ -459,7 +525,7 @@ func server_dismiss_pingas() -> void:
 	
 @rpc("authority","call_local","reliable")
 func server_transport_player(value:Dictionary) -> void:
-	pass	
+	pass
 	
 @rpc("authority","call_local","reliable")
 func server_spawn_player(id) -> void:

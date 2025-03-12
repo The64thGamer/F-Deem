@@ -40,6 +40,7 @@ func _ready():
 	var wbs = StaticBody3D.new()
 	var webcol = CollisionShape3D.new()
 	webcol.shape = WorldBoundaryShape3D.new()
+	wbs.name = "World Boundary"
 	get_tree().root.call_deferred("add_child",wbs)
 	wbs.call_deferred("add_child",webcol)
 	get_tree().root.call_deferred("add_child",env)
@@ -125,7 +126,7 @@ func connected_to_server():
 func connection_failed():
 	Console.output_text("Failed to connect to server")
 	pass
-	
+
 func client_reload_map():
 	var piece_holder = find_child("Piece Holder")
 	if piece_holder == null:
@@ -206,7 +207,7 @@ func client_reload_map():
 							Console.output_text("Invalid color format: " + color_value)
 				else:
 					Console.output_text(prefab_path + " doesn't exist.")
-			
+				
 #endregion
 
 #region General Commands
