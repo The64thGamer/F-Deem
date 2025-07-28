@@ -431,7 +431,8 @@ func update_mousePos(mousePOS: Vector2) -> void:
 	var id = multiplayer.get_remote_sender_id()
 	if not check_player_permissions(id, "pingas"):
 		setSecretPlayerInfo(id,"mouse_position",mousePOS)
-			
+
+
 @rpc("any_peer","reliable","call_local")
 func place_piece(piece:Dictionary,mapX:int,mapY:int,mapZ:int,mapW:int) -> void:
 	var id = multiplayer.get_remote_sender_id()
